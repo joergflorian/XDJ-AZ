@@ -34,21 +34,37 @@ header{position:sticky;top:0;z-index:200;background:rgba(7,9,13,0.97);-webkit-ba
 .hdr{max-width:1280px;margin:0 auto;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:16px;height:56px}
 .logo{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;color:var(--or);white-space:nowrap;-ms-flex-negative:0;flex-shrink:0}
 .logo span{color:var(--tx)}
-.nav-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-left:auto}
-.nav-wrap::-webkit-scrollbar{display:none}
-nav{display:-webkit-box;display:-ms-flexbox;display:flex;gap:2px;white-space:nowrap}
-.nb{background:none;border:none;color:var(--mu);font-family:'Share Tech Mono','Courier New',monospace;font-size:9px;letter-spacing:1px;padding:4px 9px;border-radius:3px;cursor:pointer;text-transform:uppercase;white-space:nowrap}
-.nb:hover{color:var(--or);background:rgba(255,107,0,0.1)}
-
-/* ── 2-LEVEL NAV ── */
-.nav-wrap{margin-left:auto}
-nav.nav-groups{display:-webkit-box;display:-ms-flexbox;display:flex;gap:3px}
+/* ── HAMBURGER NAV (mobile-first) ── */
+.hmb{background:none;border:1px solid var(--bd);border-radius:6px;width:40px;height:36px;cursor:pointer;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;gap:5px;margin-left:auto;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:border-color .2s;transition:border-color .2s}
+.hmb:hover{border-color:var(--or)}
+.hmb span{display:block;width:18px;height:1.5px;background:var(--mu);border-radius:1px;-webkit-transition:background .2s;transition:background .2s}
+.hmb:hover span{background:var(--or)}
+.hmb.open span{background:var(--or)}
+/* Mobile overlay menu */
+.mob-menu{position:fixed;top:56px;left:0;right:0;bottom:0;z-index:150;background:rgba(7,9,13,0.98);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);overflow-y:auto;display:none;padding:16px}
+.mob-menu.open{display:block}
+.mob-group{margin-bottom:4px}
+.mob-grp-btn{width:100%;background:var(--bg2);border:1px solid var(--bd);border-radius:8px;padding:13px 16px;cursor:pointer;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;font-family:"Rajdhani",sans-serif;font-size:16px;font-weight:700;color:var(--tx);text-align:left;-webkit-transition:border-color .15s;transition:border-color .15s}
+.mob-grp-btn:hover,.mob-grp-btn.open{border-color:var(--or);color:var(--or)}
+.mob-grp-btn .mg-icon{font-size:20px}
+.mob-grp-btn .mg-arr{margin-left:auto;font-size:12px;color:var(--mu);-webkit-transition:-webkit-transform .2s;transition:transform .2s}
+.mob-grp-btn.open .mg-arr{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}
+.mob-sub{display:none;padding:6px 8px 8px}
+.mob-sub.open{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:6px}
+.mob-item{background:var(--bg3);border:1px solid var(--bd);border-radius:6px;padding:9px 14px;cursor:pointer;font-family:"Share Tech Mono",monospace;font-size:10px;color:var(--mu);letter-spacing:.5px;text-transform:uppercase;-webkit-transition:border-color .15s,color .15s;transition:border-color .15s,color .15s;white-space:nowrap}
+.mob-item:hover{border-color:var(--cy);color:var(--cy)}
+/* Desktop: show group tabs instead */
+.desk-nav{display:none}
+@media(min-width:700px){
+  .hmb{display:none}
+  .mob-menu{display:none!important}
+  .desk-nav{display:-webkit-box;display:-ms-flexbox;display:flex;gap:2px;margin-left:auto}
+}
 .ng{background:none;border:none;color:var(--mu);font-family:'Share Tech Mono','Courier New',monospace;font-size:9px;letter-spacing:1px;padding:5px 10px;border-radius:4px;cursor:pointer;text-transform:uppercase;white-space:nowrap;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:4px;-webkit-transition:color .15s,background .15s;transition:color .15s,background .15s}
-.ng:hover{color:var(--or);background:rgba(255,107,0,0.08)}
-.ng.active{color:var(--or);background:rgba(255,107,0,0.12);border-bottom:2px solid var(--or)}
-.ng-icon{font-size:13px}
-.subnav{border-top:1px solid var(--bd);background:rgba(7,9,13,0.98);overflow-x:auto;-webkit-overflow-scrolling:touch;display:none}
-.subnav::-webkit-scrollbar{display:none}
+.ng:hover,.ng.active{color:var(--or);background:rgba(255,107,0,0.1)}
+.ng.active{border-bottom:2px solid var(--or)}
+.ng-icon{font-size:12px}
+.subnav{border-top:1px solid var(--bd);background:rgba(7,9,13,0.98);display:none}
 .subnav.open{display:block}
 .subnav-inner{max-width:1280px;margin:0 auto;padding:6px 16px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:3px;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .ns{background:none;border:none;color:var(--mu);font-family:'Share Tech Mono','Courier New',monospace;font-size:9px;letter-spacing:.8px;padding:4px 9px;border-radius:3px;cursor:pointer;text-transform:uppercase;white-space:nowrap;-webkit-transition:color .15s,background .15s;transition:color .15s,background .15s}
@@ -219,30 +235,46 @@ footer span{color:var(--or)}
 
 <header>
   <div class="hdr">
-    <div class="logo">XDJ<span>-AZ</span> MASTERGUIDE</div>
-    <div class="nav-wrap">
-      <nav class="nav-groups">
-        <button class="ng" onclick="toggleGroup('einstieg')" id="ng-einstieg"><span class="ng-icon">🚀</span>Einstieg</button>
-        <button class="ng" onclick="toggleGroup('geraet')"   id="ng-geraet"><span class="ng-icon">🔧</span>Gerät</button>
-        <button class="ng" onclick="toggleGroup('quellen')"  id="ng-quellen"><span class="ng-icon">📡</span>Quellen</button>
-        <button class="ng" onclick="toggleGroup('spielen')"  id="ng-spielen"><span class="ng-icon">🎹</span>Spielen</button>
-        <button class="ng" onclick="toggleGroup('theorie')"  id="ng-theorie"><span class="ng-icon">🎼</span>Theorie</button>
-        <button class="ng" onclick="toggleGroup('klang')"    id="ng-klang"><span class="ng-icon">🔉</span>Klang</button>
-        <button class="ng" onclick="toggleGroup('gig')"      id="ng-gig"><span class="ng-icon">🎪</span>Gig</button>
-      </nav>
-    </div>
+    <div class="logo">XDJ<span>-AZ</span> GUIDE</div>
+    <!-- Mobile: Hamburger -->
+    <button class="hmb" id="hmb" onclick="toggleMobMenu()" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+    <!-- Desktop: Group tabs -->
+    <nav class="desk-nav">
+      <button class="ng" onclick="toggleGroup('einstieg')" id="ng-einstieg"><span class="ng-icon">🚀</span>Einstieg</button>
+      <button class="ng" onclick="toggleGroup('geraet')"   id="ng-geraet"><span class="ng-icon">🔧</span>Gerät</button>
+      <button class="ng" onclick="toggleGroup('quellen')"  id="ng-quellen"><span class="ng-icon">📡</span>Quellen</button>
+      <button class="ng" onclick="toggleGroup('spielen')"  id="ng-spielen"><span class="ng-icon">🎹</span>Spielen</button>
+      <button class="ng" onclick="toggleGroup('theorie')"  id="ng-theorie"><span class="ng-icon">🎼</span>Theorie</button>
+      <button class="ng" onclick="toggleGroup('klang')"    id="ng-klang"><span class="ng-icon">🔉</span>Klang</button>
+      <button class="ng" onclick="toggleGroup('gig')"      id="ng-gig"><span class="ng-icon">🎪</span>Gig</button>
+    </nav>
   </div>
-  <!-- Sub-Nav (dynamic) -->
+  <!-- Desktop sub-nav -->
   <div class="subnav" id="subnav">
     <div class="subnav-inner" id="subnav-inner"></div>
+  </div>
+  <!-- Mobile full menu overlay -->
+  <div class="mob-menu" id="mob-menu">
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('eg')"><span class="mg-icon">🚀</span>Einstieg<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-eg"><button class="mob-item" onclick="mobNavTo('quickstart')">🚀 Quickstart</button><button class="mob-item" onclick="mobNavTo('setup')">⚙️ Setup</button><button class="mob-item" onclick="mobNavTo('firmware')">⬆️ Firmware</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('ge')"><span class="mg-icon">🔧</span>Gerät<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-ge"><button class="mob-item" onclick="mobNavTo('soniclink')">🎧 SonicLink</button><button class="mob-item" onclick="mobNavTo('masterout')">🎚️ Master Out</button><button class="mob-item" onclick="mobNavTo('prodjlink')">🔗 Pro DJ Link</button><button class="mob-item" onclick="mobNavTo('formats')">📁 Dateiformate</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('qu')"><span class="mg-icon">📡</span>Quellen<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-qu"><button class="mob-item" onclick="mobNavTo('connect')">📡 Konnektivität</button><button class="mob-item" onclick="mobNavTo('library')">📚 Library</button><button class="mob-item" onclick="mobNavTo('rbpro')">🗄️ rekordbox Pro</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('sp')"><span class="mg-icon">🎹</span>Spielen<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-sp"><button class="mob-item" onclick="mobNavTo('hotcues')">🔴 Hot Cues</button><button class="mob-item" onclick="mobNavTo('looping')">🔁 Looping</button><button class="mob-item" onclick="mobNavTo('fx')">🎚️ FX</button><button class="mob-item" onclick="mobNavTo('mixing')">🎛️ Mixing</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('th')"><span class="mg-icon">🎼</span>Theorie<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-th"><button class="mob-item" onclick="mobNavTo('bpm')">📊 BPM Guide</button><button class="mob-item" onclick="mobNavTo('key')">🎵 Key</button><button class="mob-item" onclick="mobNavTo('camelot')">🎡 Camelot</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('kl')"><span class="mg-icon">🔉</span>Klang<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-kl"><button class="mob-item" onclick="mobNavTo('sound')">🔉 Sound & Gain</button><button class="mob-item" onclick="mobNavTo('performance')">🎭 Performance</button><button class="mob-item" onclick="mobNavTo('protips')">💎 Pro-Tipps</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('gi')"><span class="mg-icon">🎪</span>Gig<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-gi"><button class="mob-item" onclick="mobNavTo('pregig')">✅ Pre-Gig</button><button class="mob-item" onclick="mobNavTo('soundcheck')">🔊 Soundcheck</button><button class="mob-item" onclick="mobNavTo('trouble')">🔧 Troubleshooting</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="mobNavTo('links')"><span class="mg-icon">🔗</span>Nützliche Links<span class="mg-arr" style="visibility:hidden">▼</span></button></div>
   </div>
 </header>
 
 <!-- Back to top -->
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Nach oben">↑</button>
-  <div class="hero-tag">// Alpha Theta · Pioneer DJ · Pro Reference</div>
-  <h1>Kompletter Guide<br>für den <em>XDJ-AZ</em></h1>
-  <p class="hero-sub">Alle Funktionen, Einstellungen, Techniken und Checklisten – von den Basics bis zum Gig-Workflow. Wähle oben eine Gruppe zum Einsteigen.</p>
+
+<div class="hero">
+  <div class="hero-tag">// Alpha Theta · Pioneer DJ · Inoffizieller Pro-Guide</div>
+  <h1>XDJ-AZ<br><em>Guide &amp; Referenz</em></h1>
+  <p class="hero-sub">Funktionen, Einstellungen, Techniken und Checklisten für deinen Gig-Workflow.</p>
 </div>
 
 <div class="wrap">
@@ -779,6 +811,40 @@ footer span{color:var(--or)}
   <div class="insider"><span class="ti">🎓</span><div><strong>Community-Erkenntnis (Reddit/Pioneer DJ Forum):</strong> Frühe Produktionschargen hatten Qualitätsprobleme (Displays, Dropouts, Freezes). AlphaTheta hat diese offen kommuniziert und schnell behoben. Aktuell produzierte Geräte (ab Anfang 2025) gelten als stabil und problemfrei.</div></div>
 </section>
 
+<!-- ═══ NÜTZLICHE LINKS ════════════════════════════════════════════ -->
+<section class="sec" id="links">
+  <div class="sec-hdr">
+    <div class="sec-ico">🔗</div>
+    <div><div class="sec-num">// RESSOURCEN</div><div class="sec-ttl">Nützliche <em>Links &amp; Tools</em></div></div>
+  </div>
+
+  <div class="sub">Offiziell – AlphaTheta / Pioneer DJ</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">XDJ-AZ Produktseite</div><span class="badge b-or">OFFICIAL</span></div><div class="c-desc"><a href="https://alphatheta.com/en/product/all-in-one-dj-system/xdj-az/" target="_blank" style="color:var(--or)">alphatheta.com/xdj-az</a> — Offizielle Produktseite mit Specs, Features und News.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Firmware Downloads</div><span class="badge b-or">OFFICIAL</span></div><div class="c-desc"><a href="https://support.pioneerdj.com/hc/en-us/articles/37072403941145" target="_blank" style="color:var(--or)">AlphaTheta Help Center → Firmware</a> — Immer auf aktuellem Stand bleiben. Aktuelle Version: prüfen vor jedem Gig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">rekordbox Download</div><span class="badge b-or">OFFICIAL</span></div><div class="c-desc"><a href="https://rekordbox.com" target="_blank" style="color:var(--or)">rekordbox.com</a> — Kostenlos herunterladen. Für Library-Verwaltung, Track-Analyse, Hot Cues und USB-Export unverzichtbar.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Handbuch (englisch)</div><span class="badge b-or">OFFICIAL</span></div><div class="c-desc"><a href="https://support.pioneerdj.com/hc/en-us/articles/37072366390681" target="_blank" style="color:var(--or)">XDJ-AZ Instruction Manual</a> — Das offizielle Handbuch als PDF. Gut für technische Details zu Anschlüssen und UTILITY-Menü.</div></div>
+  </div>
+
+  <div class="sub">Community &amp; Lernen</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Digital DJ Tips</div><span class="badge b-cy">TUTORIAL</span></div><div class="c-desc"><a href="https://www.digitaldjtips.com/xdj-az-training-tutorial/" target="_blank" style="color:var(--cy)">XDJ-AZ Training Tutorial (2h Video)</a> — Kostenlos. Erklärt jede Funktion des Geräts in einem einzigen langen Video. Perfekt für Einsteiger.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">DJ TechTools</div><span class="badge b-cy">COMMUNITY</span></div><div class="c-desc"><a href="https://djtechtools.com" target="_blank" style="color:var(--cy)">djtechtools.com</a> — Tiefgehende Reviews, Workflows und DJ-Tech-Artikel. Sehr kritisch und ehrlich – besser als Hersteller-Marketing.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Pioneer DJ Community Forum</div><span class="badge b-cy">SUPPORT</span></div><div class="c-desc"><a href="https://community.pioneerdj.com" target="_blank" style="color:var(--cy)">community.pioneerdj.com</a> — Offizielle Community. Häufig gestellte Fragen, Bugs melden, Feature-Requests.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Serato XDJ-AZ Quick Start</div><span class="badge b-cy">TUTORIAL</span></div><div class="c-desc"><a href="https://support.serato.com/hc/en-us/articles/11432163206415" target="_blank" style="color:var(--cy)">Serato Support → XDJ-AZ</a> — Offizieller Serato Quick-Start-Guide für den XDJ-AZ. Firmware-Requirements und Setup-Anleitung.</div></div>
+  </div>
+
+  <div class="sub">Musik &amp; Tools</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Psytrance Guide</div><span class="badge b-pu">REFERENZ</span></div><div class="c-desc"><a href="https://psytranceguide.com" target="_blank" style="color:#b06fff">psytranceguide.com</a> — Komplette Übersicht aller Psytrance-Subgenres mit BPM-Ranges, Labels und Künstlern. Unverzichtbar für Psy-DJs.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Lexicon DJ</div><span class="badge b-gr">TOOL</span></div><div class="c-desc"><a href="https://lexicondj.com" target="_blank" style="color:var(--gr)">lexicondj.com</a> — Bestes Tool zum Konvertieren von Serato-Libraries zu rekordbox und umgekehrt. Auch Duplikaten-Finder und Library-Analyse.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Mixed In Key</div><span class="badge b-gr">TOOL</span></div><div class="c-desc"><a href="https://mixedinkey.com" target="_blank" style="color:var(--gr)">mixedinkey.com</a> — Präziseste Key-Analyse-Software am Markt. Exportiert Camelot-Tags direkt in rekordbox. Pflicht für Harmonic Mixing.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport Streaming</div><span class="badge b-or">STREAMING</span></div><div class="c-desc"><a href="https://www.beatport.com/streaming" target="_blank" style="color:var(--or)">beatport.com/streaming</a> — Der DJ-Streaming-Dienst mit höchster Klangqualität. Direkt am XDJ-AZ nutzbar via StreamingDirectPlay (Abo nötig).</div></div>
+  </div>
+
+  <div class="tip"><span class="ti">💡</span><div><strong>Tipp:</strong> Alle Links als Lesezeichen auf dem Homescreen des Handys speichern – so hast du im Gig-Stress sofort Zugriff auf Firmware-Updates, Support und Referenzen.</div></div>
+</section>
+
 </div><!-- /wrap -->
 <footer>XDJ-AZ MASTERGUIDE V7 · <span>ALPHA THETA × PIONEER DJ</span> · PRO REFERENCE · DJ SCHOOL INSIDER · ALLE INHALTE OHNE GARANTIE</footer>
 
@@ -793,6 +859,41 @@ function navTo(id) {
   document.getElementById('subnav').className = 'subnav';
   document.querySelectorAll('.ng').forEach(function(b){ b.className='ng'; });
   activeGroup = null;
+}
+
+/* ── MOBILE HAMBURGER ────────────────────────────── */
+var mobOpen = false;
+var mobActiveGrp = null;
+
+function toggleMobMenu() {
+  mobOpen = !mobOpen;
+  var menu = document.getElementById('mob-menu');
+  var btn  = document.getElementById('hmb');
+  menu.className = mobOpen ? 'mob-menu open' : 'mob-menu';
+  btn.className  = mobOpen ? 'hmb open' : 'hmb';
+  document.body.style.overflow = mobOpen ? 'hidden' : '';
+}
+
+function toggleMobGroup(grp) {
+  var sub = document.getElementById('mob-' + grp);
+  var btn = sub ? sub.previousElementSibling : null;
+  if (!sub) return;
+  var isOpen = sub.className.indexOf('open') !== -1;
+  // Close all
+  var allSubs = document.querySelectorAll('.mob-sub');
+  var allBtns = document.querySelectorAll('.mob-grp-btn');
+  for (var i=0; i<allSubs.length; i++) allSubs[i].className='mob-sub';
+  for (var j=0; j<allBtns.length; j++) allBtns[j].className='mob-grp-btn';
+  if (!isOpen) {
+    sub.className = 'mob-sub open';
+    if (btn) btn.className = 'mob-grp-btn open';
+  }
+}
+
+function mobNavTo(id) {
+  toggleMobMenu();
+  document.body.style.overflow = '';
+  setTimeout(function() { navTo(id); }, 120);
 }
 
 /* ── GROUP NAV ───────────────────────────────────── */
