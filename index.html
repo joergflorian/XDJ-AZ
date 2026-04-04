@@ -30,7 +30,7 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--tx);font-family:'Barlow','Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden}
 
 /* ── HEADER ── */
-header{position:sticky;top:0;z-index:200;background:rgba(7,9,13,0.97);border-bottom:1px solid var(--bd);padding:0 16px}
+header{position:sticky;top:0;z-index:200;background:rgba(7,9,13,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);padding:0 16px}
 .hdr{max-width:1280px;margin:0 auto;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:16px;height:56px}
 .logo{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;color:var(--or);white-space:nowrap;-ms-flex-negative:0;flex-shrink:0}
 .logo span{color:var(--tx)}
@@ -186,6 +186,18 @@ nav{display:-webkit-box;display:-ms-flexbox;display:flex;gap:2px;white-space:now
 .cg-tones span{display:block;line-height:1.35}
 .cg-tones span:last-child{color:var(--mu2)}
 
+/* INSIDER BOX */
+.insider{background:rgba(176,111,255,.05);border:1px solid rgba(176,111,255,.16);border-radius:7px;padding:12px 16px;margin:16px 0;display:-webkit-box;display:-ms-flexbox;display:flex;gap:10px;font-size:13px;color:var(--mu);line-height:1.6}
+.insider strong{color:#b06fff}
+.b-pu{background:rgba(176,111,255,.1);color:#b06fff;border:1px solid rgba(176,111,255,.2)}
+
+/* ENERGY CURVE */
+.ec-wrap{background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:20px;margin-top:8px}
+.ec-row{display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;margin-bottom:8px;-webkit-box-align:flex-end;-ms-flex-align:flex-end;align-items:flex-end}
+.ec-lbl{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--mu);min-width:80px;padding-bottom:4px}
+.ec-bars{display:-webkit-box;display:-ms-flexbox;display:flex;gap:3px;-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-align:flex-end;-ms-flex-align:flex-end;align-items:flex-end}
+.ec-b{border-radius:2px 2px 0 0;-webkit-box-flex:1;-ms-flex:1;flex:1;min-width:8px}
+
 /* ── FOOTER ── */
 footer{border-top:1px solid var(--bd);padding:18px 16px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--mu);letter-spacing:2px}
 footer span{color:var(--or)}
@@ -210,6 +222,9 @@ footer span{color:var(--or)}
         <button class="nb" onclick="navTo('bpm')">BPM Guide</button>
         <button class="nb" onclick="navTo('key')">Key</button>
         <button class="nb" onclick="navTo('camelot')">Camelot</button>
+        <button class="nb" onclick="navTo('sound')">Sound &amp; Gain</button>
+        <button class="nb" onclick="navTo('performance')">Performance</button>
+        <button class="nb" onclick="navTo('rbpro')">rekordbox Pro</button>
         <button class="nb" onclick="navTo('pregig')">Pre-Gig ✅</button>
         <button class="nb" onclick="navTo('soundcheck')">Soundcheck 🔊</button>
       </nav>
@@ -234,6 +249,9 @@ footer span{color:var(--or)}
     <div class="ch-card" onclick="navTo('bpm')"><span class="ch-icon">📊</span><div class="ch-lbl">BPM Guide</div></div>
     <div class="ch-card" onclick="navTo('key')"><span class="ch-icon">🎵</span><div class="ch-lbl">Key &amp; Harmonics</div></div>
     <div class="ch-card" onclick="navTo('camelot')"><span class="ch-icon">🎡</span><div class="ch-lbl">Camelot Wheel</div></div>
+    <div class="ch-card" onclick="navTo('sound')"><span class="ch-icon">🔉</span><div class="ch-lbl">Sound &amp; Gain</div></div>
+    <div class="ch-card" onclick="navTo('performance')"><span class="ch-icon">🎭</span><div class="ch-lbl">Performance</div></div>
+    <div class="ch-card" onclick="navTo('rbpro')"><span class="ch-icon">🗄️</span><div class="ch-lbl">rekordbox Pro</div></div>
     <div class="ch-card" onclick="navTo('pregig')"><span class="ch-icon">✅</span><div class="ch-lbl">Pre-Gig Checklist</div></div>
     <div class="ch-card" onclick="navTo('soundcheck')"><span class="ch-icon">🔊</span><div class="ch-lbl">Soundcheck</div></div>
   </div>
@@ -264,8 +282,13 @@ footer span{color:var(--or)}
     <div class="card"><div class="c-hdr"><div class="c-ttl">Auto-Standby: OFF</div><span class="badge b-am">WICHTIG</span></div><div class="c-desc">UTILITY → Display → <strong>Auto Standby → Off</strong> setzen. Sonst dimmt das Gerät während langer Tracks das Display – im Club störend und unprofessionell.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Slip-Modus Standard</div><span class="badge b-cy">ERWEITERT</span></div><div class="c-desc">Im SLIP-Modus laufen alle Aktionen (Scratch, Loop, Hot Cue) im Hintergrund weiter. Track springt nach Aktion an die korrekte Stelle zurück. Kein manuelles Nachsuchen.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Brightness &amp; Jog Illumination</div><span class="badge b-am">KOMFORT</span></div><div class="c-desc">Display-Helligkeit und Jog Wheel Illumination separat steuerbar. Jog-Beleuchtung hilft bei Deck-Orientierung auf dunklen Bühnen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Vinyl Mode vs. CDJ Mode</div><span class="badge b-or">JOG WHEEL</span></div><div class="c-desc"><strong>Vinyl Mode:</strong> Jog Wheel wie Schallplatte – anfassen bremst/scratcht den Track. <strong>CDJ Mode:</strong> Jog Wheel dreht Pitch temporär ohne Bremswirkung. Für Harmonic Mixing CDJ, für Scratch Vinyl.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Sync Modi: TEMPO vs. BEAT</div><span class="badge b-cy">SYNC</span></div><div class="c-desc"><strong>TEMPO SYNC:</strong> Gleicht nur BPM an. <strong>BEAT SYNC:</strong> BPM + Phase (Kicks landen exakt aufeinander). Tipp: BEAT SYNC einmalig drücken, dann manuell – nicht dauerhaft für besseres Spielgefühl.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Quantize-Stärken</div><span class="badge b-cy">PRÄZISION</span></div><div class="c-desc"><strong>1 Beat</strong> (Standard). <strong>1/2 Beat:</strong> präziser für Off-Beat-Cues. <strong>1/4 Beat:</strong> sehr präzise für Doubles-Tricks. In UTILITY einstellbar – in MySettings speichern.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Wave Zoom</div><span class="badge b-pu">PROFI</span></div><div class="c-desc">Touchscreen: Wellenform mit zwei Fingern auseinanderziehen → Zoom auf einzelne Transients. Cues exakt auf Kick-Schläge, Vocal-Einsätze oder Snare-Hits setzen – nicht nur Beat-Markierungen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Slip Reverse</div><span class="badge b-pu">KREATIV</span></div><div class="c-desc">SLIP + REV gleichzeitig: Track läuft rückwärts, Playhead im Hintergrund weiter vorwärts. Nach Loslassen springt Track an korrekte Stelle zurück. Reverse-Effekte ohne Phrasen-Verlust.</div></div>
   </div>
-  <div class="tip"><span class="ti">💡</span><div><strong>Profi-Workflow:</strong> Alle Utility-Einstellungen in MySettings speichern. Auf jedem CDJ/XDJ weltweit dein Setup in 10 Sekunden – ob Club, Festival oder Fremdgerät beim B2B-Partner.</div></div>
+  <div class="tip"><span class="ti">💡</span><div><strong>Profi-Workflow:</strong> MySettings mit Tempo ±10%, Quantize 1 Beat, CDJ Mode, Key Display Camelot, Master Tempo AN, Auto-Standby OFF exportieren. Auf jedem CDJ/XDJ weltweit in 10 Sekunden ready.</div></div>
 </section>
 
 <!-- ██ 02 QUICKSTART ████████████████████████ -->
@@ -401,7 +424,9 @@ footer span{color:var(--or)}
     <div class="tc-hdr"><span class="tc-num">05</span><div class="tc-ttl">Slip + Hot Cue Trick</div><span class="tc-lv lv-a">ADVANCED</span></div>
     <div class="tc-body"><strong>Slip-Modus AN</strong> → Hot Cue drücken (Track springt, Playhead läuft im Hintergrund). Kurze Samples einspielen ohne Track aus der Phrase zu bringen. Nach Loslassen ist der Track exakt dort wo er sein soll.</div>
   </div>
-  <div class="tip"><span class="ti">💡</span><div><strong>Goldene Phrasen-Regel:</strong> Techno und House sind in <strong>8- oder 16-Bar-Phrasen</strong> organisiert. Jeder Übergang auf einer Phrase-Grenze – das ist der Unterschied zwischen einem "gefühlten" und einem holprigen Mix.</div></div>
+  <div class="tc"><div class="tc-hdr"><span class="tc-num">06</span><div class="tc-ttl">Frequency Separation</div><span class="tc-lv lv-i">INTERMEDIATE</span></div><div class="tc-body">Aus DJ-Schulen (Berklee, Point Blank): <strong>Nicht nur Bass wechseln.</strong> Mids und Highs gezielt überlagern. Track A = Bass, Track B = Mids+Highs → ergibt einen dritten, neuen Sound.<div class="ts"><div class="tr"><span class="tn">01</span>Track A: Bass on, Mids −6 dB, Highs −6 dB</div><div class="tr"><span class="tn">02</span>Track B: Bass aus, Mids up, Highs up</div><div class="tr"><span class="tn">03</span>Bass von A nach B langsam überblenden</div><div class="tr"><span class="tn">04</span>Mids/Highs von A nach Belieben nachjustieren</div></div></div></div>
+  <div class="tc"><div class="tc-hdr"><span class="tc-num">07</span><div class="tc-ttl">Layering – 3 Tracks gleichzeitig</div><span class="tc-lv lv-a">ADVANCED</span></div><div class="tc-body">DJ-Schul-Technik: <strong>3 Decks aktiv</strong> für maximale Kontrolle. A = Bass-Träger, B = Atmosphäre/Mids, C = wird vorbereitet. EQ-Separation zwischen allen 3.<div class="ts"><div class="tr"><span class="tn">01</span>Deck A: Nur Bass (Mids + Highs raus)</div><div class="tr"><span class="tn">02</span>Deck B: Nur Mids + Highs (Bass raus) parallel aktiv</div><div class="tr"><span class="tn">03</span>Deck C: Nächster Track wird vorbereitet und gesynct</div><div class="tr"><span class="tn">04</span>A langsam ausfaden, C einblenden – B bleibt als atmosphärischer Kleber</div></div></div></div>
+  <div class="tip"><span class="ti">💡</span><div><strong>Goldene Phrasen-Regel (Berklee / Point Blank):</strong> Techno und House in <strong>8- oder 16-Bar-Phrasen</strong> – jeder Übergang auf Phrasen-Grenze. Das ist der Unterschied zwischen "gefühlt" und holprig.</div></div>
 </section>
 
 <!-- ██ 07 KONNEKTIVITÄT ████████████████████ -->
@@ -529,7 +554,55 @@ footer span{color:var(--or)}
   <div class="cam-grid-all" id="cam-grid-all"></div>
 </section>
 
-<!-- ██ 13 PRE-GIG CHECKLIST ████████████████ -->
+<!-- ██ NEU: SOUND & GAIN STAGING ████████████ -->
+<section class="sec" id="sound">
+  <div class="sec-hdr"><div class="sec-ico">🔉</div><div><div class="sec-num">13 / SOUND &amp; GAIN STAGING</div><div class="sec-ttl">Klang <em>&amp; Pegel professionell steuern</em></div></div></div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Gain Staging</div><span class="badge b-rd">FUNDAMENTAL</span></div><div class="c-desc">Der größte Klangunterschied den die meisten ignorieren. <strong>Jede Stufe der Signalkette</strong> (Analyse → TRIM → Kanal → Master) auf optimalen Pegel setzen. Ziel: Master-Ausgang mit min. −3 dBFS Headroom.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">TRIM richtig setzen</div><span class="badge b-or">PRAXIS</span></div><div class="c-desc">Track starten → TRIM so einstellen, dass Kanal-Peak-Meter bei Peaks in den <strong>gelben Bereich</strong> geht (0 dBu), nie rot. Jeder Track hat anderen Gain – immer individuell anpassen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Phase Alignment</div><span class="badge b-pu">INSIDER</span></div><div class="c-desc">Warum <strong>zwei Kicks zusammen dumpf klingen:</strong> Phasenauslöschung. Wenn Bassdrum-Peaks zweier Tracks nicht exakt übereinstimmen, löschen sie sich teilweise aus. Beat Sync hilft – minimale Feinabstimmung via Jog Wheel kann nötig sein.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Frequenz-Kollisionen vermeiden</div><span class="badge b-am">MIXING</span></div><div class="c-desc">Zwei Tracks mit starkem Mid-Bass gleichzeitig → Matschklang. <strong>Lösung:</strong> Beim Einmischen Mid-EQ des neuen Tracks kurz senken, erst nach dem Bass-Swap wieder anheben. Deutlich klarer.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Mono-Check</div><span class="badge b-pu">INSIDER</span></div><div class="c-desc">Viele Clubs haben <strong>Mono-Systeme</strong> oder Outdoor-Setups. Tracks im Mono testen: Stereo-Weite und Stereo-FX verschwinden. Wenn der Mix in Mono gut klingt, klingt er überall gut.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Analysegain-Normalisierung</div><span class="badge b-cy">REKORDBOX</span></div><div class="c-desc">rekordbox → <strong>Auto-Gain</strong> aktivieren: Analysiert Lautheit (LUFS) pro Track und normalisiert. Alle Tracks erscheinen am XDJ-AZ auf gleichem Lautstärke-Niveau – keine Pegelsprünge mehr.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Sidechain-Feeling erzeugen</div><span class="badge b-pu">KREATIV</span></div><div class="c-desc">Ohne Kompressor: Track B (unkomprimierter Bass) parallel laufen lassen und Pegel rhythmisch anpassen. Erzeugt pulsierendes Pumpen ohne Hardware-Sidechain. Kombinierbar mit Gate Color FX.</div></div>
+  </div>
+  <div class="insider"><span class="ti">🎓</span><div><strong>Dubspot / DJ Akademie Prinzip:</strong> "Gain Staging ist wichtiger als jeder Effekt. Ein sauber gepegelt Mix klingt professionell – egal wie simpel. Ein verzerrter Mix klingt billig – egal wie komplex."</div></div>
+</section>
+
+<!-- ██ NEU: PERFORMANCE & DRAMATURGIE ████████ -->
+<section class="sec" id="performance">
+  <div class="sec-hdr"><div class="sec-ico">🎭</div><div><div class="sec-num">14 / PERFORMANCE &amp; SET-DRAMATURGIE</div><div class="sec-ttl">Reading the Crowd <em>&amp; Energie-Bögen</em></div></div></div>
+  <div class="sub">Energie-Kurve eines professionellen Sets</div>
+  <div class="ec-wrap" id="ec-wrap"></div>
+  <div class="sub">Reading the Crowd</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Körpersprache lesen</div><span class="badge b-pu">INSIDER</span></div><div class="c-desc"><strong>Arme in der Luft</strong> = Energie passt. <strong>Smalltalk an der Bar</strong> = zu laut oder falsche Musik. <strong>Tanzfläche leert sich</strong> = falsche Richtung. <strong>Smartphones verschwinden</strong> = du hast sie. Augen zu = perfekter Moment.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Energie-Reaktion</div><span class="badge b-or">PRAXIS</span></div><div class="c-desc">Tanzfläche leert sich: <strong>nicht sofort in Panik auf Crowd-Pleaser wechseln.</strong> Einen Peak-Track spielen, dann zurück auf deinen Stil. Du gestaltest das Set – nicht das Publikum.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Tension &amp; Release</div><span class="badge b-pu">KOMPOSITION</span></div><div class="c-desc">DJ-Schulen-Prinzip: <strong>Spannung aufbauen und auflösen.</strong> Langer Buildup → emotionaler Drop. Minimaler Moment (nur Hi-Hats) → voller Drop. Kontrast erzeugt maximale Wirkung.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Phrase Mixing vs. Bar Mixing</div><span class="badge b-cy">THEORIE</span></div><div class="c-desc"><strong>Bar Mixing:</strong> Übergang nach 4 Bars – technisch korrekt, aber mechanisch. <strong>Phrase Mixing:</strong> Übergang nach 16, 32 oder 64 Bars – musikalisch sinnvoll, erzählt eine Geschichte. Phrase Mixing klingt professioneller.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">3-Track-Vorausplanung</div><span class="badge b-pu">METHODE</span></div><div class="c-desc">DJ-Schulen-Methode: Immer <strong>3 Tracks voraus planen.</strong> Aktueller Track, nächster, übernächster. Gibt Sicherheit und verhindert "Was spiele ich jetzt?"-Momente unter Druck.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Fehler kaschieren</div><span class="badge b-am">MENTAL</span></div><div class="c-desc">Phrasenfehler: <strong>sofort Beat Jump</strong> statt Jog-Wheel-Suchen. Pitch-Fehler: EQ-Bass kurz rausnehmen, korrigieren, wieder rein. Publikum hört 90% nicht – nie abbrechen, nie anmerken lassen.</div></div>
+  </div>
+  <div class="insider"><span class="ti">🎓</span><div><strong>Point Blank Music School:</strong> "Ein schlechter Track zum richtigen Moment schlägt immer den richtigen Track zum falschen Moment. Das Set ist eine emotionale Reise – nicht eine Techniksession."</div></div>
+</section>
+
+<!-- ██ NEU: REKORDBOX PRO ████████████████████ -->
+<section class="sec" id="rbpro">
+  <div class="sec-hdr"><div class="sec-ico">🗄️</div><div><div class="sec-num">15 / REKORDBOX PRO-WORKFLOWS</div><div class="sec-ttl">Library <em>wie ein Profi verwalten</em></div></div></div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Smart Playlists</div><span class="badge b-pu">PROFI</span></div><div class="c-desc">rekordbox → Smart Playlist → Regeln: BPM 126–130, Key 8A/8B, MyTag "Peak", Rating ≥ 4. <strong>Aktualisiert sich automatisch</strong> bei neuen Tracks. Kein manuelles Sortieren mehr.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">My Tag System</div><span class="badge b-pu">INSIDER</span></div><div class="c-desc">Eigene Tags erstellen: <strong>"Opener", "Peak", "Closing", "Vocal Tool", "Instrumental", "Festival only", "Request ok"</strong>. Im Browser als Filter nutzbar – am XDJ-AZ direkt abrufbar.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Comment-Feld als Datenbasis</div><span class="badge b-am">WORKFLOW</span></div><div class="c-desc">Strukturiert befüllen: <strong>"126-130 BPM | 8A | Energie 8 | Opener ok | Drop bei 2:14"</strong>. Am XDJ-AZ im Browser sichtbar. Kein Ratespiel im Gig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Export-Profile</div><span class="badge b-or">SETUP</span></div><div class="c-desc">Verschiedene USB-Profile: <strong>"Club"</strong> (volle Library), <strong>"Festival"</strong> (nur Peak-Tracks), <strong>"Warmup"</strong> (Opener). Für jeden Kontext den richtigen Stick – weniger Ablenkung im Gig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">History als Analyse-Tool</div><span class="badge b-cy">ANALYSE</span></div><div class="c-desc">History-Playlist nach dem Gig in rekordbox importieren. Welche Tracks liefen am längsten? Welche wurden früh beendet? Welche BPM/Keys funktionierten? <strong>Data-Driven Gig-Analyse.</strong></div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beat-Grid Profi-Korrektur</div><span class="badge b-gr">QUALITÄT</span></div><div class="c-desc">Tracks mit variablem Tempo (Live, Jazz, Old-School): Beat-Grid mit mehreren <strong>Ankerpunkten</strong> manuell setzen. 3–5 Minuten Invest macht diese Tracks erst wirklich mixbar.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">3-2-1 Backup-Regel</div><span class="badge b-rd">SICHERHEIT</span></div><div class="c-desc"><strong>3 Kopien:</strong> Laptop-Library + USB 1 (Haupt-Gig-Stick) + USB 2 (Backup-Stick). Niemals nur mit einer Kopie zum Gig. Backup-USB immer in anderer Tasche als Haupt-USB.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Analysegain im Batch</div><span class="badge b-gr">EFFIZIENZ</span></div><div class="c-desc">Alle Tracks markieren → Analysegain berechnen lassen. Normalisiert Lautheit auf −6 LUFS (einstellbar). Danach konsistente Pegel ohne TRIM-Nachregeln im Gig.</div></div>
+  </div>
+  <div class="insider"><span class="ti">🎓</span><div><strong>Berklee Online DJ-Kurs:</strong> "Deine Library ist dein Instrument. Wer sein Instrument nicht kennt, kann nicht improvisieren. 1 Stunde Library-Pflege pro Woche = 10× bessere Gig-Performance."</div></div>
+</section>
+
+<!-- ██ 16 PRE-GIG CHECKLIST ████████████████ -->
 <section class="sec" id="pregig">
   <div class="sec-hdr">
     <div class="sec-ico">✅</div>
@@ -574,7 +647,7 @@ footer span{color:var(--or)}
 </section>
 
 </div><!-- /wrap -->
-<footer>XDJ-AZ MASTERGUIDE V5 · <span>ALPHA THETA × PIONEER DJ</span> · ALLE INHALTE OHNE GARANTIE</footer>
+<footer>XDJ-AZ MASTERGUIDE V6 · <span>ALPHA THETA × PIONEER DJ</span> · PRO REFERENCE · DJ SCHOOL INSIDER · ALLE INHALTE OHNE GARANTIE</footer>
 
 <script>
 /* ── NAV ─────────────────────────────────────────── */
@@ -858,6 +931,33 @@ function resetList(pfx) {
   }
   updateProgress(pfx);
 }
+
+/* ENERGY CURVE */
+(function(){
+  var ec=document.getElementById('ec-wrap');
+  if(!ec)return;
+  var phases=[
+    {lbl:'Warm-Up',bars:[2,3,3,4,4,5,5,6],c:'#1a5276'},
+    {lbl:'Build-Up',bars:[6,7,7,8,8,9,9,9],c:'#1e8449'},
+    {lbl:'Peak',bars:[10,10,9,10,10,9,10,10],c:'#ff6b00'},
+    {lbl:'Cooldown',bars:[8,7,6,5,5,4,3,3],c:'#9b59b6'}
+  ];
+  var h='';
+  for(var i=0;i<phases.length;i++){
+    var ph=phases[i];
+    h+='<div class="ec-row"><div class="ec-lbl">'+ph.lbl+'</div><div class="ec-bars">';
+    for(var j=0;j<ph.bars.length;j++){
+      h+='<div class="ec-b" style="height:'+(ph.bars[j]*10)+'px;background:'+ph.c+';opacity:'+(0.5+ph.bars[j]*0.05)+'"></div>';
+    }
+    h+='</div></div>';
+  }
+  h+='<div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:16px;margin-top:14px;font-size:11px;color:var(--mu);-ms-flex-wrap:wrap;flex-wrap:wrap">';
+  for(var k=0;k<phases.length;k++){
+    h+='<span style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:6px;-webkit-box-align:center;-ms-flex-align:center;align-items:center"><span style="width:10px;height:10px;background:'+phases[k].c+';border-radius:2px;display:inline-block"></span>'+phases[k].lbl+'</span>';
+  }
+  h+='</div>';
+  ec.innerHTML=h;
+})();
 
 buildList(PG_ITEMS,'pg','pg-col1','pg-col2','pg-prog','pg-fill');
 buildList(SC_ITEMS,'sc','sc-col1','sc-col2','sc-prog','sc-fill');
