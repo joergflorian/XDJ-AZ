@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XDJ-AZ Masterguide v5</title>
+<title>XDJ-AZ Masterguide v7</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -40,22 +40,34 @@ nav{display:-webkit-box;display:-ms-flexbox;display:flex;gap:2px;white-space:now
 .nb{background:none;border:none;color:var(--mu);font-family:'Share Tech Mono','Courier New',monospace;font-size:9px;letter-spacing:1px;padding:4px 9px;border-radius:3px;cursor:pointer;text-transform:uppercase;white-space:nowrap}
 .nb:hover{color:var(--or);background:rgba(255,107,0,0.1)}
 
-/* ── HERO ── */
-.hero{max-width:1280px;margin:0 auto;padding:48px 16px 32px}
-.hero-tag{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--or);text-transform:uppercase;margin-bottom:12px}
-.hero h1{font-family:'Rajdhani',sans-serif;font-size:60px;font-weight:700;line-height:1;letter-spacing:2px;margin-bottom:12px}
-@media(max-width:560px){.hero h1{font-size:36px}}
+/* ── 2-LEVEL NAV ── */
+.nav-wrap{margin-left:auto}
+nav.nav-groups{display:-webkit-box;display:-ms-flexbox;display:flex;gap:3px}
+.ng{background:none;border:none;color:var(--mu);font-family:'Share Tech Mono','Courier New',monospace;font-size:9px;letter-spacing:1px;padding:5px 10px;border-radius:4px;cursor:pointer;text-transform:uppercase;white-space:nowrap;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:4px;-webkit-transition:color .15s,background .15s;transition:color .15s,background .15s}
+.ng:hover{color:var(--or);background:rgba(255,107,0,0.08)}
+.ng.active{color:var(--or);background:rgba(255,107,0,0.12);border-bottom:2px solid var(--or)}
+.ng-icon{font-size:13px}
+.subnav{border-top:1px solid var(--bd);background:rgba(7,9,13,0.98);overflow-x:auto;-webkit-overflow-scrolling:touch;display:none}
+.subnav::-webkit-scrollbar{display:none}
+.subnav.open{display:block}
+.subnav-inner{max-width:1280px;margin:0 auto;padding:6px 16px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:3px;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.ns{background:none;border:none;color:var(--mu);font-family:'Share Tech Mono','Courier New',monospace;font-size:9px;letter-spacing:.8px;padding:4px 9px;border-radius:3px;cursor:pointer;text-transform:uppercase;white-space:nowrap;-webkit-transition:color .15s,background .15s;transition:color .15s,background .15s}
+.ns:hover{color:var(--cy);background:rgba(0,212,255,0.07)}
+.hero{max-width:1280px;margin:0 auto;padding:32px 16px 24px}
+.hero-tag{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--or);text-transform:uppercase;margin-bottom:10px}
+.hero h1{font-family:'Rajdhani',sans-serif;font-size:52px;font-weight:700;line-height:1;letter-spacing:2px;margin-bottom:10px}
+@media(max-width:560px){.hero h1{font-size:32px}}
 .hero h1 em{font-style:normal;color:var(--or)}
-.hero-sub{color:var(--mu);font-size:14px;max-width:560px;margin-bottom:32px}
-.ch-grid{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:8px;margin-bottom:48px}
-.ch-card{background:var(--bg3);border:1px solid var(--bd);border-radius:7px;padding:10px 14px;cursor:pointer;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:8px;-webkit-transition:border-color .2s,background .2s;transition:border-color .2s,background .2s}
-.ch-card:hover{border-color:var(--or);background:rgba(255,107,0,0.07)}
-.ch-icon{font-size:18px}
-.ch-lbl{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;line-height:1.2}
+.hero-sub{color:var(--mu);font-size:13px;max-width:560px}
+
+/* ── BACK TO TOP ── */
+#btt{position:fixed;bottom:20px;right:20px;z-index:300;width:40px;height:40px;background:var(--or);border:none;border-radius:50%;cursor:pointer;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;font-size:16px;opacity:0;pointer-events:none;-webkit-transition:opacity .25s;transition:opacity .25s;box-shadow:0 4px 16px rgba(255,107,0,0.35)}
+#btt.show{opacity:1;pointer-events:auto}
+#btt:hover{background:var(--or2)}
 
 /* ── CONTENT ── */
 .wrap{max-width:1280px;margin:0 auto;padding:0 16px 80px}
-.sec{margin-bottom:64px;scroll-margin-top:64px}
+.sec{margin-bottom:64px;scroll-margin-top:110px}
 .sec-hdr{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--bd)}
 .sec-ico{width:40px;height:40px;background:var(--bg3);border:1px solid var(--bd);border-radius:8px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;font-size:18px;-ms-flex-negative:0;flex-shrink:0}
 .sec-ttl{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;letter-spacing:.5px}
@@ -209,61 +221,58 @@ footer span{color:var(--or)}
   <div class="hdr">
     <div class="logo">XDJ<span>-AZ</span> MASTERGUIDE</div>
     <div class="nav-wrap">
-      <nav>
-        <button class="nb" onclick="navTo('setup')">Setup</button>
-        <button class="nb" onclick="navTo('quickstart')">Quickstart</button>
-        <button class="nb" onclick="navTo('hotcues')">Hot Cues</button>
-        <button class="nb" onclick="navTo('looping')">Looping</button>
-        <button class="nb" onclick="navTo('fx')">FX</button>
-        <button class="nb" onclick="navTo('mixing')">Mixing</button>
-        <button class="nb" onclick="navTo('connect')">Konnektivität</button>
-        <button class="nb" onclick="navTo('library')">Library</button>
-        <button class="nb" onclick="navTo('protips')">Pro-Tipps</button>
-        <button class="nb" onclick="navTo('bpm')">BPM Guide</button>
-        <button class="nb" onclick="navTo('key')">Key</button>
-        <button class="nb" onclick="navTo('camelot')">Camelot</button>
-        <button class="nb" onclick="navTo('sound')">Sound &amp; Gain</button>
-        <button class="nb" onclick="navTo('performance')">Performance</button>
-        <button class="nb" onclick="navTo('rbpro')">rekordbox Pro</button>
-        <button class="nb" onclick="navTo('pregig')">Pre-Gig ✅</button>
-        <button class="nb" onclick="navTo('soundcheck')">Soundcheck 🔊</button>
+      <nav class="nav-groups">
+        <button class="ng" onclick="toggleGroup('einstieg')" id="ng-einstieg"><span class="ng-icon">🚀</span>Einstieg</button>
+        <button class="ng" onclick="toggleGroup('geraet')"   id="ng-geraet"><span class="ng-icon">🔧</span>Gerät</button>
+        <button class="ng" onclick="toggleGroup('quellen')"  id="ng-quellen"><span class="ng-icon">📡</span>Quellen</button>
+        <button class="ng" onclick="toggleGroup('spielen')"  id="ng-spielen"><span class="ng-icon">🎹</span>Spielen</button>
+        <button class="ng" onclick="toggleGroup('theorie')"  id="ng-theorie"><span class="ng-icon">🎼</span>Theorie</button>
+        <button class="ng" onclick="toggleGroup('klang')"    id="ng-klang"><span class="ng-icon">🔉</span>Klang</button>
+        <button class="ng" onclick="toggleGroup('gig')"      id="ng-gig"><span class="ng-icon">🎪</span>Gig</button>
       </nav>
     </div>
   </div>
+  <!-- Sub-Nav (dynamic) -->
+  <div class="subnav" id="subnav">
+    <div class="subnav-inner" id="subnav-inner"></div>
+  </div>
 </header>
 
-<div class="hero">
+<!-- Back to top -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Nach oben">↑</button>
   <div class="hero-tag">// Alpha Theta · Pioneer DJ · Pro Reference</div>
   <h1>Kompletter Guide<br>für den <em>XDJ-AZ</em></h1>
-  <p class="hero-sub">Alle Funktionen, Einstellungen, Techniken und Checklisten – von den Basics bis zum professionellen Gig-Workflow.</p>
-  <div class="ch-grid">
-    <div class="ch-card" onclick="navTo('setup')"><span class="ch-icon">⚙️</span><div class="ch-lbl">Setup</div></div>
-    <div class="ch-card" onclick="navTo('quickstart')"><span class="ch-icon">🚀</span><div class="ch-lbl">Quickstart</div></div>
-    <div class="ch-card" onclick="navTo('hotcues')"><span class="ch-icon">🔴</span><div class="ch-lbl">Hot Cues</div></div>
-    <div class="ch-card" onclick="navTo('looping')"><span class="ch-icon">🔁</span><div class="ch-lbl">Looping</div></div>
-    <div class="ch-card" onclick="navTo('fx')"><span class="ch-icon">🎚️</span><div class="ch-lbl">FX</div></div>
-    <div class="ch-card" onclick="navTo('mixing')"><span class="ch-icon">🎛️</span><div class="ch-lbl">Mixing</div></div>
-    <div class="ch-card" onclick="navTo('connect')"><span class="ch-icon">📡</span><div class="ch-lbl">Konnektivität</div></div>
-    <div class="ch-card" onclick="navTo('library')"><span class="ch-icon">📚</span><div class="ch-lbl">Library</div></div>
-    <div class="ch-card" onclick="navTo('protips')"><span class="ch-icon">💎</span><div class="ch-lbl">Pro-Tipps</div></div>
-    <div class="ch-card" onclick="navTo('bpm')"><span class="ch-icon">📊</span><div class="ch-lbl">BPM Guide</div></div>
-    <div class="ch-card" onclick="navTo('key')"><span class="ch-icon">🎵</span><div class="ch-lbl">Key &amp; Harmonics</div></div>
-    <div class="ch-card" onclick="navTo('camelot')"><span class="ch-icon">🎡</span><div class="ch-lbl">Camelot Wheel</div></div>
-    <div class="ch-card" onclick="navTo('sound')"><span class="ch-icon">🔉</span><div class="ch-lbl">Sound &amp; Gain</div></div>
-    <div class="ch-card" onclick="navTo('performance')"><span class="ch-icon">🎭</span><div class="ch-lbl">Performance</div></div>
-    <div class="ch-card" onclick="navTo('rbpro')"><span class="ch-icon">🗄️</span><div class="ch-lbl">rekordbox Pro</div></div>
-    <div class="ch-card" onclick="navTo('pregig')"><span class="ch-icon">✅</span><div class="ch-lbl">Pre-Gig Checklist</div></div>
-    <div class="ch-card" onclick="navTo('soundcheck')"><span class="ch-icon">🔊</span><div class="ch-lbl">Soundcheck</div></div>
-  </div>
+  <p class="hero-sub">Alle Funktionen, Einstellungen, Techniken und Checklisten – von den Basics bis zum Gig-Workflow. Wähle oben eine Gruppe zum Einsteigen.</p>
 </div>
 
 <div class="wrap">
+
+
+<!-- ═══ GRUPPE 1: EINSTIEG ═══════════════════════════════════════ -->
+<!-- ██ 02 QUICKSTART ████████████████████████ -->
+<section class="sec" id="quickstart">
+  <div class="sec-hdr">
+    <div class="sec-ico">🚀</div>
+    <div><div class="sec-num">01 / QUICKSTART</div><div class="sec-ttl">Vom <em>Auspacken zum ersten Mix</em></div></div>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><div><div class="step-t">rekordbox installieren &amp; Account erstellen</div><div class="step-d">rekordbox.com → kostenlos herunterladen. Account anlegen (für Cloud-Sync und MySettings nötig). Pioneer DJ-Account funktioniert auch.</div></div></div>
+    <div class="step"><div class="step-n">2</div><div><div class="step-t">Tracks importieren &amp; analysieren lassen</div><div class="step-d">Musikordner in rekordbox ziehen → Rechtsklick → Alle Tracks analysieren. BPM, Key und Beat-Grid werden automatisch erkannt.</div></div></div>
+    <div class="step"><div class="step-n">3</div><div><div class="step-t">Hot Cues &amp; Loops in rekordbox setzen</div><div class="step-d">Mindestens: Cue A = Erster Beat, Cue D = Drop. Drops grün, Outros rot markieren. Saved Loops an wichtigen Stellen setzen.</div></div></div>
+    <div class="step"><div class="step-n">4</div><div><div class="step-t">MySettings konfigurieren</div><div class="step-d">rekordbox → Preferences → My Settings: Tempo Range ±10%, Quantize AN, Key Display Camelot, Master Tempo AN. Auf USB exportieren.</div></div></div>
+    <div class="step"><div class="step-n">5</div><div><div class="step-t">Auf USB-Stick exportieren</div><div class="step-d">USB einstecken → rekordbox → USB exportieren. Playlist + MySettings auf den Stick. USB 3.0, FAT32 oder exFAT nutzen.</div></div></div>
+    <div class="step"><div class="step-n">6</div><div><div class="step-t">Am XDJ-AZ: USB einstecken &amp; MySettings laden</div><div class="step-d">USB in Slot 1 stecken. UTILITY → My Settings → Load. Oder Auto-Load aktivieren – dann geht es automatisch.</div></div></div>
+    <div class="step"><div class="step-n">7</div><div><div class="step-t">Ersten Track laden &amp; auf Cue setzen</div><div class="step-d">Im Browser Track auswählen → LOAD drücken. Play → auf Beat 1 CUE setzen. Kopfhörer prüfen (CUE-Button). Pegel mit TRIM anpassen.</div></div></div>
+    <div class="step"><div class="step-n">8</div><div><div class="step-t">Zweiten Track laden &amp; ersten Mix machen</div><div class="step-d">Deck 2: Track laden, SYNC drücken für Tempo-Angleich. Bass von Deck 2 auf Minimum, Fader hochziehen, 32 Bars warten, Bass crossfaden. Fertig.</div></div></div>
+  </div>
+  <div class="pro"><span class="ti">🔥</span><div><strong>Erstes Mal am Gerät?</strong> SYNC und Quantize anfangs ruhig nutzen – das ist kein Schummeln, sondern effizientes Lernen. Manuelles Beatmatching kommt mit der Zeit von selbst.</div></div>
+</section>
 
 <!-- ██ 01 SETUP ████████████████████████████ -->
 <section class="sec" id="setup">
   <div class="sec-hdr">
     <div class="sec-ico">⚙️</div>
-    <div><div class="sec-num">01 / GRUNDEINSTELLUNGEN</div><div class="sec-ttl">Setup &amp; <em>Systemkonfiguration</em></div></div>
+    <div><div class="sec-num">02 / GRUNDEINSTELLUNGEN</div><div class="sec-ttl">Setup &amp; <em>Systemkonfiguration</em></div></div>
   </div>
   <div class="sub">MySettings – Dein persönliches Profil</div>
   <div class="cards">
@@ -291,30 +300,169 @@ footer span{color:var(--or)}
   <div class="tip"><span class="ti">💡</span><div><strong>Profi-Workflow:</strong> MySettings mit Tempo ±10%, Quantize 1 Beat, CDJ Mode, Key Display Camelot, Master Tempo AN, Auto-Standby OFF exportieren. Auf jedem CDJ/XDJ weltweit in 10 Sekunden ready.</div></div>
 </section>
 
-<!-- ██ 02 QUICKSTART ████████████████████████ -->
-<section class="sec" id="quickstart">
+<!-- ██ 18 FIRMWARE ████████████████████████████ -->
+<section class="sec" id="firmware">
   <div class="sec-hdr">
-    <div class="sec-ico">🚀</div>
-    <div><div class="sec-num">02 / QUICKSTART</div><div class="sec-ttl">Vom <em>Auspacken zum ersten Mix</em></div></div>
+    <div class="sec-ico">⬆️</div>
+    <div><div class="sec-num">03 / FIRMWARE</div><div class="sec-ttl">Updates &amp; <em>neue Features</em></div></div>
   </div>
-  <div class="steps">
-    <div class="step"><div class="step-n">1</div><div><div class="step-t">rekordbox installieren &amp; Account erstellen</div><div class="step-d">rekordbox.com → kostenlos herunterladen. Account anlegen (für Cloud-Sync und MySettings nötig). Pioneer DJ-Account funktioniert auch.</div></div></div>
-    <div class="step"><div class="step-n">2</div><div><div class="step-t">Tracks importieren &amp; analysieren lassen</div><div class="step-d">Musikordner in rekordbox ziehen → Rechtsklick → Alle Tracks analysieren. BPM, Key und Beat-Grid werden automatisch erkannt.</div></div></div>
-    <div class="step"><div class="step-n">3</div><div><div class="step-t">Hot Cues &amp; Loops in rekordbox setzen</div><div class="step-d">Mindestens: Cue A = Erster Beat, Cue D = Drop. Drops grün, Outros rot markieren. Saved Loops an wichtigen Stellen setzen.</div></div></div>
-    <div class="step"><div class="step-n">4</div><div><div class="step-t">MySettings konfigurieren</div><div class="step-d">rekordbox → Preferences → My Settings: Tempo Range ±10%, Quantize AN, Key Display Camelot, Master Tempo AN. Auf USB exportieren.</div></div></div>
-    <div class="step"><div class="step-n">5</div><div><div class="step-t">Auf USB-Stick exportieren</div><div class="step-d">USB einstecken → rekordbox → USB exportieren. Playlist + MySettings auf den Stick. USB 3.0, FAT32 oder exFAT nutzen.</div></div></div>
-    <div class="step"><div class="step-n">6</div><div><div class="step-t">Am XDJ-AZ: USB einstecken &amp; MySettings laden</div><div class="step-d">USB in Slot 1 stecken. UTILITY → My Settings → Load. Oder Auto-Load aktivieren – dann geht es automatisch.</div></div></div>
-    <div class="step"><div class="step-n">7</div><div><div class="step-t">Ersten Track laden &amp; auf Cue setzen</div><div class="step-d">Im Browser Track auswählen → LOAD drücken. Play → auf Beat 1 CUE setzen. Kopfhörer prüfen (CUE-Button). Pegel mit TRIM anpassen.</div></div></div>
-    <div class="step"><div class="step-n">8</div><div><div class="step-t">Zweiten Track laden &amp; ersten Mix machen</div><div class="step-d">Deck 2: Track laden, SYNC drücken für Tempo-Angleich. Bass von Deck 2 auf Minimum, Fader hochziehen, 32 Bars warten, Bass crossfaden. Fertig.</div></div></div>
+  <div class="tip"><span class="ti">💡</span><div><strong>Immer aktuell halten:</strong> Firmware-Updates bringen neue Features (Apple Music, Serato-Support), Bugfixes und Performance-Verbesserungen. Ohne Update kein Streaming, kein Serato.</div></div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Firmware-Version prüfen</div><span class="badge b-cy">CHECK</span></div><div class="c-desc">UTILITY → Info → <strong>Version No.</strong> Aktuelle Version vergleichen mit <strong>alphatheta.com → XDJ-AZ → Firmware</strong>. Immer auf neuestem Stand sein – besonders vor wichtigen Gigs.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Update via Wi-Fi (einfachste Methode)</div><span class="badge b-gr">OTA</span></div><div class="c-desc">Bei bestehender WLAN-Verbindung erscheint automatisch <strong>"New Firmware Available"</strong> auf dem Display. Einfach antippen und Gerät aktualisiert sich selbst. Kein USB-Stick nötig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Update via USB (Offline-Methode)</div><span class="badge b-or">USB</span></div><div class="c-desc">Firmware-Datei von alphatheta.com herunterladen → auf USB-Stick (Root-Verzeichnis) kopieren → USB einstecken → Gerät erkennt die Datei und fragt nach Update. Ideal ohne WLAN.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Firmware 1.10 – Serato DJ Pro</div><span class="badge b-rd">MEILENSTEIN</span></div><div class="c-desc">Firmware ≥ 1.10 erforderlich für Serato DJ Pro. Dezember 2024 veröffentlicht. Windows-Nutzer brauchen zusätzlich den Treiber vom AlphaTheta-Supportportal (macOS ist class-compliant, kein Treiber nötig).</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Firmware 1.21 – Apple Music</div><span class="badge b-rd">MEILENSTEIN</span></div><div class="c-desc">März 2025 veröffentlicht. Schaltet Apple Music StreamingDirectPlay frei – kein rekordbox-Abo nötig. Ebenfalls: Cloud Library Sync verbessert, Apple Music Analyse (BPM, Grid, Waveform) direkt am Gerät.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Firmware 1.24 – Stabilitäts-Fix</div><span class="badge b-gr">BUGFIX</span></div><div class="c-desc">Behebt den nervigen <strong>"Library is not responding"</strong>-Fehler der viele frühe Nutzer betroffen hat. Wenn du diesen Fehler hattest: sofort updaten. Auch allgemeine Performance-Verbesserungen.</div></div>
   </div>
-  <div class="pro"><span class="ti">🔥</span><div><strong>Erstes Mal am Gerät?</strong> SYNC und Quantize anfangs ruhig nutzen – das ist kein Schummeln, sondern effizientes Lernen. Manuelles Beatmatching kommt mit der Zeit von selbst.</div></div>
+  <div class="pro"><span class="ti">🔥</span><div><strong>Regel:</strong> Nie direkt vor einem wichtigen Gig updaten – immer 1–2 Tage vorher testen ob alles noch funktioniert. Updates können selten neue Bugs einführen.</div></div>
 </section>
 
+
+<!-- ═══ GRUPPE 2: GERÄT & HARDWARE ═══════════════════════════════ -->
+<!-- ██ 19 SONICLINK ████████████████████████████ -->
+<section class="sec" id="soniclink">
+  <div class="sec-hdr">
+    <div class="sec-ico">🎧</div>
+    <div><div class="sec-num">04 / SONICLINK</div><div class="sec-ttl">Kabellose <em>Kopfhörer-Verbindung</em></div></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Was ist SonicLink?</div><span class="badge b-cy">TECHNOLOGIE</span></div><div class="c-desc">AlphaThetas proprietäre Ultra-Low-Latency Wireless-Technologie. <strong>20× schneller als Bluetooth SBC-Codec</strong> – kein wahrnehmbarer Delay zwischen Knopfdruck/Scratch und Ton im Kopfhörer. Für DJs der einzige akzeptable kabellose Standard.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Kompatibilität</div><span class="badge b-rd">WICHTIG</span></div><div class="c-desc">SonicLink funktioniert <strong>nur mit den HDJ-F10 Kopfhörern</strong> von AlphaTheta. Normale Bluetooth-Kopfhörer sind nicht kompatibel. Kein Dongle nötig – der Transmitter ist direkt im XDJ-AZ verbaut.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Pairing-Prozess</div><span class="badge b-gr">SETUP</span></div><div class="c-desc">SonicLink-Pairing-Button vorne am XDJ-AZ drücken → HDJ-F10 einschalten → Verbindung wird sofort hergestellt. Kein aufwändiges Bluetooth-Pairing-Menü. Verbindung bleibt über Sessions hinweg gespeichert.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Vorteil im Gig</div><span class="badge b-or">LIVE</span></div><div class="c-desc">Kein Kabel-Gezerre im Booth. Frei bewegen auf der Bühne oder im Booth ohne Kabel anzureißen. <strong>Hinweis:</strong> SonicLink funktioniert nicht mit den WAVE-EIGHT Lautsprechern – nur für Kopfhörer.</div></div>
+  </div>
+  <div class="tip"><span class="ti">💡</span><div><strong>Workaround ohne HDJ-F10:</strong> Normalen 3.5mm oder 6.3mm Kopfhörer per Kabel anschließen funktioniert selbstverständlich weiterhin. SonicLink ist ein optionales Premium-Feature, kein Muss.</div></div>
+</section>
+
+<!-- ██ 20 MASTER OUT EQ █████████████████████████ -->
+<section class="sec" id="masterout">
+  <div class="sec-hdr">
+    <div class="sec-ico">🎚️</div>
+    <div><div class="sec-num">05 / MASTER OUT EQ</div><div class="sec-ttl">Master-Ausgang <em>EQ &amp; Isolator</em></div></div>
+  </div>
+  <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Eine der unterschätztesten Funktionen des XDJ-AZ – direkt aus dem DJ TechTools Forum als "nicest feature" bezeichnet.</p>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Master Out EQ</div><span class="badge b-rd">ESSENTIELL</span></div><div class="c-desc">Der EQ auf dem <strong>Master-Ausgang</strong> beeinflusst den kompletten Mix-Output – unabhängig von den Kanal-EQs. Schnelle Klanganpassung für unterschiedliche Raumsituationen ohne externe Geräte oder Soundmann.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Als Isolator nutzen</div><span class="badge b-pu">PROFI</span></div><div class="c-desc">Den Master Out EQ wie einen <strong>Isolator</strong> einsetzen: Bass, Mid und High einzeln hart ab- und aufdrehen für performative Elemente im Mix. Echtes Isolator-Feeling direkt am Gerät – ohne DJM-A9.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">PA-Korrektur on the fly</div><span class="badge b-am">PRAKTISCH</span></div><div class="c-desc">Kein Soundmann, schlechte Boxen? <strong>Master Out EQ direkt nutzen</strong> um das PA-System basic zu entzerren. Zu viel Bass? Runter. Dumpfer Raum? Mids heben. Kein perfektes Tool aber besser als nichts.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Master Out vs. Kanal-EQ</div><span class="badge b-cy">UNTERSCHIED</span></div><div class="c-desc"><strong>Kanal-EQ:</strong> beeinflusst nur den einzelnen Track. <strong>Master Out EQ:</strong> beeinflusst den gesamten Mix-Output. Nie beide gleichzeitig extrem einstellen – das erzeugt Verzerrung und Klangverlust.</div></div>
+  </div>
+  <div class="pro"><span class="ti">🔥</span><div><strong>Insider-Tipp:</strong> Master Out EQ neutral lassen (12 Uhr) und nur für gezielte Eingriffe nutzen. Wer ihn permanent verbogen hat, verliert den Überblick über den wahren Klang seines Mixes.</div></div>
+</section>
+
+<!-- ██ 21 PRO DJ LINK ██████████████████████████ -->
+<section class="sec" id="prodjlink">
+  <div class="sec-hdr">
+    <div class="sec-ico">🔗</div>
+    <div><div class="sec-num">06 / PRO DJ LINK</div><div class="sec-ttl">CDJ-Integration &amp; <em>4-Deck Club-Setup</em></div></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">CDJs per Pro DJ Link einbinden</div><span class="badge b-rd">SETUP</span></div><div class="c-desc">Bis zu <strong>2 CDJ-3000 per Ethernet</strong> an den XDJ-AZ anschließen → vollständiges 4-Deck Club-Setup. Beat- und On-Air-Informationen synchronisieren sich automatisch über alle Player. Braucht externen Ethernet-Hub (ca. 20 CHF).</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Shared USB Library</div><span class="badge b-gr">WORKFLOW</span></div><div class="c-desc">Ein USB-Stick am XDJ-AZ → Tracks für <strong>alle verbundenen CDJs zugänglich</strong>. Kein separater Stick pro Player nötig. Playlist, Hot Cues und alle Analysen stehen auf allen Decks zur Verfügung.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">DVS mit Turntables</div><span class="badge b-pu">DVS</span></div><div class="c-desc">Im Software-Modus: <strong>Decks 3 &amp; 4 für DVS-Turntables</strong> nutzen, Decks 1 &amp; 2 via Jogwheels steuern. Hybrid-Setup für DJs die Vinyl-Feel mit digitaler Library kombinieren wollen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">On-Air-Anzeige</div><span class="badge b-cy">SYNC</span></div><div class="c-desc">Pro DJ Link zeigt auf allen verbundenen Geräten welcher Kanal gerade <strong>"On Air"</strong> ist (Fader oben). Hilft bei B2B-Sets die Übersicht zu behalten – auch der Partner-DJ sieht deinen aktuellen Status.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">BPM &amp; Beat-Sync über Link</div><span class="badge b-or">SYNC</span></div><div class="c-desc">Beat-Grid und BPM synchronisieren sich über das gesamte Pro DJ Link-Netzwerk. <strong>SYNC-Funktion</strong> funktioniert auch über vernetzte CDJs – nicht nur zwischen den internen Decks.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Nur ein Ethernet-Port</div><span class="badge b-am">LIMITATION</span></div><div class="c-desc">Der XDJ-AZ hat (anders als der XZ) <strong>keinen integrierten Ethernet-Hub</strong>. Für mehrere CDJs braucht man einen externen Switch/Hub. Kostet ca. 15–25 CHF und ist kompakt – kein Problem in der Praxis.</div></div>
+  </div>
+  <div class="tip"><span class="ti">💡</span><div><strong>Club-Simulation zuhause:</strong> XDJ-AZ + 2 CDJ-3000 = exakt dasselbe wie ein Club-Setup mit 4 Decks. Muscle Memory trainieren ohne in den Club gehen zu müssen – der günstigste Weg zur Club-Erfahrung.</div></div>
+</section>
+
+<!-- ██ 22 DATEIFORMATE ██████████████████████████ -->
+<section class="sec" id="formats">
+  <div class="sec-hdr">
+    <div class="sec-ico">📁</div>
+    <div><div class="sec-num">07 / DATEIFORMATE</div><div class="sec-ttl">Kompatible Formate <em>&amp; Qualitätstipps</em></div></div>
+  </div>
+  <div class="sub">Unterstützte Audio-Formate</div>
+  <div class="sc-wrap">
+    <div class="sc"><span class="sc-k">MP3</span><span class="sc-d">Standard – min. 320 kbps empfohlen</span></div>
+    <div class="sc"><span class="sc-k">AAC</span><span class="sc-d">Apple-Format, gute Qualität bei kleiner Dateigrösse</span></div>
+    <div class="sc"><span class="sc-k">WAV</span><span class="sc-d">Unkomprimiert, beste Qualität, größte Dateien</span></div>
+    <div class="sc"><span class="sc-k">AIFF</span><span class="sc-d">Apple Lossless Interchange – Studio-Standard</span></div>
+    <div class="sc"><span class="sc-k">ALAC</span><span class="sc-d">Apple Lossless Audio Codec – verlustfrei</span></div>
+    <div class="sc"><span class="sc-k">FLAC</span><span class="sc-d">Free Lossless Audio Codec – verlustfrei, komprimiert</span></div>
+  </div>
+  <div class="sub">USB-Dateisysteme</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">FAT32 ✅</div><span class="badge b-gr">EMPFOHLEN</span></div><div class="c-desc">Universell kompatibel mit allen Geräten. Limit: max. 4 GB pro Datei (für DJs irrelevant). Gut für USB-Sticks bis 32 GB.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">exFAT ✅</div><span class="badge b-gr">EMPFOHLEN</span></div><div class="c-desc">Kein Dateigrößen-Limit. Ideal für SSDs und große USB-Sticks über 32 GB. Genauso kompatibel wie FAT32 am XDJ-AZ.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">NTFS ❌</div><span class="badge b-rd">NICHT UNTERSTÜTZT</span></div><div class="c-desc">Windows-Standard-Dateisystem wird vom XDJ-AZ <strong>nicht erkannt</strong>. Häufigste Fehlerquelle bei Windows-Nutzern. USB neu formatieren (exFAT) löst das Problem sofort.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Qualitäts-Empfehlung</div><span class="badge b-pu">SOUND</span></div><div class="c-desc">Für Club-Gigs: <strong>WAV oder FLAC bevorzugen</strong>. MP3 min. 320 kbps – nie darunter, auf guten Anlagen hört man 128 kbps deutlich. Streaming-Tracks: Qualität abhängig vom Dienst (Beatport meist 320 kbps).</div></div>
+  </div>
+  <div class="sub">Streaming-Realität 2025</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Apple Music ✅ (ab Firmware 1.21)</div><span class="badge b-gr">STANDALONE</span></div><div class="c-desc">Direkt am Gerät ohne rekordbox-Abo. Zugriff auf über 100 Millionen Tracks mit BPM/Grid-Analyse. Kein Offline-Caching – stabile Internetverbindung nötig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">CloudDirectPlay (rekordbox)</div><span class="badge b-cy">CLOUD</span></div><div class="c-desc">Cloud-basierte rekordbox-Library direkt am XDJ-AZ abrufen. Hot Cues auf dem iPhone setzen → sofort am Gerät verfügbar. Braucht <strong>rekordbox Creative oder Professional Plan</strong>. Kein USB-Export mehr nötig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport ✅ (Abo nötig)</div><span class="badge b-gr">STANDALONE</span></div><div class="c-desc">StreamingDirectPlay direkt am Gerät. Braucht Beatport Streaming Professional/Advanced Abo. Beatsource-Content wird zunehmend in Beatport integriert.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">SoundCloud / TIDAL ⚠️</div><span class="badge b-am">NUR SERATO</span></div><div class="c-desc">SoundCloud Go+ und TIDAL nur über <strong>Serato DJ Pro</strong> am XDJ-AZ nutzbar – nicht standalone. Laptop nötig. Denon Prime 4+ bietet diese Dienste standalone – klarer Nachteil des XDJ-AZ.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Keine Stems, kein Sampler</div><span class="badge b-rd">LIMITATION</span></div><div class="c-desc">Der XDJ-AZ wird <strong>keine Stems und keinen Pad-Sampler</strong> per Firmware-Update erhalten. Diese Features kommen erst im nächsten Modell. Wer das braucht: Denon Prime 4+ ist die Alternative.</div></div>
+  </div>
+</section>
+
+
+<!-- ═══ GRUPPE 3: MUSIK-QUELLEN ══════════════════════════════════ -->
+<!-- ██ 07 KONNEKTIVITÄT ████████████████████ -->
+<section class="sec" id="connect">
+  <div class="sec-hdr">
+    <div class="sec-ico">📡</div>
+    <div><div class="sec-num">08 / KONNEKTIVITÄT</div><div class="sec-ttl">WLAN, Streaming <em>&amp; externe Geräte</em></div></div>
+  </div>
+  <div class="sub">Wi-Fi &amp; Streaming</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">WLAN-Setup für Streaming</div><span class="badge b-cy">SETUP</span></div><div class="c-desc">UTILITY → Network → Wi-Fi → Heimnetzwerk oder Mobile Hotspot. Danach rekordbox-Account einloggen. <strong>5 GHz-Netz bevorzugen</strong> für stabile Verbindung. 2,4 GHz bricht öfter ein.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Streaming-Dienste</div><span class="badge b-gr">STREAMING</span></div><div class="c-desc">Unterstützt: <strong>Beatport Streaming, Beatsource, SoundCloud Go+, TIDAL</strong> (je nach Region). Tracks mit Cloud-Icon markiert. Wellenform-Analyse erst nach vollständigem Buffering komplett.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Streaming vs. lokale Tracks</div><span class="badge b-am">WICHTIG</span></div><div class="c-desc">Bei schlechter Verbindung: Tracks vorab in der rekordbox-App <strong>cachen</strong>. Für professionelle Gigs: <strong>Backup auf USB immer mitführen</strong> – kein Internet, kein Streaming.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">rekordbox auf iPhone/iPad</div><span class="badge b-cy">MOBIL</span></div><div class="c-desc">rekordbox-App per WLAN verbinden. Tracks browsen, in Queues legen und Playlist-Änderungen vornehmen, die sofort am Gerät erscheinen. Ideal für spontane Requests vom Gast.</div></div>
+  </div>
+  <div class="sub">USB &amp; Externe Geräte</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Zwei USB-Slots nutzen</div><span class="badge b-or">B2B</span></div><div class="c-desc">Slot 1 und 2 gleichzeitig zugänglich. <strong>Slot 1 = Hauptbibliothek, Slot 2 = Backup oder Gast-DJ-Stick.</strong> Im Browser per Source-Auswahl wechseln – keine Unterbrechung.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Serato DJ Pro</div><span class="badge b-rd">SERATO</span></div><div class="c-desc">Per <strong>USB-B-Anschluss</strong> an Laptop: vollständig als Serato DJ Pro Controller nutzbar. Alle Hardware-Knöpfe vollständig gemappt – kein zusätzliches Setup nötig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">MIDI-Clock Output</div><span class="badge b-cy">STUDIO</span></div><div class="c-desc">UTILITY → MIDI → <strong>Master Clock aktivieren</strong>. Externe Synthesizer und Drum Machines synchronisieren sich automatisch auf das Master-Deck-Tempo. Perfekt für Hybrid-Live-Sets.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">USB-B Kabel (Serato-Backup)</div><span class="badge b-am">GIG</span></div><div class="c-desc">USB-B auf USB-A Kabel im Gig-Bag mitführen. Falls die rekordbox-Library Probleme macht → sofort auf Serato-Laptop-Betrieb umstellen.</div></div>
+  </div>
+</section>
+
+<!-- ██ 08 LIBRARY ████████████████████████████ -->
+<section class="sec" id="library">
+  <div class="sec-hdr">
+    <div class="sec-ico">📚</div>
+    <div><div class="sec-num">09 / LIBRARY &amp; BROWSER</div><div class="sec-ttl">Track-Verwaltung <em>&amp; Browser-Workflow</em></div></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Playlist-Struktur für den Gig</div><span class="badge b-or">WORKFLOW</span></div><div class="c-desc">Playlists nach <strong>Energy-Level (1–10)</strong>, BPM-Range (120–124, 124–128) und Key anlegen. Keine alphabetischen Listen – die bringen im Dunkeln nichts. Eine "Preparation"-Playlist für jeden Gig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Related Tracks</div><span class="badge b-gr">SMART</span></div><div class="c-desc">Track markieren → <strong>"Related Tracks"</strong> zeigt Tracks mit ähnlichem BPM, Key und Energie. AlphaTheta-Algorithmus. Ideal für spontane Entscheidungen live.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">History-Playlist</div><span class="badge b-cy">ANALYSE</span></div><div class="c-desc">Der XDJ-AZ zeichnet jeden gespielten Track automatisch auf. Nach dem Set per USB in rekordbox importieren. Gut für Setlisten-Dokumentation und Gig-Nachbereitung.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Touchscreen-Suche</div><span class="badge b-gr">NAVIGATION</span></div><div class="c-desc">Im Browser-Modus direkt auf dem <strong>Touchscreen tippen</strong> → Tastatur öffnet sich. Schneller als Browse-Knopf + Drehgeber. Kurze, eindeutige Suchbegriffe nutzen (Label, Remixer).</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Farbcodierung in rekordbox</div><span class="badge b-am">ORGANISATION</span></div><div class="c-desc">Tracks farblich markieren nach Energie/Stimmung. Am XDJ-AZ in der Trackliste sichtbar. Im Dunkeln schnell erkennbar ohne Track-Titel lesen zu müssen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Key-Spalte einblenden</div><span class="badge b-cy">KEY</span></div><div class="c-desc">Browser: TAG-Ansicht öffnen → KEY als sichtbare Spalte aktivieren. Camelot-Format (8A, 8B) direkt neben jedem Track. Für Harmonic Mixing ohne Tabelle auswendig zu lernen.</div></div>
+  </div>
+</section>
+
+<!-- ██ NEU: REKORDBOX PRO ████████████████████ -->
+<section class="sec" id="rbpro">
+  <div class="sec-hdr"><div class="sec-ico">🗄️</div><div><div class="sec-num">10 / REKORDBOX PRO-WORKFLOWS</div><div class="sec-ttl">Library <em>wie ein Profi verwalten</em></div></div></div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Smart Playlists</div><span class="badge b-pu">PROFI</span></div><div class="c-desc">rekordbox → Smart Playlist → Regeln: BPM 126–130, Key 8A/8B, MyTag "Peak", Rating ≥ 4. <strong>Aktualisiert sich automatisch</strong> bei neuen Tracks. Kein manuelles Sortieren mehr.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">My Tag System</div><span class="badge b-pu">INSIDER</span></div><div class="c-desc">Eigene Tags erstellen: <strong>"Opener", "Peak", "Closing", "Vocal Tool", "Instrumental", "Festival only", "Request ok"</strong>. Im Browser als Filter nutzbar – am XDJ-AZ direkt abrufbar.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Comment-Feld als Datenbasis</div><span class="badge b-am">WORKFLOW</span></div><div class="c-desc">Strukturiert befüllen: <strong>"126-130 BPM | 8A | Energie 8 | Opener ok | Drop bei 2:14"</strong>. Am XDJ-AZ im Browser sichtbar. Kein Ratespiel im Gig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Export-Profile</div><span class="badge b-or">SETUP</span></div><div class="c-desc">Verschiedene USB-Profile: <strong>"Club"</strong> (volle Library), <strong>"Festival"</strong> (nur Peak-Tracks), <strong>"Warmup"</strong> (Opener). Für jeden Kontext den richtigen Stick – weniger Ablenkung im Gig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">History als Analyse-Tool</div><span class="badge b-cy">ANALYSE</span></div><div class="c-desc">History-Playlist nach dem Gig in rekordbox importieren. Welche Tracks liefen am längsten? Welche wurden früh beendet? Welche BPM/Keys funktionierten? <strong>Data-Driven Gig-Analyse.</strong></div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beat-Grid Profi-Korrektur</div><span class="badge b-gr">QUALITÄT</span></div><div class="c-desc">Tracks mit variablem Tempo (Live, Jazz, Old-School): Beat-Grid mit mehreren <strong>Ankerpunkten</strong> manuell setzen. 3–5 Minuten Invest macht diese Tracks erst wirklich mixbar.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">3-2-1 Backup-Regel</div><span class="badge b-rd">SICHERHEIT</span></div><div class="c-desc"><strong>3 Kopien:</strong> Laptop-Library + USB 1 (Haupt-Gig-Stick) + USB 2 (Backup-Stick). Niemals nur mit einer Kopie zum Gig. Backup-USB immer in anderer Tasche als Haupt-USB.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Analysegain im Batch</div><span class="badge b-gr">EFFIZIENZ</span></div><div class="c-desc">Alle Tracks markieren → Analysegain berechnen lassen. Normalisiert Lautheit auf −6 LUFS (einstellbar). Danach konsistente Pegel ohne TRIM-Nachregeln im Gig.</div></div>
+  </div>
+  <div class="insider"><span class="ti">🎓</span><div><strong>Berklee Online DJ-Kurs:</strong> "Deine Library ist dein Instrument. Wer sein Instrument nicht kennt, kann nicht improvisieren. 1 Stunde Library-Pflege pro Woche = 10× bessere Gig-Performance."</div></div>
+</section>
+
+
+<!-- ═══ GRUPPE 4: SPIELEN ════════════════════════════════════════ -->
 <!-- ██ 03 HOT CUES ██████████████████████████ -->
 <section class="sec" id="hotcues">
   <div class="sec-hdr">
     <div class="sec-ico">🔴</div>
-    <div><div class="sec-num">03 / HOT CUES</div><div class="sec-ttl">Hot Cues <em>meistern</em></div></div>
+    <div><div class="sec-num">11 / HOT CUES</div><div class="sec-ttl">Hot Cues <em>meistern</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Hot Cue setzen</div><span class="badge b-rd">BASICS</span></div><div class="c-desc"><strong>HOT CUE-Mode</strong> aktivieren → Pad drücken. Cue wird sofort gesetzt. Mit Quantize rastet er auf die nächste Zählzeit. In rekordbox vorbereitete Cues erscheinen farbig auf den Pads.</div></div>
@@ -339,7 +487,7 @@ footer span{color:var(--or)}
 <section class="sec" id="looping">
   <div class="sec-hdr">
     <div class="sec-ico">🔁</div>
-    <div><div class="sec-num">04 / LOOPING</div><div class="sec-ttl">Loops &amp; <em>Beat Jumps</em></div></div>
+    <div><div class="sec-num">12 / LOOPING</div><div class="sec-ttl">Loops &amp; <em>Beat Jumps</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Auto Loop</div><span class="badge b-rd">BASICS</span></div><div class="c-desc">LOOP-Button → Loop der definierten Länge startet sofort. <strong>½ / ×2</strong> zum Halbieren/Verdoppeln. Mit Quantize exakt auf nächsten Beat.</div></div>
@@ -370,7 +518,7 @@ footer span{color:var(--or)}
 <section class="sec" id="fx">
   <div class="sec-hdr">
     <div class="sec-ico">🎚️</div>
-    <div><div class="sec-num">05 / FX-NUTZUNG</div><div class="sec-ttl">Sound FX <em>professionell einsetzen</em></div></div>
+    <div><div class="sec-num">13 / FX-NUTZUNG</div><div class="sec-ttl">Sound FX <em>professionell einsetzen</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Beat FX vs. Sound Color FX</div><span class="badge b-rd">BASICS</span></div><div class="c-desc"><strong>Beat FX</strong> (am Mixer): BPM-synchronisiert – Echo, Reverb, Flanger, Filter. <strong>Sound Color FX</strong> (Kanalknopf): analoge Klangformung – Jet, Space, Dub Echo, Gate. Beide gleichzeitig nutzbar.</div></div>
@@ -402,7 +550,7 @@ footer span{color:var(--or)}
 <section class="sec" id="mixing">
   <div class="sec-hdr">
     <div class="sec-ico">🎛️</div>
-    <div><div class="sec-num">06 / MIXING-TECHNIKEN</div><div class="sec-ttl">Professionelle <em>Mix-Methoden</em></div></div>
+    <div><div class="sec-num">14 / MIXING-TECHNIKEN</div><div class="sec-ttl">Professionelle <em>Mix-Methoden</em></div></div>
   </div>
   <div class="tc">
     <div class="tc-hdr"><span class="tc-num">01</span><div class="tc-ttl">EQ-Mix (3-Band Blending)</div><span class="tc-lv lv-b">BEGINNER</span></div>
@@ -429,85 +577,44 @@ footer span{color:var(--or)}
   <div class="tip"><span class="ti">💡</span><div><strong>Goldene Phrasen-Regel (Berklee / Point Blank):</strong> Techno und House in <strong>8- oder 16-Bar-Phrasen</strong> – jeder Übergang auf Phrasen-Grenze. Das ist der Unterschied zwischen "gefühlt" und holprig.</div></div>
 </section>
 
-<!-- ██ 07 KONNEKTIVITÄT ████████████████████ -->
-<section class="sec" id="connect">
-  <div class="sec-hdr">
-    <div class="sec-ico">📡</div>
-    <div><div class="sec-num">07 / KONNEKTIVITÄT</div><div class="sec-ttl">WLAN, Streaming <em>&amp; externe Geräte</em></div></div>
-  </div>
-  <div class="sub">Wi-Fi &amp; Streaming</div>
-  <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">WLAN-Setup für Streaming</div><span class="badge b-cy">SETUP</span></div><div class="c-desc">UTILITY → Network → Wi-Fi → Heimnetzwerk oder Mobile Hotspot. Danach rekordbox-Account einloggen. <strong>5 GHz-Netz bevorzugen</strong> für stabile Verbindung. 2,4 GHz bricht öfter ein.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Streaming-Dienste</div><span class="badge b-gr">STREAMING</span></div><div class="c-desc">Unterstützt: <strong>Beatport Streaming, Beatsource, SoundCloud Go+, TIDAL</strong> (je nach Region). Tracks mit Cloud-Icon markiert. Wellenform-Analyse erst nach vollständigem Buffering komplett.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Streaming vs. lokale Tracks</div><span class="badge b-am">WICHTIG</span></div><div class="c-desc">Bei schlechter Verbindung: Tracks vorab in der rekordbox-App <strong>cachen</strong>. Für professionelle Gigs: <strong>Backup auf USB immer mitführen</strong> – kein Internet, kein Streaming.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">rekordbox auf iPhone/iPad</div><span class="badge b-cy">MOBIL</span></div><div class="c-desc">rekordbox-App per WLAN verbinden. Tracks browsen, in Queues legen und Playlist-Änderungen vornehmen, die sofort am Gerät erscheinen. Ideal für spontane Requests vom Gast.</div></div>
-  </div>
-  <div class="sub">USB &amp; Externe Geräte</div>
-  <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Zwei USB-Slots nutzen</div><span class="badge b-or">B2B</span></div><div class="c-desc">Slot 1 und 2 gleichzeitig zugänglich. <strong>Slot 1 = Hauptbibliothek, Slot 2 = Backup oder Gast-DJ-Stick.</strong> Im Browser per Source-Auswahl wechseln – keine Unterbrechung.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Serato DJ Pro</div><span class="badge b-rd">SERATO</span></div><div class="c-desc">Per <strong>USB-B-Anschluss</strong> an Laptop: vollständig als Serato DJ Pro Controller nutzbar. Alle Hardware-Knöpfe vollständig gemappt – kein zusätzliches Setup nötig.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">MIDI-Clock Output</div><span class="badge b-cy">STUDIO</span></div><div class="c-desc">UTILITY → MIDI → <strong>Master Clock aktivieren</strong>. Externe Synthesizer und Drum Machines synchronisieren sich automatisch auf das Master-Deck-Tempo. Perfekt für Hybrid-Live-Sets.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">USB-B Kabel (Serato-Backup)</div><span class="badge b-am">GIG</span></div><div class="c-desc">USB-B auf USB-A Kabel im Gig-Bag mitführen. Falls die rekordbox-Library Probleme macht → sofort auf Serato-Laptop-Betrieb umstellen.</div></div>
-  </div>
-</section>
 
-<!-- ██ 08 LIBRARY ████████████████████████████ -->
-<section class="sec" id="library">
-  <div class="sec-hdr">
-    <div class="sec-ico">📚</div>
-    <div><div class="sec-num">08 / LIBRARY &amp; BROWSER</div><div class="sec-ttl">Track-Verwaltung <em>&amp; Browser-Workflow</em></div></div>
-  </div>
-  <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Playlist-Struktur für den Gig</div><span class="badge b-or">WORKFLOW</span></div><div class="c-desc">Playlists nach <strong>Energy-Level (1–10)</strong>, BPM-Range (120–124, 124–128) und Key anlegen. Keine alphabetischen Listen – die bringen im Dunkeln nichts. Eine "Preparation"-Playlist für jeden Gig.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Related Tracks</div><span class="badge b-gr">SMART</span></div><div class="c-desc">Track markieren → <strong>"Related Tracks"</strong> zeigt Tracks mit ähnlichem BPM, Key und Energie. AlphaTheta-Algorithmus. Ideal für spontane Entscheidungen live.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">History-Playlist</div><span class="badge b-cy">ANALYSE</span></div><div class="c-desc">Der XDJ-AZ zeichnet jeden gespielten Track automatisch auf. Nach dem Set per USB in rekordbox importieren. Gut für Setlisten-Dokumentation und Gig-Nachbereitung.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Touchscreen-Suche</div><span class="badge b-gr">NAVIGATION</span></div><div class="c-desc">Im Browser-Modus direkt auf dem <strong>Touchscreen tippen</strong> → Tastatur öffnet sich. Schneller als Browse-Knopf + Drehgeber. Kurze, eindeutige Suchbegriffe nutzen (Label, Remixer).</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Farbcodierung in rekordbox</div><span class="badge b-am">ORGANISATION</span></div><div class="c-desc">Tracks farblich markieren nach Energie/Stimmung. Am XDJ-AZ in der Trackliste sichtbar. Im Dunkeln schnell erkennbar ohne Track-Titel lesen zu müssen.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Key-Spalte einblenden</div><span class="badge b-cy">KEY</span></div><div class="c-desc">Browser: TAG-Ansicht öffnen → KEY als sichtbare Spalte aktivieren. Camelot-Format (8A, 8B) direkt neben jedem Track. Für Harmonic Mixing ohne Tabelle auswendig zu lernen.</div></div>
-  </div>
-</section>
-
-<!-- ██ 09 PRO-TIPPS ████████████████████████ -->
-<section class="sec" id="protips">
-  <div class="sec-hdr">
-    <div class="sec-ico">💎</div>
-    <div><div class="sec-num">09 / PRO-TIPPS</div><div class="sec-ttl">Workflow-Hacks <em>der Profis</em></div></div>
-  </div>
-  <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Instant Doubles</div><span class="badge b-rd">INSIDER</span></div><div class="c-desc"><strong>Long-Press</strong> auf einen Deck-Load-Button lädt denselben Track auf das andere Deck – exakt an derselben Position. Für Flanger-Effekte: beide Decks synchron, einen minimal in Phase verschieben. Klassischer Vinyl-Trick.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Dead-Stop manuell</div><span class="badge b-or">TECHNIK</span></div><div class="c-desc">Jog Wheel während Wiedergabe festhalten → Track stoppt sofort. Für langsames Abbremsen: Jog gegen Drehrichtung bremsen. Natürlicher als der digitale Vinyl Brake Effekt.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">B2B: Dual USB</div><span class="badge b-cy">B2B</span></div><div class="c-desc">Jeder DJ seinen eigenen Stick in je einen Slot. Beide Bibliotheken gleichzeitig zugänglich. Im Browser per Source-Auswahl wechseln – keine Unterbrechung beim Übergeben.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Crossfader für Scratch</div><span class="badge b-am">SCRATCH</span></div><div class="c-desc">Crossfader-Kurve auf <strong>CUT</strong> stellen (UTILITY → Crossfader → Cut). Gibt harte An/Aus-Übergänge für Scratch-Techniken. Für normales Mixing wieder auf SMOOTH zurück.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatgrid manuell korrigieren</div><span class="badge b-gr">QUALITÄT</span></div><div class="c-desc">In rekordbox: Bei schlecht analysierten Tracks das Beat-Grid manuell korrigieren. GRID-Marker setzen, BPM anpassen. Investition von 2 Minuten spart Frust im Gig.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Trim-Pegel korrekt setzen</div><span class="badge b-or">SOUND</span></div><div class="c-desc">TRIM-Knopf so einstellen, dass der <strong>Peak-Meter im gelben Bereich</strong> bleibt – nie rot. Konsistente Pegel zwischen Tracks verhindern Lautstärke-Sprünge im Mix.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Analyse-Tags nutzen</div><span class="badge b-am">LIBRARY</span></div><div class="c-desc">Energy-Level (1–10), Tonalität und BPM-Tags in rekordbox pflegen. Am XDJ-AZ als Filterkriterien nutzbar. Spart Zeit bei der Track-Suche unter Stress im Gig.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">EQ-Headroom lassen</div><span class="badge b-gr">PROFI</span></div><div class="c-desc">EQ-Bänder nie auf Maximum aufreißen. <strong>Boost erzeugt Verzerrung</strong> bei lauten Anlagen. Lieber Frequenzen senken als anheben – klingt sauberer und professioneller.</div></div>
-  </div>
-</section>
-
+<!-- ═══ GRUPPE 5: THEORIE ════════════════════════════════════════ -->
 <!-- ██ 10 BPM GUIDE █████████████████████████ -->
 <section class="sec" id="bpm">
   <div class="sec-hdr">
     <div class="sec-ico">📊</div>
-    <div><div class="sec-num">10 / BPM GUIDE</div><div class="sec-ttl">Genre-Tempos <em>&amp; Übergangstipps</em></div></div>
+    <div><div class="sec-num">15 / BPM GUIDE</div><div class="sec-ttl">Genre-Tempos <em>&amp; Übergangstipps</em></div></div>
   </div>
   <div class="bpm-chart">
     <div id="bpm-rows"></div>
-    <div class="bpm-axis"><span>60</span><span>80</span><span>100</span><span>120</span><span>140</span><span>160</span><span>180</span></div>
+    <div class="bpm-axis"><span>60</span><span>80</span><span>100</span><span>120</span><span>140</span><span>160</span><span>180</span><span>200</span></div>
     <div class="bpm-tips" style="margin-top:20px">
-      <div class="bpm-tip"><strong>±BPM pro Übergang</strong>Kaum spürbar: ±1–2 BPM. Spürbar: ±4–8 BPM. Stilbruch: >±10 BPM ohne Vorbereitung. Bei grossen Sprüngen: langen Loop setzen, Tempo angleichen, dann einziehen.</div>
+      <div class="bpm-tip"><strong>±BPM pro Übergang</strong>Kaum spürbar: ±1–2 BPM. Spürbar: ±4–8 BPM. Stilbruch: &gt;±10 BPM ohne Vorbereitung. Bei grossen Sprüngen: langen Loop setzen, Tempo angleichen, dann einziehen.</div>
       <div class="bpm-tip"><strong>Half-Time Trick</strong>140 BPM Techno auf 70 BPM klingt wie Dubstep. WIDE Tempo-Range für bewusste Genre-Crossings nutzen. Frequenzen und Energie müssen aber trotzdem passen.</div>
       <div class="bpm-tip"><strong>Energie durch BPM steigern</strong>Über ein Set hinweg BPM langsam erhöhen (126→128→130→132). Das Publikum spürt die Steigerung, ohne es bewusst wahrzunehmen. Max. +1–2 BPM pro Übergang.</div>
       <div class="bpm-tip"><strong>Warm-Up vs. Peak-Time</strong>Warm-Up: 118–122 BPM. Build-Up: 124–126. Peak: 128–132+. Cooldown: langsam wieder runter. Energie-Kurve bewusst planen, nicht dem Zufall überlassen.</div>
     </div>
   </div>
+
+  <div class="sub">Psytrance &amp; Subgenres – Nostalgie &amp; Roots</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Goa Trance (135–150 BPM)</div><span class="badge b-am">URSPRUNG</span></div><div class="c-desc">Die Mutter aller Psytrance-Musik. Entstanden in den <strong>80ern in Goa, Indien</strong> von modernen Hippies, globale Anerkennung in den Mid-90s. Orientalische Melodien, indische Mystik, Tribal-Elements. Künstler: Astral Projection, Hallucinogen, Man With No Name. Labels: Suntrip, Twisted Records.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Psy-Techno (125–137 BPM)</div><span class="badge b-cy">PSYTECH</span></div><div class="c-desc">Hybrid aus Psytrance und Techno – von deep/minimal bis hard/rough. <strong>Keine fixen Grenzen</strong> in Sound oder Tempo. Heute positionieren sich viele Labels eher in der Techno-Szene. Künstler: Ectima, Hedustma, Tim Taste. Labels: IbogaTech, Techgnosis Records.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Progressive Psy (130–140 BPM)</div><span class="badge b-gr">MODERN</span></div><div class="c-desc">Mitte der 00er in Europa entstanden – Fokus auf <strong>Groove, Flow und Progression</strong>. Sehr diverse Vibes, kein einzelner Sound definiert das Genre. Labels: TesseracTstudio, Iboga Records. Künstler: Protonica, Zen Mechanics, Emok.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Psychedelic / UK Psy (145–155 BPM)</div><span class="badge b-pu">IKONISCH</span></div><div class="c-desc">Das ikonischste Subgenre – driving Basslines, futuristische <strong>FM-Synthesis Sounds</strong>. Pioniert von Londoner Labels (Alchemy, Flying Rhino, TIP Records). Aktuell wieder trending. Künstler: Tristan, Laughing Buddha, Render, Braincell.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Full-on Psy (140–148 BPM)</div><span class="badge b-or">GOLDEN AGE</span></div><div class="c-desc">Dynamisch, verspielt, musikalisch – spricht breiteres Publikum an. Bassline auf verschiedenen Oktaven. <strong>2004–2009: die goldene Ära</strong> bevor Progressive Psy übernahm. Labels: HOMmega, Dacru. Künstler: Astrix, DigiCult, Electro Sun.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Psychill / Psybient (90–120 BPM)</div><span class="badge b-cy">DOWNTEMPO</span></div><div class="c-desc">Tiefe Entspannung nahe Meditation. Goa-Kick, 303-Sounds, atmosphärische Pads. Ideal als <strong>Set-Einstieg oder After-Party</strong> Sound. Labels: Ultimae Records, Cosmicleaf, Microcosmos. Künstler: Carbon Based Lifeforms, Asura.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Dark Psy (140–155 BPM)</div><span class="badge b-rd">DARK</span></div><div class="c-desc">Auch <strong>Cyberdelic</strong> (cybernetic + psychedelic) – dunkel, kalt, alien. Viele Produzenten aus Russland. Extrem künstliche Sounds, Laser-Effekte. Labels: Moon Koradji, Horrordelic Records. Künstler: Kindzadza, Ocelot, Penta.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Hi-Tech Psy (170–200 BPM)</div><span class="badge b-rd">EXTREM</span></div><div class="c-desc">Full-on auf Extremniveau. Anders als Psycore kann Hi-Tech <strong>positiv und verspielt</strong> sein. Bei 200 BPM kaum Groove wahrnehmbar – reines Intensitätserlebnis für Festivals und Open Airs. Labels: Black Out Records, Multidimensional Music.</div></div>
+  </div>
+  <div class="insider"><span class="ti">🎓</span><div><strong>psytranceguide.com (Daniel Sokolovskiy):</strong> "Goa Trance ist der Vorfahre aller Psytrance-Musik als Ganzes. Was in den 80ern auf Strandpartys in Goa begann, hat sich zu einem weltweiten Underground-Ökosystem mit Dutzenden von Subgenres entwickelt – von sanftem Psychill bis brutalem Psycore bei 250 BPM."</div></div>
 </section>
 
-<!-- ██ 11 KEY ████████████████████████████████ -->
+<!-- ██ 16 KEY ████████████████████████████████ -->
 <section class="sec" id="key">
   <div class="sec-hdr">
     <div class="sec-ico">🎵</div>
-    <div><div class="sec-num">11 / HARMONIC MIXING</div><div class="sec-ttl">Key-Analyse <em>&amp; Key Sync</em></div></div>
+    <div><div class="sec-num">16 / HARMONIC MIXING</div><div class="sec-ttl">Key-Analyse <em>&amp; Key Sync</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Key-Analyse in rekordbox</div><span class="badge b-rd">VORBEREITUNG</span></div><div class="c-desc">Tracks automatisch analysieren. <strong>Preferences → Display → Key Display → Camelot</strong> umstellen. Statt "Am" siehst du direkt "8A" – der weltweite DJ-Standard.</div></div>
@@ -528,7 +635,7 @@ footer span{color:var(--or)}
 <section class="sec" id="camelot">
   <div class="sec-hdr">
     <div class="sec-ico">🎡</div>
-    <div><div class="sec-num">12 / CAMELOT WHEEL</div><div class="sec-ttl">Interaktives <em>Harmonic Wheel</em></div></div>
+    <div><div class="sec-num">17 / CAMELOT WHEEL</div><div class="sec-ttl">Interaktives <em>Harmonic Wheel</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Klicke auf ein Segment – innen = Moll (A), außen = Dur (B). Kompatible Keys leuchten auf.</p>
   <div class="cam-wrap">
@@ -554,9 +661,11 @@ footer span{color:var(--or)}
   <div class="cam-grid-all" id="cam-grid-all"></div>
 </section>
 
+
+<!-- ═══ GRUPPE 6: KLANG & PERFORMANCE ════════════════════════════ -->
 <!-- ██ NEU: SOUND & GAIN STAGING ████████████ -->
 <section class="sec" id="sound">
-  <div class="sec-hdr"><div class="sec-ico">🔉</div><div><div class="sec-num">13 / SOUND &amp; GAIN STAGING</div><div class="sec-ttl">Klang <em>&amp; Pegel professionell steuern</em></div></div></div>
+  <div class="sec-hdr"><div class="sec-ico">🔉</div><div><div class="sec-num">18 / SOUND &amp; GAIN STAGING</div><div class="sec-ttl">Klang <em>&amp; Pegel professionell steuern</em></div></div></div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Gain Staging</div><span class="badge b-rd">FUNDAMENTAL</span></div><div class="c-desc">Der größte Klangunterschied den die meisten ignorieren. <strong>Jede Stufe der Signalkette</strong> (Analyse → TRIM → Kanal → Master) auf optimalen Pegel setzen. Ziel: Master-Ausgang mit min. −3 dBFS Headroom.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">TRIM richtig setzen</div><span class="badge b-or">PRAXIS</span></div><div class="c-desc">Track starten → TRIM so einstellen, dass Kanal-Peak-Meter bei Peaks in den <strong>gelben Bereich</strong> geht (0 dBu), nie rot. Jeder Track hat anderen Gain – immer individuell anpassen.</div></div>
@@ -571,7 +680,7 @@ footer span{color:var(--or)}
 
 <!-- ██ NEU: PERFORMANCE & DRAMATURGIE ████████ -->
 <section class="sec" id="performance">
-  <div class="sec-hdr"><div class="sec-ico">🎭</div><div><div class="sec-num">14 / PERFORMANCE &amp; SET-DRAMATURGIE</div><div class="sec-ttl">Reading the Crowd <em>&amp; Energie-Bögen</em></div></div></div>
+  <div class="sec-hdr"><div class="sec-ico">🎭</div><div><div class="sec-num">19 / PERFORMANCE &amp; SET-DRAMATURGIE</div><div class="sec-ttl">Reading the Crowd <em>&amp; Energie-Bögen</em></div></div></div>
   <div class="sub">Energie-Kurve eines professionellen Sets</div>
   <div class="ec-wrap" id="ec-wrap"></div>
   <div class="sub">Reading the Crowd</div>
@@ -586,27 +695,31 @@ footer span{color:var(--or)}
   <div class="insider"><span class="ti">🎓</span><div><strong>Point Blank Music School:</strong> "Ein schlechter Track zum richtigen Moment schlägt immer den richtigen Track zum falschen Moment. Das Set ist eine emotionale Reise – nicht eine Techniksession."</div></div>
 </section>
 
-<!-- ██ NEU: REKORDBOX PRO ████████████████████ -->
-<section class="sec" id="rbpro">
-  <div class="sec-hdr"><div class="sec-ico">🗄️</div><div><div class="sec-num">15 / REKORDBOX PRO-WORKFLOWS</div><div class="sec-ttl">Library <em>wie ein Profi verwalten</em></div></div></div>
-  <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Smart Playlists</div><span class="badge b-pu">PROFI</span></div><div class="c-desc">rekordbox → Smart Playlist → Regeln: BPM 126–130, Key 8A/8B, MyTag "Peak", Rating ≥ 4. <strong>Aktualisiert sich automatisch</strong> bei neuen Tracks. Kein manuelles Sortieren mehr.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">My Tag System</div><span class="badge b-pu">INSIDER</span></div><div class="c-desc">Eigene Tags erstellen: <strong>"Opener", "Peak", "Closing", "Vocal Tool", "Instrumental", "Festival only", "Request ok"</strong>. Im Browser als Filter nutzbar – am XDJ-AZ direkt abrufbar.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Comment-Feld als Datenbasis</div><span class="badge b-am">WORKFLOW</span></div><div class="c-desc">Strukturiert befüllen: <strong>"126-130 BPM | 8A | Energie 8 | Opener ok | Drop bei 2:14"</strong>. Am XDJ-AZ im Browser sichtbar. Kein Ratespiel im Gig.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Export-Profile</div><span class="badge b-or">SETUP</span></div><div class="c-desc">Verschiedene USB-Profile: <strong>"Club"</strong> (volle Library), <strong>"Festival"</strong> (nur Peak-Tracks), <strong>"Warmup"</strong> (Opener). Für jeden Kontext den richtigen Stick – weniger Ablenkung im Gig.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">History als Analyse-Tool</div><span class="badge b-cy">ANALYSE</span></div><div class="c-desc">History-Playlist nach dem Gig in rekordbox importieren. Welche Tracks liefen am längsten? Welche wurden früh beendet? Welche BPM/Keys funktionierten? <strong>Data-Driven Gig-Analyse.</strong></div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Beat-Grid Profi-Korrektur</div><span class="badge b-gr">QUALITÄT</span></div><div class="c-desc">Tracks mit variablem Tempo (Live, Jazz, Old-School): Beat-Grid mit mehreren <strong>Ankerpunkten</strong> manuell setzen. 3–5 Minuten Invest macht diese Tracks erst wirklich mixbar.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">3-2-1 Backup-Regel</div><span class="badge b-rd">SICHERHEIT</span></div><div class="c-desc"><strong>3 Kopien:</strong> Laptop-Library + USB 1 (Haupt-Gig-Stick) + USB 2 (Backup-Stick). Niemals nur mit einer Kopie zum Gig. Backup-USB immer in anderer Tasche als Haupt-USB.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Analysegain im Batch</div><span class="badge b-gr">EFFIZIENZ</span></div><div class="c-desc">Alle Tracks markieren → Analysegain berechnen lassen. Normalisiert Lautheit auf −6 LUFS (einstellbar). Danach konsistente Pegel ohne TRIM-Nachregeln im Gig.</div></div>
+<!-- ██ 09 PRO-TIPPS ████████████████████████ -->
+<section class="sec" id="protips">
+  <div class="sec-hdr">
+    <div class="sec-ico">💎</div>
+    <div><div class="sec-num">20 / PRO-TIPPS</div><div class="sec-ttl">Workflow-Hacks <em>der Profis</em></div></div>
   </div>
-  <div class="insider"><span class="ti">🎓</span><div><strong>Berklee Online DJ-Kurs:</strong> "Deine Library ist dein Instrument. Wer sein Instrument nicht kennt, kann nicht improvisieren. 1 Stunde Library-Pflege pro Woche = 10× bessere Gig-Performance."</div></div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Instant Doubles</div><span class="badge b-rd">INSIDER</span></div><div class="c-desc"><strong>Long-Press</strong> auf einen Deck-Load-Button lädt denselben Track auf das andere Deck – exakt an derselben Position. Für Flanger-Effekte: beide Decks synchron, einen minimal in Phase verschieben. Klassischer Vinyl-Trick.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Dead-Stop manuell</div><span class="badge b-or">TECHNIK</span></div><div class="c-desc">Jog Wheel während Wiedergabe festhalten → Track stoppt sofort. Für langsames Abbremsen: Jog gegen Drehrichtung bremsen. Natürlicher als der digitale Vinyl Brake Effekt.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">B2B: Dual USB</div><span class="badge b-cy">B2B</span></div><div class="c-desc">Jeder DJ seinen eigenen Stick in je einen Slot. Beide Bibliotheken gleichzeitig zugänglich. Im Browser per Source-Auswahl wechseln – keine Unterbrechung beim Übergeben.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Crossfader für Scratch</div><span class="badge b-am">SCRATCH</span></div><div class="c-desc">Crossfader-Kurve auf <strong>CUT</strong> stellen (UTILITY → Crossfader → Cut). Gibt harte An/Aus-Übergänge für Scratch-Techniken. Für normales Mixing wieder auf SMOOTH zurück.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatgrid manuell korrigieren</div><span class="badge b-gr">QUALITÄT</span></div><div class="c-desc">In rekordbox: Bei schlecht analysierten Tracks das Beat-Grid manuell korrigieren. GRID-Marker setzen, BPM anpassen. Investition von 2 Minuten spart Frust im Gig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Trim-Pegel korrekt setzen</div><span class="badge b-or">SOUND</span></div><div class="c-desc">TRIM-Knopf so einstellen, dass der <strong>Peak-Meter im gelben Bereich</strong> bleibt – nie rot. Konsistente Pegel zwischen Tracks verhindern Lautstärke-Sprünge im Mix.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Analyse-Tags nutzen</div><span class="badge b-am">LIBRARY</span></div><div class="c-desc">Energy-Level (1–10), Tonalität und BPM-Tags in rekordbox pflegen. Am XDJ-AZ als Filterkriterien nutzbar. Spart Zeit bei der Track-Suche unter Stress im Gig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">EQ-Headroom lassen</div><span class="badge b-gr">PROFI</span></div><div class="c-desc">EQ-Bänder nie auf Maximum aufreißen. <strong>Boost erzeugt Verzerrung</strong> bei lauten Anlagen. Lieber Frequenzen senken als anheben – klingt sauberer und professioneller.</div></div>
+  </div>
 </section>
 
+
+<!-- ═══ GRUPPE 7: GIG ════════════════════════════════════════════ -->
 <!-- ██ 16 PRE-GIG CHECKLIST ████████████████ -->
 <section class="sec" id="pregig">
   <div class="sec-hdr">
     <div class="sec-ico">✅</div>
-    <div><div class="sec-num">13 / PRE-GIG CHECKLISTE</div><div class="sec-ttl">Vorbereitung <em>vor dem Gig</em></div></div>
+    <div><div class="sec-num">21 / PRE-GIG CHECKLISTE</div><div class="sec-ttl">Vorbereitung <em>vor dem Gig</em></div></div>
   </div>
   <div class="cl-wrap">
     <div class="cl-top">
@@ -628,7 +741,7 @@ footer span{color:var(--or)}
 <section class="sec" id="soundcheck">
   <div class="sec-hdr">
     <div class="sec-ico">🔊</div>
-    <div><div class="sec-num">14 / SOUNDCHECK</div><div class="sec-ttl">Checkliste <em>am Gerät vor dem Set</em></div></div>
+    <div><div class="sec-num">22 / SOUNDCHECK</div><div class="sec-ttl">Checkliste <em>am Gerät vor dem Set</em></div></div>
   </div>
   <div class="cl-wrap">
     <div class="cl-top">
@@ -646,17 +759,128 @@ footer span{color:var(--or)}
   </div>
 </section>
 
+<!-- ██ 23 TROUBLESHOOTING ████████████████████████ -->
+<section class="sec" id="trouble">
+  <div class="sec-hdr">
+    <div class="sec-ico">🔧</div>
+    <div><div class="sec-num">23 / TROUBLESHOOTING</div><div class="sec-ttl">Probleme <em>lösen &amp; vermeiden</em></div></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">"Library is not responding"</div><span class="badge b-rd">HÄUFIG</span></div><div class="c-desc"><strong>Lösung:</strong> Firmware auf 1.24 oder neuer updaten. Dieser Bug betraf viele frühe Produktionschargen und wurde per Update behoben. Danach nie wieder aufgetreten laut Community-Reports.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">USB wird nicht erkannt</div><span class="badge b-or">HÄUFIG</span></div><div class="c-desc">1. Dateisystem prüfen – muss <strong>FAT32 oder exFAT</strong> sein (nicht NTFS). 2. USB neu in rekordbox exportieren. 3. Anderen USB-Slot versuchen. 4. Qualitativ besseren Stick verwenden.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Audio-Dropouts / Knistern</div><span class="badge b-or">HARDWARE</span></div><div class="c-desc">Bei frühen Produktionseinheiten aufgetreten. Firmware-Update und evtl. Garantiereparatur. Aktuell produzierte Geräte sind laut AlphaTheta fehlerfrei. Bei Neukauf: Gerät sofort testen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Serato verbindet nicht</div><span class="badge b-cy">SERATO</span></div><div class="c-desc">Firmware ≥ 1.10 erforderlich. <strong>Windows:</strong> Treiber von AlphaTheta-Website installieren. <strong>macOS:</strong> class-compliant, kein Treiber nötig. Serato DJ Pro ≥ Version 3.2.4 verwenden.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Apple Music / Streaming lädt nicht</div><span class="badge b-cy">STREAMING</span></div><div class="c-desc">1. Firmware ≥ 1.21 prüfen. 2. WLAN-Verbindung prüfen – 5 GHz bevorzugen. 3. Account erneut einloggen. 4. Gerät neu starten. 5. Bei Apple Music: Account in rekordbox verknüpfen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Wellenform-Sync mit CDJ fehlt</div><span class="badge b-am">PRO DJ LINK</span></div><div class="c-desc">Waveform/Phase-Meter vom CDJ übertragen sich nicht automatisch auf den XDJ-AZ Screen. <strong>Workaround:</strong> XDJ-AZ als Master-Deck setzen für Phase-Meter-Anzeige. Bekanntes Design-Limit.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Display flackert / reagiert träge</div><span class="badge b-rd">DISPLAY</span></div><div class="c-desc">Bekanntes Problem bei einigen frühen Einheiten. Firmware-Update testen. Falls weiterhin: Gerät kühl halten, direkte Sonneneinstrahlung vermeiden. Im Extremfall: Garantiereparatur.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beat-Grid falsch analysiert</div><span class="badge b-am">ANALYSE</span></div><div class="c-desc">Tracks mit variablem Tempo (Live-Aufnahmen, Jazz, Old-School-Hip-Hop) werden oft falsch analysiert. <strong>Lösung:</strong> Beat-Grid in rekordbox manuell korrigieren. Analyse-Qualität hängt vom Material ab.</div></div>
+  </div>
+  <div class="tip"><span class="ti">💡</span><div><strong>Erste Hilfe bei jedem Problem:</strong> (1) Firmware aktuell? (2) Gerät neu starten? (3) Anderen USB-Stick probieren? – Diese drei Schritte lösen 80% aller gemeldeten Probleme.</div></div>
+  <div class="insider"><span class="ti">🎓</span><div><strong>Community-Erkenntnis (Reddit/Pioneer DJ Forum):</strong> Frühe Produktionschargen hatten Qualitätsprobleme (Displays, Dropouts, Freezes). AlphaTheta hat diese offen kommuniziert und schnell behoben. Aktuell produzierte Geräte (ab Anfang 2025) gelten als stabil und problemfrei.</div></div>
+</section>
+
 </div><!-- /wrap -->
-<footer>XDJ-AZ MASTERGUIDE V6 · <span>ALPHA THETA × PIONEER DJ</span> · PRO REFERENCE · DJ SCHOOL INSIDER · ALLE INHALTE OHNE GARANTIE</footer>
+<footer>XDJ-AZ MASTERGUIDE V7 · <span>ALPHA THETA × PIONEER DJ</span> · PRO REFERENCE · DJ SCHOOL INSIDER · ALLE INHALTE OHNE GARANTIE</footer>
 
 <script>
 /* ── NAV ─────────────────────────────────────────── */
 function navTo(id) {
   var el = document.getElementById(id);
   if (!el) return;
-  var top = el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - 60;
+  var top = el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - 100;
   if (window.scrollTo) { try { window.scrollTo({top: top, behavior: 'smooth'}); } catch(e) { window.scrollTo(0, top); } }
+  // Close subnav after navigating
+  document.getElementById('subnav').className = 'subnav';
+  document.querySelectorAll('.ng').forEach(function(b){ b.className='ng'; });
+  activeGroup = null;
 }
+
+/* ── GROUP NAV ───────────────────────────────────── */
+var GROUPS = {
+  einstieg: [
+    {id:'quickstart', lbl:'🚀 Quickstart'},
+    {id:'setup',      lbl:'⚙️ Setup'},
+    {id:'firmware',   lbl:'⬆️ Firmware'}
+  ],
+  geraet: [
+    {id:'soniclink',  lbl:'🎧 SonicLink'},
+    {id:'masterout',  lbl:'🎚️ Master Out EQ'},
+    {id:'prodjlink',  lbl:'🔗 Pro DJ Link'},
+    {id:'formats',    lbl:'📁 Dateiformate'}
+  ],
+  quellen: [
+    {id:'connect',    lbl:'📡 Konnektivität'},
+    {id:'library',    lbl:'📚 Library'},
+    {id:'rbpro',      lbl:'🗄️ rekordbox Pro'}
+  ],
+  spielen: [
+    {id:'hotcues',    lbl:'🔴 Hot Cues'},
+    {id:'looping',    lbl:'🔁 Looping'},
+    {id:'fx',         lbl:'🎚️ FX'},
+    {id:'mixing',     lbl:'🎛️ Mixing'}
+  ],
+  theorie: [
+    {id:'bpm',        lbl:'📊 BPM Guide'},
+    {id:'key',        lbl:'🎵 Key & Harmonics'},
+    {id:'camelot',    lbl:'🎡 Camelot Wheel'}
+  ],
+  klang: [
+    {id:'sound',      lbl:'🔉 Sound & Gain'},
+    {id:'performance',lbl:'🎭 Performance'},
+    {id:'protips',    lbl:'💎 Pro-Tipps'}
+  ],
+  gig: [
+    {id:'pregig',     lbl:'✅ Pre-Gig'},
+    {id:'soundcheck', lbl:'🔊 Soundcheck'},
+    {id:'trouble',    lbl:'🔧 Troubleshooting'}
+  ]
+};
+
+var activeGroup = null;
+
+function toggleGroup(grp) {
+  var subnav = document.getElementById('subnav');
+  var inner  = document.getElementById('subnav-inner');
+  var btn    = document.getElementById('ng-' + grp);
+
+  // Toggle off if same group clicked again
+  if (activeGroup === grp) {
+    subnav.className = 'subnav';
+    btn.className = 'ng';
+    activeGroup = null;
+    return;
+  }
+
+  // Reset all group buttons
+  var allBtns = document.querySelectorAll('.ng');
+  for (var i = 0; i < allBtns.length; i++) {
+    allBtns[i].className = 'ng';
+  }
+
+  // Build sub-items
+  var items = GROUPS[grp] || [];
+  var html = '';
+  for (var j = 0; j < items.length; j++) {
+    html += '<button class="ns" onclick="navTo(\'' + items[j].id + '\')">' + items[j].lbl + '</button>';
+  }
+  inner.innerHTML = html;
+
+  // Show subnav
+  subnav.className = 'subnav open';
+  btn.className = 'ng active';
+  activeGroup = grp;
+}
+
+// Close subnav on outside click
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('header')) {
+    var sn = document.getElementById('subnav');
+    if (sn) sn.className = 'subnav';
+    var btns = document.querySelectorAll('.ng');
+    for (var i = 0; i < btns.length; i++) { btns[i].className = 'ng'; }
+    activeGroup = null;
+  }
+});
 
 /* ── CAMELOT DATA ────────────────────────────────── */
 var CAM = [
@@ -814,20 +1038,29 @@ function showCamDetails(idx, which) {
 /* ── BPM CHART ───────────────────────────────────── */
 (function(){
   var genres=[
-    {n:'Hip Hop',      lo:80,  hi:100, c:'#9b59b6'},
-    {n:'R&B / Neo Soul',lo:85, hi:105, c:'#8e44ad'},
-    {n:'Deep House',   lo:118, hi:124, c:'#1a5276'},
-    {n:'Tech House',   lo:124, hi:130, c:'#2471a3'},
-    {n:'House',        lo:120, hi:130, c:'#17a589'},
-    {n:'Melodic Techno',lo:124,hi:132, c:'#1e8449'},
-    {n:'Techno',       lo:130, hi:145, c:'#d35400'},
-    {n:'Trance',       lo:128, hi:145, c:'#c0392b'},
-    {n:'Drum & Bass',  lo:160, hi:180, c:'#e74c3c'},
-    {n:'Dubstep',      lo:138, hi:142, c:'#6c3483'},
-    {n:'Afro House',   lo:122, hi:128, c:'#d4ac0d'},
-    {n:'Minimal',      lo:126, hi:132, c:'#4a5268'}
+    {n:'Psychill / Psybient', lo:90,  hi:120, c:'#5d6d7e', grp:'psy'},
+    {n:'Hip Hop',             lo:80,  hi:100, c:'#9b59b6', grp:''},
+    {n:'R&B / Neo Soul',      lo:85,  hi:105, c:'#8e44ad', grp:''},
+    {n:'Deep House',          lo:118, hi:124, c:'#1a5276', grp:''},
+    {n:'Tech House',          lo:124, hi:130, c:'#2471a3', grp:''},
+    {n:'House',               lo:120, hi:130, c:'#17a589', grp:''},
+    {n:'Afro House',          lo:122, hi:128, c:'#d4ac0d', grp:''},
+    {n:'Minimal',             lo:126, hi:132, c:'#4a5268', grp:''},
+    {n:'Psy-Techno',          lo:125, hi:137, c:'#1abc9c', grp:'psy'},
+    {n:'Melodic Techno',      lo:124, hi:132, c:'#1e8449', grp:''},
+    {n:'Techno',              lo:130, hi:145, c:'#d35400', grp:''},
+    {n:'Progressive Psy',     lo:130, hi:140, c:'#27ae60', grp:'psy'},
+    {n:'Dubstep',             lo:138, hi:142, c:'#6c3483', grp:''},
+    {n:'Trance',              lo:128, hi:145, c:'#c0392b', grp:''},
+    {n:'Psytrance (Classy)',   lo:138, hi:144, c:'#2980b9', grp:'psy'},
+    {n:'Goa Trance',          lo:135, hi:150, c:'#8e6b2e', grp:'psy'},
+    {n:'Full-on Psy',         lo:140, hi:148, c:'#e67e22', grp:'psy'},
+    {n:'Dark Psy',            lo:140, hi:155, c:'#34495e', grp:'psy'},
+    {n:'Psychedelic (UK Psy)',lo:145, hi:155, c:'#8e44ad', grp:'psy'},
+    {n:'Drum & Bass',         lo:160, hi:180, c:'#e74c3c', grp:''},
+    {n:'Hi-Tech Psy',         lo:170, hi:200, c:'#c0392b', grp:'psy'},
   ];
-  var MIN=60, MAX=190, RANGE=MAX-MIN;
+  var MIN=60, MAX=210, RANGE=MAX-MIN;
   var rows=document.getElementById('bpm-rows');
   if (!rows) return;
   var h='';
@@ -961,6 +1194,53 @@ function resetList(pfx) {
 
 buildList(PG_ITEMS,'pg','pg-col1','pg-col2','pg-prog','pg-fill');
 buildList(SC_ITEMS,'sc','sc-col1','sc-col2','sc-prog','sc-fill');
+
+// ── BACK TO TOP ─────────────────────────────────────
+window.addEventListener('scroll', function() {
+  var btt = document.getElementById('btt');
+  if (!btt) return;
+  if ((window.pageYOffset || document.documentElement.scrollTop) > 300) {
+    btt.className = 'show';
+  } else {
+    btt.className = '';
+  }
+});
+
+// ── ACTIVE GROUP HIGHLIGHT via IntersectionObserver ─
+var SEC_TO_GROUP = {
+  quickstart:'einstieg', setup:'einstieg', firmware:'einstieg',
+  soniclink:'geraet', masterout:'geraet', prodjlink:'geraet', formats:'geraet',
+  connect:'quellen', library:'quellen', rbpro:'quellen',
+  hotcues:'spielen', looping:'spielen', fx:'spielen', mixing:'spielen',
+  bpm:'theorie', key:'theorie', camelot:'theorie',
+  sound:'klang', performance:'klang', protips:'klang',
+  pregig:'gig', soundcheck:'gig', trouble:'gig'
+};
+var currentGroup = null;
+if ('IntersectionObserver' in window) {
+  var allSecs = document.querySelectorAll('.sec');
+  var obs = new IntersectionObserver(function(entries) {
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].isIntersecting) {
+        var grp = SEC_TO_GROUP[entries[i].target.id];
+        if (grp && grp !== currentGroup) {
+          // Only update if no group menu is open
+          if (!activeGroup) {
+            var allBtns = document.querySelectorAll('.ng');
+            for (var j = 0; j < allBtns.length; j++) {
+              allBtns[j].className = 'ng';
+            }
+            var activeBtn = document.getElementById('ng-' + grp);
+            if (activeBtn) activeBtn.className = 'ng active';
+          }
+          currentGroup = grp;
+        }
+        break;
+      }
+    }
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  for (var k = 0; k < allSecs.length; k++) { obs.observe(allSecs[k]); }
+}
 </script>
 </body>
 </html>
