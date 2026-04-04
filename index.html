@@ -249,6 +249,7 @@ footer span{color:var(--or)}
       <button class="ng" onclick="toggleGroup('theorie')"  id="ng-theorie"><span class="ng-icon">🎼</span>Theorie</button>
       <button class="ng" onclick="toggleGroup('klang')"    id="ng-klang"><span class="ng-icon">🔉</span>Klang</button>
       <button class="ng" onclick="toggleGroup('gig')"      id="ng-gig"><span class="ng-icon">🎪</span>Gig</button>
+      <button class="ng" onclick="toggleGroup('extras')"   id="ng-extras"><span class="ng-icon">⭐</span>Extras</button>
       <button class="ng" onclick="navTo('links')"            id="ng-links"><span class="ng-icon">🔗</span>Links</button>
     </nav>
   </div>
@@ -262,11 +263,12 @@ footer span{color:var(--or)}
   <div class="mob-menu" id="mob-menu">
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('eg')"><span class="mg-icon">🚀</span>Einstieg<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-eg"><button class="mob-item" onclick="mobNavTo('quickstart')">🚀 Quickstart</button><button class="mob-item" onclick="mobNavTo('setup')">⚙️ Setup</button><button class="mob-item" onclick="mobNavTo('firmware')">⬆️ Firmware</button></div></div>
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('ge')"><span class="mg-icon">🔧</span>Gerät<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-ge"><button class="mob-item" onclick="mobNavTo('soniclink')">🎧 SonicLink</button><button class="mob-item" onclick="mobNavTo('masterout')">🎚️ Master Out</button><button class="mob-item" onclick="mobNavTo('prodjlink')">🔗 Pro DJ Link</button><button class="mob-item" onclick="mobNavTo('formats')">📁 Dateiformate</button></div></div>
-    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('qu')"><span class="mg-icon">📡</span>Quellen<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-qu"><button class="mob-item" onclick="mobNavTo('connect')">📡 Konnektivität</button><button class="mob-item" onclick="mobNavTo('library')">📚 Library</button><button class="mob-item" onclick="mobNavTo('rbpro')">🗄️ rekordbox Pro</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('qu')"><span class="mg-icon">📡</span>Quellen<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-qu"><button class="mob-item" onclick="mobNavTo('connect')">📡 Konnektivität</button><button class="mob-item" onclick="mobNavTo('library')">📚 Library</button><button class="mob-item" onclick="mobNavTo('rbpro')">🗄️ rekordbox Pro</button><button class="mob-item" onclick="mobNavTo('streaming')">💰 Streaming-Preise</button><button class="mob-item" onclick="mobNavTo('iosworkflow')">📱 iOS Workflow</button><button class="mob-item" onclick="mobNavTo('clouddirect')">☁️ CloudDirectPlay</button></div></div>
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('sp')"><span class="mg-icon">🎹</span>Spielen<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-sp"><button class="mob-item" onclick="mobNavTo('hotcues')">🔴 Hot Cues</button><button class="mob-item" onclick="mobNavTo('looping')">🔁 Looping</button><button class="mob-item" onclick="mobNavTo('fx')">🎚️ FX</button><button class="mob-item" onclick="mobNavTo('mixing')">🎛️ Mixing</button></div></div>
-    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('th')"><span class="mg-icon">🎼</span>Theorie<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-th"><button class="mob-item" onclick="mobNavTo('bpm')">📊 BPM Guide</button><button class="mob-item" onclick="mobNavTo('key')">🎵 Key</button><button class="mob-item" onclick="mobNavTo('camelot')">🎡 Camelot</button></div></div>
-    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('kl')"><span class="mg-icon">🔉</span>Klang<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-kl"><button class="mob-item" onclick="mobNavTo('sound')">🔉 Sound & Gain</button><button class="mob-item" onclick="mobNavTo('performance')">🎭 Performance</button><button class="mob-item" onclick="mobNavTo('protips')">💎 Pro-Tipps</button></div></div>
-    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('gi')"><span class="mg-icon">🎪</span>Gig<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-gi"><button class="mob-item" onclick="mobNavTo('pregig')">✅ Pre-Gig</button><button class="mob-item" onclick="mobNavTo('soundcheck')">🔊 Soundcheck</button><button class="mob-item" onclick="mobNavTo('trouble')">🔧 Troubleshooting</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('th')"><span class="mg-icon">🎼</span>Theorie<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-th"><button class="mob-item" onclick="mobNavTo('bpm')">📊 BPM Guide</button><button class="mob-item" onclick="mobNavTo('bpmcalc')">🔢 BPM-Rechner</button><button class="mob-item" onclick="mobNavTo('key')">🎵 Key</button><button class="mob-item" onclick="mobNavTo('camelot')">🎡 Camelot</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('kl')"><span class="mg-icon">🔉</span>Klang<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-kl"><button class="mob-item" onclick="mobNavTo('sound')">🔉 Sound & Gain</button><button class="mob-item" onclick="mobNavTo('performance')">🎭 Performance</button><button class="mob-item" onclick="mobNavTo('setarc')">📈 2h-Set Arc</button><button class="mob-item" onclick="mobNavTo('protips')">💎 Pro-Tipps</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('gi')"><span class="mg-icon">🎪</span>Gig<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-gi"><button class="mob-item" onclick="mobNavTo('pregig')">✅ Pre-Gig</button><button class="mob-item" onclick="mobNavTo('soundcheck')">🔊 Soundcheck</button><button class="mob-item" onclick="mobNavTo('gigbag')">🎒 Gig-Bag</button><button class="mob-item" onclick="mobNavTo('trouble')">🔧 Troubleshooting</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('ex')"><span class="mg-icon">⭐</span>Extras<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-ex"><button class="mob-item" onclick="mobNavTo('cdj3000')">⚖️ XDJ-AZ vs CDJ-3000</button><button class="mob-item" onclick="mobNavTo('genrematrix')">🎨 Genre-Matrix</button></div></div>
     <div class="mob-group"><button class="mob-grp-btn" onclick="mobNavTo('links')"><span class="mg-icon">🔗</span>Nützliche Links<span class="mg-arr" style="visibility:hidden">▼</span></button></div>
   </div>
 
@@ -847,6 +849,184 @@ footer span{color:var(--or)}
   <div class="tip"><span class="ti">💡</span><div><strong>Tipp:</strong> Alle Links als Lesezeichen auf dem Homescreen des Handys speichern – so hast du im Gig-Stress sofort Zugriff auf Firmware-Updates, Support und Referenzen.</div></div>
 </section>
 
+<!-- ██ GIGBAG ████████████████████████████████ -->
+<section class="sec" id="gigbag">
+  <div class="sec-hdr">
+    <div class="sec-ico">🎒</div>
+    <div><div class="sec-num">// GIG</div><div class="sec-ttl">Gig-Bag <em>Packliste</em></div></div>
+  </div>
+  <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Alles was du zum Gig brauchst – abhaken vor dem Losfahren.</p>
+  <div class="cl-wrap">
+    <div class="cl-top">
+      <div class="cl-title">Gig-Bag Packliste</div>
+      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:center;-ms-flex-align:center;align-items:center">
+        <span class="cl-progress" id="gb-prog">0 / 18</span>
+        <button class="cl-reset" onclick="resetList('gb')">RESET</button>
+      </div>
+    </div>
+    <div class="cl-bar"><div class="cl-fill" id="gb-fill" style="width:0%"></div></div>
+    <div class="cl-cols">
+      <div class="cl-col" id="gb-col1"></div>
+      <div class="cl-col" id="gb-col2"></div>
+    </div>
+  </div>
+  <div class="tip"><span class="ti">💡</span><div><strong>Goldene Regel:</strong> USB-Hauptstick und USB-Backup immer in <strong>verschiedenen Taschen/Behältern</strong> transportieren. Wenn eine Tasche verloren geht, bleibt die andere.</div></div>
+</section>
+
+<!-- ██ CDJ3000 ███████████████████████████████ -->
+<section class="sec" id="cdj3000">
+  <div class="sec-hdr">
+    <div class="sec-ico">⚖️</div>
+    <div><div class="sec-num">// VERGLEICH</div><div class="sec-ttl">XDJ-AZ <em>vs CDJ-3000</em></div></div>
+  </div>
+  <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Die häufigste Frage: Lohnt sich das Upgrade auf CDJ-3000 + DJM-A9?</p>
+  <div style="overflow-x:auto;margin-top:8px">
+  <table style="width:100%;border-collapse:collapse;font-size:13px;min-width:520px">
+    <thead>
+      <tr style="border-bottom:2px solid var(--or)">
+        <th style="text-align:left;padding:10px 14px;font-family:'Rajdhani',sans-serif;font-size:14px;color:var(--mu);font-weight:700;width:35%">Kriterium</th>
+        <th style="text-align:center;padding:10px 14px;font-family:'Rajdhani',sans-serif;font-size:14px;color:var(--or);font-weight:700">XDJ-AZ</th>
+        <th style="text-align:center;padding:10px 14px;font-family:'Rajdhani',sans-serif;font-size:14px;color:var(--cy);font-weight:700">CDJ-3000 + DJM-A9</th>
+      </tr>
+    </thead>
+    <tbody id="cmp-body"></tbody>
+  </table>
+  </div>
+  <div class="tip" style="margin-top:20px"><span class="ti">💡</span><div><strong>Fazit:</strong> Wer <strong>Club-Karriere</strong> anstrebt → CDJ-3000 (Muscle Memory, Club-Standard). Wer zuhause üben, mobil auftreten oder im Heimstudio produzieren will → XDJ-AZ ist das bessere Preis-Leistungs-Verhältnis.</div></div>
+  <div class="insider" style="margin-top:12px"><span class="ti">🎓</span><div><strong>Community-Konsens (Reddit/Digital DJ Tips):</strong> Du zahlst beim CDJ-3000-Setup eine "Muscle Memory Tax" – du lernst exakt das Feeling, das in jedem Club steht. Das ist der Hauptgrund für den Aufpreis, nicht mehr Features.</div></div>
+</section>
+
+<!-- ██ GENREMATRIX ██████████████████████████ -->
+<section class="sec" id="genrematrix">
+  <div class="sec-hdr">
+    <div class="sec-ico">🎨</div>
+    <div><div class="sec-num">// THEORIE</div><div class="sec-ttl">Genre-Mixing <em>Matrix</em></div></div>
+  </div>
+  <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Welche Genres passen gut zusammen? BPM-Überlappung, Energie und Crowd-Feeling als Entscheidungshilfe.</p>
+  <div style="overflow-x:auto">
+    <table style="border-collapse:collapse;font-size:11px;min-width:640px" id="gm-table">
+      <thead id="gm-head"></thead>
+      <tbody id="gm-body"></tbody>
+    </table>
+  </div>
+  <div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:16px;margin-top:14px;-ms-flex-wrap:wrap;flex-wrap:wrap;font-size:12px;color:var(--mu)">
+    <span>🟢 Passt sehr gut</span>
+    <span>🟡 Mit Vorsicht / BPM anpassen</span>
+    <span>🔴 Schwierig / Stilbruch</span>
+    <span>⬛ Gleicher Bereich</span>
+  </div>
+  <div class="cards" style="margin-top:20px">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Techno → Psy-Techno</div><span class="badge b-gr">SMOOTH</span></div><div class="c-desc">BPM-Überlappung bei 130–137 perfekt. Psy-Techno klingt wie "Techno mit psychedelischen Elementen" – Crowd versteht den Wechsel intuitiv. Auf Key achten.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Tech House → Afro House</div><span class="badge b-gr">SMOOTH</span></div><div class="c-desc">Beide um 124–128 BPM, Afro House hat percussiven Groove der gut über Tech House-Basslines liegt. Übergang im Breakdown, nicht im Drop.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Melodic Techno → Progressive Psy</div><span class="badge b-cy">MIT VORSICHT</span></div><div class="c-desc">BPM ähnlich (124–132 vs 130–140), Energie kompatibel. Crowd muss bereit sein – Progressive Psy kann polarisieren. Gut als Set-Peak-Vorbereitung.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">D&B → Hi-Tech Psy</div><span class="badge b-rd">STILBRUCH</span></div><div class="c-desc">Beide schnell, aber völlig andere Crowd-Erwartung. D&B-Crowd und Psy-Crowd überlappen kaum. Nur für Open-Format-Festivals geeignet wo alles erlaubt ist.</div></div>
+  </div>
+</section>
+
+<!-- ██ STREAMING ████████████████████████████ -->
+<section class="sec" id="streaming">
+  <div class="sec-hdr">
+    <div class="sec-ico">💰</div>
+    <div><div class="sec-num">// QUELLEN</div><div class="sec-ttl">Streaming <em>Preisvergleich 2025</em></div></div>
+  </div>
+  <div class="sub">Was kostet was – und was läuft standalone am XDJ-AZ?</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Apple Music</div><span class="badge b-gr">STANDALONE ✅</span></div><div class="c-desc"><strong>~12 CHF/Monat</strong> (Individual) · ~18 CHF (Family). Direkt am XDJ-AZ via Firmware 1.21+. 100 Mio. Tracks. BPM/Grid-Analyse am Gerät. Kein rekordbox-Abo nötig. <strong>Bestes Preis-Leistungs-Verhältnis für Standalone.</strong></div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport Streaming</div><span class="badge b-gr">STANDALONE ✅</span></div><div class="c-desc"><strong>Essential ~11$/Monat</strong> · Advanced ~30$ · Professional ~60$. Direkt am XDJ-AZ via StreamingDirectPlay. DJ-fokussierter Katalog, hohe Audioqualität. Beatsource-Content wird integriert. Für Club-DJs der Platzhirsch.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">SoundCloud Go+</div><span class="badge b-am">NUR SERATO ⚠️</span></div><div class="c-desc"><strong>~10$/Monat.</strong> Nur via Serato DJ Pro nutzbar, nicht standalone. Riesiger Indie/Underground-Katalog, viele DJ-Edits und Remixes die nirgends sonst zu finden sind. Für Nischen-DJs wichtig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">TIDAL</div><span class="badge b-am">NUR SERATO ⚠️</span></div><div class="c-desc"><strong>~11$/Monat.</strong> Nur via Serato DJ Pro. HiFi-Qualität (FLAC). Für Audio-Puristen. Als standalone-Alternative wenig Mehrwert gegenüber Apple Music.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">rekordbox Cloud Option</div><span class="badge b-cy">ZUSATZ</span></div><div class="c-desc"><strong>~5$/Monat.</strong> Ermöglicht CloudDirectPlay – deine rekordbox-Library mit Hot Cues direkt am Gerät ohne USB. Kein separater Streaming-Dienst, sondern Cloud-Sync deiner eigenen Tracks.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">rekordbox Creative/Pro Plan</div><span class="badge b-cy">OPTIONAL</span></div><div class="c-desc"><strong>~15–30$/Monat</strong> (je nach Plan). Enthält CloudDirectPlay + erweiterte rekordbox-Features. Für die meisten DJs ist der günstige Cloud Option (~5$) + Apple Music die bessere Kombination.</div></div>
+  </div>
+  <div class="tip"><span class="ti">💡</span><div><strong>Empfehlung für die meisten DJs:</strong> Apple Music (~12 CHF) + eigene Library auf USB. Das deckt 95% aller Situationen ab. Beatport zusätzlich nur wenn du ausschliesslich aktuelle Club-Releases brauchst.</div></div>
+  <div class="pro"><span class="ti">🔥</span><div><strong>Gig-Regel:</strong> Streaming im Club = Risiko. Schlechtes WLAN, Buffering, Ausfall. <strong>Immer USB-Backup mitführen</strong> – egal welchen Streaming-Dienst du nutzt.</div></div>
+</section>
+
+<!-- ██ IOS WORKFLOW ██████████████████████████ -->
+<section class="sec" id="iosworkflow">
+  <div class="sec-hdr">
+    <div class="sec-ico">📱</div>
+    <div><div class="sec-num">// QUELLEN</div><div class="sec-ttl">rekordbox iOS <em>Unterwegs vorbereiten</em></div></div>
+  </div>
+  <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Hot Cues im Zug setzen, Playlist im Bett aufbauen – am XDJ-AZ sofort synchronisiert.</p>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><div><div class="step-t">rekordbox App installieren (iOS/Android)</div><div class="step-d">Kostenlos im App Store / Play Store. Gleiches Account-Login wie rekordbox Desktop. Unterstützt alle Plan-Typen.</div></div></div>
+    <div class="step"><div class="step-n">2</div><div><div class="step-t">Mit rekordbox-Account einloggen</div><div class="step-d">App öffnen → Account → einloggen. Derselbe Account wie auf dem Computer. Library wird automatisch synchronisiert (bei aktivem Cloud-Plan).</div></div></div>
+    <div class="step"><div class="step-n">3</div><div><div class="step-t">Tracks importieren oder Apple Music verbinden</div><div class="step-d">Lokale Musikdateien aus iPhone-Speicher importieren, oder Apple Music-Konto verknüpfen für direkten Zugriff auf Streaming-Tracks.</div></div></div>
+    <div class="step"><div class="step-n">4</div><div><div class="step-t">Hot Cues und Loops auf dem iPhone setzen</div><div class="step-d">Track öffnen → Wellenform antippen → Hot Cue-Pads nutzen. Genau wie am XDJ-AZ. Cues werden in Echtzeit mit der Cloud synchronisiert.</div></div></div>
+    <div class="step"><div class="step-n">5</div><div><div class="step-t">Playlists organisieren und sortieren</div><div class="step-d">Neue Playlists erstellen, Tracks hinzufügen, Reihenfolge anpassen. Alles sofort auf allen verbundenen Geräten sichtbar.</div></div></div>
+    <div class="step"><div class="step-n">6</div><div><div class="step-t">Am XDJ-AZ: Via CloudDirectPlay abrufen</div><div class="step-d">Source → Cloud → Library erscheint mit allen gesetzten Hot Cues, Loops und Playlists – kein USB-Export nötig.</div></div></div>
+  </div>
+  <div class="tip"><span class="ti">💡</span><div><strong>Praxis-Tipp:</strong> App im Schlafmodus oder Zug nutzen – Cues können auch ohne Internetverbindung gesetzt werden und synchronisieren sich beim nächsten WLAN-Kontakt. Offline-fähig.</div></div>
+</section>
+
+<!-- ██ CLOUDDIRECT ██████████████████████████ -->
+<section class="sec" id="clouddirect">
+  <div class="sec-hdr">
+    <div class="sec-ico">☁️</div>
+    <div><div class="sec-num">// QUELLEN</div><div class="sec-ttl">CloudDirectPlay <em>Setup &amp; Workflow</em></div></div>
+  </div>
+  <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Deine komplette rekordbox-Library direkt am XDJ-AZ – ohne USB-Stick.</p>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Was ist CloudDirectPlay?</div><span class="badge b-cy">ERKLÄRT</span></div><div class="c-desc">Du spielst direkt aus deiner Cloud-Library – Hot Cues, Loops, Playlists, alles synchronisiert. Tracks werden gestreamt, kein lokaler Speicher nötig. Braucht stabile WLAN-Verbindung und rekordbox Creative/Pro oder Cloud Option Plan.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Voraussetzungen</div><span class="badge b-rd">WICHTIG</span></div><div class="c-desc">1. rekordbox-Abo: Creative, Professional oder Cloud Option (~5$/Monat). 2. XDJ-AZ mit WLAN verbunden (5 GHz empfohlen). 3. rekordbox Desktop mit Cloud-Sync aktiv. 4. Tracks in rekordbox analysiert und mit Cloud synchronisiert.</div></div>
+  </div>
+  <div class="sub">Schritt-für-Schritt Setup</div>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><div><div class="step-t">rekordbox Plan mit Cloud aktivieren</div><div class="step-d">rekordbox.com → Plans → Cloud Option oder Creative/Professional abonnieren. Zahlungsinfo hinterlegen.</div></div></div>
+    <div class="step"><div class="step-n">2</div><div><div class="step-t">Cloud-Sync in rekordbox Desktop aktivieren</div><div class="step-d">rekordbox → Preferences → Cloud → Cloud Library Sync aktivieren. Tracks werden hochgeladen (kann Stunden dauern je nach Library-Grösse).</div></div></div>
+    <div class="step"><div class="step-n">3</div><div><div class="step-t">XDJ-AZ mit WLAN verbinden</div><div class="step-d">UTILITY → Network → Wi-Fi → Netzwerk auswählen → Passwort eingeben. 5 GHz-Netz bevorzugen für stabile Performance.</div></div></div>
+    <div class="step"><div class="step-n">4</div><div><div class="step-t">rekordbox Account am Gerät einloggen</div><div class="step-d">Source-Button → Account-Symbol → mit rekordbox-Account einloggen. QR-Code mit Handy scannen oder manuell eintippen.</div></div></div>
+    <div class="step"><div class="step-n">5</div><div><div class="step-t">Cloud als Source auswählen</div><div class="step-d">Source → Cloud-Symbol → deine Library erscheint mit allen Playlists, Hot Cues und Analysen genau wie auf dem USB-Stick.</div></div></div>
+    <div class="step"><div class="step-n">6</div><div><div class="step-t">Track laden und spielen</div><div class="step-d">Track antippen → LOAD → Track streamt aus der Cloud. Wellenform erscheint nach kurzem Buffern. Bei schlechtem WLAN: Track vorher "cachen" lassen.</div></div></div>
+  </div>
+  <div class="pro"><span class="ti">🔥</span><div><strong>Wichtig:</strong> CloudDirectPlay ist kein USB-Ersatz für professionelle Gigs. Nutze es zum Üben und für spontane Sets. <strong>USB-Backup</strong> immer zusätzlich mitführen – Clubs-WLAN ist oft unzuverlässig.</div></div>
+</section>
+
+<!-- ██ BPM RECHNER ████████████████████████████ -->
+<section class="sec" id="bpmcalc">
+  <div class="sec-hdr">
+    <div class="sec-ico">🔢</div>
+    <div><div class="sec-num">// THEORIE</div><div class="sec-ttl">BPM-Rechner <em>&amp; Kompatibilitäts-Tool</em></div></div>
+  </div>
+  <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">BPM eingeben → kompatible Ranges, Half-Time, Double-Time und passende Genres sofort berechnet.</p>
+  <div class="bpm-chart" style="max-width:640px">
+    <div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:20px;-ms-flex-wrap:wrap;flex-wrap:wrap">
+      <div>
+        <label style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--mu);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px">Aktueller BPM</label>
+        <input id="bpm-input" type="number" min="60" max="220" value="128"
+          style="background:var(--bg4);border:1px solid var(--bd2);border-radius:6px;color:var(--or);font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;width:110px;padding:8px 12px;text-align:center;outline:none"
+          oninput="calcBPM()">
+      </div>
+      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:6px;-ms-flex-wrap:wrap;flex-wrap:wrap;padding-top:20px">
+        <button onclick="adjBPM(-1)" style="background:var(--bg4);border:1px solid var(--bd2);color:var(--mu);border-radius:5px;width:36px;height:36px;font-size:18px;cursor:pointer">−</button>
+        <button onclick="adjBPM(1)"  style="background:var(--bg4);border:1px solid var(--bd2);color:var(--mu);border-radius:5px;width:36px;height:36px;font-size:18px;cursor:pointer">+</button>
+        <button onclick="document.getElementById('bpm-input').value=128;calcBPM()" style="background:var(--bg4);border:1px solid var(--bd2);color:var(--mu);border-radius:5px;padding:0 10px;height:36px;font-family:'Share Tech Mono',monospace;font-size:8px;cursor:pointer;letter-spacing:1px">RESET</button>
+      </div>
+    </div>
+    <div id="bpm-calc-out"></div>
+  </div>
+</section>
+
+<!-- ██ SET ARC █████████████████████████████████ -->
+<section class="sec" id="setarc">
+  <div class="sec-hdr">
+    <div class="sec-ico">📈</div>
+    <div><div class="sec-num">// PERFORMANCE</div><div class="sec-ttl">2h-Set Arc <em>Planung</em></div></div>
+  </div>
+  <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Wie baut man ein 2-Stunden-Set dramaturgisch auf? Die Energie-Kurve professioneller DJs.</p>
+  <div id="arc-chart" style="background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:20px;margin-bottom:20px"></div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">0–20 Min: Warm-Up</div><span class="badge b-cy">EINSTIEG</span></div><div class="c-desc">Crowd kommt rein, noch leer. <strong>Langsam und tief beginnen</strong> – 3–5 BPM unter Ziel. Smooth Tracks, viel Raum, keine Drops. Crowd abholen wo sie ist, nicht wo du sein willst. Fehler hier kosten das ganze Set.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">20–50 Min: Build-Up</div><span class="badge b-or">AUFBAUEN</span></div><div class="c-desc">Dancefloor füllt sich. BPM langsam steigern. Energie-Elemente einführen aber noch nicht alles geben. <strong>Erwartungen wecken</strong> ohne zu erfüllen – Tension aufbauen. Crowd muss wollen, nicht bekommen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">50–80 Min: Erster Peak</div><span class="badge b-rd">PEAK 1</span></div><div class="c-desc">Erste volle Energie. Stärkste Tracks, maximaler BPM. Crowd ist jetzt bereit. <strong>Aber: nicht alles geben</strong> – noch eine Stunde vor dir. Einen "Killer-Track" aufsparen für den zweiten Peak.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">80–100 Min: Atempause</div><span class="badge b-cy">REGENERATION</span></div><div class="c-desc">Bewusster Energie-Dip. Tiefere Tracks, etwas langsameres BPM. Crowd darf kurz durchatmen. <strong>Kontrast erzeugt den nächsten Peak</strong> – ohne Tal kein Berg. Viele DJs überspringen das und verlieren die Crowd.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">100–115 Min: Finaler Peak</div><span class="badge b-rd">PEAK 2</span></div><div class="c-desc">Der emotionale Höhepunkt des Sets. Jetzt kommt der aufgesparte Killer-Track. Crowd ist emotional bereit durch den Dip davor. <strong>Dieser Moment wird erinnert</strong> – alles davor war Vorbereitung.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">115–120 Min: Outro</div><span class="badge b-cy">ABSCHLUSS</span></div><div class="c-desc">Sanft landen. BPM wieder runter. Einen emotionalen, bekannten Track. Crowd verlässt die Fläche mit einem guten Gefühl. <strong>Das letzte Stück wird genauso erinnert wie das erste.</strong></div></div>
+  </div>
+  <div class="insider"><span class="ti">🎓</span><div><strong>Berklee Online DJ-Kurs:</strong> "Ein Set ist wie eine Geschichte. Es braucht einen Beginn, eine Mitte, einen Höhepunkt und ein Ende. DJs die einfach ihre liebsten Tracks spielen ohne Dramaturgie zu denken, spielen Kapitel ohne Erzählung."</div></div>
+</section>
+
 </div><!-- /wrap -->
 <footer>XDJ-AZ MASTERGUIDE V7 · <span>ALPHA THETA × PIONEER DJ</span> · PRO REFERENCE · DJ SCHOOL INSIDER · ALLE INHALTE OHNE GARANTIE</footer>
 
@@ -914,7 +1094,10 @@ var GROUPS = {
   quellen: [
     {id:'connect',    lbl:'📡 Konnektivität'},
     {id:'library',    lbl:'📚 Library'},
-    {id:'rbpro',      lbl:'🗄️ rekordbox Pro'}
+    {id:'rbpro',      lbl:'🗄️ rekordbox Pro'},
+    {id:'streaming',  lbl:'💰 Streaming-Preise'},
+    {id:'iosworkflow',lbl:'📱 iOS Workflow'},
+    {id:'clouddirect',lbl:'☁️ CloudDirectPlay'}
   ],
   spielen: [
     {id:'hotcues',    lbl:'🔴 Hot Cues'},
@@ -924,18 +1107,25 @@ var GROUPS = {
   ],
   theorie: [
     {id:'bpm',        lbl:'📊 BPM Guide'},
+    {id:'bpmcalc',    lbl:'🔢 BPM-Rechner'},
     {id:'key',        lbl:'🎵 Key & Harmonics'},
     {id:'camelot',    lbl:'🎡 Camelot Wheel'}
   ],
   klang: [
     {id:'sound',      lbl:'🔉 Sound & Gain'},
     {id:'performance',lbl:'🎭 Performance'},
+    {id:'setarc',     lbl:'📈 2h-Set Arc'},
     {id:'protips',    lbl:'💎 Pro-Tipps'}
   ],
   gig: [
     {id:'pregig',     lbl:'✅ Pre-Gig'},
     {id:'soundcheck', lbl:'🔊 Soundcheck'},
+    {id:'gigbag',     lbl:'🎒 Gig-Bag'},
     {id:'trouble',    lbl:'🔧 Troubleshooting'}
+  ],
+  extras: [
+    {id:'cdj3000',    lbl:'⚖️ XDJ-AZ vs CDJ-3000'},
+    {id:'genrematrix',lbl:'🎨 Genre-Mixing-Matrix'}
   ],
   links: [
     {id:'links',      lbl:'🔗 Nützliche Links'}
@@ -1300,7 +1490,237 @@ function resetList(pfx) {
 buildList(PG_ITEMS,'pg','pg-col1','pg-col2','pg-prog','pg-fill');
 buildList(SC_ITEMS,'sc','sc-col1','sc-col2','sc-prog','sc-fill');
 
-// ── BACK TO TOP ─────────────────────────────────────
+/* ── GIG-BAG CHECKLIST ───────────────────────────── */
+var GB_ITEMS=[
+  {t:'USB-Stick HAUPT (exportiert & geprüft)', s:'Playlist, MySettings, alle Tracks aktuell'},
+  {t:'USB-Stick BACKUP (separate Tasche!)', s:'Identische Kopie – anderer Behälter als Haupt'},
+  {t:'Kopfhörer', s:'6.3mm Klinke oder Adapter mitbringen'},
+  {t:'Kopfhörer-Adapter 6.3mm → 3.5mm', s:'Falls Gerät nur 3.5mm hat'},
+  {t:'USB-B Kabel (Serato-Backup)', s:'USB-B auf USB-A, falls Serato nötig wird'},
+  {t:'Ethernet-Kabel', s:'Für Pro DJ Link falls externer Hub nötig'},
+  {t:'Powerbank (geladen)', s:'Für Handy während des Gigs'},
+  {t:'Handy-Ladekabel', s:'Passend für dein Gerät'},
+  {t:'Gehörschutz / Earplugs', s:'Für vor/nach dem Set – Gehör schützen'},
+  {t:'Wasserflasche', s:'Lange Sets ohne Hydration sind gefährlich'},
+  {t:'Notizen-App / Setliste', s:'Erste 3–5 Tracks geplant, Rest flexibel'},
+  {t:'Kontakt Veranstalter gespeichert', s:'Für technische Notfälle vor Ort'},
+  {t:'Vertrag / Gage-Info', s:'Screenshot oder Ausdruck'},
+  {t:'Visitenkarten (optional)', s:'Für Networking nach dem Set'},
+  {t:'Laptop (falls Serato)', s:'Geladen, Software gestartet und getestet'},
+  {t:'Laptop-Ladekabel', s:'Immer dabei, auch wenn nicht geplant'},
+  {t:'Kleine Taschenlampe', s:'Für dunkle Bühnen und Kabel-Suche'},
+  {t:'Kabelbinder / Velcro', s:'Kabel-Management am Gerät'}
+];
+buildList(GB_ITEMS,'gb','gb-col1','gb-col2','gb-prog','gb-fill');
+
+/* ── COMPARISON TABLE ────────────────────────────── */
+(function(){
+  var rows=[
+    {k:'Preis (ca.)',          az:'~3.200 CHF',           cdj:'~7.500 CHF (2× CDJ + DJM)',  w:'cdj'},
+    {k:'Standalone 4-Deck',   az:'✅ Integriert',         cdj:'⚠️ Braucht DJM-A9',          w:'az'},
+    {k:'Club-Standard',       az:'⚠️ Ähnlich',            cdj:'✅ Weltweiter Standard',       w:'cdj'},
+    {k:'Jog Wheel Feel',      az:'✅ CDJ-3000-Niveau',    cdj:'✅ Original CDJ-3000',         w:'tie'},
+    {k:'Portabilität',        az:'✅ Alles in einem',     cdj:'⚠️ 3 schwere Geräte',         w:'az'},
+    {k:'Screen',              az:'✅ 10.1" Touchscreen',  cdj:'✅ 10.1" Touchscreen',        w:'tie'},
+    {k:'Streaming standalone',az:'✅ Beatport + Apple',   cdj:'✅ Beatport + Apple',          w:'tie'},
+    {k:'Pro DJ Link Hub',     az:'⚠️ Nur 1 Port',        cdj:'✅ Integrierter Hub',           w:'cdj'},
+    {k:'Stems / Sampler',     az:'❌ Nicht vorhanden',    cdj:'❌ Nicht vorhanden',           w:'tie'},
+    {k:'Aufbauzeit',          az:'✅ 1 Kabel, fertig',    cdj:'⚠️ Mehrere Verbindungen',      w:'az'},
+    {k:'Muscle Memory Clubs', az:'⚠️ Ähnlich aber anders',cdj:'✅ 1:1 identisch',            w:'cdj'},
+    {k:'SonicLink Headphones',az:'✅ Eingebaut',          cdj:'❌ Nicht verfügbar',           w:'az'},
+    {k:'Build Quality',       az:'⚠️ Gut (frühe Bugs)',   cdj:'✅ Sehr robust, bewährt',      w:'cdj'},
+    {k:'Investitionssicherheit',az:'⚠️ Neueres Produkt',  cdj:'✅ Langjährig bewährt',        w:'cdj'},
+  ];
+  var b=document.getElementById('cmp-body');
+  if(!b)return;
+  var h='';
+  for(var i=0;i<rows.length;i++){
+    var r=rows[i];
+    var azStyle = r.w==='az'  ? 'color:var(--gr);font-weight:600' : r.w==='tie' ? 'color:var(--mu)' : 'color:var(--mu)';
+    var cdjStyle= r.w==='cdj' ? 'color:var(--cy);font-weight:600' : r.w==='tie' ? 'color:var(--mu)' : 'color:var(--mu)';
+    var rowBg   = i%2===0 ? 'background:var(--bg2)' : 'background:var(--bg3)';
+    h+='<tr style="'+rowBg+';border-bottom:1px solid var(--bd)">'+
+      '<td style="padding:9px 14px;color:var(--tx);font-family:\'Rajdhani\',sans-serif;font-weight:600;font-size:13px">'+r.k+'</td>'+
+      '<td style="padding:9px 14px;text-align:center;font-size:12px;'+azStyle+'">'+r.az+'</td>'+
+      '<td style="padding:9px 14px;text-align:center;font-size:12px;'+cdjStyle+'">'+r.cdj+'</td>'+
+      '</tr>';
+  }
+  b.innerHTML=h;
+})();
+
+/* ── GENRE MATRIX ────────────────────────────────── */
+(function(){
+  var G=['Techno','Tech House','House','Deep House','Melodic Techno','Afro House','Minimal','Trance','Prog Psy','Psy-Techno','D&B'];
+  // 0=same, 1=great, 2=caution, 3=difficult
+  var M=[
+  //  TC  TH  HO  DH  MT  AF  MI  TR  PP  PT  DB
+    [ 0,  1,  2,  2,  1,  2,  1,  2,  2,  1,  3], // Techno
+    [ 1,  0,  1,  2,  1,  1,  1,  2,  2,  2,  3], // Tech House
+    [ 2,  1,  0,  1,  2,  1,  2,  3,  3,  3,  3], // House
+    [ 2,  2,  1,  0,  2,  1,  2,  3,  3,  3,  3], // Deep House
+    [ 1,  1,  2,  2,  0,  2,  1,  2,  1,  1,  3], // Melodic Techno
+    [ 2,  1,  1,  1,  2,  0,  2,  3,  3,  3,  3], // Afro House
+    [ 1,  1,  2,  2,  1,  2,  0,  2,  2,  2,  3], // Minimal
+    [ 2,  2,  3,  3,  2,  3,  2,  0,  2,  2,  2], // Trance
+    [ 2,  2,  3,  3,  1,  3,  2,  2,  0,  1,  3], // Prog Psy
+    [ 1,  2,  3,  3,  1,  3,  2,  2,  1,  0,  3], // Psy-Techno
+    [ 3,  3,  3,  3,  3,  3,  3,  2,  3,  3,  0], // D&B
+  ];
+  var C=['⬛','🟢','🟡','🔴'];
+  var BG=['rgba(255,255,255,0.03)','rgba(0,232,122,0.12)','rgba(255,179,71,0.1)','rgba(255,51,85,0.1)'];
+  var thead=document.getElementById('gm-head');
+  var tbody=document.getElementById('gm-body');
+  if(!thead||!tbody)return;
+  var thHtml='<tr><th style="padding:6px 4px;font-family:\'Share Tech Mono\',monospace;font-size:8px;color:var(--mu);text-align:left;min-width:90px;white-space:nowrap"></th>';
+  for(var c=0;c<G.length;c++){
+    thHtml+='<th style="padding:4px 2px;font-family:\'Share Tech Mono\',monospace;font-size:7px;color:var(--mu);text-align:center;writing-mode:vertical-rl;transform:rotate(180deg);height:70px;white-space:nowrap">'+G[c]+'</th>';
+  }
+  thHtml+='</tr>';
+  thead.innerHTML=thHtml;
+  var tbHtml='';
+  for(var r=0;r<G.length;r++){
+    tbHtml+='<tr>';
+    tbHtml+='<td style="padding:5px 8px;font-family:\'Rajdhani\',sans-serif;font-size:12px;font-weight:600;color:var(--tx);white-space:nowrap;border-right:1px solid var(--bd)">'+G[r]+'</td>';
+    for(var col=0;col<G.length;col++){
+      var v=M[r][col];
+      tbHtml+='<td style="text-align:center;padding:4px 2px;background:'+BG[v]+';font-size:13px;border:1px solid rgba(255,255,255,0.04)">'+C[v]+'</td>';
+    }
+    tbHtml+='</tr>';
+  }
+  tbody.innerHTML=tbHtml;
+})();
+
+/* ── BPM CALCULATOR ──────────────────────────────── */
+var BPM_GENRES=[
+  {n:'Psychill',   lo:90,  hi:120, c:'#5d6d7e'},
+  {n:'Hip Hop',    lo:80,  hi:100, c:'#9b59b6'},
+  {n:'Deep House', lo:118, hi:124, c:'#1a5276'},
+  {n:'Afro House', lo:122, hi:128, c:'#d4ac0d'},
+  {n:'House',      lo:120, hi:130, c:'#17a589'},
+  {n:'Tech House', lo:124, hi:130, c:'#2471a3'},
+  {n:'Minimal',    lo:126, hi:132, c:'#4a5268'},
+  {n:'Psy-Techno', lo:125, hi:137, c:'#1abc9c'},
+  {n:'Melodic Techno',lo:124,hi:132,c:'#1e8449'},
+  {n:'Techno',     lo:130, hi:145, c:'#d35400'},
+  {n:'Prog Psy',   lo:130, hi:140, c:'#27ae60'},
+  {n:'Trance',     lo:128, hi:145, c:'#c0392b'},
+  {n:'Psytrance',  lo:138, hi:144, c:'#2980b9'},
+  {n:'Dubstep',    lo:138, hi:142, c:'#6c3483'},
+  {n:'Goa Trance', lo:135, hi:150, c:'#8e6b2e'},
+  {n:'Full-on Psy',lo:140, hi:148, c:'#e67e22'},
+  {n:'Dark Psy',   lo:140, hi:155, c:'#34495e'},
+  {n:'UK Psy',     lo:145, hi:155, c:'#8e44ad'},
+  {n:'D&B',        lo:160, hi:180, c:'#e74c3c'},
+  {n:'Hi-Tech Psy',lo:170, hi:200, c:'#c0392b'},
+];
+
+function adjBPM(d) {
+  var inp = document.getElementById('bpm-input');
+  if (!inp) return;
+  var v = parseInt(inp.value, 10) + d;
+  inp.value = Math.max(60, Math.min(220, v));
+  calcBPM();
+}
+
+function calcBPM() {
+  var inp = document.getElementById('bpm-input');
+  var out = document.getElementById('bpm-calc-out');
+  if (!inp || !out) return;
+  var bpm = parseInt(inp.value, 10);
+  if (isNaN(bpm) || bpm < 40 || bpm > 300) { out.innerHTML = ''; return; }
+
+  var half   = Math.round(bpm / 2);
+  var dbl    = bpm * 2;
+  var minus2 = bpm - 2;
+  var plus2  = bpm + 2;
+  var minus5 = bpm - 5;
+  var plus5  = bpm + 5;
+
+  // Compatible genres
+  var matches = [], near = [];
+  for (var i = 0; i < BPM_GENRES.length; i++) {
+    var g = BPM_GENRES[i];
+    if (bpm >= g.lo && bpm <= g.hi) { matches.push(g); }
+    else if (bpm >= g.lo - 3 && bpm <= g.hi + 3) { near.push(g); }
+  }
+
+  var html = '<div style="display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:8px;margin-bottom:16px">';
+  var tiles = [
+    {lbl:'−2 BPM', val:minus2, c:'var(--cy)'},
+    {lbl:'±0',     val:bpm,    c:'var(--or)'},
+    {lbl:'+2 BPM', val:plus2,  c:'var(--cy)'},
+    {lbl:'−5 BPM', val:minus5, c:'var(--mu)'},
+    {lbl:'+5 BPM', val:plus5,  c:'var(--mu)'},
+    {lbl:'Half-Time', val:half, c:'#b06fff'},
+    {lbl:'Double',    val:dbl,  c:'#b06fff'},
+  ];
+  for (var j = 0; j < tiles.length; j++) {
+    var t = tiles[j];
+    html += '<div style="background:var(--bg3);border:1px solid var(--bd);border-radius:7px;padding:10px 14px;text-align:center;cursor:pointer" onclick="document.getElementById(\'bpm-input\').value='+t.val+';calcBPM()">'
+      + '<div style="font-family:\'Share Tech Mono\',monospace;font-size:8px;color:var(--mu);letter-spacing:1px;margin-bottom:3px">'+t.lbl+'</div>'
+      + '<div style="font-family:\'Rajdhani\',sans-serif;font-size:22px;font-weight:700;color:'+t.c+'">'+t.val+'</div>'
+      + '</div>';
+  }
+  html += '</div>';
+
+  if (matches.length > 0) {
+    html += '<div style="font-family:\'Share Tech Mono\',monospace;font-size:9px;color:var(--gr);letter-spacing:1px;margin-bottom:8px">✅ PASST ZU DIESEN GENRES</div>';
+    html += '<div style="display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:5px;margin-bottom:12px">';
+    for (var m = 0; m < matches.length; m++) {
+      html += '<span style="background:'+matches[m].c+'22;border:1px solid '+matches[m].c+'55;border-radius:4px;padding:3px 9px;font-family:\'Share Tech Mono\',monospace;font-size:9px;color:'+matches[m].c+'">'+matches[m].n+'</span>';
+    }
+    html += '</div>';
+  }
+  if (near.length > 0) {
+    html += '<div style="font-family:\'Share Tech Mono\',monospace;font-size:9px;color:var(--am);letter-spacing:1px;margin-bottom:8px">⚠️ GRENZBEREICH (±3 BPM)</div>';
+    html += '<div style="display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:5px">';
+    for (var n = 0; n < near.length; n++) {
+      html += '<span style="background:rgba(255,179,71,0.08);border:1px solid rgba(255,179,71,0.2);border-radius:4px;padding:3px 9px;font-family:\'Share Tech Mono\',monospace;font-size:9px;color:var(--am)">'+near[n].n+'</span>';
+    }
+    html += '</div>';
+  }
+  if (matches.length === 0 && near.length === 0) {
+    html += '<div style="color:var(--mu);font-size:13px">Kein Standard-Genre bei '+bpm+' BPM. Half-Time oder Double-Time nutzen.</div>';
+  }
+  out.innerHTML = html;
+}
+calcBPM();
+
+/* ── SET ARC CHART ───────────────────────────────── */
+(function(){
+  var arc = document.getElementById('arc-chart');
+  if (!arc) return;
+  var phases = [
+    {lbl:'0–20\nWarm-Up',    bpm:'115–120', e:3,  c:'#1a5276'},
+    {lbl:'20–50\nBuild-Up',  bpm:'120–126', e:6,  c:'#2471a3'},
+    {lbl:'50–80\nPeak 1',    bpm:'126–132', e:9,  c:'#ff6b00'},
+    {lbl:'80–100\nAtempause',bpm:'122–126', e:5,  c:'#17a589'},
+    {lbl:'100–115\nPeak 2',  bpm:'128–135', e:10, c:'#e74c3c'},
+    {lbl:'115–120\nOutro',   bpm:'120–124', e:4,  c:'#6c3483'},
+  ];
+  var maxE = 10;
+  var h = '<div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:8px;-webkit-box-align:flex-end;-ms-flex-align:flex-end;align-items:flex-end;height:160px;margin-bottom:12px">';
+  for (var i = 0; i < phases.length; i++) {
+    var p = phases[i];
+    var pct = (p.e / maxE * 100).toFixed(0);
+    var lines = p.lbl.split('\n');
+    h += '<div style="-webkit-box-flex:1;-ms-flex:1;flex:1;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:6px">'
+      + '<div style="font-family:\'Share Tech Mono\',monospace;font-size:8px;color:'+p.c+';letter-spacing:.5px">'+p.bpm+'</div>'
+      + '<div style="width:100%;background:'+p.c+'cc;border-radius:4px 4px 0 0;height:'+pct+'%;min-height:20px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center">'
+      + '<span style="font-family:\'Rajdhani\',sans-serif;font-weight:700;font-size:16px;color:#fff">'+p.e+'</span></div>'
+      + '</div>';
+  }
+  h += '</div><div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:8px">';
+  for (var j = 0; j < phases.length; j++) {
+    var ph = phases[j];
+    var ls = ph.lbl.split('\n');
+    h += '<div style="-webkit-box-flex:1;-ms-flex:1;flex:1;text-align:center">'
+      + '<div style="font-family:\'Share Tech Mono\',monospace;font-size:7px;color:var(--mu);letter-spacing:.5px;line-height:1.6">'+ls[0]+'<br><span style="color:'+ph.c+'">'+ls[1]+'</span></div>'
+      + '</div>';
+  }
+  h += '</div><div style="margin-top:10px;font-family:\'Share Tech Mono\',monospace;font-size:8px;color:var(--mu2);letter-spacing:1px;text-align:center">ENERGIE-LEVEL 1–10 · MINUTEN-PHASEN EINES 2h-SETS</div>';
+  arc.innerHTML = h;
+})();
 window.addEventListener('scroll', function() {
   var btt = document.getElementById('btt');
   if (!btt) return;
@@ -1316,10 +1736,12 @@ var SEC_TO_GROUP = {
   quickstart:'einstieg', setup:'einstieg', firmware:'einstieg',
   soniclink:'geraet', masterout:'geraet', prodjlink:'geraet', formats:'geraet',
   connect:'quellen', library:'quellen', rbpro:'quellen',
+  streaming:'quellen', iosworkflow:'quellen', clouddirect:'quellen',
   hotcues:'spielen', looping:'spielen', fx:'spielen', mixing:'spielen',
-  bpm:'theorie', key:'theorie', camelot:'theorie',
-  sound:'klang', performance:'klang', protips:'klang',
-  pregig:'gig', soundcheck:'gig', trouble:'gig',
+  bpm:'theorie', bpmcalc:'theorie', key:'theorie', camelot:'theorie',
+  sound:'klang', performance:'klang', setarc:'klang', protips:'klang',
+  pregig:'gig', soundcheck:'gig', gigbag:'gig', trouble:'gig',
+  cdj3000:'extras', genrematrix:'extras',
   links:'links'
 };
 var currentGroup = null;
