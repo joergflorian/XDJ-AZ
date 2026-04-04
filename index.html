@@ -175,12 +175,12 @@ header{position:sticky;top:0;z-index:200;background:rgba(7,9,13,0.97);-webkit-ba
 
 /* ── BPM GUIDE ── */
 .bpm-chart{background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:20px;margin-top:8px}
-.bpm-row{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:12px;margin-bottom:10px}
-.bpm-genre{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;min-width:120px;color:var(--tx)}
-.bpm-track{-webkit-box-flex:1;-ms-flex:1;flex:1;height:22px;background:var(--bg4);border-radius:3px;position:relative;overflow:hidden}
-.bpm-bar{position:absolute;top:0;height:100%;border-radius:3px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
-.bpm-val{font-family:'Share Tech Mono',monospace;font-size:9px;color:#000;font-weight:700;letter-spacing:.5px}
-.bpm-axis{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;margin-left:132px;font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--mu2);margin-top:4px}
+.bpm-row{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:8px;margin-bottom:8px}
+.bpm-genre{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;min-width:130px;color:var(--tx);-ms-flex-negative:0;flex-shrink:0}
+.bpm-track{-webkit-box-flex:1;-ms-flex:1;flex:1;height:18px;background:var(--bg4);border-radius:3px;position:relative}
+.bpm-bar{position:absolute;top:0;height:100%;border-radius:3px}
+.bpm-val{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--mu);font-weight:600;min-width:60px;-ms-flex-negative:0;flex-shrink:0;text-align:right}
+.bpm-axis{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;margin-left:138px;margin-right:68px;font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--mu2);margin-top:4px}
 .bpm-tips{margin-top:20px;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:8px}
 .bpm-tip{background:var(--bg3);border:1px solid var(--bd);border-radius:6px;padding:10px 14px;-webkit-box-flex:1;-ms-flex:1 1 220px;flex:1 1 220px;font-size:12px;color:var(--mu)}
 .bpm-tip strong{color:var(--or);display:block;font-family:'Rajdhani',sans-serif;font-size:13px;margin-bottom:3px}
@@ -1177,10 +1177,9 @@ function showCamDetails(idx, which) {
     h+='<div class="bpm-row">'+
       '<div class="bpm-genre">'+g.n+'</div>'+
       '<div class="bpm-track">'+
-      '<div class="bpm-bar" style="left:'+left+'%;width:'+width+'%;background:'+g.c+';">'+
+      '<div class="bpm-bar" style="left:'+left+'%;width:'+width+'%;background:'+g.c+'80;border-left:2px solid '+g.c+'"></div>'+
+      '</div>'+
       '<span class="bpm-val">'+g.lo+'–'+g.hi+'</span>'+
-      '</div>'+
-      '</div>'+
       '</div>';
   }
   rows.innerHTML=h;
