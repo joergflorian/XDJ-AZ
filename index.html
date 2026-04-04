@@ -249,13 +249,16 @@ footer span{color:var(--or)}
       <button class="ng" onclick="toggleGroup('theorie')"  id="ng-theorie"><span class="ng-icon">🎼</span>Theorie</button>
       <button class="ng" onclick="toggleGroup('klang')"    id="ng-klang"><span class="ng-icon">🔉</span>Klang</button>
       <button class="ng" onclick="toggleGroup('gig')"      id="ng-gig"><span class="ng-icon">🎪</span>Gig</button>
+      <button class="ng" onclick="navTo('links')"            id="ng-links"><span class="ng-icon">🔗</span>Links</button>
     </nav>
   </div>
   <!-- Desktop sub-nav -->
   <div class="subnav" id="subnav">
     <div class="subnav-inner" id="subnav-inner"></div>
   </div>
-  <!-- Mobile full menu overlay -->
+</header>
+
+<!-- Mobile full menu overlay -->
   <div class="mob-menu" id="mob-menu">
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('eg')"><span class="mg-icon">🚀</span>Einstieg<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-eg"><button class="mob-item" onclick="mobNavTo('quickstart')">🚀 Quickstart</button><button class="mob-item" onclick="mobNavTo('setup')">⚙️ Setup</button><button class="mob-item" onclick="mobNavTo('firmware')">⬆️ Firmware</button></div></div>
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('ge')"><span class="mg-icon">🔧</span>Gerät<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-ge"><button class="mob-item" onclick="mobNavTo('soniclink')">🎧 SonicLink</button><button class="mob-item" onclick="mobNavTo('masterout')">🎚️ Master Out</button><button class="mob-item" onclick="mobNavTo('prodjlink')">🔗 Pro DJ Link</button><button class="mob-item" onclick="mobNavTo('formats')">📁 Dateiformate</button></div></div>
@@ -266,7 +269,6 @@ footer span{color:var(--or)}
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('gi')"><span class="mg-icon">🎪</span>Gig<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-gi"><button class="mob-item" onclick="mobNavTo('pregig')">✅ Pre-Gig</button><button class="mob-item" onclick="mobNavTo('soundcheck')">🔊 Soundcheck</button><button class="mob-item" onclick="mobNavTo('trouble')">🔧 Troubleshooting</button></div></div>
     <div class="mob-group"><button class="mob-grp-btn" onclick="mobNavTo('links')"><span class="mg-icon">🔗</span>Nützliche Links<span class="mg-arr" style="visibility:hidden">▼</span></button></div>
   </div>
-</header>
 
 <!-- Back to top -->
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Nach oben">↑</button>
@@ -934,6 +936,9 @@ var GROUPS = {
     {id:'pregig',     lbl:'✅ Pre-Gig'},
     {id:'soundcheck', lbl:'🔊 Soundcheck'},
     {id:'trouble',    lbl:'🔧 Troubleshooting'}
+  ],
+  links: [
+    {id:'links',      lbl:'🔗 Nützliche Links'}
   ]
 };
 
@@ -1315,7 +1320,8 @@ var SEC_TO_GROUP = {
   hotcues:'spielen', looping:'spielen', fx:'spielen', mixing:'spielen',
   bpm:'theorie', key:'theorie', camelot:'theorie',
   sound:'klang', performance:'klang', protips:'klang',
-  pregig:'gig', soundcheck:'gig', trouble:'gig'
+  pregig:'gig', soundcheck:'gig', trouble:'gig',
+  links:'links'
 };
 var currentGroup = null;
 if ('IntersectionObserver' in window) {
