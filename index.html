@@ -2596,6 +2596,8 @@ function runTimer() {
     if (rem <= 0) clearInterval(timerInterval);
   }, 500);
 }
+
+window.addEventListener('scroll', function() {
   var btt = document.getElementById('btt');
   if (!btt) return;
   if ((window.pageYOffset || document.documentElement.scrollTop) > 300) {
