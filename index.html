@@ -2674,4 +2674,16 @@ if ('IntersectionObserver' in window) {
               allBtns[j].className = 'ng';
             }
             var activeBtn = document.getElementById('ng-' + grp);
-            if (activeBtn) activeBtn.className = 'ng active
+            if (activeBtn) activeBtn.className = 'ng active';
+          }
+          currentGroup = grp;
+        }
+        break;
+      }
+    }
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  for (var k = 0; k < allSecs.length; k++) { obs.observe(allSecs[k]); }
+}
+</script>
+</body>
+</html>
