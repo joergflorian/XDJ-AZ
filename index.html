@@ -265,6 +265,30 @@ footer a{color:var(--cy);text-decoration:none}
 
 /* INSIDER BOX */
 .insider{background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.18);border-radius:7px;padding:12px 16px;margin:16px 0;display:-webkit-box;display:-ms-flexbox;display:flex;gap:10px;font-size:13px;color:var(--mu);line-height:1.6}
+/* ── LEARN BOX (ausklappbar) ─── */
+.learn-box{border:1px solid var(--bd);border-radius:8px;overflow:hidden;margin:8px 0}
+.learn-hdr{width:100%;background:var(--bg2);border:none;color:var(--tx);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:600;text-align:left;-webkit-transition:background .15s;transition:background .15s}
+.learn-hdr:hover{background:var(--bg3)}
+.learn-icon{font-size:16px;-ms-flex-negative:0;flex-shrink:0}
+.learn-title{-webkit-box-flex:1;-ms-flex:1;flex:1;line-height:1.3}
+.learn-sub{font-size:11px;font-weight:400;color:var(--mu);display:block;margin-top:2px;font-family:'Barlow',sans-serif}
+.learn-arr{margin-left:auto;font-size:9px;color:var(--mu);letter-spacing:1px;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:-webkit-transform .2s;transition:transform .2s;font-family:'Share Tech Mono',monospace}
+.learn-box.lb-open .learn-arr{-webkit-transform:rotate(90deg);transform:rotate(90deg)}
+.learn-body{display:none;padding:16px 18px;background:var(--bg2);border-top:1px solid var(--bd);font-family:'Barlow',sans-serif;font-size:13px;color:var(--tx);line-height:1.7}
+.learn-box.lb-open .learn-body{display:block}
+.learn-body ul{margin:8px 0;padding-left:18px}
+.learn-body li{margin:6px 0;color:var(--mu)}
+.learn-body li strong{color:var(--tx)}
+.learn-body a{color:var(--cy);text-decoration:none}
+.learn-body a:hover{text-decoration:underline}
+.learn-body .lnk-row{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd)}
+.learn-body .lnk-row:last-child{border-bottom:none}
+.learn-body .lnk-badge{font-family:'Share Tech Mono',monospace;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;letter-spacing:.5px;-ms-flex-negative:0;flex-shrink:0;margin-top:2px}
+.lb-free{background:rgba(0,201,106,.12);color:var(--gr);border:1px solid rgba(0,201,106,.25)}
+.lb-paid{background:rgba(255,107,0,.1);color:var(--or);border:1px solid rgba(255,107,0,.2)}
+.lb-pdf{background:rgba(0,189,224,.1);color:var(--cy);border:1px solid rgba(0,189,224,.2)}
+.lb-yt{background:rgba(239,68,68,.1);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.learn-group-hdr{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--mu);margin:14px 0 6px;text-transform:uppercase}
 .insider strong{color:var(--pu)}
 .b-pu{background:rgba(168,85,247,.12);color:var(--pu);border:1px solid rgba(168,85,247,.25)}
 
@@ -365,9 +389,19 @@ footer a{color:var(--cy);text-decoration:none}
     <div class="step"><div class="step-n">8</div><div><div class="step-t">Zweiten Track laden &amp; ersten Mix machen</div><div class="step-d">Deck 2: Track laden, SYNC drücken für Tempo-Angleich. Bass von Deck 2 auf Minimum, Fader hochziehen, 32 Bars warten, Bass crossfaden. Fertig.</div></div></div>
   </div>
   <div class="pro"><span class="ti">🔥</span><div><strong>Erstes Mal am Gerät?</strong> SYNC und Quantize anfangs ruhig nutzen – das ist kein Schummeln, sondern effizientes Lernen. Manuelles Beatmatching kommt mit der Zeit von selbst.</div></div>
+  <div class="learn-box" style="margin-top:16px">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">📺</span>
+      <span class="learn-title">Komplettes XDJ-AZ Video-Manual (2h, kostenlos)<span class="learn-sub">Digital DJ Tips · Phil Morse erklärt jeden Knopf und jede Funktion</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      Digital DJ Tips hat ein <strong>zweistündiges Gratis-Tutorial</strong> das jede Funktion des XDJ-AZ durchgeht – Knopf für Knopf, Screen für Screen. Werbefrei, direkt auf YouTube. Ideal als Einstieg oder zum Überprüfen ob du wirklich alles weisst.<br><br>
+      <a href="https://www.digitaldjtips.com/xdj-az-training-tutorial/" target="_blank">→ digitaldjtips.com/xdj-az-training-tutorial/</a><br><br>
+      Ergänzend: <a href="https://www.digitaldjtips.com/xdj-az-your-questions-answered/" target="_blank">XDJ-AZ: Your Questions Answered</a> – häufigste Community-Fragen beantwortet (Serato, Cloud, DVS, Vergleich Opus Quad).
+    </div>
+  </div>
 </section>
-
-<!-- ██ 01 SETUP ████████████████████████████ -->
 <section class="sec" id="setup">
   <div class="sec-hdr">
     <div class="sec-ico">⚙️</div>
@@ -833,6 +867,19 @@ footer a{color:var(--cy);text-decoration:none}
     <div class="card"><div class="c-hdr"><div class="c-ttl">Farbcodierung in rekordbox</div><span class="badge b-am">ORGANISATION</span></div><div class="c-desc">Tracks farblich markieren nach Energie/Stimmung. Am XDJ-AZ in der Trackliste sichtbar. Im Dunkeln schnell erkennbar ohne Track-Titel lesen zu müssen.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Key-Spalte einblenden</div><span class="badge b-cy">KEY</span></div><div class="c-desc">Browser: TAG-Ansicht öffnen → KEY als sichtbare Spalte aktivieren. Camelot-Format (8A, 8B) direkt neben jedem Track. Für Harmonic Mixing ohne Tabelle auswendig zu lernen.</div></div>
   </div>
+  <div class="learn-box" style="margin-top:14px">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">📚</span>
+      <span class="learn-title">Weiterlernen: DJ Library organisieren<span class="learn-sub">Digital DJ Tips · Playlist Pyramid Framework + Miniset-Methode</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/dj-library-is-a-mess/" target="_blank">Help! My DJ Library Is A Mess</a></strong> – Digital DJ Tips<br>Das <strong>Playlist Pyramid</strong>-Konzept: Von allen Tracks der Welt zu dem was du heute Nacht spielst. Framework für Crate-Struktur, Tagging und Set-Vorbereitung. Löst das Chaos in den meisten DJ-Libraries.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ██ NEU: REKORDBOX PRO ████████████████████ -->
@@ -890,8 +937,24 @@ footer a{color:var(--cy);text-decoration:none}
     <div class="card"><div class="c-hdr"><div class="c-ttl">Export-Zeit einplanen</div><span class="badge b-rd">WARNUNG</span></div><div class="c-desc"><strong>Immer 1 Stunde für USB-Export einplanen</strong> – Haupt-Stick und Backup. Dauert immer länger als erwartet, besonders nach vielen neuen Tracks. Export NIE als letzten Schritt 5 Minuten vor Abfahrt. Puffer einbauen.</div></div>
   </div>
   <div class="tip"><span class="ti">💡</span><div><strong>Library-Schichten-System:</strong> Metadaten in Layern denken. Layer 1: Genre/BPM/Key (automatisch). Layer 2: Energy/Mood (manuell). Layer 3: My Tags ("Peak", "Opener", "Vocal Tool"). Layer 4: Farb-Codierung. Wer alle 4 Layer pflegt, braucht im Gig nie nachzudenken.</div></div>
+  <div class="learn-box" style="margin-top:14px">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">📖</span>
+      <span class="learn-title">Weiterlernen: rekordbox Guides<span class="learn-sub">2 kostenlose Ressourcen · RB7 Ultimate Guide + Library Mess-Artikel</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.clubreadydjschool.com/tribe-talk/dj-gear-and-software/rekordbox-7-the-ultimate-guide-for-djs-in-2025/" target="_blank">rekordbox 7: The Ultimate Guide 2025</a></strong> – Club Ready DJ School<br>Export Mode, Dual Players, Intelligent Cues, Collection Radar, Beatgrid-Typen, USB-Best-Practices. Bester kostenloser RB7-Artikel.</div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/dj-library-is-a-mess/" target="_blank">Help! My DJ Music Library Is A Mess</a></strong> – Digital DJ Tips<br>Das "Playlist Pyramid"-Framework: Von der gesamten Weltmusik zu dem was du heute Nacht spielst. Struktur die die meisten DJs nie gelernt haben.</div>
+      </div>
+    </div>
+  </div>
 </section>
-
 <section class="sec" id="rb7">
   <div class="sec-hdr">
     <div class="sec-ico">✨</div>
@@ -1142,9 +1205,28 @@ footer a{color:var(--cy);text-decoration:none}
 
   <div class="tip"><span class="ti">💡</span><div><strong>Goldene Phrasen-Regel:</strong> Techno und House in <strong>8- oder 16-Bar-Phrasen</strong> – jeder Übergang auf Phrasen-Grenze. Das ist der Unterschied zwischen "gefühlt" und holprig.</div></div>
   <div class="insider"><span class="ti">🎓</span><div><strong>Point Blank Music School:</strong> "Die technisch besten DJs sind nicht die erfolgreichsten. Die erfolgreichsten DJs sind jene die die Crowd lesen können – und dann die Technik einsetzen um das auszudrücken was die Crowd gerade braucht."</div></div>
+  <div class="learn-box" style="margin-top:14px">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">🎚️</span>
+      <span class="learn-title">Weiterlernen: Mixing-Techniken vertiefen<span class="learn-sub">3 Ressourcen · inkl. kostenlose Checklisten-PDFs von Club Ready DJ School</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.clubreadydjschool.com/free-videos/" target="_blank">Club Ready Free Mini Course</a></strong> – 16 Videos + PDFs<br>Mixing ohne Cues (House + Vocal), Looping In/Out, Filter &amp; Subtle FX. Bonus-PDFs: "Mixing Process Checklist", "5 Ways to Fail-Proof Your Shows", "3 Things Every DJ Must Know". <em>Email-Adresse nötig.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://wearecrossfader.co.uk/blog/3-mistakes-to-avoid-on-cdjs-and-club-setups/" target="_blank">3 Mistakes To Avoid On CDJs</a></strong> – We Are Crossfader<br>Quantize-Falle, Beat FX BPM manuell setzen, Phase vs. Sync richtig verstehen. Sehr praxisrelevant beim Wechsel vom Controller auf Club-Gear.</div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-paid">KURS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/courses/transitions-toolbox/" target="_blank">Transitions Toolbox</a></strong> – Digital DJ Tips (neu 2025)<br>50+ fertige Übergangs-Rezepte als "Kochbuch": Double Drops, Wordplays, Live Mashups, Stille als Effekt, Toneplays. Direkt einsetzbar.</div>
+      </div>
+    </div>
+  </div>
 </section>
-
-<!-- ██ NEU: VERSTECKTE FUNKTIONEN ████████████████ -->
 <section class="sec" id="hiddentips">
   <div class="sec-hdr">
     <div class="sec-ico">🔮</div>
@@ -1194,9 +1276,20 @@ footer a{color:var(--cy);text-decoration:none}
     <div class="card"><div class="c-hdr"><div class="c-ttl">Memory Cue automatisch am ersten Beat</div><span class="badge b-or">WORKFLOW</span></div><div class="c-desc">rekordbox → Preferences → Analysis → Track Analysis → <strong>"Set Memory Cue at first beat when analyzing" aktivieren</strong> → jeder Track bekommt automatisch einen weissen Memory Cue-Marker am ersten Beat. Kein manuelles Setzen für die einfachste Orientierungsmarke.</div></div>
   </div>
   <div class="insider"><span class="ti">🎓</span><div><strong>Digital DJ Tips (Phil Morse):</strong> "Die meisten DJs nutzen vielleicht 20% der Features ihres Geräts. Nicht weil sie faul sind – sondern weil niemand ihnen je erklärt hat was der Rest tut. Touch Preview allein spart pro Set mehrere Minuten hektisches Suchen."</div></div>
+  <div class="learn-box" style="margin-top:14px">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">🔮</span>
+      <span class="learn-title">Weiterlernen: Versteckte CDJ/XDJ-Funktionen<span class="learn-sub">Digital DJ Tips · 10 Dinge die du über den CDJ-3000 nicht weisst</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/10-things-you-didnt-know-about-pioneer-djs-cdj-3000-media-players/" target="_blank">10 Things You Didn't Know About the CDJ-3000</a></strong> – Digital DJ Tips<br>~80% davon gilt direkt auch am XDJ-AZ: USB-Hintergrundfarben, MySettings Auto-Load, Beat Jump in Loop = Loop Move, Key Sync Details, Touch Preview, Track Filter. Kurz und sehr lesbar.</div>
+      </div>
+    </div>
+  </div>
 </section>
-
-<!-- ██ NEU: STEMS ████████████████████████████████ -->
 <section class="sec" id="stems">
   <div class="sec-hdr">
     <div class="sec-ico">🎚️</div>
@@ -1332,6 +1425,23 @@ footer a{color:var(--cy);text-decoration:none}
     <div class="step"><div class="step-n">2</div><div><div class="step-t">Anzeigeformat auf Camelot stellen</div><div class="step-d">rekordbox → Preferences → Display → Key Display → Camelot. Das System (z.B. 8A) ist DJ-Standard weltweit.</div></div></div>
     <div class="step"><div class="step-n">3</div><div><div class="step-t">Am XDJ-AZ: Key-Spalte einblenden</div><div class="step-d">Browser → TAG-Ansicht → KEY als sichtbare Spalte wählen. Key neben jedem Track sichtbar.</div></div></div>
     <div class="step"><div class="step-n">4</div><div><div class="step-t">Key Sync am Gerät nutzen</div><div class="step-d">Deck 2 → KEY SYNC drücken. Transponiert automatisch auf Key des Master-Decks. Master Tempo immer aktiv!</div></div></div>
+  </div>
+  <div class="learn-box" style="margin-top:14px">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">🎵</span>
+      <span class="learn-title">Weiterlernen: Key &amp; Harmonisches Mixen<span class="learn-sub">Digital DJ Tips · Fuzzy Keymixing + Key-Filter in rekordbox</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/dj-software-tips-tricks-how-to-see-key-compatible-tracks-in-rekordbox-5-4/" target="_blank">Key-kompatible Tracks in rekordbox anzeigen</a></strong> – Digital DJ Tips<br>Filter-Button im Browser aktivieren → kompatible Tracks leuchten grün auf. Spart das manuelle Camelot-Abgleichen im Gig. Erklärt in 2 Minuten.</div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/rekordbox-dj-tips-tricks-hot-cue-tips-for-beginners/" target="_blank">Hot Cues: Farben &amp; Namen richtig nutzen</a></strong> – Digital DJ Tips<br>Konsistentes Farb-Schema für Cues, Namen direkt in rekordbox vergeben (erscheinen am XDJ-AZ Screen), Gate Playback vs. normales Verhalten. Video-Tutorial inklusive.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1560,6 +1670,23 @@ footer a{color:var(--cy);text-decoration:none}
   </div>
   <div class="tip"><span class="ti">💡</span><div><strong>Erste Hilfe bei jedem Problem:</strong> (1) Firmware aktuell? (2) Gerät neu starten? (3) Anderen USB-Stick probieren? – Diese drei Schritte lösen 80% aller gemeldeten Probleme.</div></div>
   <div class="insider"><span class="ti">🎓</span><div><strong>Community-Erkenntnis (Reddit/Pioneer DJ Forum):</strong> Frühe Produktionschargen hatten Qualitätsprobleme (Displays, Dropouts, Freezes). AlphaTheta hat diese offen kommuniziert und schnell behoben. Aktuell produzierte Geräte (ab Anfang 2025) gelten als stabil und problemfrei.</div></div>
+  <div class="learn-box" style="margin-top:14px">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">🔧</span>
+      <span class="learn-title">Weiterlernen: Gig-Ausfälle verhindern<span class="learn-sub">Club Ready DJ School · kostenloses PDF: 5 Ways to Fail-Proof Your Shows</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-pdf">PDF</span>
+        <div><strong><a href="https://www.clubreadydjschool.com/free-videos/" target="_blank">"5 Ways to Fail-Proof Your Shows" (PDF)</a></strong> – Club Ready DJ School<br>Kostenloses PDF aus dem Mini-Kurs: Konkrete Checkliste was du VOR jedem Gig prüfen musst um technische und logistische Ausfälle zu verhindern. Ergänzt unsere Pre-Gig-Checkliste ideal. <em>Email-Adresse nötig.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://wearecrossfader.co.uk/blog/3-mistakes-to-avoid-on-cdjs-and-club-setups/" target="_blank">3 Mistakes To Avoid On CDJs &amp; Club Setups</a></strong> – We Are Crossfader<br>Quantize-Falle (Sync ohne Grid), Beat FX BPM falsch, Phase vs. Sync Missverständnis. Mit Video. Besonders relevant beim ersten Gig auf Club-Equipment.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
@@ -1620,6 +1747,31 @@ footer a{color:var(--cy);text-decoration:none}
     <div class="card"><div class="c-hdr"><div class="c-ttl">Gage-Erwartungen realistisch halten</div><span class="badge b-am">EHRLICH</span></div><div class="c-desc">Erste Gigs: oft nichts oder Getränke. <strong>Gagen unter 100 CHF</strong> sind bei unbekannten Acts normal. Als Richtwert: Sobald du regelmässig gebucht wirst und ein Publikum aufgebaut hast, beginnen Gespräche über faire Gagen möglich. Erfahrung zuerst, Geld kommt später.</div></div>
   </div>
   <div class="insider"><span class="ti">🎓</span><div><strong>Crossfader / wearecrossfader.co.uk:</strong> "Networking ist keine Strategie – es ist eine Lebenseinstellung. Die DJs die am schnellsten aufsteigen sind nicht unbedingt die technisch besten. Sie sind die aktivsten, freundlichsten und verlässlichsten in ihrer Szene."</div></div>
+  <div class="learn-box" style="margin-top:14px">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">🚪</span>
+      <span class="learn-title">Weiterlernen: Gigs bekommen &amp; Karriere aufbauen<span class="learn-sub">Digital DJ Tips · 50 Wege zu Gigs (PDF) + Where To Get Gigs + Local to Global</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-pdf">PDF</span>
+        <div><strong><a href="https://www.digitaldjtips.com/grab-your-free-50-ways-to-get-gigs-guide/" target="_blank">"50 Ways To Get Gigs" – Gratis PDF</a></strong> – Digital DJ Tips<br>6000+ Downloads in der ersten Woche. 50 sehr konkrete Methoden: von lokalen Bars bis Twitch, Tribute Nights, Brautmessen, Community Events, Sportveranstaltungen. <em>Das vollständigste kostenlose Gig-Resource für DJs.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/where-to-get-dj-gigs/" target="_blank">Where To Get DJ Gigs Beyond Clubs</a></strong> – Digital DJ Tips (2025)<br>7 ungewöhnliche Gig-Quellen die die meisten DJs ignorieren: Twitch, Weinproben, Corporate, Pop-Up Events, mobile Gigs. Besonders gut wenn der lokale Club-Markt gesättigt ist.</div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/why-play-tune-up-gigs/" target="_blank">Why DJs Need Tune-Up Gigs</a></strong> – Digital DJ Tips<br>Kleine, ruhige Gigs vor wichtigen Shows absichtlich einplanen. Muscle Memory auffrischen, neue Tracks testen, Fehler in sicherem Umfeld machen. Profi-Strategie die die meisten Anfänger überspringen.</div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/3-steps-to-take-your-djing-from-local-to-global/" target="_blank">3 Steps: From Local to Global</a></strong> – Digital DJ Tips<br>Gigs ausserhalb deiner Stadt annehmen, Beziehungen in anderen Szenen, die ehrliche Touring-Realität (billige Hotels, eigenes Geld investieren). Für DJs mit grösseren Ambitionen.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ██ NEU: EPK ██████████████████████████████████ -->
@@ -1674,6 +1826,168 @@ footer a{color:var(--cy);text-decoration:none}
     <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport Streaming</div><span class="badge b-or">STREAMING</span></div><div class="c-desc"><a href="https://www.beatport.com/streaming" target="_blank" style="color:var(--or)">beatport.com/streaming</a> — Der DJ-Streaming-Dienst mit höchster Klangqualität. Direkt am XDJ-AZ nutzbar via StreamingDirectPlay (Abo nötig).</div></div>
   </div>
 
+  <!-- ── BILDUNGSRESSOURCEN ───────────────────────── -->
+  <div class="sub" style="margin-top:28px">📚 Weiterbildung – kuratierte Guides & Ressourcen</div>
+  <p style="color:var(--mu);font-size:13px;margin-bottom:14px">Die besten externen Ressourcen – zusammengefasst und ausklappbar. Klicke auf einen Bereich um Details zu sehen.</p>
+
+  <!-- 1. XDJ-AZ spezifisch -->
+  <div class="learn-box">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">🎛️</span>
+      <span class="learn-title">XDJ-AZ Video-Manuals &amp; Guides<span class="learn-sub">Digital DJ Tips · 3 Ressourcen · alle kostenlos</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/xdj-az-training-tutorial/" target="_blank">XDJ-AZ Training Tutorial (2h Video)</a></strong><br>Phil Morse geht jeden einzelnen Knopf, jede Funktion und jeden Workflow am XDJ-AZ durch. Werbefrei, direkt auf YouTube verfügbar. <em>Unverzichtbar wenn du neu mit dem Gerät bist oder sicherstellen willst, dass du nichts übersiehst.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/xdj-az-your-questions-answered/" target="_blank">XDJ-AZ: Your Questions Answered</a></strong><br>Live-Q&amp;A-Aufzeichnung: Serato-Support, DVS-Setup, Cloud, Preis-Fragen, Vergleich mit Opus Quad. Ehrlichere Antworten als Marketing-Material.</div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/10-things-you-didnt-know-about-pioneer-djs-cdj-3000-media-players/" target="_blank">10 Things You Didn't Know About the CDJ-3000</a></strong><br>80% davon gilt direkt am XDJ-AZ: MySettings Auto-Load, USB-Farben, Beat Jump in Loop = Loop Move, Key Sync, Touch Preview. Schnell zu lesen.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. rekordbox -->
+  <div class="learn-box">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">🗄️</span>
+      <span class="learn-title">rekordbox – Deep Dives &amp; Workflow<span class="learn-sub">DDTJ + Club Ready DJ School · 5 Ressourcen · mix kostenlos/kostenpflichtig</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.clubreadydjschool.com/tribe-talk/dj-gear-and-software/rekordbox-7-the-ultimate-guide-for-djs-in-2025/" target="_blank">rekordbox 7: The Ultimate Guide for DJs 2025</a></strong> – Club Ready DJ School<br>Sehr ausführlicher Blog-Artikel: Export Mode vs Performance Mode, Dual Players, Intelligent Cues, Collection Radar, Streaming Radar, Beatgrids, USB-Workflow. <em>Bester kostenloser RB7-Guide im Netz.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/rekordbox-tips-tricks-how-to-use-preview-waveforms-like-a-pro/" target="_blank">Preview Waveforms wie ein Profi nutzen</a></strong> – Digital DJ Tips<br>Touch Preview im Browser, Wellenform-Sektion manuell vergrössern, ab welcher Stelle ein Track hören ohne zu laden. <em>Einer der nützlichsten kleinen RB-Tricks.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/flexible-elastic-variable-beatgridding/" target="_blank">Elastic Beatgridding: Funk, Disco, Rock, Soul</a></strong> – Digital DJ Tips<br>Wie man Tracks mit schwankendem BPM (Funk, Jazz, alte Vinyl-Rips) korrekt griddet – erklärt für rekordbox, Serato, VDJ und Engine. Schritt-für-Schritt Anleitung.</div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/dj-library-is-a-mess/" target="_blank">Help! My DJ Music Library Is A Mess</a></strong> – Digital DJ Tips<br>Das "Playlist Pyramid"-Konzept: Von allen Tracks der Welt zu dem was du beim Gig spielst. Struktur-Framework das die meisten DJs nie gelernt haben.</div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-paid">KURS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/courses/rekordbox-made-easy/" target="_blank">Rekordbox Made Easy</a></strong> – Digital DJ Tips (kostenpflichtig)<br>~60 Video-Lektionen zu rekordbox: Library, Export, Performance Mode, Cloud, Stems, MIDI-Mapping. Tiefster verfügbarer rekordbox-Kurs. <em>Empfohlen wenn du täglich mit RB arbeitest.</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Mixing & Übergänge -->
+  <div class="learn-box">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">🎚️</span>
+      <span class="learn-title">Mixing, Übergänge &amp; Techniken<span class="learn-sub">DDTJ + Club Ready · 5 Ressourcen · inkl. kostenlose PDFs</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.clubreadydjschool.com/free-videos/" target="_blank">Club Ready Free Mini Course (16 Videos + PDFs)</a></strong><br>Kostenlos: Videos zu Mixing ohne Cues, Filter &amp; Subtle FX, Looping In/Out, Harmonisches Mixen, Rekordbox/Serato erklärt. Plus PDFs: "Mixing Process Checklist", "3 Things Every DJ Must Know", "5 Ways to Fail-Proof Your Shows". <em>Email-Adresse nötig für Zugang.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/how-to-move-past-select-sync-djing/" target="_blank">Move Past "Select-Sync" DJing</a></strong> – Digital DJ Tips<br>Warum reines Sync-DJing langfristig limitiert: emotionale Distanz zur Crowd, fehlende Flexibilität bei Genrewechseln, schlechte Tracks-Auswahl. Konkrete Übungen um manuelles Beatmatching einzubauen.</div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/questions-return-pitch-fader-zero-every-mix/" target="_blank">Pitch Fader nach jedem Mix auf 0 zurück?</a></strong> – Digital DJ Tips<br>Ausführliche Antwort: Wann ja (Open Format, Multi-Genre), wann nein (Techno-Set, BPM-Reise). BPM als Energie-Werkzeug verstehen. <em>Kleine Frage, grosses Konzept dahinter.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://wearecrossfader.co.uk/blog/3-mistakes-to-avoid-on-cdjs-and-club-setups/" target="_blank">3 Mistakes To Avoid On CDJs &amp; Club Setups</a></strong> – We Are Crossfader<br>Quantize-Falle, Beat FX BPM manuell tippen (nicht nur TAP), Phase vs Sync Unterschied. Mit Video. <em>Sehr praxisrelevant wenn du vom Controller auf Club-Gear wechselst.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-paid">KURS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/courses/transitions-toolbox/" target="_blank">Transitions Toolbox</a></strong> – Digital DJ Tips (kostenpflichtig, neu 2025)<br>50+ fertige Übergangs-Rezepte: Wordplays, Toneplays, Live Mashups, Stille als Effekt, Double Drops. "Kochbuch" für Übergänge das du direkt einsetzen kannst. <em>Ideal wenn du technisch gut bist aber kreativer werden willst.</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Key & Harmonic Mixing -->
+  <div class="learn-box">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">🎵</span>
+      <span class="learn-title">Key &amp; Harmonisches Mixen<span class="learn-sub">Digital DJ Tips · 2 Ressourcen · kostenlos</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/dj-software-tips-tricks-how-to-see-key-compatible-tracks-in-rekordbox-5-4/" target="_blank">Key-kompatible Tracks in rekordbox anzeigen</a></strong> – Digital DJ Tips<br>Filter-Button im Browser → grün markierte Tracks = harmonisch kompatibel. Camelot-Notation, Fuzzy Keymixing Grundlagen. <em>Einer der meist-übersehenen Browser-Features in rekordbox.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/rekordbox-dj-tips-tricks-hot-cue-tips-for-beginners/" target="_blank">Hot Cues: Farben &amp; Namen (rekordbox)</a></strong> – Digital DJ Tips<br>Farb-Schemas für konsistente Cue-Codierung, Namen direkt ins Display, Gate Playback vs. normales Verhalten. Video-Tutorial inkl. <em>10 Minuten die deinen Gig-Workflow dauerhaft verbessern.</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Karriere & Gigs -->
+  <div class="learn-box">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">🚪</span>
+      <span class="learn-title">Karriere, Gigs &amp; Selbstvermarktung<span class="learn-sub">Digital DJ Tips · 4 Ressourcen · inkl. gratis PDF mit 50 Ideen</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-pdf">PDF</span>
+        <div><strong><a href="https://www.digitaldjtips.com/grab-your-free-50-ways-to-get-gigs-guide/" target="_blank">"50 Ways To Get Gigs" – Kostenloses PDF</a></strong> – Digital DJ Tips<br>6000+ Downloads in der ersten Woche. 50 konkrete Methoden für Bookings: von lokalen Bars bis Livestreaming, Tribute Nights, Brautmessen, Community Events. <em>Email nötig. Bestes Gratis-Ressource für DJs die Gigs suchen.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/where-to-get-dj-gigs/" target="_blank">Where To Get DJ Gigs (Beyond Clubs)</a></strong> – Digital DJ Tips (aktualisiert 2025)<br>7 ungewöhnliche Wege zu Gigs: Tribute Nights, Sportereignisse, Twitch Livestreaming, Corporate Events, Weinproben, Pop-Up Events, mobile DJing. <em>Für DJs die aus dem Club-Rahmen denken wollen.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/3-steps-to-take-your-djing-from-local-to-global/" target="_blank">3 Steps: From Local to Global</a></strong> – Digital DJ Tips<br>Gigs ausserhalb deiner Stadt, Connections in anderen Szenen, Touring-Realität (billige Hotels, eigenes Geld investieren). Ehrlicher Blick hinter die Kulissen erfolgreicher Touring-DJs.</div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-free">GRATIS</span>
+        <div><strong><a href="https://www.digitaldjtips.com/why-play-tune-up-gigs/" target="_blank">Why DJs Need Tune-Up Gigs</a></strong> – Digital DJ Tips<br>Kleine, ruhige Gigs vor wichtigen Shows absichtlich einplanen. Muscle Memory trainieren, neue Tracks testen, Selbstvertrauen aufbauen. <em>Oft vergessene Profi-Strategie.</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. YouTube Channels -->
+  <div class="learn-box">
+    <button class="learn-hdr" onclick="toggleLearn(this)">
+      <span class="learn-icon">📺</span>
+      <span class="learn-title">YouTube-Kanäle – kuratiert<span class="learn-sub">Für regelmässiges Weiterlernen · alle kostenlos</span></span>
+      <span class="learn-arr">▶</span>
+    </button>
+    <div class="learn-body">
+      <div class="lnk-row">
+        <span class="lnk-badge lb-yt">YT</span>
+        <div><strong><a href="https://www.youtube.com/@DigitalDJTips" target="_blank">Digital DJ Tips</a></strong> – Phil Morse<br>Gear-Reviews, Technik-Tutorials, Live-Q&amp;As, Transitions-Guides. Grösste DJ-Schule weltweit. Wöchentlich neue Videos. <em>Ideal für technisches Lernen und Gear-Wissen.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-yt">YT</span>
+        <div><strong><a href="https://www.youtube.com/@ClubReadyDJSchool" target="_blank">Club Ready DJ School</a></strong> – Andrew Duffield<br>Mixing-Tutorials (EQ-Mixing, Looping, FX, 3-Deck), wöchentliche Übungs-Challenges, Mix-Reviews. Sehr praxisnah und motivierend. <em>Ideal für Mixing-Technik und Gig-Readiness.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-yt">YT</span>
+        <div><strong><a href="https://www.youtube.com/@DJTechTools" target="_blank">DJ TechTools</a></strong> – Dan White<br>Tech-fokussiert: Gear-Reviews, Controller-Vergleiche, Workflow-Hacks. Kritischer und technischer als DDTJ. <em>Für DJs die tiefer in die Technik wollen.</em></div>
+      </div>
+      <div class="lnk-row">
+        <span class="lnk-badge lb-yt">YT</span>
+        <div><strong><a href="https://www.youtube.com/@WeAreCrossfader" target="_blank">We Are Crossfader</a></strong> – London<br>Mixing-Theorie, CDJ-Tipps, Karriere-Guides, Club-Etikette. Sehr UK/Europa-zentriert, sehr ehrlich. <em>Gut für Club-spezifisches Wissen und Karriere-Tipps.</em></div>
+      </div>
+    </div>
+  </div>
+
   <div class="tip"><span class="ti">💡</span><div><strong>Tipp:</strong> Alle Links als Lesezeichen auf dem Homescreen des Handys speichern – so hast du im Gig-Stress sofort Zugriff auf Firmware-Updates, Support und Referenzen.</div></div>
 </section>
 
@@ -1687,7 +2001,7 @@ footer a{color:var(--cy);text-decoration:none}
 
     <div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:8px;padding:16px 20px">
       <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:12px;margin-bottom:10px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--or);font-weight:700">v7 · 2025</span>
+        <span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--or);font-weight:700">v7.1 · 2025</span>
         <span style="background:var(--or);color:#000;font-family:'Share Tech Mono',monospace;font-size:9px;font-weight:700;padding:2px 8px;border-radius:3px;letter-spacing:1px">AKTUELL</span>
       </div>
       <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--tx);line-height:1.7">
@@ -2552,6 +2866,12 @@ calcBPM();
   h += '</div><div style="margin-top:10px;font-family:\'Share Tech Mono\',monospace;font-size:8px;color:var(--mu2);letter-spacing:1px;text-align:center">ENERGIE-LEVEL 1–10 · MINUTEN-PHASEN EINES 2h-SETS</div>';
   arc.innerHTML = h;
 })();
+
+/* ── LEARN BOX TOGGLE ────────────────────────────── */
+function toggleLearn(btn) {
+  var box = btn.parentElement;
+  box.classList.toggle("lb-open");
+}
 
 /* ── SET TIMER ───────────────────────────────────── */
 var timerInterval = null;
