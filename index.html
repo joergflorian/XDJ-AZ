@@ -31,8 +31,11 @@
   --sub-bg: rgba(7,9,13,0.98);
   --shadow: 0 4px 16px rgba(0,0,0,0.4);
   --or-glow: rgba(255,107,0,0.35);
+  --fs: 1;
 }
 /* ── LIGHT MODE ── */
+html.fs-mid{--fs:1.15}
+html.fs-big{--fs:1.3}
 html.light {
   --bg:     #f0f2f7;
   --bg2:    #ffffff;
@@ -83,7 +86,7 @@ header{position:sticky;top:0;z-index:200;background:var(--hdr-bg);-webkit-backdr
 .mob-grp-btn.open .mg-arr{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}
 .mob-sub{display:none;padding:6px 8px 8px}
 .mob-sub.open{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:6px}
-.mob-item{background:var(--bg3);border:1px solid var(--bd);border-radius:6px;padding:11px 16px;cursor:pointer;font-family:"Share Tech Mono",monospace;font-size:11px;color:var(--mu);letter-spacing:.3px;text-transform:uppercase;-webkit-transition:border-color .15s,color .15s;transition:border-color .15s,color .15s;white-space:nowrap}
+.mob-item{background:var(--bg3);border:1px solid var(--bd);border-radius:6px;padding:11px 16px;cursor:pointer;font-family:"Share Tech Mono",monospace;font-size:12px;color:var(--mu);letter-spacing:.3px;text-transform:uppercase;-webkit-transition:border-color .15s,color .15s;transition:border-color .15s,color .15s;white-space:nowrap}
 .mob-item:hover{border-color:var(--cy);color:var(--cy)}
 /* Desktop: show group tabs instead */
 .desk-nav{display:none}
@@ -92,7 +95,7 @@ header{position:sticky;top:0;z-index:200;background:var(--hdr-bg);-webkit-backdr
   .mob-menu{display:none!important}
   .desk-nav{display:-webkit-box;display:-ms-flexbox;display:flex;gap:2px;margin-left:auto}
 }
-.ng{background:none;border:none;color:var(--mu);font-family:'Share Tech Mono','Courier New',monospace;font-size:10px;letter-spacing:1px;padding:5px 10px;border-radius:4px;cursor:pointer;text-transform:uppercase;white-space:nowrap;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:4px;-webkit-transition:color .15s,background .15s;transition:color .15s,background .15s}
+.ng{background:none;border:none;color:var(--mu);font-family:'Share Tech Mono','Courier New',monospace;font-size:11px;letter-spacing:.8px;padding:5px 10px;border-radius:4px;cursor:pointer;text-transform:uppercase;white-space:nowrap;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:4px;-webkit-transition:color .15s,background .15s;transition:color .15s,background .15s}
 .ng:hover,.ng.active{color:var(--or);background:rgba(255,107,0,0.1)}
 .ng.active{border-bottom:2px solid var(--or)}
 .ng-icon{font-size:12px}
@@ -106,7 +109,7 @@ header{position:sticky;top:0;z-index:200;background:var(--hdr-bg);-webkit-backdr
 .hero h1{font-family:'Rajdhani',sans-serif;font-size:52px;font-weight:700;line-height:1;letter-spacing:2px;margin-bottom:10px}
 @media(max-width:560px){.hero h1{font-size:32px}}
 .hero h1 em{font-style:normal;color:var(--or)}
-.hero-sub{color:var(--mu);font-size:13px;max-width:560px}
+.hero-sub{color:var(--mu);font-size:calc(13px * var(--fs));max-width:560px}
 
 /* ── BACK TO TOP ── */
 #btt{position:fixed;bottom:20px;right:20px;z-index:300;width:40px;height:40px;background:var(--or);border:none;border-radius:50%;cursor:pointer;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;font-size:16px;opacity:0;pointer-events:none;-webkit-transition:opacity .25s;transition:opacity .25s;box-shadow:0 4px 16px var(--or-glow)}
@@ -142,7 +145,7 @@ footer a{color:var(--cy);text-decoration:none}
 .sub::before{content:'';width:3px;height:14px;background:var(--or);border-radius:2px;display:inline-block;-ms-flex-negative:0;flex-shrink:0}
 
 /* ── CARDS ── */
-.cards{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:12px}
+.cards{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:12px}.card{min-width:240px;-webkit-box-flex:1;-ms-flex:1 1 240px;flex:1 1 240px;max-width:520px}
 .card{background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:18px 20px;position:relative;overflow:hidden;-webkit-box-flex:1;-ms-flex:1 1 260px;flex:1 1 260px;-webkit-transition:border-color .2s;transition:border-color .2s}
 .card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--or);opacity:0;-webkit-transition:opacity .2s;transition:opacity .2s}
 .card:hover::before{opacity:1}
@@ -154,11 +157,11 @@ footer a{color:var(--cy);text-decoration:none}
 .b-cy{background:rgba(0,212,255,.1);color:var(--cy);border:1px solid rgba(0,212,255,.2)}
 .b-gr{background:rgba(0,232,122,.08);color:var(--gr);border:1px solid rgba(0,232,122,.2)}
 .b-am{background:rgba(255,179,71,.1);color:var(--am);border:1px solid rgba(255,179,71,.2)}
-.c-desc{color:var(--mu);font-size:14px;line-height:1.65}
+.c-desc{color:var(--mu);font-size:calc(14px * var(--fs));line-height:1.65}
 .c-desc strong{color:var(--tx);font-weight:600}
 
 /* ── TIP / PRO BOXES ── */
-.tip,.pro{border-radius:7px;padding:12px 16px;margin:16px 0;display:-webkit-box;display:-ms-flexbox;display:flex;gap:10px;font-size:13px;color:var(--mu);line-height:1.6}
+.tip,.pro{border-radius:7px;padding:12px 16px;margin:16px 0;display:-webkit-box;display:-ms-flexbox;display:flex;gap:10px;font-size:calc(13px * var(--fs));color:var(--mu);line-height:1.6}
 .tip{background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.16)}
 .tip strong{color:var(--cy)}
 .pro{background:rgba(255,107,0,.05);border:1px solid rgba(255,107,0,.16)}
@@ -170,7 +173,7 @@ footer a{color:var(--cy);text-decoration:none}
 .step{display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;background:var(--bg2);border:1px solid var(--bd);border-radius:7px;padding:12px 16px}
 .step-n{width:24px;height:24px;-ms-flex-negative:0;flex-shrink:0;background:var(--or);border-radius:4px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;color:#000}
 .step-t{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;margin-bottom:2px}
-.step-d{color:var(--mu);font-size:12px;line-height:1.5}
+.step-d{color:var(--mu);font-size:calc(12px * var(--fs));line-height:1.5}
 
 /* ── SHORTCUTS ── */
 .sc-wrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:7px}
@@ -183,7 +186,7 @@ footer a{color:var(--cy);text-decoration:none}
 .fx{background:var(--bg2);border:1px solid var(--bd);border-radius:7px;padding:12px 14px;position:relative;-webkit-box-flex:1;-ms-flex:1 1 220px;flex:1 1 220px}
 .fx-tag{position:absolute;top:8px;right:8px;font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:1px;padding:1px 5px;border-radius:2px;background:rgba(255,107,0,.1);color:var(--or);border:1px solid rgba(255,107,0,.2);text-transform:uppercase}
 .fx-n{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;margin-bottom:4px;padding-right:52px}
-.fx-d{color:var(--mu);font-size:12px;line-height:1.5}
+.fx-d{color:var(--mu);font-size:calc(12px * var(--fs));line-height:1.5}
 
 /* ── TECHNIQUE CARDS ── */
 .tc{background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:18px 20px;margin-bottom:12px}
@@ -194,7 +197,7 @@ footer a{color:var(--cy);text-decoration:none}
 .lv-b{background:rgba(0,232,122,.1);color:var(--gr);border:1px solid rgba(0,232,122,.2)}
 .lv-i{background:rgba(0,212,255,.1);color:var(--cy);border:1px solid rgba(0,212,255,.2)}
 .lv-a{background:rgba(255,107,0,.1);color:var(--or);border:1px solid rgba(255,107,0,.2)}
-.tc-body{color:var(--mu);font-size:13px;line-height:1.65}
+.tc-body{color:var(--mu);font-size:calc(13px * var(--fs));line-height:1.65}
 .tc-body strong{color:var(--tx)}
 .ts{margin-top:10px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;gap:4px}
 .tr{display:-webkit-box;display:-ms-flexbox;display:flex;gap:7px;font-size:12px;color:var(--mu)}
@@ -213,7 +216,7 @@ footer a{color:var(--cy);text-decoration:none}
 .cl-item:last-child{border-bottom:none;padding-bottom:0}
 .cl-item input[type=checkbox]{-ms-flex-negative:0;flex-shrink:0;width:16px;height:16px;margin-top:2px;accent-color:var(--or);cursor:pointer}
 .cl-txt{}
-.cl-main{font-size:13px;font-weight:500;-webkit-transition:color .2s;transition:color .2s}
+.cl-main{font-size:calc(13px * var(--fs));font-weight:500;-webkit-transition:color .2s;transition:color .2s}
 .cl-sub{font-size:11px;color:var(--mu);margin-top:1px}
 .cl-item.done .cl-main{color:var(--mu2);text-decoration:line-through}
 .cl-cols{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:0}
@@ -264,7 +267,7 @@ footer a{color:var(--cy);text-decoration:none}
 .cg-tones span:last-child{color:var(--mu);font-size:11px}
 
 /* INSIDER BOX */
-.insider{background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.18);border-radius:7px;padding:12px 16px;margin:16px 0;display:-webkit-box;display:-ms-flexbox;display:flex;gap:10px;font-size:13px;color:var(--mu);line-height:1.6}
+.insider{background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.18);border-radius:7px;padding:12px 16px;margin:16px 0;display:-webkit-box;display:-ms-flexbox;display:flex;gap:10px;font-size:calc(13px * var(--fs));color:var(--mu);line-height:1.6}
 /* ── LEARN BOX (ausklappbar) ─── */
 .learn-box{border:1px solid var(--bd);border-radius:8px;overflow:hidden;margin:8px 0}
 .learn-hdr{width:100%;background:var(--bg2);border:none;color:var(--tx);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:600;text-align:left;-webkit-transition:background .15s;transition:background .15s}
@@ -274,7 +277,7 @@ footer a{color:var(--cy);text-decoration:none}
 .learn-sub{font-size:11px;font-weight:400;color:var(--mu);display:block;margin-top:2px;font-family:'Barlow',sans-serif}
 .learn-arr{margin-left:auto;font-size:9px;color:var(--mu);letter-spacing:1px;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:-webkit-transform .2s;transition:transform .2s;font-family:'Share Tech Mono',monospace}
 .learn-box.lb-open .learn-arr{-webkit-transform:rotate(90deg);transform:rotate(90deg)}
-.learn-body{display:none;padding:16px 18px;background:var(--bg2);border-top:1px solid var(--bd);font-family:'Barlow',sans-serif;font-size:13px;color:var(--tx);line-height:1.7}
+.learn-body{display:none;padding:16px 18px;background:var(--bg2);border-top:1px solid var(--bd);font-family:'Barlow',sans-serif;font-size:calc(13px * var(--fs));color:var(--tx);line-height:1.7}
 .learn-box.lb-open .learn-body{display:block}
 .learn-body ul{margin:8px 0;padding-left:18px}
 .learn-body li{margin:6px 0;color:var(--mu)}
@@ -311,6 +314,15 @@ html.light .hero-tag { color: var(--or); }
 footer{border-top:1px solid var(--bd);padding:18px 16px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--mu);letter-spacing:2px}
 footer span{color:var(--or)}
 footer a{color:var(--cy);text-decoration:none}
+
+/* ── LARGE SCREEN ADAPTATION ─── */
+@media(min-width:1400px){body{font-size:16px}.c-desc{font-size:calc(15px * var(--fs))}.sub{font-size:16px}.step-d,.fx-d,.tr{font-size:calc(13px * var(--fs))}}
+@media(min-width:1800px){body{font-size:17px}.c-desc{font-size:calc(16px * var(--fs))}.sec-ttl{font-size:26px}.sub{font-size:17px}.step-t{font-size:15px}}
+/* ── FONT SCALE BUTTON ─── */
+.fs-btn{background:none;border:1px solid var(--bd);border-radius:4px;color:var(--mu);cursor:pointer;font-family:'Share Tech Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.5px;padding:4px 7px;-webkit-transition:border-color .15s,color .15s;transition:border-color .15s,color .15s;white-space:nowrap}
+.fs-btn:hover{border-color:var(--or);color:var(--tx)}
+.fs-btn.fs-active{border-color:var(--or);color:var(--or)}
+.fs-wrap{display:-webkit-box;display:-ms-flexbox;display:flex;gap:4px;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 </style>
 </head>
 <body>
@@ -319,7 +331,7 @@ footer a{color:var(--cy);text-decoration:none}
 <header>
   <div class="hdr">
     <div class="logo">XDJ<span>-AZ</span> GUIDE</div>
-    <button class="theme-btn" onclick="toggleTheme()" title="Hell/Dunkel wechseln" aria-label="Farbschema wechseln"><span class="tb-icon tb-dark">☀️</span><span class="tb-icon tb-light">🌙</span></button>
+    <div class="fs-wrap"><button class="fs-btn" id="fs-s" onclick="setFS(0)" title="Kleine Schrift">A</button><button class="fs-btn" id="fs-m" onclick="setFS(1)" title="Mittlere Schrift">A+</button><button class="fs-btn" id="fs-l" onclick="setFS(2)" title="Grosse Schrift">A++</button></div><button class="theme-btn" onclick="toggleTheme()" title="Hell/Dunkel wechseln" aria-label="Farbschema wechseln"><span class="tb-icon tb-dark">☀️</span><span class="tb-icon tb-light">🌙</span></button>
     <!-- Mobile: Hamburger -->
     <button class="hmb" id="hmb" onclick="toggleMobMenu()" aria-label="Menü">
       <span></span><span></span><span></span>
@@ -348,13 +360,13 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="mob-menu" id="mob-menu">
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('ei')"><span class="mg-icon">🚀</span>Einstieg<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-ei"><button class="mob-item" onclick="mobNavTo('quickstart')">🚀 Quickstart</button><button class="mob-item" onclick="mobNavTo('setup')">⚙️ Setup</button><button class="mob-item" onclick="mobNavTo('firmware')">⬆️ Firmware</button><button class="mob-item" onclick="mobNavTo('glossar')">📖 Glossar</button></div></div>
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('ge')"><span class="mg-icon">🔧</span>Gerät<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-ge"><button class="mob-item" onclick="mobNavTo('soniclink')">🎧 SonicLink</button><button class="mob-item" onclick="mobNavTo('masterout')">🎚️ Master Out</button><button class="mob-item" onclick="mobNavTo('prodjlink')">🔗 Pro DJ Link</button><button class="mob-item" onclick="mobNavTo('jogwheel')">🎡 Jog Wheel</button><button class="mob-item" onclick="mobNavTo('booth')">🔊 Booth</button><button class="mob-item" onclick="mobNavTo('inputs')">🎙️ Mic & Eingänge</button><button class="mob-item" onclick="mobNavTo('crossfader')">↔️ Crossfader</button><button class="mob-item" onclick="mobNavTo('customlogo')">🖼️ Custom Logo</button><button class="mob-item" onclick="mobNavTo('virtualdj')">🎮 VirtualDJ</button><button class="mob-item" onclick="mobNavTo('cdj3000')">⚖️ vs CDJ-3000</button></div></div>
-    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('qu')"><span class="mg-icon">📡</span>Quellen<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-qu"><button class="mob-item" onclick="mobNavTo('formats')">📁 Dateiformate</button><button class="mob-item" onclick="mobNavTo('connect')">📡 Konnektivität</button><button class="mob-item" onclick="mobNavTo('musikquellen')">🛒 Musik kaufen</button><button class="mob-item" onclick="mobNavTo('promopools')">🎁 Promo-Pools</button><button class="mob-item" onclick="mobNavTo('streaming')">💰 Streaming-Preise</button><button class="mob-item" onclick="mobNavTo('linkexport')">📶 Link Export</button><button class="mob-item" onclick="mobNavTo('iosworkflow')">📱 iOS Workflow</button><button class="mob-item" onclick="mobNavTo('clouddirect')">☁️ CloudDirectPlay</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('qu')"><span class="mg-icon">📡</span>Quellen<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-qu"><button class="mob-item" onclick="mobNavTo('formats')">📁 Dateiformate</button><button class="mob-item" onclick="mobNavTo('connect')">📡 Konnektivität</button><button class="mob-item" onclick="mobNavTo('musikquellen')">🛒 Musik kaufen</button><button class="mob-item" onclick="mobNavTo('promopools')">🎁 Promo-Pools</button><button class="mob-item" onclick="mobNavTo('streaming')">💰 Streaming</button><button class="mob-item" onclick="mobNavTo('linkexport')">📶 Link Export</button><button class="mob-item" onclick="mobNavTo('iosworkflow')">📱 iOS Workflow</button><button class="mob-item" onclick="mobNavTo('clouddirect')">☁️ CloudDirectPlay</button></div></div>
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('li')"><span class="mg-icon">📚</span>Library<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-li"><button class="mob-item" onclick="mobNavTo('library')">📚 Library</button><button class="mob-item" onclick="mobNavTo('rbpro')">🗄️ rekordbox Pro</button><button class="mob-item" onclick="mobNavTo('rbworkflow')">⌨️ RB Workflow</button><button class="mob-item" onclick="mobNavTo('rb7')">✨ rekordbox 7</button></div></div>
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('sp')"><span class="mg-icon">🎹</span>Spielen<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-sp"><button class="mob-item" onclick="mobNavTo('hotcues')">🔴 Hot Cues</button><button class="mob-item" onclick="mobNavTo('looping')">🔁 Looping</button><button class="mob-item" onclick="mobNavTo('fx')">🎚️ FX</button><button class="mob-item" onclick="mobNavTo('mixing')">🎛️ Mixing</button><button class="mob-item" onclick="mobNavTo('hiddentips')">🔮 Versteckte Funktionen</button><button class="mob-item" onclick="mobNavTo('stems')">🎚️ Stems</button></div></div>
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('th')"><span class="mg-icon">🎼</span>Theorie<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-th"><button class="mob-item" onclick="mobNavTo('bpm')">📊 BPM Guide</button><button class="mob-item" onclick="mobNavTo('bpmcalc')">🔢 BPM-Rechner</button><button class="mob-item" onclick="mobNavTo('genrematrix')">🎨 Genre-Matrix</button><button class="mob-item" onclick="mobNavTo('key')">🎵 Key & Harmonics</button><button class="mob-item" onclick="mobNavTo('camelot')">🎡 Camelot Wheel</button></div></div>
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('pe')"><span class="mg-icon">🎭</span>Performance<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-pe"><button class="mob-item" onclick="mobNavTo('sound')">🔉 Sound & Gain</button><button class="mob-item" onclick="mobNavTo('setarc')">📈 2h-Set Arc</button><button class="mob-item" onclick="mobNavTo('performance')">🎭 Performance</button><button class="mob-item" onclick="mobNavTo('settimer')">⏱️ Set-Timer</button><button class="mob-item" onclick="mobNavTo('protips')">💎 Pro-Tipps</button></div></div>
     <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('gi')"><span class="mg-icon">🎪</span>Gig<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-gi"><button class="mob-item" onclick="mobNavTo('pregig')">✅ Pre-Gig</button><button class="mob-item" onclick="mobNavTo('soundcheck')">🔊 Soundcheck</button><button class="mob-item" onclick="mobNavTo('gigbag')">🎒 Gig-Bag</button><button class="mob-item" onclick="mobNavTo('trouble')">🔧 Troubleshooting</button></div></div>
-    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('ka')"><span class="mg-icon">🌟</span>Karriere<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-ka"><button class="mob-item" onclick="mobNavTo('socialmedia')">📱 Social Media</button><button class="mob-item" onclick="mobNavTo('mixcloud')">🎵 Mixcloud</button><button class="mob-item" onclick="mobNavTo('erstegigs')">🚪 Erste Gigs</button><button class="mob-item" onclick="mobNavTo('epk')">📋 Press Kit</button></div></div>
+    <div class="mob-group"><button class="mob-grp-btn" onclick="toggleMobGroup('ka')"><span class="mg-icon">🌟</span>Karriere<span class="mg-arr">▼</span></button><div class="mob-sub" id="mob-ka"><button class="mob-item" onclick="mobNavTo('socialmedia')">📱 Social Media</button><button class="mob-item" onclick="mobNavTo('mixcloud')">🎵 Mixcloud</button><button class="mob-item" onclick="mobNavTo('erstegigs')">🚪 Erste Gigs</button><button class="mob-item" onclick="mobNavTo('epk')">📋 Press Kit</button><button class="mob-item" onclick="mobNavTo('livestream')">🎥 Livestreaming</button><button class="mob-item" onclick="mobNavTo('djrecht')">⚖️ DJ-Recht</button><button class="mob-item" onclick="mobNavTo('djethik')">🤝 Club-Etikette</button></div></div>
     <div class="mob-group"><button class="mob-grp-btn" onclick="mobNavTo('links')"><span class="mg-icon">🔗</span>Nützliche Links<span class="mg-arr" style="visibility:hidden">▼</span></button></div>
   </div>
 
@@ -367,16 +379,15 @@ footer a{color:var(--cy);text-decoration:none}
   <p class="hero-sub">Funktionen, Einstellungen, Techniken und Checklisten für deinen Gig-Workflow.</p>
 </div>
 
+
 <div class="wrap">
 
 
 <!-- ═══ GRUPPE 1: EINSTIEG ══════════════════════════════ -->
-<!-- ═══ GRUPPE 1: EINSTIEG ═══════════════════════════════════════ -->
-<!-- ██ 02 QUICKSTART ████████████████████████ -->
 <section class="sec" id="quickstart">
   <div class="sec-hdr">
     <div class="sec-ico">🚀</div>
-    <div><div class="sec-num">01 / EINSTIEG</div><div class="sec-ttl">Vom <em>Auspacken zum ersten Mix</em></div></div>
+    <div><div class="sec-num">01 / </div><div class="sec-ttl">Vom <em>Auspacken zum ersten Mix</em></div></div>
   </div>
   <div class="steps">
     <div class="step"><div class="step-n">1</div><div><div class="step-t">rekordbox installieren &amp; Account erstellen</div><div class="step-d">rekordbox.com → kostenlos herunterladen. Account anlegen (für Cloud-Sync und MySettings nötig). Pioneer DJ-Account funktioniert auch.</div></div></div>
@@ -402,10 +413,11 @@ footer a{color:var(--cy);text-decoration:none}
     </div>
   </div>
 </section>
+
 <section class="sec" id="setup">
   <div class="sec-hdr">
     <div class="sec-ico">⚙️</div>
-    <div><div class="sec-num">02 / SETUP</div><div class="sec-ttl">Setup &amp; <em>Systemkonfiguration</em></div></div>
+    <div><div class="sec-num">02 / </div><div class="sec-ttl">Setup &amp; <em>Systemkonfiguration</em></div></div>
   </div>
   <div class="sub">MySettings – Dein persönliches Profil</div>
   <div class="cards">
@@ -432,11 +444,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Profi-Workflow:</strong> MySettings mit Tempo ±10%, Quantize 1 Beat, CDJ Mode, Key Display Camelot, Master Tempo AN, Auto-Standby OFF exportieren. Auf jedem CDJ/XDJ weltweit in 10 Sekunden ready.</div></div>
 </section>
 
-<!-- ██ 18 FIRMWARE ████████████████████████████ -->
 <section class="sec" id="firmware">
   <div class="sec-hdr">
     <div class="sec-ico">⬆️</div>
-    <div><div class="sec-num">03 / FIRMWARE</div><div class="sec-ttl">Updates &amp; <em>neue Features</em></div></div>
+    <div><div class="sec-num">03 / </div><div class="sec-ttl">Updates &amp; <em>neue Features</em></div></div>
   </div>
   <div class="tip"><span class="ti">💡</span><div><strong>Immer aktuell halten:</strong> Firmware-Updates bringen neue Features (Apple Music, Serato-Support), Bugfixes und Performance-Verbesserungen. Ohne Update kein Streaming, kein Serato.</div></div>
   <div class="cards">
@@ -450,11 +461,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="pro"><span class="ti">🔥</span><div><strong>Regel:</strong> Nie direkt vor einem wichtigen Gig updaten – immer 1–2 Tage vorher testen ob alles noch funktioniert. Updates können selten neue Bugs einführen.</div></div>
 </section>
 
-<!-- ██ NEU: DJ GLOSSAR ██████████████████████████ -->
 <section class="sec" id="glossar">
   <div class="sec-hdr">
     <div class="sec-ico">📖</div>
-    <div><div class="sec-num">04 / GLOSSAR</div><div class="sec-ttl">DJ <em>Glossar</em></div></div>
+    <div><div class="sec-num">04 / </div><div class="sec-ttl">DJ <em>Glossar</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:4px;">Die wichtigsten Begriffe aus der DJ-Welt – kompakt erklärt.</p>
   <div style="margin-bottom:16px">
@@ -467,12 +477,10 @@ footer a{color:var(--cy);text-decoration:none}
 
 
 <!-- ═══ GRUPPE 2: GERÄT & HARDWARE ══════════════════════ -->
-<!-- ═══ GRUPPE 2: GERÄT & HARDWARE ═══════════════════════════════ -->
-<!-- ██ 19 SONICLINK ████████████████████████████ -->
 <section class="sec" id="soniclink">
   <div class="sec-hdr">
     <div class="sec-ico">🎧</div>
-    <div><div class="sec-num">05 / GERÄT</div><div class="sec-ttl">Kabellose <em>Kopfhörer-Verbindung</em></div></div>
+    <div><div class="sec-num">05 / </div><div class="sec-ttl">Kabellose <em>Kopfhörer-Verbindung</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Was ist SonicLink?</div><span class="badge b-cy">TECHNOLOGIE</span></div><div class="c-desc">AlphaThetas proprietäre Ultra-Low-Latency Wireless-Technologie. <strong>20× schneller als Bluetooth SBC-Codec</strong> – kein wahrnehmbarer Delay zwischen Knopfdruck/Scratch und Ton im Kopfhörer. Für DJs der einzige akzeptable kabellose Standard.</div></div>
@@ -483,11 +491,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Workaround ohne HDJ-F10:</strong> Normalen 3.5mm oder 6.3mm Kopfhörer per Kabel anschließen funktioniert selbstverständlich weiterhin. SonicLink ist ein optionales Premium-Feature, kein Muss.</div></div>
 </section>
 
-<!-- ██ 20 MASTER OUT EQ █████████████████████████ -->
 <section class="sec" id="masterout">
   <div class="sec-hdr">
     <div class="sec-ico">🎚️</div>
-    <div><div class="sec-num">06 / GERÄT</div><div class="sec-ttl">Master-Ausgang <em>EQ &amp; Isolator</em></div></div>
+    <div><div class="sec-num">06 / </div><div class="sec-ttl">Master-Ausgang <em>EQ &amp; Isolator</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Eine der unterschätztesten Funktionen des XDJ-AZ – direkt aus dem DJ TechTools Forum als "nicest feature" bezeichnet.</p>
   <div class="cards">
@@ -499,11 +506,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="pro"><span class="ti">🔥</span><div><strong>Insider-Tipp:</strong> Master Out EQ neutral lassen (12 Uhr) und nur für gezielte Eingriffe nutzen. Wer ihn permanent verbogen hat, verliert den Überblick über den wahren Klang seines Mixes.</div></div>
 </section>
 
-<!-- ██ 21 PRO DJ LINK ██████████████████████████ -->
 <section class="sec" id="prodjlink">
   <div class="sec-hdr">
     <div class="sec-ico">🔗</div>
-    <div><div class="sec-num">07 / GERÄT</div><div class="sec-ttl">CDJ-Integration &amp; <em>4-Deck Club-Setup</em></div></div>
+    <div><div class="sec-num">07 / </div><div class="sec-ttl">CDJ-Integration &amp; <em>4-Deck Club-Setup</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">CDJs per Pro DJ Link einbinden</div><span class="badge b-rd">SETUP</span></div><div class="c-desc">Bis zu <strong>2 CDJ-3000 per Ethernet</strong> an den XDJ-AZ anschließen → vollständiges 4-Deck Club-Setup. Beat- und On-Air-Informationen synchronisieren sich automatisch über alle Player. Braucht externen Ethernet-Hub (ca. 20 CHF).</div></div>
@@ -516,11 +522,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Club-Simulation zuhause:</strong> XDJ-AZ + 2 CDJ-3000 = exakt dasselbe wie ein Club-Setup mit 4 Decks. Muscle Memory trainieren ohne in den Club gehen zu müssen – der günstigste Weg zur Club-Erfahrung.</div></div>
 </section>
 
-<!-- ██ NEU: JOG WHEEL ██████████████████████████ -->
 <section class="sec" id="jogwheel">
   <div class="sec-hdr">
     <div class="sec-ico">🎡</div>
-    <div><div class="sec-num">08 / GERÄT</div><div class="sec-ttl">Jog Wheel <em>einstellen &amp; verstehen</em></div></div>
+    <div><div class="sec-num">08 / </div><div class="sec-ttl">Jog Wheel <em>einstellen &amp; verstehen</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Das Jog Wheel ist das Herzstück des XDJ-AZ. Richtig eingestellt macht es den Unterschied zwischen frustrierend und natürlich.</p>
   <div class="sub">Vinyl Mode vs. CDJ Mode</div>
@@ -541,11 +546,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Needle Search:</strong> Die Wellenform oben im Display ist auch ein Touchscreen – antippen springt zu dieser Stelle. Nützlich zum schnellen Navigieren in langen Tracks. Im UTILITY-Menü ein-/ausschaltbar.</div></div>
 </section>
 
-<!-- ██ NEU: BOOTH & MONITORING ████████████████████ -->
 <section class="sec" id="booth">
   <div class="sec-hdr">
     <div class="sec-ico">🔊</div>
-    <div><div class="sec-num">09 / GERÄT</div><div class="sec-ttl">Booth Output <em>&amp; Kopfhörer-Monitoring</em></div></div>
+    <div><div class="sec-num">09 / </div><div class="sec-ttl">Booth Output <em>&amp; Kopfhörer-Monitoring</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Was du im Ohr hast bestimmt wie gut du mixst. Die Monitoring-Optionen richtig einstellen ist entscheidend.</p>
   <div class="sub">Booth Output</div>
@@ -564,11 +568,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="pro"><span class="ti">🔥</span><div><strong>Goldene Regel:</strong> Kopfhörer-Pegel so leise wie möglich halten um die Tracks noch sicher zu hören. Zu lautes Monitoring führt zu Gehörermüdung – nach 2 Stunden hörst du Frequenzen nicht mehr richtig. Gig ruiniert.</div></div>
 </section>
 
-<!-- ██ NEU: INPUTS ████████████████████████████████ -->
 <section class="sec" id="inputs">
   <div class="sec-hdr">
     <div class="sec-ico">🎙️</div>
-    <div><div class="sec-num">10 / GERÄT</div><div class="sec-ttl">Eingänge <em>Mic, Phono &amp; Line</em></div></div>
+    <div><div class="sec-num">10 / </div><div class="sec-ttl">Eingänge <em>Mic, Phono &amp; Line</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Der XDJ-AZ hat mehr Eingänge als die meisten ahnen – Mikrofon, Turntables und externe Geräte lassen sich direkt anschliessen.</p>
   <div class="sub">Mikrofon-Eingang</div>
@@ -587,11 +590,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Kein Phantom Power:</strong> Der XDJ-AZ liefert kein +48V Phantom Power. Kondensator-Mics funktionieren nicht direkt. Für Kondensator-Mics ein externes Interface oder Mischpult mit Phantom Power dazwischenschalten.</div></div>
 </section>
 
-<!-- ██ NEU: CROSSFADER ███████████████████████████ -->
 <section class="sec" id="crossfader">
   <div class="sec-hdr">
     <div class="sec-ico">↔️</div>
-    <div><div class="sec-num">11 / GERÄT</div><div class="sec-ttl">Crossfader <em>Kurve &amp; Assign</em></div></div>
+    <div><div class="sec-num">11 / </div><div class="sec-ttl">Crossfader <em>Kurve &amp; Assign</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Der Crossfader ist für Mix-DJs oft irrelevant – für Scratch-DJs und bestimmte Techniken aber unverzichtbar. Richtig eingestellt macht er den Unterschied.</p>
   <div class="sub">Crossfader-Kurve</div>
@@ -609,11 +611,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Für 99% der Mix-DJs:</strong> Alle Kanäle auf Thru, Crossfader in Mitte lassen und nie anfassen. Nur Kanal-Fader und EQs nutzen. Der Crossfader ist dann eine reine Scratch/Scratch-DJ-Funktion.</div></div>
 </section>
 
-<!-- ██ NEU: CUSTOM LOGO ██████████████████████████ -->
 <section class="sec" id="customlogo">
   <div class="sec-hdr">
     <div class="sec-ico">🖼️</div>
-    <div><div class="sec-num">12 / GERÄT</div><div class="sec-ttl">Custom Logo <em>auf dem Deck-Display</em></div></div>
+    <div><div class="sec-num">12 / </div><div class="sec-ttl">Custom Logo <em>auf dem Deck-Display</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Eigenes Logo oder Bild auf dem Jog-Display anzeigen – persönliche Note für Fotos und Videos im Gig.</p>
   <div class="cards">
@@ -625,11 +626,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Content-Tipp:</strong> Custom Logo + gute Kameraposition = professionelles Foto/Video aus deinem Set. Das rotierende Display mit deinem Logo ist ein sofortiger Eyecatcher für Social Media. Viele DJs machen das Setup nur für Fotos.</div></div>
 </section>
 
-<!-- ██ NEU: VIRTUALDJ ██████████████████████████ -->
 <section class="sec" id="virtualdj">
   <div class="sec-hdr">
     <div class="sec-ico">🎮</div>
-    <div><div class="sec-num">13 / GERÄT</div><div class="sec-ttl">VirtualDJ <em>am XDJ-AZ</em></div></div>
+    <div><div class="sec-num">13 / </div><div class="sec-ttl">VirtualDJ <em>am XDJ-AZ</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Die dritte Software-Option – oft übersehen, aber mit einzigartigen Features die Serato und rekordbox nicht bieten.</p>
   <div class="cards">
@@ -643,11 +643,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>VDJ vs. Serato vs. rekordbox:</strong> VirtualDJ = beste Stems + Video-DJing + mehr Features. Serato = beste Scratch-Unterstützung + bekannte Performance-Pads. rekordbox = beste Club-Vorbereitung + USB-Export. Kein "bestes" – kommt auf deinen Stil an.</div></div>
 </section>
 
-<!-- ██ CDJ3000 ███████████████████████████████ -->
 <section class="sec" id="cdj3000">
   <div class="sec-hdr">
     <div class="sec-ico">⚖️</div>
-    <div><div class="sec-num">14 / GERÄT</div><div class="sec-ttl">XDJ-AZ <em>vs CDJ-3000</em></div></div>
+    <div><div class="sec-num">14 / </div><div class="sec-ttl">XDJ-AZ <em>vs CDJ-3000</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Die häufigste Frage: Lohnt sich das Upgrade auf CDJ-3000 + DJM-A9?</p>
   <div style="overflow-x:auto;margin-top:8px">
@@ -668,11 +667,10 @@ footer a{color:var(--cy);text-decoration:none}
 
 
 <!-- ═══ GRUPPE 3: QUELLEN & STREAMING ═══════════════════ -->
-<!-- ██ 22 DATEIFORMATE ██████████████████████████ -->
 <section class="sec" id="formats">
   <div class="sec-hdr">
     <div class="sec-ico">📁</div>
-    <div><div class="sec-num">15 / QUELLEN</div><div class="sec-ttl">Kompatible Formate <em>&amp; Qualitätstipps</em></div></div>
+    <div><div class="sec-num">15 / </div><div class="sec-ttl">Kompatible Formate <em>&amp; Qualitätstipps</em></div></div>
   </div>
   <div class="sub">Unterstützte Audio-Formate</div>
   <div class="sc-wrap">
@@ -700,12 +698,10 @@ footer a{color:var(--cy);text-decoration:none}
   </div>
 </section>
 
-<!-- ═══ GRUPPE 3: MUSIK-QUELLEN ══════════════════════════════════ -->
-<!-- ██ 07 KONNEKTIVITÄT ████████████████████ -->
 <section class="sec" id="connect">
   <div class="sec-hdr">
     <div class="sec-ico">📡</div>
-    <div><div class="sec-num">16 / QUELLEN</div><div class="sec-ttl">WLAN, Streaming <em>&amp; externe Geräte</em></div></div>
+    <div><div class="sec-num">16 / </div><div class="sec-ttl">WLAN, Streaming <em>&amp; externe Geräte</em></div></div>
   </div>
   <div class="sub">Wi-Fi &amp; Streaming</div>
   <div class="cards">
@@ -723,11 +719,10 @@ footer a{color:var(--cy);text-decoration:none}
   </div>
 </section>
 
-<!-- ██ NEU: MUSIK KAUFEN ████████████████████████ -->
 <section class="sec" id="musikquellen">
   <div class="sec-hdr">
     <div class="sec-ico">🛒</div>
-    <div><div class="sec-num">17 / QUELLEN</div><div class="sec-ttl">Musik kaufen <em>2025 – Quellen &amp; Workflow</em></div></div>
+    <div><div class="sec-num">17 / </div><div class="sec-ttl">Musik kaufen <em>2025 – Quellen &amp; Workflow</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Wo kaufst du deine Tracks? Nicht alle Quellen sind gleich gut für den DJ-Workflow. Hier der ehrliche Vergleich.</p>
   <div class="sub">Die wichtigsten DJ-Musikquellen</div>
@@ -748,11 +743,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Discovery-Workflow:</strong> 1. SoundCloud Reposts durchschauen → Tracks merken. 2. RA (residentadvisor.net) Charts für dein Genre anschauen. 3. Auf Beatport/Bandcamp kaufen. 4. In rekordbox importieren &amp; analysieren. 5. Cues setzen, USB exportieren.</div></div>
 </section>
 
-<!-- ██ NEU: PROMO POOLS ██████████████████████████ -->
 <section class="sec" id="promopools">
   <div class="sec-hdr">
     <div class="sec-ico">🎁</div>
-    <div><div class="sec-num">18 / QUELLEN</div><div class="sec-ttl">Promo-Pools <em>&amp; Musik-Abos für DJs</em></div></div>
+    <div><div class="sec-num">18 / </div><div class="sec-ttl">Promo-Pools <em>&amp; Musik-Abos für DJs</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Promo-Pools liefern monatlich neue Tracks direkt von Labels – für aktive DJs oft günstiger als Einzelkauf.</p>
   <div class="cards">
@@ -769,7 +763,7 @@ footer a{color:var(--cy);text-decoration:none}
 <section class="sec" id="streaming">
   <div class="sec-hdr">
     <div class="sec-ico">💰</div>
-    <div><div class="sec-num">19 / QUELLEN</div><div class="sec-ttl">Streaming <em>Preisvergleich 2025</em></div></div>
+    <div><div class="sec-num">19 / </div><div class="sec-ttl">Streaming <em>Preisvergleich 2025</em></div></div>
   </div>
   <div class="sub">Was kostet was – und was läuft standalone am XDJ-AZ?</div>
   <div class="cards">
@@ -785,11 +779,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">🆕</span><div><strong>Neu seit September 2025 – Spotify in rekordbox &amp; Serato:</strong> Spotify ist jetzt in rekordbox, Serato DJ Pro und Algoriddim djay integriert. <strong>Am XDJ-AZ standalone:</strong> Spotify-Standalone-Unterstützung noch nicht bestätigt – aktuell nur via Laptop/Controller-Modus nutzbar. Auf Firmware-Updates achten.</div></div>
 </section>
 
-<!-- ██ NEU: LINK EXPORT MODE ████████████████████ -->
 <section class="sec" id="linkexport">
   <div class="sec-hdr">
     <div class="sec-ico">📶</div>
-    <div><div class="sec-num">20 / QUELLEN</div><div class="sec-ttl">Link Export Mode <em>WLAN ohne USB</em></div></div>
+    <div><div class="sec-num">20 / </div><div class="sec-ttl">Link Export Mode <em>WLAN ohne USB</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Library direkt vom Laptop per WLAN auf den XDJ-AZ streamen – kein USB-Export nötig. Perfekt für schnelle Sessions und letzte-Minute-Ergänzungen.</p>
   <div class="cards">
@@ -810,11 +803,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Nicht für Gigs:</strong> Link Export ist von der Laptop-Performance und Netzwerk-Stabilität abhängig. Für echte Gigs immer auf USB-Export setzen. Link Export = Heimworkflow-Tool, kein Gig-Tool.</div></div>
 </section>
 
-<!-- ██ IOS WORKFLOW ██████████████████████████ -->
 <section class="sec" id="iosworkflow">
   <div class="sec-hdr">
     <div class="sec-ico">📱</div>
-    <div><div class="sec-num">21 / QUELLEN</div><div class="sec-ttl">rekordbox iOS <em>Unterwegs vorbereiten</em></div></div>
+    <div><div class="sec-num">21 / </div><div class="sec-ttl">rekordbox iOS <em>Unterwegs vorbereiten</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Hot Cues im Zug setzen, Playlist im Bett aufbauen – am XDJ-AZ sofort synchronisiert.</p>
   <div class="steps">
@@ -828,11 +820,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Praxis-Tipp:</strong> App im Schlafmodus oder Zug nutzen – Cues können auch ohne Internetverbindung gesetzt werden und synchronisieren sich beim nächsten WLAN-Kontakt. Offline-fähig.</div></div>
 </section>
 
-<!-- ██ CLOUDDIRECT ██████████████████████████ -->
 <section class="sec" id="clouddirect">
   <div class="sec-hdr">
     <div class="sec-ico">☁️</div>
-    <div><div class="sec-num">22 / QUELLEN</div><div class="sec-ttl">CloudDirectPlay <em>Setup &amp; Workflow</em></div></div>
+    <div><div class="sec-num">22 / </div><div class="sec-ttl">CloudDirectPlay <em>Setup &amp; Workflow</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Deine komplette rekordbox-Library direkt am XDJ-AZ – ohne USB-Stick.</p>
   <div class="cards">
@@ -853,11 +844,10 @@ footer a{color:var(--cy);text-decoration:none}
 
 
 <!-- ═══ GRUPPE 4: LIBRARY & VORBEREITUNG ════════════════ -->
-<!-- ██ 08 LIBRARY ████████████████████████████ -->
 <section class="sec" id="library">
   <div class="sec-hdr">
     <div class="sec-ico">📚</div>
-    <div><div class="sec-num">23 / LIBRARY</div><div class="sec-ttl">Track-Verwaltung <em>&amp; Browser-Workflow</em></div></div>
+    <div><div class="sec-num">23 / </div><div class="sec-ttl">Track-Verwaltung <em>&amp; Browser-Workflow</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Playlist-Struktur für den Gig</div><span class="badge b-or">WORKFLOW</span></div><div class="c-desc">Playlists nach <strong>Energy-Level (1–10)</strong>, BPM-Range (120–124, 124–128) und Key anlegen. Keine alphabetischen Listen – die bringen im Dunkeln nichts. Eine "Preparation"-Playlist für jeden Gig.</div></div>
@@ -882,9 +872,8 @@ footer a{color:var(--cy);text-decoration:none}
   </div>
 </section>
 
-<!-- ██ NEU: REKORDBOX PRO ████████████████████ -->
 <section class="sec" id="rbpro">
-  <div class="sec-hdr"><div class="sec-ico">🗄️</div><div><div class="sec-num">24 / LIBRARY</div><div class="sec-ttl">Library <em>wie ein Profi verwalten</em></div></div></div>
+  <div class="sec-hdr"><div class="sec-ico">🗄️</div><div><div class="sec-num">24 / </div><div class="sec-ttl">Library <em>wie ein Profi verwalten</em></div></div></div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Smart Playlists</div><span class="badge b-pu">PROFI</span></div><div class="c-desc">rekordbox → Smart Playlist → Regeln: BPM 126–130, Key 8A/8B, MyTag "Peak", Rating ≥ 4. <strong>Aktualisiert sich automatisch</strong> bei neuen Tracks. Kein manuelles Sortieren mehr.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">My Tag System</div><span class="badge b-pu">INSIDER</span></div><div class="c-desc">Eigene Tags erstellen: <strong>"Opener", "Peak", "Closing", "Vocal Tool", "Instrumental", "Festival only", "Request ok"</strong>. Im Browser als Filter nutzbar – am XDJ-AZ direkt abrufbar.</div></div>
@@ -898,11 +887,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="insider"><span class="ti">🎓</span><div><strong>Berklee Online DJ-Kurs:</strong> "Deine Library ist dein Instrument. Wer sein Instrument nicht kennt, kann nicht improvisieren. 1 Stunde Library-Pflege pro Woche = 10× bessere Gig-Performance."</div></div>
 </section>
 
-<!-- ██ NEU: RB WORKFLOW ████████████████████████ -->
 <section class="sec" id="rbworkflow">
   <div class="sec-hdr">
     <div class="sec-ico">⌨️</div>
-    <div><div class="sec-num">25 / LIBRARY</div><div class="sec-ttl">rekordbox <em>Workflow-Tricks</em></div></div>
+    <div><div class="sec-num">25 / </div><div class="sec-ttl">rekordbox <em>Workflow-Tricks</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Shortcuts, Pad-Remapping und Pro-Tricks die stundenlange Vorbereitung auf Minuten reduzieren.</p>
 
@@ -955,10 +943,11 @@ footer a{color:var(--cy);text-decoration:none}
     </div>
   </div>
 </section>
+
 <section class="sec" id="rb7">
   <div class="sec-hdr">
     <div class="sec-ico">✨</div>
-    <div><div class="sec-num">26 / LIBRARY</div><div class="sec-ttl">rekordbox 7 <em>Neuheiten</em></div></div>
+    <div><div class="sec-num">26 / </div><div class="sec-ttl">rekordbox 7 <em>Neuheiten</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">rekordbox 7 brachte echte Gamechanger für die Library-Vorbereitung. Diese Features kennen die wenigsten.</p>
 
@@ -990,12 +979,10 @@ footer a{color:var(--cy);text-decoration:none}
 
 
 <!-- ═══ GRUPPE 5: SPIELEN & TECHNIKEN ═══════════════════ -->
-<!-- ═══ GRUPPE 4: SPIELEN ════════════════════════════════════════ -->
-<!-- ██ 03 HOT CUES ██████████████████████████ -->
 <section class="sec" id="hotcues">
   <div class="sec-hdr">
     <div class="sec-ico">🔴</div>
-    <div><div class="sec-num">27 / SPIELEN</div><div class="sec-ttl">Hot Cues <em>meistern</em></div></div>
+    <div><div class="sec-num">27 / </div><div class="sec-ttl">Hot Cues <em>meistern</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Hot Cue setzen</div><span class="badge b-rd">BASICS</span></div><div class="c-desc"><strong>HOT CUE-Mode</strong> aktivieren → Pad drücken. Cue wird sofort gesetzt. Mit Quantize rastet er auf die nächste Zählzeit. In rekordbox vorbereitete Cues erscheinen farbig auf den Pads.</div></div>
@@ -1014,13 +1001,21 @@ footer a{color:var(--cy);text-decoration:none}
     <div class="step"><div class="step-n">5</div><div><div class="step-t">Auf USB exportieren</div><div class="step-d">Alle Cues, Loops und Analysen werden mit dem Track auf den USB-Stick übertragen.</div></div></div>
   </div>
   <div class="pro"><span class="ti">🔥</span><div><strong>Pro-Tipp:</strong> Nie mehr als 5 aktive Cues pro Track. Jeder Cue braucht einen klaren Zweck. Qualität über Quantität.</div></div>
-</section>
+
+  <div class="sub">Strategisches 8-Cue-System</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Empfohlene Cue-Belegung</div><span class="badge b-or">SYSTEM</span></div><div class="c-desc"><strong>A (rot)</strong> = Erster Beat (Startpunkt, Back Cue). <strong>B (orange)</strong> = Breakdown-Beginn. <strong>C (gelb)</strong> = Buildup-Start. <strong>D (grün)</strong> = Drop. <strong>E (cyan)</strong> = Einmisch-Punkt (16 Bars vor Drop). <strong>F (blau)</strong> = Outro-Start (Ausmisch-Punkt). G/H = Track-spezifisch. Konsequent über alle Tracks → Muskelerinnerung.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Hot Cue Juggling</div><span class="badge b-pu">TECHNIK</span></div><div class="c-desc">Zwischen zwei Cue-Punkten wechseln im Rhythmus → erzeugt neue rhythmische Patterns aus dem Track. Basis: A auf Beat 1, B auf Beat 3 → abwechselnd drücken = Stutter-Groove. Mit Quantize ON ist Timing einfacher. Auf 4/8-Beat-Auflösung üben.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Marker-Cue (nie drücken)</div><span class="badge b-am">TRICK</span></div><div class="c-desc">Cue als visuellen <strong>Orientierungsmarker</strong> setzen den du nie drückst — nur um auf der Wellenform zu sehen "ab hier sicheres Outro" oder "hier Vocal Stab". Erscheint als farbiger Punkt auf dem Waveform-Display. Freier Cue-Slot nutzen.</div></div>
+  </div>
 
 <!-- ██ 04 LOOPING ███████████████████████████ -->
+</section>
+
 <section class="sec" id="looping">
   <div class="sec-hdr">
     <div class="sec-ico">🔁</div>
-    <div><div class="sec-num">28 / SPIELEN</div><div class="sec-ttl">Loops &amp; <em>Beat Jumps</em></div></div>
+    <div><div class="sec-num">28 / </div><div class="sec-ttl">Loops &amp; <em>Beat Jumps</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Auto Loop</div><span class="badge b-rd">BASICS</span></div><div class="c-desc">LOOP-Button → Loop der definierten Länge startet sofort. <strong>½ / ×2</strong> zum Halbieren/Verdoppeln. Mit Quantize exakt auf nächsten Beat.</div></div>
@@ -1045,13 +1040,21 @@ footer a{color:var(--cy);text-decoration:none}
     <div class="sc"><span class="sc-k">32 Beats</span><span class="sc-d">Lange Phrase, breite Übergänge</span></div>
   </div>
   <div class="tip"><span class="ti">💡</span><div><strong>Loop Exit-Trick:</strong> Wenn nach dem Loop-Ausstieg die Phrase falsch sitzt → sofort BEAT JUMP nutzen. Klingt professioneller als manuelles Jog-Wheel-Suchen.</div></div>
+
+  <div class="sub">Fortgeschrittene Loop-Techniken</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Loop als Übergangs-Sicherheitsnetz</div><span class="badge b-rd">ESSENTIELL</span></div><div class="c-desc">Übergang klingt gerade schief? <strong>Sofort 4- oder 8-Beat Loop setzen</strong> auf dem ausgehenden Track. Gibt dir 8–32 Sekunden um die Situation zu retten ohne dass die Crowd es merkt. Das Loop-Sicherheitsnetz ist die wichtigste Notfall-Technik für jeden DJ.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Odd Loops (3/6-Beat, Polyrhythmus)</div><span class="badge b-pu">KREATIV</span></div><div class="c-desc"><strong>3-Beat oder 6-Beat Loops</strong> im erweiterten Beat-Loop-Menü verfügbar. Erzeugt polyrhythmischen Effekt der die Crowd überrascht — der Groove "verschiebt" sich subtil. James Zabiela nutzt 3-Beat Loops für BPM-Wechsel House→D&B. Nur kurz — dann Auflösung auf gerader Phrase.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Loop Move (Beat Jump im Loop)</div><span class="badge b-pu">HIDDEN</span></div><div class="c-desc">Wenn du <strong>im Loop bist und Beat Jump drückst</strong>, bewegt sich der gesamte Loop vorwärts oder rückwärts ohne den Loop zu verlassen. Ergibt rhythmische Verschiebungen on the fly — der mächtigste kreative Loop-Trick am XDJ-AZ.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Tension-Loop (Buildup verlängern)</div><span class="badge b-cy">DRAMATURGIE</span></div><div class="c-desc">Buildup läuft → kurz vor dem Drop: <strong>2- oder 4-Beat Loop auf den letzten 2 Bars setzen</strong>. Track "hängt" — Crowd erwartet den Drop intensiver. Nach 8–16 Bars Loop aufheben → Drop wirkt doppelt so stark. Eines der wirkungsvollsten DJ-Werkzeuge überhaupt.</div></div>
+  </div>
+
 </section>
 
-<!-- ██ 05 FX ████████████████████████████████ -->
 <section class="sec" id="fx">
   <div class="sec-hdr">
     <div class="sec-ico">🎚️</div>
-    <div><div class="sec-num">29 / SPIELEN</div><div class="sec-ttl">Sound FX <em>professionell einsetzen</em></div></div>
+    <div><div class="sec-num">29 / </div><div class="sec-ttl">Sound FX <em>professionell einsetzen</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Beat FX vs. Sound Color FX</div><span class="badge b-rd">BASICS</span></div><div class="c-desc"><strong>Beat FX</strong> (am Mixer): BPM-synchronisiert – Echo, Reverb, Flanger, Filter. <strong>Sound Color FX</strong> (Kanalknopf): analoge Klangformung – Jet, Space, Dub Echo, Gate. Beide gleichzeitig nutzbar.</div></div>
@@ -1077,13 +1080,29 @@ footer a{color:var(--cy);text-decoration:none}
     <div class="card"><div class="c-hdr"><div class="c-ttl">Jet</div><span class="badge b-rd">ENERGIE</span></div><div class="c-desc">Starker Flanger-Sweep. Kurz und präzise einsetzen. Einer der auffälligsten Color-FX – nicht übertreiben.</div></div>
   </div>
   <div class="pro"><span class="ti">🔥</span><div><strong>Goldene FX-Regel:</strong> Ein gut platziertes Echo-Out ist unvergesslicher als 10 zufällige Effekte. Übe jeden Effekt isoliert, bevor du ihn live einsetzt.</div></div>
+
+  <div class="sub">Beat FX – Timing &amp; Technik</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beat FX Channel zuweisen</div><span class="badge b-or">ROUTING</span></div><div class="c-desc"><strong>Beat FX Channel-Selector</strong> oben rechts am Mixer: wähle CH1, CH2, CH3, CH4 oder Master. <strong>CH1/CH2 einzeln</strong> = nur ein Track betroffen (subtil, präzise). <strong>Master</strong> = ganzer Mix (dramatisch, für Drops). Nie versehentlich auf Master lassen — jede Button-Berührung betrifft die Crowd.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">FX-Timing: wann ON, wann OFF</div><span class="badge b-rd">TIMING</span></div><div class="c-desc"><strong>ON immer auf Beat 1 einer Phrase</strong>, OFF auf dem letzten Beat davor. Echo: ON kurz vor Phrase-Ende, Fader runter gleichzeitig. Reverb: ON am Breakdown-Start, OFF beim Drop (Energie explodiert). <strong>FX nie mitten in einer Phrase starten</strong> — klingt unkoordiniert.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">BPM-Wert manuell korrigieren</div><span class="badge b-am">PROFI</span></div><div class="c-desc">Beat FX rechnet immer auf dem gesetzten BPM. Wenn der Grid falsch ist: Beat FX TAP-Button → manuell 4 Beats tippen. Noch präziser: TAP halten + TIME-Encoder drehen. <strong>Falsche BPM → Echo auf halbem Beat → klingt kaputt.</strong> Immer prüfen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Wet/Dry Balance (Depth-Regler)</div><span class="badge b-cy">FEINGEFÜHL</span></div><div class="c-desc">Depth-Regler = wie stark der Effekt. <strong>Anfänger-Fehler: immer 100%.</strong> Profi-Technik: Echo auf 40–60% als dauerhafter atmosphärischer Layer. Reverb auf 20% als subtile Raumtiefe. Nur für Drop-Momente 100%.</div></div>
+  </div>
+
+  <div class="sub">FX-Kombinationen (2 Effekte gleichzeitig)</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Echo + Filter HPF</div><span class="badge b-pu">KOMBINATION</span></div><div class="c-desc">Filter öffnet den Track graduell auf, gleichzeitig Echo für Tiefe. Beim Drop: Filter voll offen + Echo ausschalten = Energie-Explosion. Klingt grösser als beide Effekte einzeln.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Reverb + Beat Crusher</div><span class="badge b-pu">KOMBINATION</span></div><div class="c-desc">Nur kurz: Beat Crusher Lo-Fi-Moment in Reverb-Raum eingebettet. Psychedelisch. Nur 2–4 Beats. Danach einen Moment Stille durch kompletten Fader-Dip — dann voller Drop.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Spiral Up + Roll</div><span class="badge b-pu">KOMBINATION</span></div><div class="c-desc">Pitch Spiral steigt, Roll loopt letzte 1/8-Beat — Energie baut sich auf wie eine Bombe. Nur 4 Beats. Muss auf Drop enden. Club-Technik für Peak-Momente die alle kennen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Sound Color (Jet) + Beat FX Echo</div><span class="badge b-pu">KOMBINATION</span></div><div class="c-desc">Jet auf Kanal anlassen, gleichzeitig Echo-Out für Übergang einsetzen. Übergang wirkt mehrdimensional statt flach. Beide Effekte auf Ende der Phrase setzen.</div></div>
+  </div>
+  <div class="pro"><span class="ti">🔥</span><div><strong>Profi-Strategie:</strong> Beat FX gezielt pro Channel zuweisen, Depth selten über 70%, immer auf Phrasen-Grenzen starten und beenden. Weniger ist mehr – ein präziser Einsatz pro Set ist kraftvoller als ständige FX-Aktivität.</div></div>
 </section>
 
-<!-- ██ 06 MIXING ████████████████████████████ -->
 <section class="sec" id="mixing">
   <div class="sec-hdr">
     <div class="sec-ico">🎛️</div>
-    <div><div class="sec-num">30 / SPIELEN</div><div class="sec-ttl">Professionelle <em>Mix-Methoden</em></div></div>
+    <div><div class="sec-num">30 / </div><div class="sec-ttl">Professionelle <em>Mix-Methoden</em></div></div>
   </div>
 
   <!-- ── WAVEFORM LESEN ───────────────────────────── -->
@@ -1227,10 +1246,11 @@ footer a{color:var(--cy);text-decoration:none}
     </div>
   </div>
 </section>
+
 <section class="sec" id="hiddentips">
   <div class="sec-hdr">
     <div class="sec-ico">🔮</div>
-    <div><div class="sec-num">31 / SPIELEN</div><div class="sec-ttl">Versteckte Funktionen <em>&amp; Profi-Tricks</em></div></div>
+    <div><div class="sec-num">31 / </div><div class="sec-ttl">Versteckte Funktionen <em>&amp; Profi-Tricks</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Alles was im Handbuch steht aber niemand liest – und was Profi-DJs täglich nutzen.</p>
 
@@ -1290,10 +1310,11 @@ footer a{color:var(--cy);text-decoration:none}
     </div>
   </div>
 </section>
+
 <section class="sec" id="stems">
   <div class="sec-hdr">
     <div class="sec-ico">🎚️</div>
-    <div><div class="sec-num">32 / SPIELEN</div><div class="sec-ttl">Stems <em>Vocal, Bass, Drums, Melodie</em></div></div>
+    <div><div class="sec-num">32 / </div><div class="sec-ttl">Stems <em>Vocal, Bass, Drums, Melodie</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Tracks in Echtzeit aufteilen und einzelne Elemente steuern – zwei Wege am XDJ-AZ.</p>
 
@@ -1323,12 +1344,10 @@ footer a{color:var(--cy);text-decoration:none}
 
 
 <!-- ═══ GRUPPE 6: MUSIKTHEORIE ══════════════════════════ -->
-<!-- ═══ GRUPPE 5: THEORIE ════════════════════════════════════════ -->
-<!-- ██ 10 BPM GUIDE █████████████████████████ -->
 <section class="sec" id="bpm">
   <div class="sec-hdr">
     <div class="sec-ico">📊</div>
-    <div><div class="sec-num">33 / THEORIE</div><div class="sec-ttl">Genre-Tempos <em>&amp; Übergangstipps</em></div></div>
+    <div><div class="sec-num">33 / </div><div class="sec-ttl">Genre-Tempos <em>&amp; Übergangstipps</em></div></div>
   </div>
   <div class="bpm-chart">
     <div id="bpm-rows"></div>
@@ -1355,11 +1374,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="insider"><span class="ti">🎓</span><div><strong>psytranceguide.com (Daniel Sokolovskiy):</strong> "Goa Trance ist der Vorfahre aller Psytrance-Musik als Ganzes. Was in den 80ern auf Strandpartys in Goa begann, hat sich zu einem weltweiten Underground-Ökosystem mit Dutzenden von Subgenres entwickelt – von sanftem Psychill bis brutalem Psycore bei 250 BPM."</div></div>
 </section>
 
-<!-- ██ BPM RECHNER ████████████████████████████ -->
 <section class="sec" id="bpmcalc">
   <div class="sec-hdr">
     <div class="sec-ico">🔢</div>
-    <div><div class="sec-num">34 / THEORIE</div><div class="sec-ttl">BPM-Rechner <em>&amp; Kompatibilitäts-Tool</em></div></div>
+    <div><div class="sec-num">34 / </div><div class="sec-ttl">BPM-Rechner <em>&amp; Kompatibilitäts-Tool</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">BPM eingeben → kompatible Ranges, Half-Time, Double-Time und passende Genres sofort berechnet.</p>
   <div class="bpm-chart" style="max-width:640px">
@@ -1380,11 +1398,10 @@ footer a{color:var(--cy);text-decoration:none}
   </div>
 </section>
 
-<!-- ██ GENREMATRIX ██████████████████████████ -->
 <section class="sec" id="genrematrix">
   <div class="sec-hdr">
     <div class="sec-ico">🎨</div>
-    <div><div class="sec-num">35 / THEORIE</div><div class="sec-ttl">Genre-Mixing <em>Matrix</em></div></div>
+    <div><div class="sec-num">35 / </div><div class="sec-ttl">Genre-Mixing <em>Matrix</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Welche Genres passen gut zusammen? BPM-Überlappung, Energie und Crowd-Feeling als Entscheidungshilfe.</p>
   <div style="overflow-x:auto">
@@ -1407,11 +1424,10 @@ footer a{color:var(--cy);text-decoration:none}
   </div>
 </section>
 
-<!-- ██ 16 KEY ████████████████████████████████ -->
 <section class="sec" id="key">
   <div class="sec-hdr">
     <div class="sec-ico">🎵</div>
-    <div><div class="sec-num">36 / THEORIE</div><div class="sec-ttl">Key-Analyse <em>&amp; Key Sync</em></div></div>
+    <div><div class="sec-num">36 / </div><div class="sec-ttl">Key-Analyse <em>&amp; Key Sync</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Key-Analyse in rekordbox</div><span class="badge b-rd">VORBEREITUNG</span></div><div class="c-desc">Tracks automatisch analysieren. <strong>Preferences → Display → Key Display → Camelot</strong> umstellen. Statt "Am" siehst du direkt "8A" – der weltweite DJ-Standard.</div></div>
@@ -1445,11 +1461,10 @@ footer a{color:var(--cy);text-decoration:none}
   </div>
 </section>
 
-<!-- ██ 12 CAMELOT ████████████████████████████ -->
 <section class="sec" id="camelot">
   <div class="sec-hdr">
     <div class="sec-ico">🎡</div>
-    <div><div class="sec-num">37 / THEORIE</div><div class="sec-ttl">Interaktives <em>Harmonic Wheel</em></div></div>
+    <div><div class="sec-num">37 / </div><div class="sec-ttl">Interaktives <em>Harmonic Wheel</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Klicke auf ein Segment – innen = Moll (A), außen = Dur (B). Kompatible Keys leuchten auf.</p>
   <div class="cam-wrap">
@@ -1477,27 +1492,36 @@ footer a{color:var(--cy);text-decoration:none}
 
 
 <!-- ═══ GRUPPE 7: KLANG & PERFORMANCE ═══════════════════ -->
-<!-- ═══ GRUPPE 6: KLANG & PERFORMANCE ════════════════════════════ -->
-<!-- ██ NEU: SOUND & GAIN STAGING ████████████ -->
 <section class="sec" id="sound">
-  <div class="sec-hdr"><div class="sec-ico">🔉</div><div><div class="sec-num">38 / PERFORMANCE</div><div class="sec-ttl">Klang <em>&amp; Pegel professionell steuern</em></div></div></div>
+  <div class="sec-hdr">
+    <div class="sec-ico">🔉</div>
+    <div><div class="sec-num">38 / PERFORMANCE</div><div class="sec-ttl">Klang &amp; Pegel <em>professionell steuern</em></div></div>
+  </div>
   <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Gain Staging</div><span class="badge b-rd">FUNDAMENTAL</span></div><div class="c-desc">Der größte Klangunterschied den die meisten ignorieren. <strong>Jede Stufe der Signalkette</strong> (Analyse → TRIM → Kanal → Master) auf optimalen Pegel setzen. Ziel: Master-Ausgang mit min. −3 dBFS Headroom.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">TRIM richtig setzen</div><span class="badge b-or">PRAXIS</span></div><div class="c-desc">Track starten → TRIM so einstellen, dass Kanal-Peak-Meter bei Peaks in den <strong>gelben Bereich</strong> geht (0 dBu), nie rot. Jeder Track hat anderen Gain – immer individuell anpassen.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Phase Alignment</div><span class="badge b-pu">INSIDER</span></div><div class="c-desc">Warum <strong>zwei Kicks zusammen dumpf klingen:</strong> Phasenauslöschung. Wenn Bassdrum-Peaks zweier Tracks nicht exakt übereinstimmen, löschen sie sich teilweise aus. Beat Sync hilft – minimale Feinabstimmung via Jog Wheel kann nötig sein.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Frequenz-Kollisionen vermeiden</div><span class="badge b-am">MIXING</span></div><div class="c-desc">Zwei Tracks mit starkem Mid-Bass gleichzeitig → Matschklang. <strong>Lösung:</strong> Beim Einmischen Mid-EQ des neuen Tracks kurz senken, erst nach dem Bass-Swap wieder anheben. Deutlich klarer.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Mono-Check</div><span class="badge b-pu">INSIDER</span></div><div class="c-desc">Viele Clubs haben <strong>Mono-Systeme</strong> oder Outdoor-Setups. Tracks im Mono testen: Stereo-Weite und Stereo-FX verschwinden. Wenn der Mix in Mono gut klingt, klingt er überall gut.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Analysegain-Normalisierung</div><span class="badge b-cy">REKORDBOX</span></div><div class="c-desc">rekordbox → <strong>Auto-Gain</strong> aktivieren: Analysiert Lautheit (LUFS) pro Track und normalisiert. Alle Tracks erscheinen am XDJ-AZ auf gleichem Lautstärke-Niveau – keine Pegelsprünge mehr.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Sidechain-Feeling erzeugen</div><span class="badge b-pu">KREATIV</span></div><div class="c-desc">Ohne Kompressor: Track B (unkomprimierter Bass) parallel laufen lassen und Pegel rhythmisch anpassen. Erzeugt pulsierendes Pumpen ohne Hardware-Sidechain. Kombinierbar mit Gate Color FX.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Gain Staging</div><span class="badge b-or">GRUNDLAGE</span></div><div class="c-desc"><strong>Jeder Kanal beginnt bei 0 dB Gain</strong>. Trim-Knopf so einstellen, dass der Peak-Meter im gelben Bereich ist (−6 bis −3 dBFS). Nie in den roten Bereich. Konsistente Pegel zwischen Tracks sind wichtiger als laut.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">TRIM richtig setzen</div><span class="badge b-cy">SETUP</span></div><div class="c-desc">Analysegain in rekordbox auf −6 LUFS normalisieren. Dann TRIM im Gig nur für feine Korrekturen. Gut gemasterte Tracks brauchen kaum TRIM-Eingriff. Sehr laute oder leise Tracks sofort erkennen und anpassen bevor sie in den Mix kommen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Phase Alignment</div><span class="badge b-am">TECHNIK</span></div><div class="c-desc">Wenn zwei Tracks gleichzeitig spielen und der Bass "verschwindet": Phase-Problem. Lösung: MONO-Check aktivieren, einen Track um ein paar Millisekunden verschieben via Jog-Wheel Nudge.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Frequenz-Kollisionen vermeiden</div><span class="badge b-rd">IMPORTANT</span></div><div class="c-desc"><strong>Nie zwei Bässe gleichzeitig</strong> — das ist das wichtigste Prinzip des DJ-EQ-Mixing. Bass auf Kanal A = Bass auf Kanal B komplett raus. Wechsel über 4–8 Beats. Mids und Highs können sich überlappen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Mono-Check</div><span class="badge b-gr">PROFI</span></div><div class="c-desc">Master-Out auf MONO schalten (UTILITY → Master Out → Mono) und hören ob Bass verschwindet oder Frequenzen "auslöschen". Club-PAs laufen oft in Mono in bestimmten Bereichen. Mixes die in Mono gut klingen sind robust.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Analysegain-Normalisierung</div><span class="badge b-cy">WORKFLOW</span></div><div class="c-desc">In rekordbox: alle Tracks markieren → Analysegain berechnen lassen. Normalisiert auf −6 LUFS. Danach konsistente Pegel im Gig ohne ständiges TRIM-Nachregeln. Einmalige Investition von ~10 Minuten.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Sidechain-Feeling erzeugen</div><span class="badge b-pu">KREATIV</span></div><div class="c-desc">Gate Color FX auf dem Bass-Kanal mit 1/4-Beat-Rhythmus anpassen erzeugt pulsierendes Pumpen ohne Hardware-Sidechain. Kombinierbar mit Gate Color FX.</div></div>
+  </div>
+  <div class="sub">Limiter, Digitalformat &amp; Kabel</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Limiter am XDJ-AZ</div><span class="badge b-rd">WICHTIG</span></div><div class="c-desc">Der XDJ-AZ hat einen eingebauten <strong>digitalen Limiter am Master-Ausgang</strong>. Er greift ab 0 dBFS ein. <strong>Klingt komprimiert und "gepumpt"</strong> wenn aktiv. Lösung: Gain Staging vor dem Ausgang sauber halten. Der Limiter ist ein Sicherheitsnetz, kein Werkzeug.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">32-Bit Floating Point intern</div><span class="badge b-cy">TECHNIK</span></div><div class="c-desc">Interne Verarbeitung in <strong>32-Bit Floating Point</strong> — EQ-Boosts von mehreren dB sind verlustfrei solange der finale Master-Output unter 0 dBFS bleibt. Nur der D/A-Wandler am Ausgang muss sauber bleiben.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">44.1 kHz vs. 48 kHz</div><span class="badge b-am">DIGITAL</span></div><div class="c-desc">Musik nutzt meist <strong>44.1 kHz</strong>, Video 48 kHz. Der XDJ-AZ akzeptiert beide. <strong>Best Practice:</strong> Gesamte Library in 44.1 kHz für konsistente Qualität und minimale Konvertierung.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">XLR (balanced) vs. Klinke (unbalanced)</div><span class="badge b-or">KABEL</span></div><div class="c-desc"><strong>XLR (3-polig)</strong> = symmetrisch, eliminiert Brummschleifen auf langen Kabelwegen. <strong>Klinke (6.3mm)</strong> = unsymmetrisch, ab ~5m anfällig für Einstreuungen. <strong>Immer XLR wenn vorhanden.</strong></div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Brummschleifen vermeiden</div><span class="badge b-rd">TROUBLESHOOT</span></div><div class="c-desc">Brummen (50Hz) bei Laptop-Verbindung = Erdungsschleife. <strong>Lösungen:</strong> 1. USB-C Ground Lift Adapter. 2. Laptop vom Netzteil trennen. 3. XLR statt Klinke. 4. Alle Geräte an derselben Steckdosenleiste.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Analoger vs. digitaler Ausgang</div><span class="badge b-cy">AUSGANG</span></div><div class="c-desc">Master-Out XLR = <strong>analoges Signal</strong> nach D/A-Wandler. Für direkte PA-Verbindung ideal. Weniger Wandlerstufen = weniger Qualitätsverlust. Immer kürzeste Signalkette anstreben.</div></div>
   </div>
   <div class="insider"><span class="ti">🎓</span><div><strong>Dubspot / DJ Akademie Prinzip:</strong> "Gain Staging ist wichtiger als jeder Effekt. Ein sauber gepegelt Mix klingt professionell – egal wie simpel. Ein verzerrter Mix klingt billig – egal wie komplex."</div></div>
 </section>
 
-<!-- ██ SET ARC █████████████████████████████████ -->
 <section class="sec" id="setarc">
   <div class="sec-hdr">
     <div class="sec-ico">📈</div>
-    <div><div class="sec-num">39 / PERFORMANCE</div><div class="sec-ttl">2h-Set Arc <em>Planung</em></div></div>
+    <div><div class="sec-num">39 / </div><div class="sec-ttl">2h-Set Arc <em>Planung</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Wie baut man ein 2-Stunden-Set dramaturgisch auf? Die Energie-Kurve professioneller DJs.</p>
   <div id="arc-chart" style="background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:20px;margin-bottom:20px"></div>
@@ -1512,9 +1536,8 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="insider"><span class="ti">🎓</span><div><strong>Berklee Online DJ-Kurs:</strong> "Ein Set ist wie eine Geschichte. Es braucht einen Beginn, eine Mitte, einen Höhepunkt und ein Ende. DJs die einfach ihre liebsten Tracks spielen ohne Dramaturgie zu denken, spielen Kapitel ohne Erzählung."</div></div>
 </section>
 
-<!-- ██ NEU: PERFORMANCE & DRAMATURGIE ████████ -->
 <section class="sec" id="performance">
-  <div class="sec-hdr"><div class="sec-ico">🎭</div><div><div class="sec-num">40 / PERFORMANCE</div><div class="sec-ttl">Set-Dramaturgie <em>&amp; Mentale Stärke</em></div></div></div>
+  <div class="sec-hdr"><div class="sec-ico">🎭</div><div><div class="sec-num">40 / </div><div class="sec-ttl">Set-Dramaturgie <em>&amp; Mentale Stärke</em></div></div></div>
   <div class="sub">Energie-Kurve eines professionellen Sets</div>
   <div class="ec-wrap" id="ec-wrap"></div>
   <div class="sub">Professionelle Set-Planung</div>
@@ -1528,11 +1551,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="insider"><span class="ti">🎓</span><div><strong>Point Blank Music School:</strong> "Ein schlechter Track zum richtigen Moment schlägt immer den richtigen Track zum falschen Moment. Das Set ist eine emotionale Reise – nicht eine Techniksession."</div></div>
 </section>
 
-<!-- ██ NEU: SET TIMER ████████████████████████████ -->
 <section class="sec" id="settimer">
   <div class="sec-hdr">
     <div class="sec-ico">⏱️</div>
-    <div><div class="sec-num">41 / PERFORMANCE</div><div class="sec-ttl">Set-Timer <em>Countdown für deinen Slot</em></div></div>
+    <div><div class="sec-num">41 / </div><div class="sec-ttl">Set-Timer <em>Countdown für deinen Slot</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Wie viel Zeit ist noch im Set? Nie wieder den Veranstalter wütend machen weil du 10 Minuten zu lang spielst.</p>
   <div style="background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:24px;max-width:480px">
@@ -1557,13 +1579,13 @@ footer a{color:var(--cy);text-decoration:none}
   </div>
 </section>
 
-<!-- ██ 09 PRO-TIPPS ████████████████████████ -->
 <section class="sec" id="protips">
   <div class="sec-hdr">
     <div class="sec-ico">💎</div>
     <div><div class="sec-num">42 / PERFORMANCE</div><div class="sec-ttl">Workflow-Hacks <em>der Profis</em></div></div>
   </div>
   <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Instant Doubles</div><span class="badge b-rd">INSIDER</span></div><div class="c-desc"><strong>Long-Press</strong> auf einen Deck-Load-Button lädt denselben Track auf das andere Deck exakt an derselben Position. Für Flanger-Effekte: beide Decks synchron, einen minimal in Phase verschieben.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Dead-Stop manuell</div><span class="badge b-or">TECHNIK</span></div><div class="c-desc">Jog Wheel während Wiedergabe festhalten → Track stoppt sofort. Für langsames Abbremsen: Jog gegen Drehrichtung bremsen. Natürlicher als der digitale Vinyl Brake Effekt.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">B2B: Dual USB</div><span class="badge b-cy">B2B</span></div><div class="c-desc">Jeder DJ seinen eigenen Stick in je einen Slot. Beide Bibliotheken gleichzeitig zugänglich. Im Browser per Source-Auswahl wechseln – keine Unterbrechung beim Übergeben.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Crossfader für Scratch</div><span class="badge b-am">SCRATCH</span></div><div class="c-desc">Crossfader-Kurve auf <strong>CUT</strong> stellen (UTILITY → Crossfader → Cut). Gibt harte An/Aus-Übergänge für Scratch-Techniken. Für normales Mixing wieder auf SMOOTH zurück.</div></div>
@@ -1572,23 +1594,22 @@ footer a{color:var(--cy);text-decoration:none}
     <div class="card"><div class="c-hdr"><div class="c-ttl">Analyse-Tags nutzen</div><span class="badge b-am">LIBRARY</span></div><div class="c-desc">Energy-Level (1–10), Tonalität und BPM-Tags in rekordbox pflegen. Am XDJ-AZ als Filterkriterien nutzbar. Spart Zeit bei der Track-Suche unter Stress im Gig.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">EQ-Headroom lassen</div><span class="badge b-gr">PROFI</span></div><div class="c-desc">EQ-Bänder nie auf Maximum aufreißen. <strong>Boost erzeugt Verzerrung</strong> bei lauten Anlagen. Lieber Frequenzen senken als anheben – klingt sauberer und professioneller.</div></div>
   </div>
-  <div class="sub">XDJ-AZ Gerät-Eigenheiten (die jeder wissen sollte)</div>
+  <div class="sub">XDJ-AZ Gerät-Eigenheiten</div>
   <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Kanal-Reihenfolge: 3-1-2-4</div><span class="badge b-rd">ACHTUNG</span></div><div class="c-desc">Die physischen Kanäle am XDJ-AZ sind von links nach rechts als <strong>3 – 1 – 2 – 4</strong> beschriftet (nicht 1,2,3,4 wie bei vier CDJs nebeneinander). Kanäle 1 und 2 sind absichtlich in der Mitte – als primäre Decks. Im Club nie falsch greifen: einmal einprägen!</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">4-Deck Layer-Swap (Links: 1&3, Rechts: 2&4)</div><span class="badge b-cy">WICHTIG</span></div><div class="c-desc">Die linke Seite steuert <strong>Decks 1 und 3</strong> (Layer-Swap via Taste), die rechte Seite <strong>Decks 2 und 4</strong>. Anders als bei vier separaten CDJs mit je eigenem Controller. Aktives Deck leuchtet auf. Layer-Swap-Taste = wechselt zwischen 1↔3 bzw. 2↔4.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">4-Deck Display: nur 2 gezoomt</div><span class="badge b-am">LIMITATION</span></div><div class="c-desc">Aktuell zeigt das Display nur <strong>2 Wellenformen gezoomt</strong>, die anderen 2 Decks als Übersichts-Balken. Kein Modus mit allen 4 gleichzeitig voll sichtbar. Community erwartet Firmware-Update. Workaround: zügig Layer switchen um alle 4 im Blick zu behalten.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Standard IEC-Kabel (kein Netzteil)</div><span class="badge b-gr">GUT ZU WISSEN</span></div><div class="c-desc">Der XDJ-AZ hat ein <strong>Standard IEC-Stromkabel</strong> ohne externes Netzteil/Powerbrick – anders als manche CDJ-Modelle. Haushaltsübliches Kabel reicht. Im Notfall das Club-Kabel nutzen oder beim Veranstalter fragen.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Nur ein USB-C Port (kein Switchover)</div><span class="badge b-am">LIMITATION</span></div><div class="c-desc">Nur <strong>ein USB-C-Anschluss</strong> für Laptop-Verbindung – kein schneller Software-Wechsel zwischen zwei Laptops wie bei manchen anderen Geräten. Für Serato ↔ rekordbox wechseln: USB-C umstecken und neu verbinden (dauert ~30 Sekunden).</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Kanal-Reihenfolge: 3-1-2-4</div><span class="badge b-rd">ACHTUNG</span></div><div class="c-desc">Physische Kanäle von links nach rechts: <strong>3 – 1 – 2 – 4</strong>. Kanäle 1 und 2 absichtlich in der Mitte als primäre Decks. Im Club nie falsch greifen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">4-Deck Layer-Swap</div><span class="badge b-cy">WICHTIG</span></div><div class="c-desc">Linke Seite steuert <strong>Decks 1 und 3</strong> (Layer-Swap via Taste), rechte Seite <strong>Decks 2 und 4</strong>. Aktives Deck leuchtet auf dem Jog-Display auf.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">4-Deck Display: nur 2 gezoomt</div><span class="badge b-am">LIMITATION</span></div><div class="c-desc">Aktuell zeigt das Display nur <strong>2 Wellenformen gezoomt</strong>. Workaround: zügig Layer switchen um alle 4 im Blick zu behalten.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Standard IEC-Kabel (kein Netzteil)</div><span class="badge b-gr">GUT ZU WISSEN</span></div><div class="c-desc">Der XDJ-AZ hat ein <strong>Standard IEC-Stromkabel</strong> ohne externes Netzteil. Im Notfall das Club-Kabel nutzen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Nur ein USB-C Port</div><span class="badge b-am">LIMITATION</span></div><div class="c-desc">Nur <strong>ein USB-C-Anschluss</strong>. Für Serato ↔ rekordbox wechseln: USB-C umstecken (~30 Sekunden). Kein schneller Software-Switchover.</div></div>
   </div>
+</section>
 
 
 <!-- ═══ GRUPPE 8: GIG ════════════════════════════════════ -->
-<!-- ═══ GRUPPE 7: GIG ════════════════════════════════════════════ -->
-<!-- ██ 16 PRE-GIG CHECKLIST ████████████████ -->
 <section class="sec" id="pregig">
   <div class="sec-hdr">
     <div class="sec-ico">✅</div>
-    <div><div class="sec-num">43 / GIG</div><div class="sec-ttl">Vorbereitung <em>vor dem Gig</em></div></div>
+    <div><div class="sec-num">43 / </div><div class="sec-ttl">Vorbereitung <em>vor dem Gig</em></div></div>
   </div>
   <div class="cl-wrap">
     <div class="cl-top">
@@ -1606,11 +1627,10 @@ footer a{color:var(--cy);text-decoration:none}
   </div>
 </section>
 
-<!-- ██ 14 SOUNDCHECK ████████████████████████ -->
 <section class="sec" id="soundcheck">
   <div class="sec-hdr">
     <div class="sec-ico">🔊</div>
-    <div><div class="sec-num">44 / GIG</div><div class="sec-ttl">Checkliste <em>am Gerät vor dem Set</em></div></div>
+    <div><div class="sec-num">44 / </div><div class="sec-ttl">Checkliste <em>am Gerät vor dem Set</em></div></div>
   </div>
   <div class="cl-wrap">
     <div class="cl-top">
@@ -1628,11 +1648,10 @@ footer a{color:var(--cy);text-decoration:none}
   </div>
 </section>
 
-<!-- ██ GIGBAG ████████████████████████████████ -->
 <section class="sec" id="gigbag">
   <div class="sec-hdr">
     <div class="sec-ico">🎒</div>
-    <div><div class="sec-num">45 / GIG</div><div class="sec-ttl">Gig-Bag <em>Packliste</em></div></div>
+    <div><div class="sec-num">45 / </div><div class="sec-ttl">Gig-Bag <em>Packliste</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Alles was du zum Gig brauchst – abhaken vor dem Losfahren.</p>
   <div class="cl-wrap">
@@ -1652,11 +1671,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Goldene Regel:</strong> USB-Hauptstick und USB-Backup immer in <strong>verschiedenen Taschen/Behältern</strong> transportieren. Wenn eine Tasche verloren geht, bleibt die andere.</div></div>
 </section>
 
-<!-- ██ 23 TROUBLESHOOTING ████████████████████████ -->
 <section class="sec" id="trouble">
   <div class="sec-hdr">
     <div class="sec-ico">🔧</div>
-    <div><div class="sec-num">46 / GIG</div><div class="sec-ttl">Probleme <em>lösen &amp; vermeiden</em></div></div>
+    <div><div class="sec-num">46 / </div><div class="sec-ttl">Probleme <em>lösen &amp; vermeiden</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">"Library is not responding"</div><span class="badge b-rd">HÄUFIG</span></div><div class="c-desc"><strong>Lösung:</strong> Firmware auf 1.24 oder neuer updaten. Dieser Bug betraf viele frühe Produktionschargen und wurde per Update behoben. Danach nie wieder aufgetreten laut Community-Reports.</div></div>
@@ -1691,12 +1709,10 @@ footer a{color:var(--cy);text-decoration:none}
 
 
 <!-- ═══ GRUPPE 9: KARRIERE ══════════════════════════════ -->
-<!-- ═══ GRUPPE 9: KARRIERE ════════════════════════════════════════ -->
-<!-- ██ NEU: SOCIAL MEDIA ████████████████████████ -->
 <section class="sec" id="socialmedia">
   <div class="sec-hdr">
     <div class="sec-ico">📱</div>
-    <div><div class="sec-num">47 / KARRIERE</div><div class="sec-ttl">Social Media <em>als DJ 2025</em></div></div>
+    <div><div class="sec-num">47 / </div><div class="sec-ttl">Social Media <em>als DJ 2025</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Promoter buchen heute DJs mit Followern – nicht nur mit Talent. Social Media ist kein optionales Extra mehr.</p>
   <div class="sub">Plattformen & Strategie</div>
@@ -1711,11 +1727,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="insider"><span class="ti">🎓</span><div><strong>ESKEI83 (Phase DJ):</strong> "Geh nicht auf Social Media um zu gefallen. Geh hin um sichtbar zu sein. Der Algorithmus liebt Konsistenz. Und wenn du anfängst – fürchte die Hater nicht, fokussiere die Liebhaber."</div></div>
 </section>
 
-<!-- ██ NEU: MIXCLOUD ██████████████████████████ -->
 <section class="sec" id="mixcloud">
   <div class="sec-hdr">
     <div class="sec-ico">🎵</div>
-    <div><div class="sec-num">48 / KARRIERE</div><div class="sec-ttl">Mixcloud <em>Mixes legal hosten</em></div></div>
+    <div><div class="sec-num">48 / </div><div class="sec-ttl">Mixcloud <em>Mixes legal hosten</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Die einzige Plattform wo DJ-Mixes legal und ohne Copyright-Strikes gehostet werden können.</p>
   <div class="cards">
@@ -1727,11 +1742,10 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Regelmässigkeit schlägt Qualität:</strong> Monatlich 1 Mix auf Mixcloud ist besser als halbjährlich der perfekte Mix. Promoter schauen wie aktiv du bist – nicht ob jeder Mix fehlerfrei ist. Einfach anfangen und kontinuierlich bleiben.</div></div>
 </section>
 
-<!-- ██ NEU: ERSTE GIGS ██████████████████████████ -->
 <section class="sec" id="erstegigs">
   <div class="sec-hdr">
     <div class="sec-ico">🚪</div>
-    <div><div class="sec-num">49 / KARRIERE</div><div class="sec-ttl">Erste Gigs <em>bekommen</em></div></div>
+    <div><div class="sec-num">49 / </div><div class="sec-ttl">Erste Gigs <em>bekommen</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Der schwierigste Schritt: vom Üben im Zimmer zum ersten Auftritt. Ein konkreter Plan.</p>
   <div class="sub">Strategie für den Einstieg</div>
@@ -1774,11 +1788,10 @@ footer a{color:var(--cy);text-decoration:none}
   </div>
 </section>
 
-<!-- ██ NEU: EPK ██████████████████████████████████ -->
 <section class="sec" id="epk">
   <div class="sec-hdr">
     <div class="sec-ico">📋</div>
-    <div><div class="sec-num">50 / KARRIERE</div><div class="sec-ttl">EPK <em>Electronic Press Kit</em></div></div>
+    <div><div class="sec-num">50 / </div><div class="sec-ttl">EPK <em>Electronic Press Kit</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Deine digitale Visitenkarte für Promoter und Booking-Agenturen – alles an einem Ort.</p>
   <div class="sub">Was muss rein?</div>
@@ -1793,9 +1806,71 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>EPK immer aktuell halten:</strong> Nach jedem grösseren Gig Update. Fotos erneuern wenn du professionellere bekommst. Bio anpassen wenn sich dein Stil verändert. Ein veraltetes EPK macht keinen guten Eindruck – oder noch schlimmer: keins zu haben.</div></div>
 </section>
 
+<section class="sec" id="livestream">
+  <div class="sec-hdr">
+    <div class="sec-ico">🎥</div>
+    <div><div class="sec-num">51 / </div><div class="sec-ttl">Livestreaming <em>Setup &amp; Copyright</em></div></div>
+  </div>
+  <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Sets streamen und aufnehmen — technisch und rechtlich korrekt.</p>
+  <div class="sub">XDJ-AZ → Stream Setup</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Audio-Signal zum Computer</div><span class="badge b-or">SETUP</span></div><div class="c-desc"><strong>Option A (einfach):</strong> XDJ-AZ USB-C → Laptop. In OBS/Streamlabs als Audio-Quelle "XDJ-AZ" wählen. Der XDJ-AZ erscheint als Audio-Interface. <strong>Option B (professioneller):</strong> Master-Out XLR → externes Interface (Focusrite, RME) → USB → Computer. Bessere Vorverstärkung, niedrigeres Rauschen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Audio-Latenz-Problem</div><span class="badge b-rd">ACHTUNG</span></div><div class="c-desc">Wenn du dich selbst im Stream hörst: <strong>Du hörst dich verzögert</strong> (Stream-Latenz 3–10 Sekunden). Lösung: <strong>Im Kopfhörer NUR das direkte XDJ-AZ-Signal hören, nicht den Stream.</strong> OBS/Streamlabs Monitoring ausschalten. Niemals auf den Stream-Sound mixen — immer auf das Direkt-Signal.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Kamera-Tipps für Set-Videos</div><span class="badge b-cy">VIDEO</span></div><div class="c-desc"><strong>Perspektiven:</strong> Über-Schulter (zeigt Hände + Screen), Frontansicht (Gesicht + Jog Wheel), Screen-Nah (Waveform sichtbar). Licht wichtiger als Kamera-Qualität. <strong>Ringlicht oder Softbox</strong> direkt gegenüber. Handy auf Stativ reicht für Anfang — iPhone in 4K stabilisiert.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">OBS Grundeinstellungen</div><span class="badge b-gr">SOFTWARE</span></div><div class="c-desc"><strong>Audio:</strong> Bitrate 160–320 kbps AAC. Sample Rate 44.1 kHz (matcht DJ-Musik). <strong>Video:</strong> 1080p 30fps für Twitch/YouTube (60fps für Instagram). <strong>Encoding:</strong> Hardware-Encoder (NVENC/M1) nutzen um CPU zu entlasten. Zweites Display als Monitor ohne Streamverzögerung empfohlen.</div></div>
+  </div>
+  <div class="sub">Copyright im Stream</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">DMCA &amp; Copyright-Basics</div><span class="badge b-rd">RECHT</span></div><div class="c-desc"><strong>Twitch:</strong> Starke DMCA-Durchsetzung. VODs werden oft gemutet oder gelöscht. Live ist etwas sicherer, aber kein Recht. <strong>YouTube:</strong> Content-ID erkennt Musik automatisch → Video kann monetarisiert werden (zugunsten Label) oder gesperrt. <strong>Mixcloud:</strong> Lizenziert für DJ-Mixes — der sicherste Ort für gebrandete Mixes.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Stream-sicherere Musik</div><span class="badge b-am">STRATEGIE</span></div><div class="c-desc"><strong>Techno, Minimal, Ambient</strong> = deutlich weniger DMCA als Pop, Hip Hop, Top 40. <strong>Warum:</strong> Indie-Labels und kleinere Labels haben oft keine Content-ID-Registrierung. <strong>Beatport/Bandcamp-Musik</strong> von kleinen Labels ist sicherer als Major-Releases. Lizenzfreie DJ-Musik (Musicbed, Artlist) für Highlight-Videos möglich.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Twitch vs. YouTube vs. Mixcloud</div><span class="badge b-cy">VERGLEICH</span></div><div class="c-desc"><strong>Twitch:</strong> Beste Discovery für Live-DJs. DMCA-Risiko für VODs. <strong>YouTube:</strong> Grösste Reichweite. Content-ID-System. Gut für fertige Mix-Videos. <strong>Mixcloud:</strong> Lizenziert für DJ-Mixes, keine Downloads im Free-Plan, kleinere Reichweite. <strong>Empfehlung:</strong> Live auf Twitch, Mixes archiviert auf Mixcloud.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Tracklist = Pflicht</div><span class="badge b-or">PRAXIS</span></div><div class="c-desc">Bei Mixcloud immer vollständige Tracklist mit Timestamps hochladen. Auf Twitch VOD-Beschreibung mit Tracklist. <strong>Warum:</strong> Labels sehen wer ihre Musik spielt → können Promo-Pool-Zugänge geben. Fans können Tracks shazamen. Professioneller Auftritt.</div></div>
+  </div>
+  <div class="tip"><span class="ti">💡</span><div><strong>Realismus:</strong> Kein Streaming-Service bietet 100% rechtssichere DJ-Streams. Mixcloud ist am nächsten dran. Für Karriere-Mixes → Mixcloud. Für Live-Presence → Twitch. Für Reichweite → YouTube. Alle drei haben Nachteile.</div></div>
+</section>
+
+<section class="sec" id="djrecht">
+  <div class="sec-hdr">
+    <div class="sec-ico">⚖️</div>
+    <div><div class="sec-num">52 / </div><div class="sec-ttl">DJ-Recht <em>SUISA, GEMA &amp; Lizenzrecht</em></div></div>
+  </div>
+  <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Wer zahlt was, wer haftet wofür — für DJs in der Schweiz, Deutschland und Österreich.</p>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">SUISA (Schweiz)</div><span class="badge b-or">CH</span></div><div class="c-desc">Die SUISA ist die Schweizer Verwertungsgesellschaft für Musik. <strong>Wer zahlt:</strong> Der Veranstalter zahlt die SUISA-Pauschalgebühr — NICHT der DJ. <strong>Was der DJ tun muss:</strong> Nichts direkt. Empfohlen: nach dem Gig eine Setlist beim Veranstalter hinterlassen damit dieser korrekt abrechnen kann. Die SUISA-Gebühr ist bereits im Veranstaltungsvertrag enthalten.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">GEMA (Deutschland)</div><span class="badge b-cy">DE</span></div><div class="c-desc"><strong>Wer zahlt:</strong> Ebenfalls der Veranstalter. Clubs und Venues haben GEMA-Lizenzen. <strong>DJ haftet nicht direkt</strong> für GEMA-Abgaben bei Live-Gigs. Bei eigenen Veranstaltungen (eigener Club, eigene Party): der DJ als Veranstalter zahlt. <strong>Online (Streams, Mixcloud):</strong> andere Regelung — Mixcloud hat GEMA-Vereinbarung, Twitch nicht vollständig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">AKM (Österreich)</div><span class="badge b-gr">AT</span></div><div class="c-desc">Österreichische Verwertungsgesellschaft, ähnlich SUISA/GEMA. <strong>Grundregel:</strong> Veranstalter zahlt die Lizenz. DJs bei etablierten Veranstaltungsorten sind abgedeckt. Bei privaten Events (Hauspartys, Vereinsfeste): unklar — Veranstalter sollte Pauschallizenz beantragen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Setlists dokumentieren</div><span class="badge b-am">PROFI-TIPP</span></div><div class="c-desc">Profi-DJ-Praxis: <strong>Immer eine Setlist führen</strong> (gespielt an welchem Ort, welches Datum). Doppelter Nutzen: Verwertungsgesellschaften können Künstler korrekt vergüten. Und: Setlists zeigen Labels/Künstlern dass du ihre Musik spielst → mögliche Promo-Zugänge. Auch USB-Aufnahmen (Master Rec) als Archiv.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Was passiert ohne Lizenz?</div><span class="badge b-rd">RISIKO</span></div><div class="c-desc">Bei nicht-lizenzierten Veranstaltungen: <strong>Veranstalter haftet</strong>, nicht der DJ (solange DJ nicht selbst Veranstalter ist). Für DJs relevant: Wenn du deine eigene Party schmeisst ohne Lizenz → du haftest. Strafe: Pauschale plus Schadensersatz. <strong>Lösung:</strong> Bei eigenen Events SUISA/GEMA vorher anmelden — die Kosten sind überschaubar.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Eigene Produktionen schützen</div><span class="badge b-pu">PRODUZENT</span></div><div class="c-desc">Eigene Tracks bei <strong>SUISA/GEMA als Komponist registrieren</strong>. Kostenlos. Wenn andere DJs deine Musik spielen → du erhältst Ausschüttungen. Auch für unveröffentlichte Werke möglich. Für DJs die produzieren: unverzichtbar.</div></div>
+  </div>
+  <div class="insider"><span class="ti">🎓</span><div><strong>Wichtig:</strong> Dieses Kapitel ist eine Orientierungshilfe, kein Rechtsrat. Für spezifische Fragen → SUISA.ch, GEMA.de, AKM.at direkt kontaktieren. Die Situation bei Online-Streams ändert sich laufend.</div></div>
+</section>
+
+<section class="sec" id="djethik">
+  <div class="sec-hdr">
+    <div class="sec-ico">🤝</div>
+    <div><div class="sec-num">53 / </div><div class="sec-ttl">Club-Etikette <em>&amp; Profi-Verhalten</em></div></div>
+  </div>
+  <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Was niemand explizit sagt — aber alle Profis wissen. Der Unterschied zwischen einmal gebucht und langfristig gebucht.</p>
+  <div class="sub">Im Booth</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Pünktlichkeit &amp; Setup</div><span class="badge b-or">BASIC</span></div><div class="c-desc"><strong>30 Minuten früher am Venue.</strong> Soundcheck vor dem Publikum. Equipment testen bevor die Crowd da ist. USB-Sticks einstecken, Firmware-Check, Kopfhörer testen. Kein Veranstalter verzeiht "der USB lädt nicht" nach dem Set-Start.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Booth-Verhalten</div><span class="badge b-cy">PROFI</span></div><div class="c-desc">Booth ist Arbeitsplatz, nicht VIP-Bereich. <strong>Keine Freunde im Booth</strong> während du spielst. Handy nur für DJ-bezogene Zwecke. Getränke sicher stellen. Equipment anderer DJs nicht anfassen. Den vorherigen DJ ausreden lassen, nicht ungeduldig wirken. Booth-Tür für Publikum: grundsätzlich geschlossen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Übergabe zwischen DJs</div><span class="badge b-gr">B2B</span></div><div class="c-desc">2–3 Tracks vor Übergabe kurz signalisieren. <strong>Nie mitten in einem Drop übergeben.</strong> Energie-Level des Vorgängers respektieren — nicht sofort einen vollständig anderen Stil aufzwingen. BPM beim Übergeben auf aktuellen Stand lassen. USB sicher auswerfen erst wenn der andere Track läuft.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Umgang mit Technik-Problemen</div><span class="badge b-am">PROFI</span></div><div class="c-desc">Equipment fällt aus → <strong>ruhig bleiben, nicht in Panik nach Technikern schreien.</strong> Loop setzen, Backup-USB nutzen, Backup-Deck starten. Club-Publikum verzeiht 10 Sekunden Stille wenn der DJ souverän bleibt. Aber nicht einen hektischen DJ der sichtbar ausfliegt. "Never let them see you sweat."</div></div>
+  </div>
+  <div class="sub">Requests &amp; Publikum</div>
+  <div class="cards">
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Requests sozial ablehnen</div><span class="badge b-pu">TAKTIK</span></div><div class="c-desc"><strong>"Den spiele ich später"</strong> — die häufigste höfliche Lüge im DJing. Funktioniert gut. Alternativ: "Toller Track, passt gerade nicht ins Set" (ehrlicher). Nie: "Den habe ich nicht" wenn du ihn hast. <strong>Wenn es passt:</strong> Wünsche als Inspiration nutzen, nicht als Befehl. Du bist DJ, nicht Jukebox.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Requests aufnehmen und verzögern</div><span class="badge b-cy">TECHNIK</span></div><div class="c-desc">Wenn ein Request tatsächlich gut passt: <strong>Nicht sofort spielen.</strong> Erst: passt die Energie? Richtiger Key? Richtige BPM? Dann Track vorbereiten, auf nächste Phrase-Grenze warten. Die Crowd weiss nicht dass es ein Request war — du spielst wie ein Profi, nicht auf Befehl.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Umgang mit betrunkenen Gästen</div><span class="badge b-am">SOZIAL</span></div><div class="c-desc">Kurz, freundlich, klar. Kein langer Diskurs über Musikgenres mit jemandem nach 2 Uhr morgens. <strong>"Super Idee, schaue ich an"</strong> und zurück zum Mix. Körper leicht weggedreht halten signalisiert dass die Unterhaltung beendet ist. Security ansprechen wenn jemand wiederholt stört — das ist kein Versagen, das ist Professionalismus.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Veranstalter &amp; Venue-Staff</div><span class="badge b-or">NETZWERK</span></div><div class="c-desc">Veranstalter kennenlernen, Namen merken, nach dem Gig kurz Danke sagen. Nichts bucht dich öfter als ein DJ der unkompliziert ist und den Staff respektiert. Techniker sind deine Verbündeten — behandle sie entsprechend. <strong>Die Leute die dich buchen, buchen dich wieder wenn du nett, pünktlich und professionell bist.</strong></div></div>
+  </div>
+  <div class="insider"><span class="ti">🎓</span><div><strong>We Are Crossfader:</strong> "The DJs who last in this industry aren't always the most talented. They're the most professional, the most reliable, and the most enjoyable to work with. Talent gets you in the door. Professionalism keeps you there."</div></div>
+</section>
+
 
 <!-- ═══ RESSOURCEN ══════════════════════════════════════ -->
-<!-- ═══ NÜTZLICHE LINKS ════════════════════════════════════════════ -->
 <section class="sec" id="links">
   <div class="sec-hdr">
     <div class="sec-ico">🔗</div>
@@ -1991,121 +2066,109 @@ footer a{color:var(--cy);text-decoration:none}
   <div class="tip"><span class="ti">💡</span><div><strong>Tipp:</strong> Alle Links als Lesezeichen auf dem Homescreen des Handys speichern – so hast du im Gig-Stress sofort Zugriff auf Firmware-Updates, Support und Referenzen.</div></div>
 </section>
 
-<!-- ── VERSIONSHISTORIE (kein Menüeintrag) ───────── -->
+
+<!-- ── VERSIONSHISTORIE ───────── -->
 <section class="sec" id="changelog" style="margin-top:40px;border-top:1px solid var(--bd);padding-top:32px">
   <div class="sec-hdr" style="margin-bottom:20px">
     <div class="sec-ico">📋</div>
     <div><div class="sec-num" style="font-size:10px;letter-spacing:2px;color:var(--mu)">VERSIONSHISTORIE</div><div class="sec-ttl" style="font-size:22px">Changelog</div></div>
   </div>
   <div style="display:grid;gap:12px;max-width:800px">
-
     <div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:8px;padding:16px 20px">
       <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:12px;margin-bottom:10px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--or);font-weight:700">v1.3 · April 2026</span>
+        <span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--or);font-weight:700">v1.4 · April 2026</span>
         <span style="background:var(--or);color:#000;font-family:'Share Tech Mono',monospace;font-size:9px;font-weight:700;padding:2px 8px;border-radius:3px;letter-spacing:1px">AKTUELL</span>
       </div>
       <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--tx);line-height:1.7">
-        14 ausklappbare Weiterbildungs-Boxen (learn-box). Kuratierte Ressourcen von Digital DJ Tips und Club Ready DJ School mit Zusammenfassungen direkt im Guide. Links-Sektion um 6 ausklappbare Bildungskategorien und 4 YouTube-Kanäle erweitert. Changelog auf reale Entstehungszeit korrigiert.
+        Font-Size-Scaler (A/A+/A++) im Header mit localStorage-Persistenz. Large-Screen Media Queries (1400px, 1800px). Card min-width. FX-Sektion massiv ausgebaut (Channel-Routing, Timing, FX-Kombinationen). Hotcues: strategisches 8-Cue-System + Juggling. Looping: Odd Loops, Tension-Loop, Safety-Net-Karte. Sound: Limiter, Bit Depth, Kabeltypen, Brummschleifen. Neue Sektionen: Livestreaming (Setup, Copyright/DMCA, OBS), DJ-Recht (SUISA/GEMA/AKM), Club-Etikette (Booth-Verhalten, Requests, Übergabe). 54 Nav-Sektionen + Changelog.
       </div>
     </div>
-
     <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:8px;padding:16px 20px">
-      <div style="margin-bottom:8px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--cy);font-weight:700">v1.2 · April 2026</span>
-      </div>
-      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--mu);line-height:1.7">
-        Karriere-Gruppe (Social Media, Mixcloud, Erste Gigs, EPK). Set-Timer interaktiv. Mixing auf 12 Techniken + Waveform lesen + Crowd Reading + Tension &amp; Release + Fehler erweitert. Versteckte Funktionen (Touch Preview, Loop Move, Instant Doubles, Tag List). Stems via Serato + RB7. RB Workflow-Tricks. Custom Logo, VirtualDJ, Promo-Pools, Link Export, Musik kaufen 2025. Ressourcen von DDTJ und We Are Crossfader integriert.
-      </div>
+      <div style="margin-bottom:8px"><span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--cy);font-weight:700">v1.3 · April 2026</span></div>
+      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--mu);line-height:1.7">14 ausklappbare Weiterbildungs-Boxen (learn-box). Kuratierte Ressourcen von Digital DJ Tips und Club Ready DJ School. Links-Sektion um 6 Bildungskategorien und 4 YouTube-Kanäle erweitert.</div>
     </div>
-
     <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--gr);border-radius:8px;padding:16px 20px">
-      <div style="margin-bottom:8px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--gr);font-weight:700">v1.1 · April 2026</span>
-      </div>
-      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--mu);line-height:1.7">
-        Gerät-Gruppe ausgebaut (Jog Wheel, Booth, Inputs, Crossfader). Light/Dark Mode. Hamburger Mobile Nav. BPM-Rechner, Genre-Matrix 11×11, Camelot Wheel SVG, 2h-Set Arc, CDJ-3000 Vergleich. Glossar 63 Begriffe mit Suchfilter. 3 abhakbare Checklisten. Streaming-Preisvergleich, iOS Workflow, CloudDirectPlay, BPM-Chart mit Psytrance-Subgenres.
-      </div>
+      <div style="margin-bottom:8px"><span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--gr);font-weight:700">v1.2 · April 2026</span></div>
+      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--mu);line-height:1.7">Karriere-Gruppe (Social Media, Mixcloud, Erste Gigs, EPK). Set-Timer interaktiv. Mixing auf 12 Techniken + Crowd Reading + Tension & Release erweitert. Versteckte Funktionen, Stems, RB Workflow-Tricks, Custom Logo, VirtualDJ, Promo-Pools.</div>
     </div>
-
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--gr);border-radius:8px;padding:16px 20px">
+      <div style="margin-bottom:8px"><span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--gr);font-weight:700">v1.1 · April 2026</span></div>
+      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--mu);line-height:1.7">Gerät-Gruppe ausgebaut (Jog Wheel, Booth, Inputs, Crossfader). Light/Dark Mode, Hamburger Mobile Nav, BPM-Rechner, Genre-Matrix, Camelot Wheel SVG, 2h-Set Arc, CDJ-3000 Vergleich, Glossar 63 Begriffe, 3 Checklisten, Streaming-Preisvergleich.</div>
+    </div>
     <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--mu);border-radius:8px;padding:16px 20px">
-      <div style="margin-bottom:8px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--mu);font-weight:700">v1.0 · April 2026</span>
-      </div>
-      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--mu);line-height:1.7">
-        Erste Version als single-file HTML für GitHub Pages. Quickstart, Setup, Firmware, SonicLink, Master Out EQ, Pro DJ Link, Dateiformate, Library, rekordbox Pro + RB7, Hot Cues, Looping, FX, Mixing (Grundversion), BPM Guide, Key &amp; Harmonics, Camelot, Sound &amp; Gain, Performance, Pre-Gig, Soundcheck, Troubleshooting, Links.
-      </div>
+      <div style="margin-bottom:8px"><span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--mu);font-weight:700">v1.0 · April 2026</span></div>
+      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--mu);line-height:1.7">Erste Version. Quickstart, Setup, Firmware, SonicLink, Master Out, Pro DJ Link, Dateiformate, Library, rekordbox Pro+RB7, Hot Cues, Looping, FX, Mixing, BPM Guide, Key, Camelot, Sound, Performance, Pre-Gig, Soundcheck, Troubleshooting, Links.</div>
     </div>
-
   </div>
   <div style="margin-top:20px;font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--mu2);letter-spacing:2px;text-align:center">
     XDJ-AZ MASTERGUIDE · INOFFIZIELLER PRO-GUIDE · KEIN OFFIZIELLES ALPHATHETA-PRODUKT
   </div>
 </section>
+
+</div><!-- /wrap -->
 <footer>XDJ-AZ MASTERGUIDE · <span>ALPHA THETA × PIONEER DJ</span> · PRO REFERENCE · DJ SCHOOL INSIDER · ALLE INHALTE OHNE GARANTIE</footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── THEME TOGGLE ─────────────────────────────────── */
 (function(){
-  try {
-    var saved = localStorage.getItem('xdj-theme');
-    if (saved === 'light') document.documentElement.classList.add('light');
-  } catch(e) {}
+  try { if(localStorage.getItem('theme')==='light') document.documentElement.classList.add('light'); } catch(e){}
 })();
-
-function toggleTheme() {
-  var html = document.documentElement;
-  var isLight = html.classList.toggle('light');
-  try { localStorage.setItem('xdj-theme', isLight ? 'light' : 'dark'); } catch(e) {}
+function toggleTheme(){
+  var h=document.documentElement;
+  h.classList.toggle('light');
+  try{localStorage.setItem('theme',h.classList.contains('light')?'light':'dark');}catch(e){}
 }
 
-/* ── NAV ─────────────────────────────────────────── */
-function navTo(id) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  var top = el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - 100;
-  if (window.scrollTo) { try { window.scrollTo({top: top, behavior: 'smooth'}); } catch(e) { window.scrollTo(0, top); } }
-  // Close subnav after navigating
-  document.getElementById('subnav').className = 'subnav';
-  document.querySelectorAll('.ng').forEach(function(b){ b.className='ng'; });
-  activeGroup = null;
-}
-
-/* ── MOBILE HAMBURGER ────────────────────────────── */
-var mobOpen = false;
-var mobActiveGrp = null;
-
-function toggleMobMenu() {
-  mobOpen = !mobOpen;
-  var menu = document.getElementById('mob-menu');
-  var btn  = document.getElementById('hmb');
-  menu.className = mobOpen ? 'mob-menu open' : 'mob-menu';
-  btn.className  = mobOpen ? 'hmb open' : 'hmb';
-  document.body.style.overflow = mobOpen ? 'hidden' : '';
-}
-
-function toggleMobGroup(grp) {
-  var sub = document.getElementById('mob-' + grp);
-  var btn = sub ? sub.previousElementSibling : null;
-  if (!sub) return;
-  var isOpen = sub.className.indexOf('open') !== -1;
-  // Close all
-  var allSubs = document.querySelectorAll('.mob-sub');
-  var allBtns = document.querySelectorAll('.mob-grp-btn');
-  for (var i=0; i<allSubs.length; i++) allSubs[i].className='mob-sub';
-  for (var j=0; j<allBtns.length; j++) allBtns[j].className='mob-grp-btn';
-  if (!isOpen) {
-    sub.className = 'mob-sub open';
-    if (btn) btn.className = 'mob-grp-btn open';
+/* ── FONT SCALE ──────────────────────────────────── */
+(function(){
+  try{var v=parseInt(localStorage.getItem('fontSize')||'0',10);applyFS(v);}catch(e){}
+})();
+function setFS(level){try{localStorage.setItem('fontSize',level);}catch(e){}applyFS(level);}
+function applyFS(level){
+  var h=document.documentElement;
+  h.classList.remove('fs-mid','fs-big');
+  if(level===1)h.classList.add('fs-mid');
+  if(level===2)h.classList.add('fs-big');
+  var btns=['fs-s','fs-m','fs-l'];
+  for(var i=0;i<btns.length;i++){
+    var b=document.getElementById(btns[i]);
+    if(b)b.className='fs-btn'+(i===level?' fs-active':'');
   }
 }
 
-function mobNavTo(id) {
-  toggleMobMenu();
-  document.body.style.overflow = '';
-  setTimeout(function() { navTo(id); }, 120);
+/* ── NAVIGATION ──────────────────────────────────── */
+function navTo(id){
+  var mob=document.getElementById('mob-menu');
+  if(mob)mob.style.display='none';
+  document.body.style.overflow='';
+  var el=document.getElementById(id);
+  if(el){var top=el.getBoundingClientRect().top+window.pageYOffset-80;window.scrollTo({top:top,behavior:'smooth'});}
 }
+function toggleMobMenu(){
+  var mob=document.getElementById('mob-menu');
+  var hmb=document.getElementById('hmb');
+  if(!mob)return;
+  var open=mob.style.display==='block';
+  mob.style.display=open?'none':'block';
+  document.body.style.overflow=open?'':'hidden';
+  if(hmb)hmb.classList.toggle('open',!open);
+}
+function toggleMobGroup(sh){
+  var sub=document.getElementById('mob-'+sh);
+  if(!sub)return;
+  var open=sub.style.maxHeight&&sub.style.maxHeight!=='0px';
+  document.querySelectorAll('.mob-sub').forEach(function(s){s.style.maxHeight='0px';});
+  document.querySelectorAll('.mob-grp-btn').forEach(function(b){b.classList.remove('open');});
+  if(!open){
+    sub.style.maxHeight=sub.scrollHeight+'px';
+    var btn=sub.previousElementSibling;
+    if(btn)btn.classList.add('open');
+  }
+}
+function mobNavTo(id){navTo(id);toggleMobMenu();}
 
-/* ── GROUP NAV ───────────────────────────────────── */
+/* ── DESKTOP SUB-NAV ─────────────────────────────── */
+var activeGroup=null;
 var GROUPS = {
   einstieg: [
     {id:'quickstart', lbl:'🚀 Quickstart'},
@@ -2130,7 +2193,7 @@ var GROUPS = {
     {id:'connect', lbl:'📡 Konnektivität'},
     {id:'musikquellen', lbl:'🛒 Musik kaufen'},
     {id:'promopools', lbl:'🎁 Promo-Pools'},
-    {id:'streaming', lbl:'💰 Streaming-Preise'},
+    {id:'streaming', lbl:'💰 Streaming'},
     {id:'linkexport', lbl:'📶 Link Export'},
     {id:'iosworkflow', lbl:'📱 iOS Workflow'},
     {id:'clouddirect', lbl:'☁️ CloudDirectPlay'}
@@ -2173,769 +2236,505 @@ var GROUPS = {
     {id:'socialmedia', lbl:'📱 Social Media'},
     {id:'mixcloud', lbl:'🎵 Mixcloud'},
     {id:'erstegigs', lbl:'🚪 Erste Gigs'},
-    {id:'epk', lbl:'📋 Press Kit'}
+    {id:'epk', lbl:'📋 Press Kit'},
+    {id:'livestream', lbl:'🎥 Livestreaming'},
+    {id:'djrecht', lbl:'⚖️ DJ-Recht'},
+    {id:'djethik', lbl:'🤝 Club-Etikette'}
   ],
   links: [{id:'links', lbl:'🔗 Nützliche Links'}]
 };
 
-var activeGroup = null;
-
-function toggleGroup(grp) {
-  var subnav = document.getElementById('subnav');
-  var inner  = document.getElementById('subnav-inner');
-  var btn    = document.getElementById('ng-' + grp);
-
-  // Toggle off if same group clicked again
-  if (activeGroup === grp) {
-    subnav.className = 'subnav';
-    btn.className = 'ng';
-    activeGroup = null;
-    return;
+function toggleGroup(grp){
+  var sn=document.getElementById('subnav');
+  var si=document.getElementById('subnav-inner');
+  var allBtns=document.querySelectorAll('.ng');
+  for(var i=0;i<allBtns.length;i++)allBtns[i].className='ng';
+  if(activeGroup===grp){activeGroup=null;if(sn)sn.className='subnav';return;}
+  activeGroup=grp;
+  var btn=document.getElementById('ng-'+grp);
+  if(btn)btn.className='ng active';
+  if(si&&GROUPS[grp]){
+    var html='';
+    GROUPS[grp].forEach(function(item){
+      html+='<button class="ns" onclick="navTo(\''+item.id+'\')">'+item.lbl+'</button>';
+    });
+    si.innerHTML=html;
   }
-
-  // Reset all group buttons
-  var allBtns = document.querySelectorAll('.ng');
-  for (var i = 0; i < allBtns.length; i++) {
-    allBtns[i].className = 'ng';
-  }
-
-  // Build sub-items
-  var items = GROUPS[grp] || [];
-  var html = '';
-  for (var j = 0; j < items.length; j++) {
-    html += '<button class="ns" onclick="navTo(\'' + items[j].id + '\')">' + items[j].lbl + '</button>';
-  }
-  inner.innerHTML = html;
-
-  // Show subnav
-  subnav.className = 'subnav open';
-  btn.className = 'ng active';
-  activeGroup = grp;
+  if(sn)sn.className='subnav open';
 }
-
-// Close subnav on outside click
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('header')) {
-    var sn = document.getElementById('subnav');
-    if (sn) sn.className = 'subnav';
-    var btns = document.querySelectorAll('.ng');
-    for (var i = 0; i < btns.length; i++) { btns[i].className = 'ng'; }
-    activeGroup = null;
+document.addEventListener('click',function(e){
+  if(!e.target.closest('header')){
+    var sn=document.getElementById('subnav');
+    if(sn)sn.className='subnav';
+    var btns=document.querySelectorAll('.ng');
+    for(var i=0;i<btns.length;i++){btns[i].className='ng';}
+    activeGroup=null;
   }
 });
 
-/* ── CAMELOT DATA ────────────────────────────────── */
-var CAM = [
-  {n:1,  a:'1A',  ta:'Ab min', b:'1B',  tb:'B Maj',  c:'#c0392b'},
-  {n:2,  a:'2A',  ta:'Eb min', b:'2B',  tb:'F# Maj', c:'#d35400'},
-  {n:3,  a:'3A',  ta:'Bb min', b:'3B',  tb:'Db Maj', c:'#d4ac0d'},
-  {n:4,  a:'4A',  ta:'F min',  b:'4B',  tb:'Ab Maj', c:'#a9ba0e'},
-  {n:5,  a:'5A',  ta:'C min',  b:'5B',  tb:'Eb Maj', c:'#1e8449'},
-  {n:6,  a:'6A',  ta:'G min',  b:'6B',  tb:'Bb Maj', c:'#17a589'},
-  {n:7,  a:'7A',  ta:'D min',  b:'7B',  tb:'F Maj',  c:'#1a5276'},
-  {n:8,  a:'8A',  ta:'A min',  b:'8B',  tb:'C Maj',  c:'#2471a3'},
-  {n:9,  a:'9A',  ta:'E min',  b:'9B',  tb:'G Maj',  c:'#6c3483'},
-  {n:10, a:'10A', ta:'B min',  b:'10B', tb:'D Maj',  c:'#9b59b6'},
-  {n:11, a:'11A', ta:'F# min', b:'11B', tb:'A Maj',  c:'#c0392b'},
-  {n:12, a:'12A', ta:'Db min', b:'12B', tb:'E Maj',  c:'#e74c3c'}
+/* ── LEARN BOX TOGGLE ────────────────────────────── */
+function toggleLearn(btn){var box=btn.parentElement;box.classList.toggle('lb-open');}
+
+/* ── CAMELOT WHEEL ───────────────────────────────── */
+var CAM=[
+  {n:1,a:'1A',ta:'Ab min',b:'1B',tb:'B Maj',c:'#c0392b'},
+  {n:2,a:'2A',ta:'Eb min',b:'2B',tb:'F# Maj',c:'#d35400'},
+  {n:3,a:'3A',ta:'Bb min',b:'3B',tb:'Db Maj',c:'#d4ac0d'},
+  {n:4,a:'4A',ta:'F min', b:'4B',tb:'Ab Maj',c:'#a9ba0e'},
+  {n:5,a:'5A',ta:'C min', b:'5B',tb:'Eb Maj',c:'#27ae60'},
+  {n:6,a:'6A',ta:'G min', b:'6B',tb:'Bb Maj',c:'#1abc9c'},
+  {n:7,a:'7A',ta:'D min', b:'7B',tb:'F Maj', c:'#2980b9'},
+  {n:8,a:'8A',ta:'A min', b:'8B',tb:'C Maj', c:'#8e44ad'},
+  {n:9,a:'9A',ta:'E min', b:'9B',tb:'G Maj', c:'#6c3483'},
+  {n:10,a:'10A',ta:'B min',b:'10B',tb:'D Maj',c:'#a93226'},
+  {n:11,a:'11A',ta:'F# min',b:'11B',tb:'A Maj',c:'#884ea0'},
+  {n:12,a:'12A',ta:'Db min',b:'12B',tb:'E Maj',c:'#1a5276'},
 ];
-
-/* ── SVG HELPERS ─────────────────────────────────── */
-var SVGNS = 'http://www.w3.org/2000/svg';
-function mkEl(tag) { return document.createElementNS(SVGNS, tag); }
-function toRad(d) { return (d - 90) * Math.PI / 180; }
-function pt(d, r) { return {x: r * Math.cos(toRad(d)), y: r * Math.sin(toRad(d))}; }
-function arc(r1, r2, a1, a2) {
-  var s1=pt(a1,r1), e1=pt(a2,r1), s2=pt(a1,r2), e2=pt(a2,r2);
-  return 'M'+s1.x+' '+s1.y+' A'+r1+' '+r1+' 0 0 1 '+e1.x+' '+e1.y+' L'+e2.x+' '+e2.y+' A'+r2+' '+r2+' 0 0 0 '+s2.x+' '+s2.y+'Z';
+function mkEl(tag,attrs,par){var el=document.createElementNS('http://www.w3.org/2000/svg',tag);for(var k in attrs)el.setAttribute(k,attrs[k]);if(par)par.appendChild(el);return el;}
+function toRad(d){return d*Math.PI/180;}
+function pt(cx,cy,r,a){return[cx+r*Math.cos(toRad(a)),cy+r*Math.sin(toRad(a))];}
+function arc(cx,cy,r1,r2,a1,a2){
+  var p1=pt(cx,cy,r1,a1),p2=pt(cx,cy,r2,a1),p3=pt(cx,cy,r2,a2),p4=pt(cx,cy,r1,a2);
+  return 'M'+p1[0]+','+p1[1]+' L'+p2[0]+','+p2[1]+' A'+r2+','+r2+' 0 0,1 '+p3[0]+','+p3[1]+' L'+p4[0]+','+p4[1]+' A'+r1+','+r1+' 0 0,0 '+p1[0]+','+p1[1]+' Z';
 }
-function ha(hex, a) { var v=Math.round(a*255).toString(16); return hex+(v.length<2?'0'+v:v); }
-
-/* ── BUILD WHEEL ─────────────────────────────────── */
-var svgW = document.getElementById('cam-svg');
-var R1=52, R2=100, R3=148, GAP=1.2;
-(function(){
-  var i, k, a1, a2, am, p, t, m;
-  for (i=0; i<CAM.length; i++) {
-    k=CAM[i]; a1=i*30+GAP; a2=(i+1)*30-GAP; am=i*30+15;
-    // inner A
-    p=mkEl('path'); p.setAttribute('d',arc(R1,R2,a1,a2));
-    p.setAttribute('fill',ha(k.c,0.45)); p.setAttribute('stroke','#07090d'); p.setAttribute('stroke-width','1');
-    p.setAttribute('data-idx',String(i)); p.setAttribute('data-which','A'); p.style.cursor='pointer';
-    svgW.appendChild(p);
-    // outer B
-    p=mkEl('path'); p.setAttribute('d',arc(R2,R3,a1,a2));
-    p.setAttribute('fill',ha(k.c,0.68)); p.setAttribute('stroke','#07090d'); p.setAttribute('stroke-width','1');
-    p.setAttribute('data-idx',String(i)); p.setAttribute('data-which','B'); p.style.cursor='pointer';
-    svgW.appendChild(p);
-    // label A
-    m=pt(am,(R1+R2)/2); t=mkEl('text');
-    t.setAttribute('x',String(m.x)); t.setAttribute('y',String(m.y));
-    t.setAttribute('text-anchor','middle'); t.setAttribute('dominant-baseline','central');
-    t.setAttribute('fill','#fff'); t.setAttribute('font-size','8.5');
-    t.setAttribute('font-family','Rajdhani,Arial,sans-serif'); t.setAttribute('font-weight','700');
-    t.setAttribute('pointer-events','none'); t.textContent=k.a; svgW.appendChild(t);
-    // label B
-    m=pt(am,(R2+R3)/2); t=mkEl('text');
-    t.setAttribute('x',String(m.x)); t.setAttribute('y',String(m.y));
-    t.setAttribute('text-anchor','middle'); t.setAttribute('dominant-baseline','central');
-    t.setAttribute('fill','#fff'); t.setAttribute('font-size','8.5');
-    t.setAttribute('font-family','Rajdhani,Arial,sans-serif'); t.setAttribute('font-weight','700');
-    t.setAttribute('pointer-events','none'); t.textContent=k.b; svgW.appendChild(t);
-  }
-  var circ=mkEl('circle'); circ.setAttribute('cx','0'); circ.setAttribute('cy','0');
-  circ.setAttribute('r',String(R1-2)); circ.setAttribute('fill','#0c0f17');
-  circ.setAttribute('stroke','#1a1f30'); circ.setAttribute('stroke-width','1'); svgW.appendChild(circ);
-  var ct=mkEl('text'); ct.setAttribute('x','0'); ct.setAttribute('y','-5');
-  ct.setAttribute('text-anchor','middle'); ct.setAttribute('dominant-baseline','central');
-  ct.setAttribute('fill','#7a839a'); ct.setAttribute('font-size','7.5');
-  ct.setAttribute('font-family','Share Tech Mono,Courier New,monospace'); ct.textContent='CAMELOT'; svgW.appendChild(ct);
-  var ct2=mkEl('text'); ct2.setAttribute('x','0'); ct2.setAttribute('y','7');
-  ct2.setAttribute('text-anchor','middle'); ct2.setAttribute('dominant-baseline','central');
-  ct2.setAttribute('fill','#4a5268'); ct2.setAttribute('font-size','6.5');
-  ct2.setAttribute('font-family','Share Tech Mono,Courier New,monospace'); ct2.textContent='WHEEL'; svgW.appendChild(ct2);
-})();
-
-/* ── WHEEL CLICK ─────────────────────────────────── */
-function getDataEl(node) {
-  var cur=node;
-  while (cur && cur !== svgW) {
-    if (cur.getAttribute && cur.getAttribute('data-idx') !== null) return cur;
-    cur=cur.parentNode;
-  }
-  return null;
+function ha(cx,cy,r,a,txt,sz,fill){
+  var x=cx+r*Math.cos(toRad(a)),y=cy+r*Math.sin(toRad(a));
+  var t=mkEl('text',{x:x,y:y,'text-anchor':'middle','dominant-baseline':'middle','font-size':sz,'fill':fill,'font-family':'Rajdhani,sans-serif','font-weight':'700','pointer-events':'none'});
+  t.textContent=txt;return t;
 }
-function mod12(i) { return ((i%12)+12)%12; }
-
-svgW.addEventListener('click', function(e) {
-  var el=getDataEl(e.target||e.srcElement);
-  if (!el) return;
-  var idx=parseInt(el.getAttribute('data-idx'),10);
-  var which=el.getAttribute('data-which');
-  if (isNaN(idx)||!CAM[idx]) return;
-  showCamDetails(idx, which);
-  highlightWheel(idx, which);
-});
-
-function highlightWheel(si, sw) {
-  var compat=[si, mod12(si-1), mod12(si+1)];
-  var pw=sw==='A'?'B':'A';
-  var paths=svgW.getElementsByTagName('path');
-  for (var i=0; i<paths.length; i++) {
-    var p=paths[i];
-    var pi=parseInt(p.getAttribute('data-idx'),10);
-    var pv=p.getAttribute('data-which');
-    if (isNaN(pi)||!CAM[pi]) continue;
-    var k=CAM[pi], ok=false;
-    if (pv===sw && (pi===si||pi===mod12(si-1)||pi===mod12(si+1))) ok=true;
-    if (pi===si && pv===pw) ok=true;
-    if (ok) {
-      p.setAttribute('fill',ha(k.c,pv==='A'?0.88:1.0));
-      p.setAttribute('stroke','#ff6b00'); p.setAttribute('stroke-width','2');
-    } else {
-      p.setAttribute('fill',ha(k.c,pv==='A'?0.12:0.18));
-      p.setAttribute('stroke','#07090d'); p.setAttribute('stroke-width','1');
-    }
-  }
+function getDataEl(el,attr){while(el&&!el.getAttribute(attr))el=el.parentElement;return el?el.getAttribute(attr):null;}
+function mod12(n){return((n-1+12)%12)+1;}
+function highlightWheel(n){
+  document.querySelectorAll('.cam-seg').forEach(function(s){
+    var sn=parseInt(s.getAttribute('data-n'));
+    var compat=[n,mod12(n+1),mod12(n-1)];
+    s.setAttribute('opacity',compat.indexOf(sn)>=0?'1':'0.25');
+  });
 }
-
-function showCamDetails(idx, which) {
-  var k=CAM[idx], prev=CAM[mod12(idx-1)], next=CAM[mod12(idx+1)];
-  var lbl=which==='A'?k.a:k.b, ton=which==='A'?k.ta:k.tb;
-  var parL=which==='A'?k.b:k.a, parT=which==='A'?k.tb:k.ta;
-  var prevL=which==='A'?prev.a:prev.b, prevT=which==='A'?prev.ta:prev.tb;
-  var nextL=which==='A'?next.a:next.b, nextT=which==='A'?next.ta:next.tb;
-  var parD=which==='A'?'Dur-Variante':'Moll-Variante';
-  document.getElementById('cam-panel').innerHTML=
-    '<h3>'+lbl+' \u00B7 '+ton+'</h3>'+
-    '<div class="cl2">'+
-    '<div class="ci2" style="border-color:rgba(0,232,122,0.3)"><div class="ci-k" style="color:#00e87a">'+lbl+'</div><div class="ci-l">'+ton+' \u2013 Gleicher Key</div><span class="ci-t ct-p">PERFECT</span></div>'+
-    '<div class="ci2"><div class="ci-k" style="color:#00d4ff">'+prevL+'</div><div class="ci-l">'+prevT+' \u2013 Energie runter</div><span class="ci-t ct-d">\u22121</span></div>'+
-    '<div class="ci2"><div class="ci-k" style="color:#00d4ff">'+nextL+'</div><div class="ci-l">'+nextT+' \u2013 Energie hoch</div><span class="ci-t ct-u">+1</span></div>'+
-    '<div class="ci2"><div class="ci-k" style="color:#ffb347">'+parL+'</div><div class="ci-l">'+parT+' \u2013 '+parD+'</div><span class="ci-t ct-pa">PARALLEL</span></div>'+
-    '</div>'+
-    '<div style="margin-top:12px;padding:9px 12px;background:#111520;border-radius:5px;border:1px solid #1a1f30;font-size:11px;color:#7a839a;">'+
-    '<div style="font-family:\'Share Tech Mono\',monospace;font-size:8px;letter-spacing:1px;color:#7a839a;margin-bottom:4px;">KEY SYNC TIPP</div>'+
-    'Nutze <strong style="color:#dde2ee">Key Sync</strong> am XDJ-AZ. Max. \u00B12 Halbt\u00F6ne \u2013 mehr klingt k\u00FCnstlich.</div>';
+function showCamDetails(n){
+  var item=CAM[n-1];
+  var panel=document.getElementById('cam-panel');
+  if(!panel)return;
+  var compat='<span style="color:var(--or)">'+item.a+'</span> ';
+  compat+=mod12(n+1)+'A / '+mod12(n-1)+'A (±1) · '+item.b+' (A↔B)';
+  panel.innerHTML='<h3 style="margin:0 0 6px;font-size:16px;color:var(--tx)">'+item.a+' – '+item.ta+'</h3>'
+    +'<div style="font-size:12px;color:var(--mu)">Dur: '+item.b+' ('+item.tb+')</div>'
+    +'<div style="font-size:11px;color:var(--mu);margin-top:8px">Kompatibel mit: '+compat+'</div>';
 }
-
-/* ── CAM GRID ────────────────────────────────────── */
-(function(){
-  var g=document.getElementById('cam-grid-all');
-  if (!g) return;
-  var h='';
-  for (var i=0; i<CAM.length; i++) {
-    var k=CAM[i];
-    h+='<div class="cg-item">'+
-      '<div class="cg-keys">'+
-      '<span class="cg-a" style="border-left:3px solid '+k.c+'">'+k.a+'</span>'+
-      '<span class="cg-b" style="border-left:3px solid '+k.c+'">'+k.b+'</span>'+
-      '</div>'+
-      '<div class="cg-tones"><span>'+k.ta+'</span><span>'+k.tb+'</span></div>'+
-      '</div>';
-  }
-  g.innerHTML=h;
-})();
-
-/* ── BPM CHART ───────────────────────────────────── */
-(function(){
-  var genres=[
-    {n:'Psychill / Psybient', lo:90,  hi:120, c:'#5d6d7e', grp:'psy'},
-    {n:'Hip Hop',             lo:80,  hi:100, c:'#9b59b6', grp:''},
-    {n:'R&B / Neo Soul',      lo:85,  hi:105, c:'#8e44ad', grp:''},
-    {n:'Deep House',          lo:118, hi:124, c:'#1a5276', grp:''},
-    {n:'Tech House',          lo:124, hi:130, c:'#2471a3', grp:''},
-    {n:'House',               lo:120, hi:130, c:'#17a589', grp:''},
-    {n:'Afro House',          lo:122, hi:128, c:'#d4ac0d', grp:''},
-    {n:'Minimal',             lo:126, hi:132, c:'#4a5268', grp:''},
-    {n:'Psy-Techno',          lo:125, hi:137, c:'#1abc9c', grp:'psy'},
-    {n:'Melodic Techno',      lo:124, hi:132, c:'#1e8449', grp:''},
-    {n:'Techno',              lo:130, hi:145, c:'#d35400', grp:''},
-    {n:'Progressive Psy',     lo:130, hi:140, c:'#27ae60', grp:'psy'},
-    {n:'Dubstep',             lo:138, hi:142, c:'#6c3483', grp:''},
-    {n:'Trance',              lo:128, hi:145, c:'#c0392b', grp:''},
-    {n:'Psytrance (Classy)',   lo:138, hi:144, c:'#2980b9', grp:'psy'},
-    {n:'Goa Trance',          lo:135, hi:150, c:'#8e6b2e', grp:'psy'},
-    {n:'Full-on Psy',         lo:140, hi:148, c:'#e67e22', grp:'psy'},
-    {n:'Dark Psy',            lo:140, hi:155, c:'#34495e', grp:'psy'},
-    {n:'Psychedelic (UK Psy)',lo:145, hi:155, c:'#8e44ad', grp:'psy'},
-    {n:'Drum & Bass',         lo:160, hi:180, c:'#e74c3c', grp:''},
-    {n:'Hi-Tech Psy',         lo:170, hi:200, c:'#c0392b', grp:'psy'},
-  ];
-  var MIN=60, MAX=210, RANGE=MAX-MIN;
-  var rows=document.getElementById('bpm-rows');
-  if (!rows) return;
-  var h='';
-  for (var i=0; i<genres.length; i++) {
-    var g=genres[i];
-    var left=((g.lo-MIN)/RANGE*100).toFixed(1);
-    var width=((g.hi-g.lo)/RANGE*100).toFixed(1);
-    h+='<div class="bpm-row">'+
-      '<div class="bpm-genre">'+g.n+'</div>'+
-      '<div class="bpm-track">'+
-      '<div class="bpm-bar" style="left:'+left+'%;width:'+width+'%;background:'+g.c+'80;border-left:2px solid '+g.c+'"></div>'+
-      '</div>'+
-      '<span class="bpm-val">'+g.lo+'–'+g.hi+'</span>'+
-      '</div>';
-  }
-  rows.innerHTML=h;
+(function buildCamelot(){
+  var svg=document.getElementById('cam-svg');
+  if(!svg)return;
+  var cx=160,cy=160,R1=55,R2=90,R3=125,gap=1;
+  CAM.forEach(function(item){
+    var a1=-90+(item.n-1)*30+gap/2,a2=-90+item.n*30-gap/2;
+    var g=mkEl('g',{'class':'cam-seg','data-n':item.n,'style':'cursor:pointer'},svg);
+    g.addEventListener('click',function(){
+      highlightWheel(item.n);showCamDetails(item.n);
+    });
+    mkEl('path',{d:arc(cx,cy,R1,R2,a1,a2),fill:item.c,'fill-opacity':'0.85'},g);
+    mkEl('path',{d:arc(cx,cy,R2,R3,a1,a2),fill:item.c,'fill-opacity':'0.55'},g);
+    var am=(a1+a2)/2;
+    g.appendChild(ha(cx,cy,(R1+R2)/2,am,item.a,10,'#fff'));
+    g.appendChild(ha(cx,cy,(R2+R3)/2,am,item.b,9,'#fff'));
+  });
+  var lA=mkEl('text',{x:cx-R1+8,y:cy,'text-anchor':'middle','dominant-baseline':'middle','font-size':9,'fill':'var(--mu)','font-family':'Share Tech Mono,monospace'});
+  lA.textContent='A=m';svg.appendChild(lA);
+  var lB=mkEl('text',{x:cx-R2+8,y:cy,'text-anchor':'middle','dominant-baseline':'middle','font-size':9,'fill':'var(--mu)','font-family':'Share Tech Mono,monospace'});
+  lB.textContent='B=M';svg.appendChild(lB);
 })();
 
 /* ── CHECKLISTS ──────────────────────────────────── */
 var PG_ITEMS=[
-  {t:'USB-Stick exportiert & Playlist aktualisiert', s:'rekordbox → Export → alle neuen Tracks'},
-  {t:'MySettings auf USB gespeichert', s:'rekordbox → Preferences → My Settings → Export'},
-  {t:'Backup-USB vorbereitet', s:'Komplette Library als Kopie auf zweitem Stick'},
-  {t:'BPM-Bereiche der Playlist geprüft', s:'Kein zu großer BPM-Sprung zwischen Tracks'},
-  {t:'Key-Analyse aller Tracks vollständig', s:'Camelot-Werte in rekordbox sichtbar'},
-  {t:'Hot Cues für alle Haupttracks gesetzt', s:'Mindestens Drop & Outro markiert'},
-  {t:'Memory Cues als Struktur-Anker gesetzt', s:'Breakdown, Fill, Outro'},
-  {t:'Kopfhörer & Kabel dabei', s:'6.3mm Klinke oder Adapter'},
-  {t:'USB-Kabel für Serato-Backup dabei', s:'USB-B auf USB-A'},
-  {t:'Setliste vorbereitet (Notizen-App)', s:'Erste 3–5 Tracks fix geplant, Rest flexibel'},
-  {t:'Energiestruktur des Sets geplant', s:'Warm-up → Build → Peak → Cooldown'},
-  {t:'Kontakt Veranstalter / Techniker gespeichert', s:'Für technische Probleme vor Ort'}
+  {t:'USB-Sticks vorbereitet & exportiert',s:'rekordbox Export → alle Playlists'},
+  {t:'Backup-USB vorhanden',s:'Separater Stick, separate Tasche'},
+  {t:'Kopfhörer eingepackt',s:'Inkl. Adapter 6.3mm/3.5mm'},
+  {t:'Stromkabel vorhanden',s:'IEC-Kabel für XDJ-AZ'},
+  {t:'Anfahrt geplant',s:'Route, Parken, Ankunft 30min früher'},
+  {t:'Venue-Kontakt gespeichert',s:'Veranstalter + Techniker Telefonnummer'},
+  {t:'Setliste grob vorbereitet',s:'Erste 3-5 Tracks festgelegt'},
+  {t:'Firmware aktuell geprüft',s:'AlphaTheta Support → Firmware'},
 ];
-
 var SC_ITEMS=[
-  {t:'USB eingesteckt & Library geladen', s:'Beide Slots prüfen falls B2B'},
-  {t:'MySettings korrekt geladen', s:'Tempo Range, EQ-Typ, Quantize prüfen'},
-  {t:'Needle Search: HOLD aktiviert', s:'UTILITY → Needle Search → Hold'},
-  {t:'Auto-Standby: OFF', s:'UTILITY → Display → Auto Standby → Off'},
-  {t:'Master-Ausgang an PA geprüft', s:'Kurz Track starten, Pegel prüfen'},
-  {t:'Booth-Monitor korrekt eingestellt', s:'Separater Pegel, nicht über Master'},
-  {t:'Kopfhörer-Monitoring geprüft', s:'Split CUE oder normaler CUE'},
-  {t:'Trim-Pegel aller Kanäle gesetzt', s:'Peak-Meter im gelben Bereich'},
-  {t:'Crossfader-Assign überprüft', s:'A / THRU / B je nach Setup'},
-  {t:'EQ alle Kanäle auf 12 Uhr (neutral)', s:'Keine unbeabsichtigten EQ-Cuts'},
-  {t:'Beat FX: OFF bei Start', s:'Kein versehentlicher Effekt beim ersten Track'},
-  {t:'Erster Track gequeued & bereit', s:'Auf Cue-Point gesetzt, Kopfhörer geprüft'}
+  {t:'USB-Sticks eingesteckt & erkannt',s:'SOURCE-Menü prüfen'},
+  {t:'Kopfhörer angeschlossen & getestet',s:'Split CUE oder CUE/Master prüfen'},
+  {t:'Master-Pegel korrekt',s:'-6 dBFS Headroom zum Limiter'},
+  {t:'Booth-Monitor funktioniert',s:'BOOTH-Regler auf angenehme Lautstärke'},
+  {t:'Erster Track geladen & bereit',s:'Hot Cue A auf Beat 1'},
+  {t:'BPM/Grid geprüft',s:'Stichprobe: 2-3 Tracks'},
 ];
-
-function buildList(items, pfx, col1Id, col2Id, progId, fillId) {
-  var half=Math.ceil(items.length/2);
-  function renderItem(item, idx) {
-    return '<div class="cl-item" id="'+pfx+'-row-'+idx+'">'+
-      '<input type="checkbox" id="'+pfx+'-cb-'+idx+'" onchange="tickItem(\''+pfx+'\','+idx+')">'+
-      '<div class="cl-txt">'+
-      '<div class="cl-main" id="'+pfx+'-main-'+idx+'">'+item.t+'</div>'+
-      '<div class="cl-sub">'+item.s+'</div>'+
-      '</div></div>';
-  }
-  var h1='', h2='';
-  for (var i=0; i<items.length; i++) {
-    if (i<half) h1+=renderItem(items[i],i);
-    else h2+=renderItem(items[i],i);
-  }
-  document.getElementById(col1Id).innerHTML=h1;
-  document.getElementById(col2Id).innerHTML=h2;
-}
-
-function tickItem(pfx, idx) {
-  var cb=document.getElementById(pfx+'-cb-'+idx);
-  var row=document.getElementById(pfx+'-row-'+idx);
-  var main=document.getElementById(pfx+'-main-'+idx);
-  if (cb && row && main) {
-    if (cb.checked) { row.className='cl-item done'; }
-    else { row.className='cl-item'; }
-  }
-  updateProgress(pfx);
-}
-
-function updateProgress(pfx) {
-  var items=pfx==='pg'?PG_ITEMS:SC_ITEMS;
-  var total=items.length, done=0;
-  for (var i=0; i<total; i++) {
-    var cb=document.getElementById(pfx+'-cb-'+i);
-    if (cb && cb.checked) done++;
-  }
-  var prog=document.getElementById(pfx+'-prog');
-  var fill=document.getElementById(pfx+'-fill');
-  if (prog) prog.textContent=done+' / '+total;
-  if (fill) fill.style.width=Math.round((done/total)*100)+'%';
-}
-
-function resetList(pfx) {
-  var items=pfx==='pg'?PG_ITEMS:SC_ITEMS;
-  for (var i=0; i<items.length; i++) {
-    var cb=document.getElementById(pfx+'-cb-'+i);
-    var row=document.getElementById(pfx+'-row-'+i);
-    if (cb) cb.checked=false;
-    if (row) row.className='cl-item';
-  }
-  updateProgress(pfx);
-}
-
-/* ENERGY CURVE */
-(function(){
-  var ec=document.getElementById('ec-wrap');
-  if(!ec)return;
-  var phases=[
-    {lbl:'Warm-Up',bars:[2,3,3,4,4,5,5,6],c:'#1a5276'},
-    {lbl:'Build-Up',bars:[6,7,7,8,8,9,9,9],c:'#1e8449'},
-    {lbl:'Peak',bars:[10,10,9,10,10,9,10,10],c:'#ff6b00'},
-    {lbl:'Cooldown',bars:[8,7,6,5,5,4,3,3],c:'#9b59b6'}
-  ];
-  var h='';
-  for(var i=0;i<phases.length;i++){
-    var ph=phases[i];
-    h+='<div class="ec-row"><div class="ec-lbl">'+ph.lbl+'</div><div class="ec-bars">';
-    for(var j=0;j<ph.bars.length;j++){
-      h+='<div class="ec-b" style="height:'+(ph.bars[j]*10)+'px;background:'+ph.c+';opacity:'+(0.5+ph.bars[j]*0.05)+'"></div>';
-    }
-    h+='</div></div>';
-  }
-  h+='<div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:16px;margin-top:14px;font-size:11px;color:var(--mu);-ms-flex-wrap:wrap;flex-wrap:wrap">';
-  for(var k=0;k<phases.length;k++){
-    h+='<span style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:6px;-webkit-box-align:center;-ms-flex-align:center;align-items:center"><span style="width:10px;height:10px;background:'+phases[k].c+';border-radius:2px;display:inline-block"></span>'+phases[k].lbl+'</span>';
-  }
-  h+='</div>';
-  ec.innerHTML=h;
-})();
-
-/* ── DJ GLOSSAR ──────────────────────────────────── */
-var GLOSSAR=[
-  {t:'4/4-Takt',d:'Grundrhythmus elektronischer Musik: 4 Schläge pro Takt. Beat 1 ist der Downbeat.'},
-  {t:'A-Seite',d:'Vinyl-Ära: Hauptseite einer Single mit dem Hit-Track. Heute noch Synonym für den wichtigsten Track einer EP.'},
-  {t:'AIFF',d:'Unkomprimiertes Apple-Audioformat. Hohe Qualität, grosse Dateien. Am XDJ-AZ direkt abspielbar.'},
-  {t:'Analyse',d:'rekordbox berechnet BPM, Beat-Grid, Key und Wellenform. Basis für Sync, Key-Anzeige und Cue-Setzung.'},
-  {t:'B2B (Back-to-Back)',d:'Zwei DJs teilen sich ein Set – abwechselnd pro Track oder je ein Deck.'},
-  {t:'Bar / Takt',d:'4 Beats = 1 Bar. 4 Bars = 16 Beats = eine Phrase-Hälfte. Grundeinheit der Musikstruktur.'},
-  {t:'Beat',d:'Einzelner Schlag im Rhythmus. Bei 128 BPM gibt es 128 Beats pro Minute.'},
-  {t:'Beat Grid',d:'Raster in rekordbox das jeden Beat eines Tracks markiert. Basis für Sync und Quantize.'},
-  {t:'Beat Jump',d:'Playhead springt um definierte Beats vor oder zurück – ohne Phrasen-Verlust.'},
-  {t:'Beat Sync / SYNC',d:'Automatische BPM-Angleichung an den Master. Tempo-Sync oder Phase-Sync möglich.'},
-  {t:'Beatmatch',d:'Zwei Tracks auf exakt dasselbe Tempo bringen. Manuell per Pitchfader oder automatisch via Sync.'},
-  {t:'Booth Monitor',d:'Separater Lautsprecher im DJ-Booth. Getrennt vom Haupt-PA steuerbar.'},
-  {t:'BPM',d:'Beats Per Minute – Tempo-Mass. 128 BPM = typisches House-Tempo. 140 BPM = Techno/Psytrance-Einstieg.'},
-  {t:'Breakdown',d:'Energie-Reduktion im Track – Drums fallen weg, Melodie bleibt. Vorbereitung auf den Drop.'},
-  {t:'Buildup',d:'Wachsende Intensität vor dem Drop. Riser, Crash-Cymbal, steigende Energie. Erzeugt Erwartung.'},
-  {t:'Camelot Wheel',d:'Harmonisches Key-System. A=Moll, B=Dur, Zahlen 1–12. Gleiche Zahl = kompatibel.'},
-  {t:'CDJ',d:'DJ-Player von AlphaTheta/Pioneer DJ. CDJ-3000 ist der weltweite Club-Standard.'},
-  {t:'Cloud Analysis',d:'RB7: Audio-Fingerprint mit Pioneer-Cloud abgleichen. Bereits analysierte Tracks übernehmen das Grid sofort.'},
-  {t:'Collection Radar',d:'RB7-Feature: Scannt deine eigene Library und bringt vergessene kompatible Tracks ans Licht.'},
-  {t:'Crossfader',d:'Horizontaler Fader der zwischen zwei Kanälen blendet. Für Scratch-DJs wichtig, sonst oft auf "Thru".'},
-  {t:'Cue Point',d:'Markierter Startpunkt in einem Track. Hot Cues via Pads, Memory Cues als Struktur-Anker.'},
-  {t:'Drop',d:'Moment wo nach dem Buildup die volle Energie einsetzt. Wichtigster Moment im Track.'},
-  {t:'Dual Players',d:'RB7-Feature: Zwei Tracks gleichzeitig in Export Mode vorbereiten – wie an echten Decks.'},
-  {t:'DVS',d:'Digital Vinyl System: Timecode-Signal auf Vinyl/CD steuert digitale Tracks. Scratch-Feeling, digitale Library.'},
-  {t:'Dynamic Beatgrid',d:'Mehrere Beat-Marker für Tracks mit variablem Tempo (Live-Aufnahmen, Jazz, Funk). Gegenteil: Static.'},
-  {t:'EQ (Equalizer)',d:'3-Band: High (Höhen), Mid (Mitten), Low (Bässe). Bass-Cut beim Übergang = wichtigste DJ-Technik.'},
-  {t:'Export Mode',d:'rekordbox-Modus zur Library-Vorbereitung und USB-Export – kein Controller verbunden.'},
-  {t:'Fader',d:'Schieberegler. Kanalfader = Lautstärke. Crossfader = Blende. Pitchfader = Tempo.'},
-  {t:'FLAC',d:'Verlustfreies Audioformat. Hohe Qualität, kleinere Dateigrösse als WAV. Am XDJ-AZ unterstützt.'},
-  {t:'Gain / Trim',d:'Vorverstärkung eines Kanals. Peak-Meter im gelben Bereich = korrekt. Nie rot.'},
-  {t:'Gain Staging',d:'Korrekte Lautstärke-Pegel im gesamten Signal-Weg. Verhindert Verzerrung und Klangverlust.'},
-  {t:'Gate CUE',d:'Hot Cue-Variante: Track spielt nur während Pad gedrückt ist. Für Stabs und Akzente.'},
-  {t:'Harmonic Mixing',d:'Tracks nach Key-Kompatibilität aneinanderreihen (Camelot Wheel). Klingt nahtloser und professioneller.'},
-  {t:'High Precision',d:'Analyse-Modus mit deutlich besserer Downbeat-Erkennung. Länger, aber lohnt sich für wichtige Tracks.'},
-  {t:'Hot Cue',d:'Gespeicherter Cue-Punkt sofort aufrufbar via Pad. 8 Slots (A–H) pro Track. Farbcodierbar.'},
-  {t:'Intelligente Cues',d:'RB7: rekordbox lernt dein Cue-Setz-Verhalten und mappt Cues automatisch auf neue Tracks.'},
-  {t:'Isolator',d:'Extremer 3-Band-EQ der Frequenzbereiche komplett muten kann. Am XDJ-AZ via Master Out EQ.'},
-  {t:'Jog Wheel',d:'Grosses Drehrad am CDJ/XDJ. Vinyl-Mode: scratchen/bremsen. CDJ-Mode: temporäre Pitch-Änderung.'},
-  {t:'Key',d:'Tonart eines Tracks. Im DJ-Kontext im Camelot-Format: 8A (A-Moll), 8B (C-Dur).'},
-  {t:'Key Lock / Master Tempo',d:'Hält den Key konstant wenn Tempo verändert wird. Verhindert Chipmunk-Effekt.'},
-  {t:'Key Sync',d:'Transponiert Track automatisch in Key des Master-Decks. Max. ±2 Halbtöne empfohlen.'},
-  {t:'Loop',d:'Wiederholte Wiedergabe eines Abschnitts. Auto Loop, Saved Loop oder manuell via In/Out.'},
-  {t:'Master',d:'Das Referenz-Deck dessen BPM alle anderen via Sync folgen.'},
-  {t:'Memory Cue',d:'Struktur-Marker (weisse Dreiecke in Wellenform). Kein Pad-Slot nötig. Bis zu 10 pro Track.'},
-  {t:'Mono-Kompatibilität',d:'Mix klingt auch auf Mono-Anlagen gut. Phasen-Fehler können in Mono Frequenzen auslöschen.'},
-  {t:'MySettings',d:'Persönliches Konfigurations-Profil in rekordbox. Auf USB exportierbar, am Fremdgerät sofort laden.'},
-  {t:'My Tag',d:'Eigene Kategorien-Tags in rekordbox. "Peak", "Opener", "Vocal Tool" etc. Als Filter am XDJ-AZ nutzbar.'},
-  {t:'On Air',d:'Kanal ist aktiv hörbar. Bei Pro DJ Link sehen verbundene Geräte welcher Kanal On Air ist.'},
-  {t:'Outro',d:'Ende eines Tracks. Oft nur Percussion – ideal zum Einmischen des nächsten Tracks.'},
-  {t:'Phase',d:'Zeitliche Ausrichtung von Beats zweier Tracks. Phase-Sync = Kicks landen exakt aufeinander.'},
-  {t:'Phrase',d:'Musikalische Einheit aus 8 oder 16 Bars. Übergänge immer auf Phrasen-Grenzen!'},
-  {t:'Pitchfader',d:'Steuert das Tempo (BPM) eines Tracks. Mit Master Tempo bleibt Key konstant.'},
-  {t:'Quantize',d:'Rastet Aktionen (Hot Cues, Loops, Beat Jumps) automatisch auf das Beat-Grid ein.'},
-  {t:'rekordbox',d:'DJ-Software von AlphaTheta für Library-Verwaltung, Analyse und USB-Export.'},
-  {t:'Rider',d:'Technische Anforderungsliste eines DJs an den Veranstalter. Welche Geräte, Monitor, Backline.'},
-  {t:'Slip Mode',d:'Während einer Aktion läuft Track im Hintergrund weiter. Danach springt er an die richtige Stelle.'},
-  {t:'Smart Playlist',d:'Playlist die sich anhand von Regeln (BPM, Key, Tags) automatisch befüllt und aktualisiert.'},
-  {t:'SonicLink',d:'Ultra-Low-Latency Wireless von AlphaTheta. 20× schneller als Bluetooth SBC. Nur für HDJ-F10.'},
-  {t:'Static Beatgrid',d:'Ein einziger BPM-Marker – konstantes Tempo. Ideal für elektronische Musik. Standard-Wahl.'},
-  {t:'Stems',d:'Track-Trennung in Vocals/Melodie/Bass/Drums. Via Serato DJ Pro am XDJ-AZ nutzbar.'},
-  {t:'Streaming Radar',d:'RB7: Sucht kompatible Tracks auf Streaming-Diensten basierend auf deiner Playlist.'},
-  {t:'Sync',d:'Automatische BPM- und/oder Phasen-Angleichung an das Master-Deck.'},
-  {t:'USB Stick',d:'Externer Speicher für DJ-Library. 2 Slots am XDJ-AZ. Format: FAT32 oder exFAT (nicht NTFS).'},
-  {t:'Vinyl Mode',d:'Jog Wheel verhält sich wie Schallplatte: Berühren bremst, Drehen scratcht. Gegenteil: CDJ Mode.'},
-  {t:'WAV',d:'Unkomprimiertes Audioformat. Beste Klangqualität, grosse Dateien. Für Club-Gigs empfohlen.'},
-  {t:'Waveform',d:'Visuelle Darstellung des Audiosignals. Am XDJ-AZ als RGB (farbcodiert) oder 3-Band-Ansicht.'},
+var GB_ITEMS=[
+  {t:'XDJ-AZ (wenn mobil)',s:'Schutzhülle / Flightcase'},
+  {t:'Netzkabel (IEC)',s:'Spare-Kabel empfohlen'},
+  {t:'2x USB-Sticks',s:'Haupt + Backup'},
+  {t:'Kopfhörer',s:'DJ-Kopfhörer, nicht Earbuds'},
+  {t:'6.3mm/3.5mm Adapter',s:'Für kleinere Buchsen'},
+  {t:'XLR-Kabel',s:'Master Out an PA'},
+  {t:'USB-C-Kabel',s:'Für Laptop-Verbindung / Recording'},
+  {t:'Laptop (optional)',s:'Für Serato/rekordbox Controller-Modus'},
+  {t:'Powerbank',s:'Für Handy im Notfall'},
+  {t:'Visitenkarten / EPK-Link',s:'Für Networking nach dem Gig'},
 ];
-
-function filterGlossar(){
-  var q=(document.getElementById('glossar-search').value||'').toLowerCase();
-  var grid=document.getElementById('glossar-grid');
-  var empty=document.getElementById('glossar-empty');
-  if(!grid||!empty)return;
-  var items=grid.querySelectorAll('.gl-item');
-  var shown=0;
-  for(var i=0;i<items.length;i++){
-    var txt=items[i].getAttribute('data-search')||'';
-    if(!q||txt.indexOf(q)!==-1){items[i].style.display='';shown++;}
-    else{items[i].style.display='none';}
-  }
-  empty.style.display=shown===0?'block':'none';
+function buildList(items,col){
+  var el=document.getElementById(col+'-col1');
+  if(!el)return;
+  var html='';
+  items.forEach(function(item,i){
+    html+='<div class="cl-item" id="'+col+'-'+i+'" onclick="tickItem(this,\''+col+'\')">'
+      +'<div class="cl-check"></div>'
+      +'<div><div class="cl-main">'+item.t+'</div>'
+      +(item.s ? '<div class="cl-sub">'+item.s+'</div>' : '')+'</div></div>';
+  });
+  el.innerHTML=html;
+  updateProgress(col);
 }
-(function buildGlossar(){
+function tickItem(el,col){el.classList.toggle('done');updateProgress(col);}
+function updateProgress(col){
+  var items=document.querySelectorAll('[id^="'+col+'-"]');
+  var done=document.querySelectorAll('[id^="'+col+'-"].done');
+  var bar=document.getElementById(col+'-bar');
+  var pct=document.getElementById(col+'-pct');
+  if(bar)bar.style.width=(items.length?Math.round(done.length/items.length*100):0)+'%';
+  if(pct)pct.textContent=done.length+'/'+items.length;
+}
+function resetList(col){
+  document.querySelectorAll('[id^="'+col+'-"]').forEach(function(el){el.classList.remove('done');});
+  updateProgress(col);
+}
+buildList(PG_ITEMS,'pg');
+buildList(SC_ITEMS,'sc');
+buildList(GB_ITEMS,'gb');
+
+/* ── GLOSSAR ─────────────────────────────────────── */
+var GLOSSAR_DATA=[
+  {t:'BPM',d:'Beats Per Minute – Tempo eines Tracks. House: 120-130, Techno: 130-150, Psy: 140-160.'},
+  {t:'Beat Matching',d:'Zwei Tracks auf exakt dasselbe Tempo bringen bevor man sie mischt.'},
+  {t:'Beatgrid',d:'Digitales Raster das die Beats eines Tracks markiert. Basis für Sync, Quantize und Loop.'},
+  {t:'BPM Bridge',d:'Übergang zwischen zwei verschiedenen Tempos ohne hörbaren Stilbruch.'},
+  {t:'Booth Monitor',d:'Lautsprecher im DJ-Bereich nur für den DJ. Getrennt vom Hauptlautsprecher.'},
+  {t:'Camelot Wheel',d:'Kreissystem für harmonisches Mixen. A=Moll, B=Dur. Benachbarte Felder sind kompatibel.'},
+  {t:'CDJ',d:'Club DJ Player von Pioneer/AlphaTheta. Standard-Equipment in Clubs weltweit.'},
+  {t:'Color FX',d:'Analoge Klangfärbung am Kanalknopf des Mixers (Space, Dub Echo, Gate, Jet).'},
+  {t:'Cue Point',d:'Gespeicherter Startpunkt in einem Track. Hot Cue = sofort aufrufbar per Pad.'},
+  {t:'Dead Stop',d:'Abruptes Anhalten des Tracks durch Festhalten des Jog Wheels.'},
+  {t:'DJ Edit',d:'Bearbeitete Version eines Tracks: längeres Intro, kürzeres Outro, entfernter Breakdown.'},
+  {t:'Double Drop',d:'Beide Tracks landen gleichzeitig auf dem Drop. Energetischer Crowd-Moment.'},
+  {t:'DVS',d:'Digital Vinyl System – Timecode-Vinyl steuert digitale Tracks. Serato/VirtualDJ.'},
+  {t:'Echo Out',d:'Klassischer Übergang: Track mit Echo ausblenden, neuer Track kommt rein.'},
+  {t:'Energy Level',d:'Subjektive Einschätzung der Energie eines Tracks (1-10). Für Set-Planung.'},
+  {t:'EQ',d:'Equalizer – Klangregelung nach Frequenzbereichen: Bass, Mid, High.'},
+  {t:'exFAT',d:'Dateisystem für USB-Sticks. Neben FAT32 kompatibel mit XDJ-AZ.'},
+  {t:'FAT32',d:'Meistempfohlenes Dateisystem für DJ-USB-Sticks. Maximale Kompatibilität.'},
+  {t:'Filter',d:'Frequenzfilter: HPF entfernt Bass, LPF entfernt Höhen. Beat FX oder Color FX.'},
+  {t:'Flanger',d:'Sweepender Effekt durch minimale Zeitverzögerung. Psychedelisch, sparsam einsetzen.'},
+  {t:'Gain Staging',d:'Optimale Pegeleinstellung an jedem Gerät in der Signalkette. Verhindert Clipping.'},
+  {t:'Harmonic Mixing',d:'Tracks in kompatiblen Tonarten mischen. Klingt melodisch statt dissonant.'},
+  {t:'Hot Cue',d:'Sofort aufrufbarer Startpunkt per Pad (A-H). In rekordbox vorbereitet, am Gerät genutzt.'},
+  {t:'HPF',d:'High-Pass Filter – lässt nur hohe Frequenzen durch. Entfernt Bass beim Übergang.'},
+  {t:'Instant Doubles',d:'Langer Druck auf Load-Button lädt denselben Track auf beide Decks. Für Juggling.'},
+  {t:'Isolator',d:'Extremer EQ der Frequenzbänder komplett schneidet. Am Master Out des XDJ-AZ.'},
+  {t:'Key',d:'Tonart eines Tracks. A=Moll, Dur=Major. Basis für Harmonic Mixing.'},
+  {t:'Key Lock',d:'Sperrt die Tonart beim Tempowechsel. Auf CDJs/XDJs Standard.'},
+  {t:'Key Sync',d:'Automatische Tonart-Angleichung zwischen zwei Decks. +/-2 Halbtöne sauber.'},
+  {t:'Layer Swap',d:'Am XDJ-AZ: Wechsel zwischen Deck 1-3 oder 2-4 mit einem Knopfdruck.'},
+  {t:'Limiter',d:'Begrenzt Ausgangspegel auf 0 dBFS. Verhindert Clipping aber klingt komprimiert.'},
+  {t:'Loop',d:'Wiederholt einen Abschnitt endlos. Loop Roll = kurze Loops als Stutter-Effekt.'},
+  {t:'LPF',d:'Low-Pass Filter – lässt nur tiefe Frequenzen durch. Entfernt Höhen.'},
+  {t:'Master Tempo',d:'Sperrt Tonart beim Tempowechsel. Ältere Bezeichnung für Key Lock.'},
+  {t:'Memory Cue',d:'Gespeicherter Marker in rekordbox. Erscheint als weisses Dreieck auf Wellenform.'},
+  {t:'Mixcloud',d:'Plattform für legales DJ-Mix-Hosting. Lizenziert durch Verwertungsgesellschaften.'},
+  {t:'Mono Check',d:'Mix auf Mono schalten um Phasenprobleme zu erkennen. Viele Club-PAs laufen in Mono.'},
+  {t:'Needle Search',d:'Antippen der Wellenform im Display springt zu dieser Stelle. Ein-/ausschaltbar.'},
+  {t:'Open Format',d:'DJ-Stil ohne Genre-Beschränkung. Techno, Hip Hop, Pop, Latin in einem Set.'},
+  {t:'Outro',d:'Ausklang eines Tracks. Oft nur Percussion, ideal zum Einmischen des nächsten Tracks.'},
+  {t:'Phrase',d:'Musikalische Einheit von 16 oder 32 Bars. Übergänge immer auf Phrasen-Grenzen.'},
+  {t:'Pitch Fader',d:'Regler für Tempoänderung. +/-8% Standard. Gibt Tempo in % an.'},
+  {t:'Pro DJ Link',d:'AlphaTheta/Pioneer-Netzwerkprotokoll für CDJ/XDJ-Verbindung via Ethernet.'},
+  {t:'Quantize',d:'Rastet Cues/Loops auf Beat-Grid ein. Verhindert Timing-Fehler. ON/OFF per Knopf.'},
+  {t:'rekordbox',d:'Pioneer/AlphaTheta Software für Library-Verwaltung, Track-Analyse und USB-Export.'},
+  {t:'Rider',d:'Technische Anforderungsliste des DJs: Equipment, Monitoring, Inputs, Hospitality.'},
+  {t:'Sample Rate',d:'Digitale Abtastrate. 44.1 kHz = CD-Standard, 48 kHz = Broadcast/Video.'},
+  {t:'Set Arc',d:'Energie-Bogen des Sets über die Zeit. Warm-Up bis Peak bis Outro.'},
+  {t:'Slip Mode',d:'Track läuft im Hintergrund weiter während eine Technik ausgeführt wird.'},
+  {t:'SonicLink',d:'AlphaTheta-Protokoll für kabellose Kopfhörer-Verbindung (HDJ-F10).'},
+  {t:'Stems',d:'KI-Trennung eines Tracks in Vocals/Drums/Bass/Instrumentals in Echtzeit.'},
+  {t:'StreamingDirectPlay',d:'Direktes Streaming von Beatport/Apple Music am XDJ-AZ ohne Laptop.'},
+  {t:'SUISA',d:'Schweizer Verwertungsgesellschaft für Musik. Veranstalter zahlt Pauschallizenz.'},
+  {t:'Sync',d:'Automatische Tempo-Angleichung zweier Decks. Nutzt Beatgrid. Nicht Magic.'},
+  {t:'Tag List',d:'Temporäre Playlist direkt am XDJ-AZ. Tracks sammeln dann CREATE PLAYLIST.'},
+  {t:'Touch Cue',d:'Antippen der Wellenform des laufenden Tracks für kurze Vorschau im Kopfhörer.'},
+  {t:'Touch Preview',d:'Antippen eines Tracks in der Liste für Vorschau im Kopfhörer ohne zu laden.'},
+  {t:'Track Filter',d:'Direktfilter am XDJ-AZ: Library nach BPM/Key/Rating/Color einschränken.'},
+  {t:'TRIM',d:'Feine Pegelkorrektur pro Kanal. Vor dem EQ in der Signalkette.'},
+  {t:'USB-C',d:'Anschluss für Laptop-Verbindung am XDJ-AZ (Serato/rekordbox Controller-Modus).'},
+  {t:'Waveform',d:'Visuelle Darstellung des Audiosignals. 3-Band-Farben zeigen Frequenzbereiche.'},
+  {t:'XDJ-AZ',d:'AlphaTheta All-in-One 4-Deck Standalone DJ-System. Nachfolger des XDJ-XZ.'},
+  {t:'XLR',d:'Symmetrischer Audio-Stecker (3-polig). Standard für professionelle PA-Verbindungen.'},
+];
+function buildGlossar(){
   var grid=document.getElementById('glossar-grid');
   if(!grid)return;
-  var sorted=GLOSSAR.slice().sort(function(a,b){return a.t.localeCompare(b.t,'de');});
-  var h='';
-  for(var i=0;i<sorted.length;i++){
-    var g=sorted[i];
-    h+='<div class="gl-item" data-search="'+(g.t+' '+g.d).toLowerCase()+'" style="background:var(--bg2);border:1px solid var(--bd);border-radius:8px;padding:12px 16px;-webkit-box-flex:1;-ms-flex:1 1 260px;flex:1 1 260px">'
-      +'<div style="font-family:\'Rajdhani\',sans-serif;font-weight:700;font-size:15px;color:var(--or);margin-bottom:4px">'+g.t+'</div>'
-      +'<div style="font-size:12px;color:var(--mu);line-height:1.55">'+g.d+'</div>'
-      +'</div>';
+  var html='';
+  GLOSSAR_DATA.sort(function(a,b){return a.t.localeCompare(b.t);}).forEach(function(item){
+    html+='<div class="gl-item" data-term="'+item.t.toLowerCase()+'">'
+      +'<div class="gl-term">'+item.t+'</div>'
+      +'<div class="gl-def">'+item.d+'</div></div>';
+  });
+  grid.innerHTML=html;
+}
+function filterGlossar(q){
+  var items=document.querySelectorAll('.gl-item');
+  q=q.toLowerCase();
+  items.forEach(function(item){
+    var term=item.getAttribute('data-term')||'';
+    var def=item.querySelector('.gl-def')?item.querySelector('.gl-def').textContent.toLowerCase():'';
+    item.style.display=(!q||term.includes(q)||def.includes(q))?'':'none';
+  });
+}
+buildGlossar();
+
+/* ── BPM CALCULATOR ──────────────────────────────── */
+var BPM_GENRES=[
+  {genre:'Ambient / Drone',min:60,max:90,color:'#1a5276'},
+  {genre:'Hip Hop',min:80,max:100,color:'#884ea0'},
+  {genre:'Reggae / Dub',min:60,max:90,color:'#27ae60'},
+  {genre:'Drum & Bass',min:160,max:180,color:'#c0392b'},
+  {genre:'Breakbeat',min:120,max:150,color:'#d35400'},
+  {genre:'House',min:120,max:130,color:'#2980b9'},
+  {genre:'Deep House',min:116,max:124,color:'#1abc9c'},
+  {genre:'Tech House',min:124,max:134,color:'#8e44ad'},
+  {genre:'Techno',min:130,max:150,color:'#e74c3c'},
+  {genre:'Hard Techno',min:138,max:152,color:'#a93226'},
+  {genre:'Trance',min:128,max:145,color:'#2471a3'},
+  {genre:'Progressive House',min:124,max:132,color:'#117a65'},
+  {genre:'Melodic Techno',min:120,max:136,color:'#6c3483'},
+  {genre:'Psytrance',min:138,max:148,color:'#d4ac0d'},
+  {genre:'Full-On Psy',min:144,max:150,color:'#ca6f1e'},
+  {genre:'Hi-Tech Psy',min:148,max:160,color:'#a93226'},
+  {genre:'Darkpsy',min:148,max:165,color:'#424949'},
+  {genre:'Psycore',min:160,max:180,color:'#7b241c'},
+  {genre:'Forest Psy',min:143,max:148,color:'#1d8348'},
+  {genre:'Goa Trance',min:135,max:145,color:'#2471a3'},
+  {genre:'Dark Prog',min:128,max:136,color:'#5d6d7e'},
+];
+var currentBPM=128;
+function adjBPM(d){
+  currentBPM=Math.max(60,Math.min(220,currentBPM+d));
+  var inp=document.getElementById('bpm-input');
+  if(inp)inp.value=currentBPM;
+  calcBPM();
+}
+function calcBPM(){
+  var inp=document.getElementById('bpm-input');
+  var bpm=inp?parseFloat(inp.value)||128:currentBPM;
+  currentBPM=bpm;
+  var out=document.getElementById('bpm-calc-out');
+  if(!out)return;
+  var plus2=Math.round(bpm*1.02*10)/10;
+  var minus2=Math.round(bpm*0.98*10)/10;
+  var plus5=Math.round(bpm*1.05*10)/10;
+  var minus5=Math.round(bpm*0.95*10)/10;
+  var half=Math.round(bpm/2*10)/10;
+  var dbl=Math.round(bpm*2*10)/10;
+  var html='<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px">';
+  var variants=[
+    {l:'-5%',v:minus5},{l:'-2%',v:minus2},{l:'half',v:half},
+    {l:'+2%',v:plus2},{l:'+5%',v:plus5},{l:'2x',v:dbl}
+  ];
+  variants.forEach(function(x){
+    html+='<div style="background:var(--bg3);border:1px solid var(--bd);border-radius:6px;padding:8px 14px;text-align:center;cursor:pointer;min-width:70px" onclick="document.getElementById(\'bpm-input\').value='+x.v+';calcBPM()">'
+      +'<div style="font-family:\'Share Tech Mono\',monospace;font-size:16px;font-weight:700;color:var(--or)">'+x.v+'</div>'
+      +'<div style="font-family:\'Share Tech Mono\',monospace;font-size:9px;color:var(--mu);margin-top:2px">'+x.l+'</div></div>';
+  });
+  html+='</div>';
+  var matches=BPM_GENRES.filter(function(g){return bpm>=g.min-3&&bpm<=g.max+3;});
+  if(matches.length){
+    html+='<div style="font-family:\'Share Tech Mono\',monospace;font-size:9px;color:var(--mu);letter-spacing:1px;margin-bottom:6px">PASSENDE GENRES</div>';
+    html+='<div style="display:flex;flex-wrap:wrap;gap:6px">';
+    matches.forEach(function(g){
+      html+='<div style="background:'+g.color+'22;border:1px solid '+g.color+'55;border-radius:5px;padding:4px 10px;font-size:12px;color:var(--tx)">'+g.genre+'<span style="font-family:\'Share Tech Mono\',monospace;font-size:9px;color:var(--mu);margin-left:6px">'+g.min+'-'+g.max+' BPM</span></div>';
+    });
+    html+='</div>';
+  } else {
+    html+='<div style="color:var(--mu);font-size:13px">Kein Standard-Genre bei '+bpm+' BPM. Half-Time oder Double-Time nutzen.</div>';
   }
-  grid.innerHTML=h;
+  out.innerHTML=html;
+}
+calcBPM();
+
+/* ── BPM CHART ───────────────────────────────────── */
+(function(){
+  var rows=document.getElementById('bpm-rows');
+  if(!rows)return;
+  var html='';
+  BPM_GENRES.forEach(function(g){
+    var w1=Math.round((g.min-60)/(220-60)*100);
+    var w2=Math.round((g.max-g.min)/(220-60)*100);
+    html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">'
+      +'<div style="width:160px;font-size:12px;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+g.genre+'</div>'
+      +'<div style="flex:1;height:18px;position:relative">'
+      +'<div style="position:absolute;left:'+w1+'%;width:'+w2+'%;height:100%;background:'+g.color+';border-radius:3px;display:flex;align-items:center;justify-content:center">'
+      +'<span style="font-family:\'Share Tech Mono\',monospace;font-size:8px;color:#fff;white-space:nowrap">'+g.min+'-'+g.max+'</span></div></div></div>';
+  });
+  rows.innerHTML=html;
 })();
 
-buildList(PG_ITEMS,'pg','pg-col1','pg-col2','pg-prog','pg-fill');
-buildList(SC_ITEMS,'sc','sc-col1','sc-col2','sc-prog','sc-fill');
-
-/* ── GIG-BAG CHECKLIST ───────────────────────────── */
-var GB_ITEMS=[
-  {t:'USB-Stick HAUPT (exportiert & geprüft)', s:'Playlist, MySettings, alle Tracks aktuell'},
-  {t:'USB-Stick BACKUP (separate Tasche!)', s:'Identische Kopie – anderer Behälter als Haupt'},
-  {t:'Kopfhörer', s:'6.3mm Klinke oder Adapter mitbringen'},
-  {t:'Kopfhörer-Adapter 6.3mm → 3.5mm', s:'Falls Gerät nur 3.5mm hat'},
-  {t:'USB-B Kabel (Serato-Backup)', s:'USB-B auf USB-A, falls Serato nötig wird'},
-  {t:'Ethernet-Kabel', s:'Für Pro DJ Link falls externer Hub nötig'},
-  {t:'Powerbank (geladen)', s:'Für Handy während des Gigs'},
-  {t:'Handy-Ladekabel', s:'Passend für dein Gerät'},
-  {t:'Gehörschutz / Earplugs', s:'Für vor/nach dem Set – Gehör schützen'},
-  {t:'Wasserflasche', s:'Lange Sets ohne Hydration sind gefährlich'},
-  {t:'Notizen-App / Setliste', s:'Erste 3–5 Tracks geplant, Rest flexibel'},
-  {t:'Kontakt Veranstalter gespeichert', s:'Für technische Notfälle vor Ort'},
-  {t:'Vertrag / Gage-Info', s:'Screenshot oder Ausdruck'},
-  {t:'Visitenkarten (optional)', s:'Für Networking nach dem Set'},
-  {t:'Laptop (falls Serato)', s:'Geladen, Software gestartet und getestet'},
-  {t:'Laptop-Ladekabel', s:'Immer dabei, auch wenn nicht geplant'},
-  {t:'Kleine Taschenlampe', s:'Für dunkle Bühnen und Kabel-Suche'},
-  {t:'Kabelbinder / Velcro', s:'Kabel-Management am Gerät'}
-];
-buildList(GB_ITEMS,'gb','gb-col1','gb-col2','gb-prog','gb-fill');
-
-/* ── COMPARISON TABLE ────────────────────────────── */
+/* ── CDJ COMPARISON TABLE ────────────────────────── */
 (function(){
+  var body=document.getElementById('cmp-body');
+  if(!body)return;
   var rows=[
-    {k:'Preis (ca.)',          az:'~3.200 CHF',           cdj:'~7.500 CHF (2× CDJ + DJM)',  w:'cdj'},
-    {k:'Standalone 4-Deck',   az:'✅ Integriert',         cdj:'⚠️ Braucht DJM-A9',          w:'az'},
-    {k:'Club-Standard',       az:'⚠️ Ähnlich',            cdj:'✅ Weltweiter Standard',       w:'cdj'},
-    {k:'Jog Wheel Feel',      az:'✅ CDJ-3000-Niveau',    cdj:'✅ Original CDJ-3000',         w:'tie'},
-    {k:'Portabilität',        az:'✅ Alles in einem',     cdj:'⚠️ 3 schwere Geräte',         w:'az'},
-    {k:'Screen',              az:'✅ 10.1" Touchscreen',  cdj:'✅ 10.1" Touchscreen',        w:'tie'},
-    {k:'Streaming standalone',az:'✅ Beatport + Apple',   cdj:'✅ Beatport + Apple',          w:'tie'},
-    {k:'Pro DJ Link Hub',     az:'⚠️ Nur 1 Port',        cdj:'✅ Integrierter Hub',           w:'cdj'},
-    {k:'Stems / Sampler',     az:'❌ Nicht vorhanden',    cdj:'❌ Nicht vorhanden',           w:'tie'},
-    {k:'Aufbauzeit',          az:'✅ 1 Kabel, fertig',    cdj:'⚠️ Mehrere Verbindungen',      w:'az'},
-    {k:'Muscle Memory Clubs', az:'⚠️ Ähnlich aber anders',cdj:'✅ 1:1 identisch',            w:'cdj'},
-    {k:'SonicLink Headphones',az:'✅ Eingebaut',          cdj:'❌ Nicht verfügbar',           w:'az'},
-    {k:'Build Quality',       az:'⚠️ Gut (frühe Bugs)',   cdj:'✅ Sehr robust, bewährt',      w:'cdj'},
-    {k:'Investitionssicherheit',az:'⚠️ Neueres Produkt',  cdj:'✅ Langjährig bewährt',        w:'cdj'},
+    ['Preis (Gerät allein)','~3.200 CHF','~6.500 CHF (Paar)'],
+    ['Decks','4 integriert','2 (Paar CDJ-3000)'],
+    ['Screen','10.1" Touchscreen','7" Touchscreen'],
+    ['Jog Wheel','Full-size (CDJ-3000 Standard)','Full-size CDJ-3000'],
+    ['Standalone','Ja (alle 4 Decks)','Ja'],
+    ['Software','rekordbox + Serato + VirtualDJ','rekordbox + Serato'],
+    ['Streaming','Beatport / Apple Music','Beatport'],
+    ['CloudDirectPlay','Ja','Ja'],
+    ['SonicLink','Ja - kabellos Kopfhörer','Nein'],
+    ['Pro DJ Link','1x Ethernet Port','Gigabit (vernetzbar)'],
+    ['Club-Standard','Nein (nicht in Clubs)','Ja (Weltstandard)'],
+    ['Muscle Memory für Clubs','70%','100%'],
+    ['Zielgruppe','Heim / Mobile / Proben','Club / Festival / Touren'],
   ];
-  var b=document.getElementById('cmp-body');
-  if(!b)return;
-  var h='';
-  for(var i=0;i<rows.length;i++){
-    var r=rows[i];
-    var azStyle = r.w==='az'  ? 'color:var(--gr);font-weight:600' : r.w==='tie' ? 'color:var(--mu)' : 'color:var(--mu)';
-    var cdjStyle= r.w==='cdj' ? 'color:var(--cy);font-weight:600' : r.w==='tie' ? 'color:var(--mu)' : 'color:var(--mu)';
-    var rowBg   = i%2===0 ? 'background:var(--bg2)' : 'background:var(--bg3)';
-    h+='<tr style="'+rowBg+';border-bottom:1px solid var(--bd)">'+
-      '<td style="padding:9px 14px;color:var(--tx);font-family:\'Rajdhani\',sans-serif;font-weight:600;font-size:13px">'+r.k+'</td>'+
-      '<td style="padding:9px 14px;text-align:center;font-size:12px;'+azStyle+'">'+r.az+'</td>'+
-      '<td style="padding:9px 14px;text-align:center;font-size:12px;'+cdjStyle+'">'+r.cdj+'</td>'+
-      '</tr>';
-  }
-  b.innerHTML=h;
+  var html='';
+  rows.forEach(function(r){
+    html+='<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';
+  });
+  body.innerHTML=html;
 })();
 
 /* ── GENRE MATRIX ────────────────────────────────── */
 (function(){
-  var G=['Techno','Tech House','House','Deep House','Melodic Techno','Afro House','Minimal','Trance','Prog Psy','Psy-Techno','D&B'];
-  // 0=same, 1=great, 2=caution, 3=difficult
-  var M=[
-  //  TC  TH  HO  DH  MT  AF  MI  TR  PP  PT  DB
-    [ 0,  1,  2,  2,  1,  2,  1,  2,  2,  1,  3], // Techno
-    [ 1,  0,  1,  2,  1,  1,  1,  2,  2,  2,  3], // Tech House
-    [ 2,  1,  0,  1,  2,  1,  2,  3,  3,  3,  3], // House
-    [ 2,  2,  1,  0,  2,  1,  2,  3,  3,  3,  3], // Deep House
-    [ 1,  1,  2,  2,  0,  2,  1,  2,  1,  1,  3], // Melodic Techno
-    [ 2,  1,  1,  1,  2,  0,  2,  3,  3,  3,  3], // Afro House
-    [ 1,  1,  2,  2,  1,  2,  0,  2,  2,  2,  3], // Minimal
-    [ 2,  2,  3,  3,  2,  3,  2,  0,  2,  2,  2], // Trance
-    [ 2,  2,  3,  3,  1,  3,  2,  2,  0,  1,  3], // Prog Psy
-    [ 1,  2,  3,  3,  1,  3,  2,  2,  1,  0,  3], // Psy-Techno
-    [ 3,  3,  3,  3,  3,  3,  3,  2,  3,  3,  0], // D&B
+  var tbl=document.getElementById('gm-table');
+  if(!tbl)return;
+  var genres=['House','Deep House','Tech House','Techno','Melodic Techno','Hard Techno','Trance','D&B','Psytrance','Hip Hop','Afro House'];
+  var matrix=[
+    [4,4,3,2,2,1,2,1,1,1,3],
+    [4,4,3,1,2,0,2,0,1,2,4],
+    [3,3,4,3,3,2,2,1,1,1,2],
+    [2,1,3,4,4,3,2,1,1,0,1],
+    [2,2,3,4,4,3,3,0,2,1,2],
+    [1,0,2,3,3,4,1,2,2,0,0],
+    [2,2,2,2,3,1,4,1,3,1,1],
+    [1,0,1,1,0,2,1,4,1,2,0],
+    [1,1,1,1,2,2,3,1,4,0,0],
+    [1,2,1,0,1,0,1,2,0,4,1],
+    [3,4,2,1,2,0,1,0,0,1,4],
   ];
-  var C=['⬛','🟢','🟡','🔴'];
-  var BG=['rgba(255,255,255,0.03)','rgba(0,232,122,0.12)','rgba(255,179,71,0.1)','rgba(255,51,85,0.1)'];
-  var thead=document.getElementById('gm-head');
-  var tbody=document.getElementById('gm-body');
-  if(!thead||!tbody)return;
-  var thHtml='<tr><th style="padding:6px 4px;font-family:\'Share Tech Mono\',monospace;font-size:8px;color:var(--mu);text-align:left;min-width:90px;white-space:nowrap"></th>';
-  for(var c=0;c<G.length;c++){
-    thHtml+='<th style="padding:4px 2px;font-family:\'Share Tech Mono\',monospace;font-size:7px;color:var(--mu);text-align:center;writing-mode:vertical-rl;transform:rotate(180deg);height:70px;white-space:nowrap">'+G[c]+'</th>';
-  }
-  thHtml+='</tr>';
-  thead.innerHTML=thHtml;
-  var tbHtml='';
-  for(var r=0;r<G.length;r++){
-    tbHtml+='<tr>';
-    tbHtml+='<td style="padding:5px 8px;font-family:\'Rajdhani\',sans-serif;font-size:12px;font-weight:600;color:var(--tx);white-space:nowrap;border-right:1px solid var(--bd)">'+G[r]+'</td>';
-    for(var col=0;col<G.length;col++){
-      var v=M[r][col];
-      tbHtml+='<td style="text-align:center;padding:4px 2px;background:'+BG[v]+';font-size:13px;border:1px solid rgba(255,255,255,0.04)">'+C[v]+'</td>';
-    }
-    tbHtml+='</tr>';
-  }
-  tbody.innerHTML=tbHtml;
+  var emoji=['⬛','🔴','🟡','🟡','🟢'];
+  var html='<table style="border-collapse:collapse;font-size:10px"><tr><td style="width:80px"></td>';
+  genres.forEach(function(g){
+    html+='<th style="padding:4px 2px;writing-mode:vertical-lr;transform:rotate(180deg);font-family:\'Barlow\',sans-serif;color:var(--mu);font-weight:600;font-size:10px">'+g+'</th>';
+  });
+  html+='</tr>';
+  matrix.forEach(function(row,i){
+    html+='<tr><td style="font-family:\'Barlow\',sans-serif;color:var(--tx);font-size:10px;padding:2px 4px 2px 0;white-space:nowrap">'+genres[i]+'</td>';
+    row.forEach(function(v){html+='<td style="text-align:center;font-size:14px;padding:2px">'+emoji[v]+'</td>';});
+    html+='</tr>';
+  });
+  html+='</table><div style="margin-top:8px;font-size:10px;color:var(--mu)">🟢 Perfekt · 🟡 Möglich · 🔴 Schwierig · ⬛ Stilbruch</div>';
+  tbl.innerHTML=html;
 })();
 
-/* ── BPM CALCULATOR ──────────────────────────────── */
-var BPM_GENRES=[
-  {n:'Psychill',   lo:90,  hi:120, c:'#5d6d7e'},
-  {n:'Hip Hop',    lo:80,  hi:100, c:'#9b59b6'},
-  {n:'Deep House', lo:118, hi:124, c:'#1a5276'},
-  {n:'Afro House', lo:122, hi:128, c:'#d4ac0d'},
-  {n:'House',      lo:120, hi:130, c:'#17a589'},
-  {n:'Tech House', lo:124, hi:130, c:'#2471a3'},
-  {n:'Minimal',    lo:126, hi:132, c:'#4a5268'},
-  {n:'Psy-Techno', lo:125, hi:137, c:'#1abc9c'},
-  {n:'Melodic Techno',lo:124,hi:132,c:'#1e8449'},
-  {n:'Techno',     lo:130, hi:145, c:'#d35400'},
-  {n:'Prog Psy',   lo:130, hi:140, c:'#27ae60'},
-  {n:'Trance',     lo:128, hi:145, c:'#c0392b'},
-  {n:'Psytrance',  lo:138, hi:144, c:'#2980b9'},
-  {n:'Dubstep',    lo:138, hi:142, c:'#6c3483'},
-  {n:'Goa Trance', lo:135, hi:150, c:'#8e6b2e'},
-  {n:'Full-on Psy',lo:140, hi:148, c:'#e67e22'},
-  {n:'Dark Psy',   lo:140, hi:155, c:'#34495e'},
-  {n:'UK Psy',     lo:145, hi:155, c:'#8e44ad'},
-  {n:'D&B',        lo:160, hi:180, c:'#e74c3c'},
-  {n:'Hi-Tech Psy',lo:170, hi:200, c:'#c0392b'},
-];
-
-function adjBPM(d) {
-  var inp = document.getElementById('bpm-input');
-  if (!inp) return;
-  var v = parseInt(inp.value, 10) + d;
-  inp.value = Math.max(60, Math.min(220, v));
-  calcBPM();
-}
-
-function calcBPM() {
-  var inp = document.getElementById('bpm-input');
-  var out = document.getElementById('bpm-calc-out');
-  if (!inp || !out) return;
-  var bpm = parseInt(inp.value, 10);
-  if (isNaN(bpm) || bpm < 40 || bpm > 300) { out.innerHTML = ''; return; }
-
-  var half   = Math.round(bpm / 2);
-  var dbl    = bpm * 2;
-  var minus2 = bpm - 2;
-  var plus2  = bpm + 2;
-  var minus5 = bpm - 5;
-  var plus5  = bpm + 5;
-
-  // Compatible genres
-  var matches = [], near = [];
-  for (var i = 0; i < BPM_GENRES.length; i++) {
-    var g = BPM_GENRES[i];
-    if (bpm >= g.lo && bpm <= g.hi) { matches.push(g); }
-    else if (bpm >= g.lo - 3 && bpm <= g.hi + 3) { near.push(g); }
-  }
-
-  var html = '<div style="display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:8px;margin-bottom:16px">';
-  var tiles = [
-    {lbl:'−2 BPM', val:minus2, c:'var(--cy)'},
-    {lbl:'±0',     val:bpm,    c:'var(--or)'},
-    {lbl:'+2 BPM', val:plus2,  c:'var(--cy)'},
-    {lbl:'−5 BPM', val:minus5, c:'var(--mu)'},
-    {lbl:'+5 BPM', val:plus5,  c:'var(--mu)'},
-    {lbl:'Half-Time', val:half, c:'#b06fff'},
-    {lbl:'Double',    val:dbl,  c:'#b06fff'},
-  ];
-  for (var j = 0; j < tiles.length; j++) {
-    var t = tiles[j];
-    html += '<div style="background:var(--bg3);border:1px solid var(--bd);border-radius:7px;padding:10px 14px;text-align:center;cursor:pointer" onclick="document.getElementById(\'bpm-input\').value='+t.val+';calcBPM()">'
-      + '<div style="font-family:\'Share Tech Mono\',monospace;font-size:8px;color:var(--mu);letter-spacing:1px;margin-bottom:3px">'+t.lbl+'</div>'
-      + '<div style="font-family:\'Rajdhani\',sans-serif;font-size:22px;font-weight:700;color:'+t.c+'">'+t.val+'</div>'
-      + '</div>';
-  }
-  html += '</div>';
-
-  if (matches.length > 0) {
-    html += '<div style="font-family:\'Share Tech Mono\',monospace;font-size:9px;color:var(--gr);letter-spacing:1px;margin-bottom:8px">✅ PASST ZU DIESEN GENRES</div>';
-    html += '<div style="display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:5px;margin-bottom:12px">';
-    for (var m = 0; m < matches.length; m++) {
-      html += '<span style="background:'+matches[m].c+'22;border:1px solid '+matches[m].c+'55;border-radius:4px;padding:3px 9px;font-family:\'Share Tech Mono\',monospace;font-size:9px;color:'+matches[m].c+'">'+matches[m].n+'</span>';
-    }
-    html += '</div>';
-  }
-  if (near.length > 0) {
-    html += '<div style="font-family:\'Share Tech Mono\',monospace;font-size:9px;color:var(--am);letter-spacing:1px;margin-bottom:8px">⚠️ GRENZBEREICH (±3 BPM)</div>';
-    html += '<div style="display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:5px">';
-    for (var n = 0; n < near.length; n++) {
-      html += '<span style="background:rgba(255,179,71,0.08);border:1px solid rgba(255,179,71,0.2);border-radius:4px;padding:3px 9px;font-family:\'Share Tech Mono\',monospace;font-size:9px;color:var(--am)">'+near[n].n+'</span>';
-    }
-    html += '</div>';
-  }
-  if (matches.length === 0 && near.length === 0) {
-    html += '<div style="color:var(--mu);font-size:13px">Kein Standard-Genre bei '+bpm+' BPM. Half-Time oder Double-Time nutzen.</div>';
-  }
-  out.innerHTML = html;
-}
-calcBPM();
-
-/* ── SET ARC CHART ───────────────────────────────── */
+/* ── 2h SET ARC ──────────────────────────────────── */
 (function(){
-  var arc = document.getElementById('arc-chart');
-  if (!arc) return;
-  var phases = [
-    {lbl:'0–20\nWarm-Up',    bpm:'115–120', e:3,  c:'#1a5276'},
-    {lbl:'20–50\nBuild-Up',  bpm:'120–126', e:6,  c:'#2471a3'},
-    {lbl:'50–80\nPeak 1',    bpm:'126–132', e:9,  c:'#ff6b00'},
-    {lbl:'80–100\nAtempause',bpm:'122–126', e:5,  c:'#17a589'},
-    {lbl:'100–115\nPeak 2',  bpm:'128–135', e:10, c:'#e74c3c'},
-    {lbl:'115–120\nOutro',   bpm:'120–124', e:4,  c:'#6c3483'},
+  var arc=document.getElementById('arc-chart');
+  if(!arc)return;
+  var phases=[
+    {lbl:'0-20\nWarm-Up',bpm:'115-120',e:3,c:'#1a5276'},
+    {lbl:'20-50\nBuild-Up',bpm:'120-126',e:6,c:'#2471a3'},
+    {lbl:'50-80\nPeak 1',bpm:'126-132',e:9,c:'#ff6b00'},
+    {lbl:'80-100\nAtempause',bpm:'122-126',e:5,c:'#17a589'},
+    {lbl:'100-115\nPeak 2',bpm:'128-135',e:10,c:'#e74c3c'},
+    {lbl:'115-120\nOutro',bpm:'122-128',e:4,c:'#5d6d7e'},
   ];
-  var maxE = 10;
-  var h = '<div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:8px;-webkit-box-align:flex-end;-ms-flex-align:flex-end;align-items:flex-end;height:160px;margin-bottom:12px">';
-  for (var i = 0; i < phases.length; i++) {
-    var p = phases[i];
-    var pct = (p.e / maxE * 100).toFixed(0);
-    var lines = p.lbl.split('\n');
-    h += '<div style="-webkit-box-flex:1;-ms-flex:1;flex:1;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:6px">'
-      + '<div style="font-family:\'Share Tech Mono\',monospace;font-size:8px;color:'+p.c+';letter-spacing:.5px">'+p.bpm+'</div>'
-      + '<div style="width:100%;background:'+p.c+'cc;border-radius:4px 4px 0 0;height:'+pct+'%;min-height:20px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center">'
-      + '<span style="font-family:\'Rajdhani\',sans-serif;font-weight:700;font-size:16px;color:#fff">'+p.e+'</span></div>'
-      + '</div>';
-  }
-  h += '</div><div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:8px">';
-  for (var j = 0; j < phases.length; j++) {
-    var ph = phases[j];
-    var ls = ph.lbl.split('\n');
-    h += '<div style="-webkit-box-flex:1;-ms-flex:1;flex:1;text-align:center">'
-      + '<div style="font-family:\'Share Tech Mono\',monospace;font-size:7px;color:var(--mu);letter-spacing:.5px;line-height:1.6">'+ls[0]+'<br><span style="color:'+ph.c+'">'+ls[1]+'</span></div>'
-      + '</div>';
-  }
-  h += '</div><div style="margin-top:10px;font-family:\'Share Tech Mono\',monospace;font-size:8px;color:var(--mu2);letter-spacing:1px;text-align:center">ENERGIE-LEVEL 1–10 · MINUTEN-PHASEN EINES 2h-SETS</div>';
-  arc.innerHTML = h;
+  var h='<div style="display:flex;gap:4px;align-items:flex-end;height:160px;padding-bottom:4px">';
+  phases.forEach(function(p){
+    var pct=p.e/10*100;
+    h+='<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end">'
+      +'<div style="font-family:\'Share Tech Mono\',monospace;font-size:8px;color:'+p.c+';font-weight:700">'+p.e+'/10</div>'
+      +'<div style="width:100%;height:'+pct+'%;background:'+p.c+';border-radius:3px 3px 0 0;min-height:8px"></div>'
+      +'<div style="font-family:\'Barlow\',sans-serif;font-size:9px;color:var(--mu);text-align:center;white-space:pre-line;line-height:1.2">'+p.lbl+'</div>'
+      +'<div style="font-family:\'Share Tech Mono\',monospace;font-size:8px;color:var(--mu2)">'+p.bpm+'</div></div>';
+  });
+  h+='</div><div style="margin-top:10px;font-family:\'Share Tech Mono\',monospace;font-size:8px;color:var(--mu2);letter-spacing:1px;text-align:center">ENERGIE-LEVEL 1-10 · MINUTEN-PHASEN EINES 2h-SETS</div>';
+  arc.innerHTML=h;
 })();
 
-/* ── LEARN BOX TOGGLE ────────────────────────────── */
-function toggleLearn(btn) {
-  var box = btn.parentElement;
-  box.classList.toggle("lb-open");
-}
+/* ── ENERGY CURVE ────────────────────────────────── */
+(function(){
+  var wrap=document.getElementById('ec-wrap');
+  if(!wrap)return;
+  var points=[[0,2],[15,3],[30,5],[45,7],[60,9],[75,10],[90,8],[100,7],[110,9],[120,10],[135,8],[150,5]];
+  var W=320,H=120,px=function(x){return x/150*W;},py=function(y){return H-(y/10*H);};
+  var d='M'+points.map(function(p){return px(p[0])+','+py(p[1]);}).join(' L');
+  wrap.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;max-width:400px;height:auto">'
+    +'<path d="'+d+'" fill="none" stroke="var(--or)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>'
+    +'<path d="'+d+' L'+W+','+H+' L0,'+H+' Z" fill="var(--or)" fill-opacity="0.08"/>'
+    +'<text x="4" y="12" font-size="8" fill="var(--mu2)" font-family="Share Tech Mono,monospace">10</text>'
+    +'<text x="4" y="'+(H/2)+'" font-size="8" fill="var(--mu2)" font-family="Share Tech Mono,monospace">5</text>'
+    +'<text x="4" y="'+(H-2)+'" font-size="8" fill="var(--mu2)" font-family="Share Tech Mono,monospace">1</text>'
+    +'</svg>';
+})();
 
-/* ── SET TIMER ───────────────────────────────────── */
-var timerInterval = null;
-var timerEnd = null;
-var timerTotal = 0;
-
-function setTimer(mins) {
-  clearInterval(timerInterval);
-  timerTotal = mins * 60;
-  timerEnd = Date.now() + timerTotal * 1000;
-  document.getElementById('timer-status').textContent = mins + ' MIN SLOT AKTIV';
-  runTimer();
-}
-
-function setTimerCustom() {
-  var v = parseInt(document.getElementById('timer-custom').value, 10);
-  if (v && v > 0) setTimer(v);
-}
-
-function stopTimer() {
-  clearInterval(timerInterval);
-  timerInterval = null;
-  var disp = document.getElementById('timer-display');
-  var fill = document.getElementById('timer-fill');
-  var status = document.getElementById('timer-status');
-  if (disp) { disp.textContent = '--:--'; disp.style.color = 'var(--or)'; }
-  if (fill) { fill.style.width = '100%'; fill.style.background = 'var(--or)'; }
-  if (status) status.textContent = 'BEREIT';
-}
-
-function runTimer() {
-  clearInterval(timerInterval);
-  timerInterval = setInterval(function() {
-    var rem = Math.max(0, Math.round((timerEnd - Date.now()) / 1000));
-    var m = Math.floor(rem / 60);
-    var s = rem % 60;
-    var disp = document.getElementById('timer-display');
-    var fill = document.getElementById('timer-fill');
-    var status = document.getElementById('timer-status');
-    if (disp) disp.textContent = (m<10?'0':'')+m+':'+(s<10?'0':'')+s;
-    var pct = timerTotal > 0 ? (rem / timerTotal * 100) : 100;
-    var col = rem <= 300 ? 'var(--rd)' : rem <= 600 ? 'var(--am)' : 'var(--or)';
-    if (fill) { fill.style.width = pct+'%'; fill.style.background = col; }
-    if (disp) disp.style.color = col;
-    if (status) {
-      if (rem <= 0) { status.textContent = '⚠️ ZEIT ABGELAUFEN'; clearInterval(timerInterval); }
-      else if (rem <= 300) status.textContent = '⚠️ NOCH 5 MINUTEN';
-      else if (rem <= 600) status.textContent = '⚠️ NOCH 10 MINUTEN';
-    }
-    if (rem <= 0) clearInterval(timerInterval);
-  }, 500);
-}
-
+/* ── SCROLL / BACK TO TOP ────────────────────────── */
 window.addEventListener('scroll', function() {
-  var btt = document.getElementById('btt');
-  if (!btt) return;
-  if ((window.pageYOffset || document.documentElement.scrollTop) > 300) {
-    btt.className = 'show';
+  var btt=document.getElementById('btt');
+  if(!btt)return;
+  if((window.pageYOffset||document.documentElement.scrollTop)>300){
+    btt.className='show';
   } else {
-    btt.className = '';
+    btt.className='';
   }
 });
 
-// ── ACTIVE GROUP HIGHLIGHT via IntersectionObserver ─
+/* ── SET TIMER ───────────────────────────────────── */
+var timerInterval=null,timerEnd=null,timerTotal=0;
+function setTimer(mins){
+  clearInterval(timerInterval);
+  timerTotal=mins*60;
+  timerEnd=Date.now()+timerTotal*1000;
+  var st=document.getElementById('timer-status');
+  if(st)st.textContent=mins+' MIN SLOT AKTIV';
+  runTimer();
+}
+function setTimerCustom(){
+  var v=parseInt(document.getElementById('timer-custom').value,10);
+  if(v&&v>0)setTimer(v);
+}
+function stopTimer(){
+  clearInterval(timerInterval);timerInterval=null;
+  var d=document.getElementById('timer-display');
+  var f=document.getElementById('timer-fill');
+  var s=document.getElementById('timer-status');
+  if(d){d.textContent='--:--';d.style.color='var(--or)';}
+  if(f){f.style.width='100%';f.style.background='var(--or)';}
+  if(s)s.textContent='BEREIT';
+}
+function runTimer(){
+  clearInterval(timerInterval);
+  timerInterval=setInterval(function(){
+    var rem=Math.max(0,Math.round((timerEnd-Date.now())/1000));
+    var m=Math.floor(rem/60),s=rem%60;
+    var d=document.getElementById('timer-display');
+    var f=document.getElementById('timer-fill');
+    var st=document.getElementById('timer-status');
+    if(d)d.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+    var pct=timerTotal>0?(rem/timerTotal*100):100;
+    var col=rem<=300?'var(--rd)':rem<=600?'var(--am)':'var(--or)';
+    if(f){f.style.width=pct+'%';f.style.background=col;}
+    if(d)d.style.color=col;
+    if(st){
+      if(rem<=0){st.textContent='ZEIT ABGELAUFEN';clearInterval(timerInterval);}
+      else if(rem<=300)st.textContent='NOCH 5 MINUTEN';
+      else if(rem<=600)st.textContent='NOCH 10 MINUTEN';
+    }
+    if(rem<=0)clearInterval(timerInterval);
+  },500);
+}
+
+/* ── ACTIVE GROUP HIGHLIGHT ──────────────────────── */
 var SEC_TO_GROUP = {
   quickstart:'einstieg',
   setup:'einstieg',
@@ -2987,32 +2786,33 @@ var SEC_TO_GROUP = {
   mixcloud:'karriere',
   erstegigs:'karriere',
   epk:'karriere',
+  livestream:'karriere',
+  djrecht:'karriere',
+  djethik:'karriere',
   links:'links'
 };
-var currentGroup = null;
-if ('IntersectionObserver' in window) {
-  var allSecs = document.querySelectorAll('.sec');
-  var obs = new IntersectionObserver(function(entries) {
-    for (var i = 0; i < entries.length; i++) {
-      if (entries[i].isIntersecting) {
-        var grp = SEC_TO_GROUP[entries[i].target.id];
-        if (grp && grp !== currentGroup) {
-          // Only update if no group menu is open
-          if (!activeGroup) {
-            var allBtns = document.querySelectorAll('.ng');
-            for (var j = 0; j < allBtns.length; j++) {
-              allBtns[j].className = 'ng';
-            }
-            var activeBtn = document.getElementById('ng-' + grp);
-            if (activeBtn) activeBtn.className = 'ng active';
+
+var currentGroup=null;
+if('IntersectionObserver' in window){
+  var allSecs=document.querySelectorAll('.sec');
+  var obs=new IntersectionObserver(function(entries){
+    for(var i=0;i<entries.length;i++){
+      if(entries[i].isIntersecting){
+        var grp=SEC_TO_GROUP[entries[i].target.id];
+        if(grp&&grp!==currentGroup){
+          if(!activeGroup){
+            var allBtns=document.querySelectorAll('.ng');
+            for(var j=0;j<allBtns.length;j++){allBtns[j].className='ng';}
+            var activeBtn=document.getElementById('ng-'+grp);
+            if(activeBtn)activeBtn.className='ng active';
           }
-          currentGroup = grp;
+          currentGroup=grp;
         }
         break;
       }
     }
-  }, { rootMargin: '-10% 0px -80% 0px' });
-  for (var k = 0; k < allSecs.length; k++) { obs.observe(allSecs[k]); }
+  },{rootMargin:'-10% 0px -80% 0px'});
+  for(var k=0;k<allSecs.length;k++){obs.observe(allSecs[k]);}
 }
 </script>
 </body>
