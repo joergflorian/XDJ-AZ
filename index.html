@@ -2213,7 +2213,14 @@ function toggleMobGroup(sh){
     if(btn)btn.classList.add('open');
   }
 }
-function mobNavTo(id){navTo(id);toggleMobMenu();}
+function mobNavTo(id){
+  var mob=document.getElementById('mob-menu');
+  if(mob)mob.style.display='none';
+  document.body.style.overflow='';
+  var hmb=document.getElementById('hmb');
+  if(hmb)hmb.classList.remove('open');
+  navTo(id);
+}
 
 /* ── DESKTOP SUB-NAV ─────────────────────────────── */
 var activeGroup=null;
