@@ -2162,9 +2162,17 @@ html.fs-big .ng-icon{font-size:16px}
   <div style="display:grid;gap:12px;max-width:800px">
     <div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:8px;padding:16px 20px">
       <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:12px;margin-bottom:10px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--or);font-weight:700">v1.4 · April 2026</span>
+        <span style="font-family:'Share Tech Mono',monospace;font-size:13px;font-weight:700;color:var(--or)">v1.5 · April 2026</span>
         <span style="background:var(--or);color:#000;font-family:'Share Tech Mono',monospace;font-size:9px;font-weight:700;padding:2px 8px;border-radius:3px;letter-spacing:1px">AKTUELL</span>
       </div>
+      <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--tx);line-height:1.7">
+        Camelot Wheel komplett überarbeitet: Separate A/B-Ringe, korrektes Highlighting per Tonart, showCamDetails() zeigt korrekte Diagonal-Richtung pro A/B. Key-Kompatibilitäts-Checker mit 10-Fälle-Logik (576 Kombinationen musiktheoretisch validiert). 12 neue Karten Erweiterte Harmonic-Mixing-Techniken. BPM-Chart: 30 Genres (war 21), korrigierte Ranges, 9 neue Genres inkl. Psy-Tech, Progressive Psy, Afro House, Dark Techno, Minimal Techno. Hamburger-Bug behoben (mobNavTo). Glossar-Grid 2 Spalten. Font-Scaling auf alle Nav-Elemente ausgedehnt. Navbar-Breakpoint 1060px.
+      </div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:8px;padding:16px 20px">
+      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:12px;margin-bottom:10px">
+        <span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--or);font-weight:700">v1.4 · April 2026</span>
+          </div>
       <div style="font-family:'Barlow',sans-serif;font-size:13px;color:var(--tx);line-height:1.7">
         Font-Size-Scaler (A/A+/A++) im Header mit localStorage-Persistenz. Large-Screen Media Queries (1400px, 1800px). Card min-width. FX-Sektion massiv ausgebaut (Channel-Routing, Timing, FX-Kombinationen). Hotcues: strategisches 8-Cue-System + Juggling. Looping: Odd Loops, Tension-Loop, Safety-Net-Karte. Sound: Limiter, Bit Depth, Kabeltypen, Brummschleifen. Neue Sektionen: Livestreaming (Setup, Copyright/DMCA, OBS), DJ-Recht (SUISA/GEMA/AKM), Club-Etikette (Booth-Verhalten, Requests, Übergabe). 54 Nav-Sektionen + Changelog.
       </div>
@@ -2752,27 +2760,42 @@ buildGlossar();
 
 /* ── BPM CALCULATOR ──────────────────────────────── */
 var BPM_GENRES=[
-  {genre:'Ambient / Drone',min:60,max:90,color:'#1a5276'},
-  {genre:'Hip Hop',min:80,max:100,color:'#884ea0'},
-  {genre:'Reggae / Dub',min:60,max:90,color:'#27ae60'},
-  {genre:'Drum & Bass',min:160,max:180,color:'#c0392b'},
-  {genre:'Breakbeat',min:120,max:150,color:'#d35400'},
-  {genre:'House',min:120,max:130,color:'#2980b9'},
-  {genre:'Deep House',min:116,max:124,color:'#1abc9c'},
-  {genre:'Tech House',min:124,max:134,color:'#8e44ad'},
-  {genre:'Techno',min:130,max:150,color:'#e74c3c'},
-  {genre:'Hard Techno',min:138,max:152,color:'#a93226'},
-  {genre:'Trance',min:128,max:145,color:'#2471a3'},
-  {genre:'Progressive House',min:124,max:132,color:'#117a65'},
-  {genre:'Melodic Techno',min:120,max:136,color:'#6c3483'},
-  {genre:'Psytrance',min:138,max:148,color:'#d4ac0d'},
-  {genre:'Full-On Psy',min:144,max:150,color:'#ca6f1e'},
-  {genre:'Hi-Tech Psy',min:148,max:160,color:'#a93226'},
-  {genre:'Darkpsy',min:148,max:165,color:'#424949'},
-  {genre:'Psycore',min:160,max:180,color:'#7b241c'},
-  {genre:'Forest Psy',min:143,max:148,color:'#1d8348'},
-  {genre:'Goa Trance',min:135,max:145,color:'#2471a3'},
-  {genre:'Dark Prog',min:128,max:136,color:'#5d6d7e'},
+  // ── Downtempo / Electronic ─────────────────────
+  {genre:'Ambient / Drone',   min:60,  max:95,  color:'#1a5276'},
+  {genre:'Downtempo / Chill', min:70,  max:110, color:'#2c3e50'},
+  {genre:'Hip Hop',           min:80,  max:100, color:'#884ea0'},
+  {genre:'Reggae / Dub',      min:60,  max:90,  color:'#27ae60'},
+  {genre:'Nu-Disco',          min:110, max:125, color:'#9b59b6'},
+  // ── House ──────────────────────────────────────
+  {genre:'Deep House',        min:110, max:124, color:'#1a7a8a'},
+  {genre:'House',             min:115, max:130, color:'#2980b9'},
+  {genre:'Afro House',        min:120, max:130, color:'#d35400'},
+  {genre:'Progressive House', min:124, max:132, color:'#117a65'},
+  {genre:'Tech House',        min:124, max:132, color:'#8e44ad'},
+  // ── Techno ─────────────────────────────────────
+  {genre:'Minimal Techno',    min:120, max:132, color:'#2e4053'},
+  {genre:'Melodic Techno',    min:122, max:138, color:'#6c3483'},
+  {genre:'Techno (Peak)',     min:130, max:145, color:'#e74c3c'},
+  {genre:'Dark Techno',       min:132, max:145, color:'#922b21'},
+  {genre:'Hard Techno',       min:145, max:155, color:'#a93226'},
+  // ── Breaks / D&B ───────────────────────────────
+  {genre:'Breakbeat',         min:120, max:140, color:'#b7770d'},
+  {genre:'Drum & Bass',       min:160, max:180, color:'#c0392b'},
+  // ── Trance ─────────────────────────────────────
+  {genre:'Trance',            min:128, max:145, color:'#2471a3'},
+  {genre:'Uplifting Trance',  min:135, max:145, color:'#1a6fa8'},
+  {genre:'Hardstyle',         min:145, max:160, color:'#7f1d1d'},
+  // ── Psytrance / Psychedelic ────────────────────
+  {genre:'Psy-Tech',          min:128, max:138, color:'#16a085'},
+  {genre:'Minimal Psy',       min:128, max:138, color:'#5d6d7e'},
+  {genre:'Progressive Psy',   min:135, max:142, color:'#138d75'},
+  {genre:'Goa Trance',        min:130, max:150, color:'#2471a3'},
+  {genre:'Tribal Psy',        min:140, max:148, color:'#7d6608'},
+  {genre:'Full-On Psy',       min:140, max:150, color:'#ca6f1e'},
+  {genre:'Forest Psy',        min:143, max:150, color:'#1d8348'},
+  {genre:'Darkpsy',           min:150, max:165, color:'#424949'},
+  {genre:'Hi-Tech Psy',       min:160, max:180, color:'#7b241c'},
+  {genre:'Psycore',           min:170, max:200, color:'#4a0000'},
 ];
 var currentBPM=128;
 function adjBPM(d){
