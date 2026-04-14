@@ -1525,6 +1525,23 @@ html.fs-big .ng-icon{font-size:16px}
     </div>
   </div>
 
+  <!-- Key Compatibility Checker -->
+  <div id="key-checker" style="background:var(--bg2);border:1px solid var(--bd);border-radius:10px;padding:18px 20px;margin:16px 0">
+    <div style="font-family:'Rajdhani',sans-serif;font-size:calc(15px * var(--fs));font-weight:700;color:var(--cy);margin-bottom:12px;letter-spacing:.3px">🔍 Key-Kompatibilitäts-Checker</div>
+    <div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:14px">
+      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;gap:4px">
+        <label style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--mu);letter-spacing:1px">KEY 1 (AKTUELL)</label>
+        <select id="kc-key1" onchange="checkKeys()" style="background:var(--bg3);border:1px solid var(--bd2);color:var(--tx);border-radius:6px;padding:7px 12px;font-family:'Share Tech Mono',monospace;font-size:13px;cursor:pointer;min-width:120px"></select>
+      </div>
+      <div style="font-size:22px;color:var(--mu);padding-top:16px">→</div>
+      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;gap:4px">
+        <label style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--mu);letter-spacing:1px">KEY 2 (NÄCHSTER TRACK)</label>
+        <select id="kc-key2" onchange="checkKeys()" style="background:var(--bg3);border:1px solid var(--bd2);color:var(--tx);border-radius:6px;padding:7px 12px;font-family:'Share Tech Mono',monospace;font-size:13px;cursor:pointer;min-width:120px"></select>
+      </div>
+    </div>
+    <div id="kc-result" style="min-height:60px"></div>
+  </div>
+
   <div class="cam-hint">
     <strong>Harmonische Regeln auf einen Blick:</strong><br>
     <div class="row"><span class="lbl">= Zahl</span>Gleicher Key – sicherste Wahl, kein Dissonanzgefühl</div>
@@ -2380,40 +2397,79 @@ function ha(cx,cy,r,a,txt,sz,fill){
 }
 function getDataEl(el,attr){while(el&&!el.getAttribute(attr))el=el.parentElement;return el?el.getAttribute(attr):null;}
 function mod12(n){return((n-1+12)%12)+1;}
-function highlightWheel(n){
-  document.querySelectorAll('.cam-seg').forEach(function(s){
-    var sn=parseInt(s.getAttribute('data-n'));
-    var compat=[n,mod12(n+1),mod12(n-1)];
-    s.setAttribute('opacity',compat.indexOf(sn)>=0?'1':'0.25');
+function highlightWheel(key){
+  var n=parseInt(key), l=key.slice(-1);
+  function mod12(x){return((x-1+12)%12)+1;}
+  // Compute compatible keys
+  var compat={};
+  compat[key]=1;                                    // self
+  compat[n+(l==='A'?'B':'A')]=1;                   // parallel A↔B
+  compat[mod12(n+1)+l]=1;                           // ±1 same mode
+  compat[mod12(n-1)+l]=1;
+  if(l==='B') compat[mod12(n+1)+'A']=1;            // diagonal B→(n+1)A
+  if(l==='A') compat[mod12(n-1)+'B']=1;            // diagonal A→(n-1)B
+  // Highlight each ring path individually
+  document.querySelectorAll('.cam-ring-a,.cam-ring-b').forEach(function(p){
+    var pk=p.getAttribute('data-key');
+    p.setAttribute('opacity', compat[pk] ? '1' : '0.15');
   });
+  // Update key checker dropdown
+  var sel=document.getElementById('kc-key1');
+  if(sel){sel.value=key;checkKeys();}
 }
-function showCamDetails(n){
+function showCamDetails(key){
+  // key can be full string like "7A" or just number (legacy)
+  var n, l;
+  if(typeof key === 'string' && isNaN(key)){
+    n=parseInt(key); l=key.slice(-1);
+  } else {
+    n=parseInt(key); l='A'; // default to A if only number passed
+  }
   var item=CAM[n-1];
   var panel=document.getElementById('cam-panel');
   if(!panel)return;
-  var p1=mod12(n+1), m1=mod12(n-1), p2=mod12(n+2), m2=mod12(n-2), p4=mod12(n+4);
-  var dp1=mod12(n)+'B→'+p1+'A', dm1=mod12(n-1)+'B→'+n+'A';
-  var html='<h3 style="margin:0 0 4px;font-size:calc(16px * var(--fs));color:var(--tx)">'+item.a+' – '+item.ta+'</h3>'
-    +'<div style="font-size:calc(12px * var(--fs));color:var(--mu);margin-bottom:12px">Dur: '+item.b+' · '+item.tb+'</div>'
+  function mod12(x){return((x-1+12)%12)+1;}
+  var p1=mod12(n+1), m1=mod12(n-1), p2=mod12(n+2), m2=mod12(n-2);
+  // Correct safe keys depend on which letter (A or B)
+  var safeKeys, diagLine, stimmungLine;
+  if(l==='A'){
+    // 7A compatible: 7A, 7B, 8A (±1 same mode), 6A (±1 same mode), 6B (diagonal A→n-1B)
+    safeKeys = n+'A · '+n+'B · '+p1+'A · '+m1+'A · '+m1+'B';
+    diagLine = n+'A → '+m1+'B';
+  } else {
+    // 7B compatible: 7B, 7A, 8B (±1 same mode), 6B (±1 same mode), 8A (diagonal B→n+1A)
+    safeKeys = n+'B · '+n+'A · '+p1+'B · '+m1+'B · '+p1+'A';
+    diagLine = n+'B → '+p1+'A';
+  }
+  // Stimmung: switch to opposite letter
+  var oppL = l==='A' ? 'B' : 'A';
+  var stimmA2B = l==='A'
+    ? '<span style="color:var(--gr)">→'+n+'B</span><span style="color:var(--mu);margin:0 6px">Euphorie / heller</span>'
+    : '<span style="color:var(--cy)">→'+n+'A</span><span style="color:var(--mu);margin:0 6px">Dunkler / emotionaler</span>';
+  var currentName = l==='A' ? item.a+' – '+item.ta : item.b+' – '+item.tb;
+  var durLabel = l==='A'
+    ? 'Dur: '+item.b+' · '+item.tb
+    : 'Moll: '+item.a+' · '+item.ta;
+  var html='<h3 style="margin:0 0 4px;font-size:calc(16px * var(--fs));color:var(--tx)">'+currentName+'</h3>'
+    +'<div style="font-size:calc(12px * var(--fs));color:var(--mu);margin-bottom:12px">'+durLabel+'</div>'
     +'<div style="display:grid;gap:5px">'
-    +'<div style="background:var(--bg3);border-radius:5px;padding:6px 10px;font-size:calc(11px * var(--fs))">'
-    +'<span style="color:var(--gr);font-weight:700">✅ Sicher (±1, A↔B)</span><br>'
-    +'<span style="color:var(--tx)">'+n+'A · '+n+'B · '+p1+'A · '+m1+'A</span></div>'
-    +'<div style="background:var(--bg3);border-radius:5px;padding:6px 10px;font-size:calc(11px * var(--fs))">'
+    +'<div style="background:var(--bg3);border-radius:5px;padding:6px 10px;font-size:calc(11px * var(--fs));">'
+    +'<span style="color:var(--gr);font-weight:700">✅ Sicher (±1, A↔B, Diagonal)</span><br>'
+    +'<span style="color:var(--tx)">'+safeKeys+'</span></div>'
+    +'<div style="background:var(--bg3);border-radius:5px;padding:6px 10px;font-size:calc(11px * var(--fs));">'
     +'<span style="color:var(--am);font-weight:700">⬆️ Energie Boost (+2)</span><br>'
-    +'<span style="color:var(--tx)">'+p2+'A / '+p2+'B</span>'
+    +'<span style="color:var(--tx)">'+p2+l+'</span>'
     +'<span style="color:var(--mu);margin-left:6px">Crowd wacht auf</span></div>'
-    +'<div style="background:var(--bg3);border-radius:5px;padding:6px 10px;font-size:calc(11px * var(--fs))">'
+    +'<div style="background:var(--bg3);border-radius:5px;padding:6px 10px;font-size:calc(11px * var(--fs));">'
     +'<span style="color:var(--cy);font-weight:700">⬇️ Energie Drop (−2)</span><br>'
-    +'<span style="color:var(--tx)">'+m2+'A / '+m2+'B</span>'
+    +'<span style="color:var(--tx)">'+m2+l+'</span>'
     +'<span style="color:var(--mu);margin-left:6px">Set abrunden</span></div>'
-    +'<div style="background:var(--bg3);border-radius:5px;padding:6px 10px;font-size:calc(11px * var(--fs))">'
+    +'<div style="background:var(--bg3);border-radius:5px;padding:6px 10px;font-size:calc(11px * var(--fs));">'
     +'<span style="color:var(--pu);font-weight:700">↗️ Diagonal (smooth)</span><br>'
-    +'<span style="color:var(--tx)">'+n+'B→'+p1+'A oder '+n+'A→'+m1+'B</span></div>'
-    +'<div style="background:var(--bg3);border-radius:5px;padding:6px 10px;font-size:calc(11px * var(--fs))">'
-    +'<span style="color:var(--or);font-weight:700">A↔B Stimmung</span><br>'
-    +'<span style="color:var(--gr)">→'+n+'B</span><span style="color:var(--mu);margin:0 6px">Euphorie / heller</span>'
-    +'<span style="color:var(--cy)">→'+n+'A</span><span style="color:var(--mu);margin-left:6px">Dunkel / tief</span></div>'
+    +'<span style="color:var(--tx)">'+diagLine+'</span></div>'
+    +'<div style="background:var(--bg3);border-radius:5px;padding:6px 10px;font-size:calc(11px * var(--fs));">'
+    +'<span style="color:var(--or);font-weight:700">A↔B Stimmungswechsel</span><br>'
+    +stimmA2B+'</div>'
     +'</div>';
   panel.innerHTML=html;
 }
@@ -2423,12 +2479,15 @@ function showCamDetails(n){
   var cx=160,cy=160,R1=55,R2=90,R3=125,gap=1;
   CAM.forEach(function(item){
     var a1=-90+(item.n-1)*30+gap/2,a2=-90+item.n*30-gap/2;
-    var g=mkEl('g',{'class':'cam-seg','data-n':item.n,'style':'cursor:pointer'},svg);
-    g.addEventListener('click',function(){
-      highlightWheel(item.n);showCamDetails(item.n);
-    });
-    mkEl('path',{d:arc(cx,cy,R1,R2,a1,a2),fill:item.c,'fill-opacity':'0.85'},g);
-    mkEl('path',{d:arc(cx,cy,R2,R3,a1,a2),fill:item.c,'fill-opacity':'0.55'},g);
+    var g=mkEl('g',{'class':'cam-seg','data-n':item.n},svg);
+    // Inner ring = A (minor)
+    var pA=mkEl('path',{d:arc(cx,cy,R1,R2,a1,a2),fill:item.c,'fill-opacity':'0.85',
+      'data-key':item.a,'style':'cursor:pointer','class':'cam-ring-a'},g);
+    pA.addEventListener('click',function(){highlightWheel(item.a);showCamDetails(item.a);});
+    // Outer ring = B (major)
+    var pB=mkEl('path',{d:arc(cx,cy,R2,R3,a1,a2),fill:item.c,'fill-opacity':'0.55',
+      'data-key':item.b,'style':'cursor:pointer','class':'cam-ring-b'},g);
+    pB.addEventListener('click',function(){highlightWheel(item.b);showCamDetails(item.b);});
     var am=(a1+a2)/2;
     g.appendChild(ha(cx,cy,(R1+R2)/2,am,item.a,10,'#fff'));
     g.appendChild(ha(cx,cy,(R2+R3)/2,am,item.b,9,'#fff'));
@@ -2437,16 +2496,16 @@ function showCamDetails(n){
   lA.textContent='A=min';svg.appendChild(lA);
   var lB=mkEl('text',{x:cx,y:cy+10,'text-anchor':'middle','dominant-baseline':'middle','font-size':10,'fill':'var(--mu2)','font-family':'Share Tech Mono,monospace','font-weight':'600'});
   lB.textContent='B=Maj';svg.appendChild(lB);
-
   // Build all-24-keys grid
   var grid=document.getElementById('cam-grid-all');
   if(grid){
     var gh='';
     CAM.forEach(function(item){
-      gh+='<div class="cg-item" onclick="highlightWheel('+item.n+');showCamDetails('+item.n+');document.getElementById(\'cam-svg\').scrollIntoView({behavior:\'smooth\',block:\'center\'})">'
+      var ka=item.a, kb=item.b, kn=item.n;
+      gh+='<div class="cg-item" onclick="highlightWheel(this.getAttribute(\"data-a\"));showCamDetails('+kn+')" data-a="'+ka+'" data-b="'+kb+'">'
         +'<div style="display:flex;gap:5px;margin-bottom:3px">'
-        +'<span class="cg-a">'+item.a+'</span>'
-        +'<span class="cg-b" style="background:'+item.c+'22;color:'+item.c+'">'+item.b+'</span>'
+        +'<span class="cg-a" onclick="event.stopPropagation();highlightWheel(this.parentElement.parentElement.getAttribute(\"data-a\"));showCamDetails('+kn+')">'+ka+'</span>'
+        +'<span class="cg-b" style="background:'+item.c+'22;color:'+item.c+'" onclick="event.stopPropagation();highlightWheel(this.parentElement.parentElement.getAttribute(\"data-b\"));showCamDetails('+kn+')">'+kb+'</span>'
         +'</div>'
         +'<div style="font-size:10px;color:var(--mu)">'+item.ta+'</div>'
         +'<div style="font-size:10px;color:var(--mu2)">'+item.tb+'</div>'
@@ -2455,6 +2514,92 @@ function showCamDetails(n){
     grid.innerHTML=gh;
   }
 })();
+
+/* ── KEY CHECKER ─────────────────────────────────── */
+(function initKeyChecker(){
+  var sel1=document.getElementById('kc-key1');
+  var sel2=document.getElementById('kc-key2');
+  if(!sel1||!sel2)return;
+  var opts='';
+  CAM.forEach(function(item){
+    opts+='<option value="'+item.n+'A">'+item.a+' – '+item.ta+'</option>';
+    opts+='<option value="'+item.n+'B">'+item.b+' – '+item.tb+'</option>';
+  });
+  sel1.innerHTML=opts;
+  sel2.innerHTML=opts;
+  // Default: 8A and 8B
+  sel1.value='8A'; sel2.value='8B';
+  checkKeys();
+})();
+
+function checkKeys(){
+  var sel1=document.getElementById('kc-key1');
+  var sel2=document.getElementById('kc-key2');
+  var res=document.getElementById('kc-result');
+  if(!sel1||!sel2||!res)return;
+  var v1=sel1.value, v2=sel2.value;
+  var n1=parseInt(v1), l1=v1.slice(-1);
+  var n2=parseInt(v2), l2=v2.slice(-1);
+  var diff=(n2-n1+12)%12;
+  var sameN=n1===n2, sameL=l1===l2, sameKey=v1===v2;
+  var label='', color='', icon='', desc='', energy='', mood='';
+  if(sameKey){
+    label='Identischer Key'; color='var(--gr)'; icon='🟢';
+    desc='Perfekte Harmonie. Kein Clash möglich. Ideal für lange Blends.';
+    energy='Energie: Neutral'; mood='Stimmung: Unverändert';
+  } else if(sameN && !sameL){
+    label='Paralleltonart (A↔B)'; color='var(--gr)'; icon='🟢';
+    if(l1==='A'&&l2==='B'){desc='Moll → Dur. Gleiche Noten, heller Modus.'; energy='Energie: leicht steigend'; mood='Stimmung: hellt auf → Euphorie';}
+    else{desc='Dur → Moll. Gleiche Noten, dunkler Modus.'; energy='Energie: leicht fallend'; mood='Stimmung: dunkler, emotionaler';}
+  } else if(sameL && diff===1){
+    label='Perfekte Quinte (+1)'; color='var(--gr)'; icon='🟢';
+    desc='Einen Schritt im Uhrzeigersinn. Glattester Übergang überhaupt.';
+    energy='Energie: sanft steigend'; mood='Stimmung: leicht positiver';
+  } else if(sameL && diff===11){
+    label='Perfekte Quinte (−1)'; color='var(--gr)'; icon='🟢';
+    desc='Einen Schritt gegen den Uhrzeigersinn. Sehr smooth.';
+    energy='Energie: sanft fallend'; mood='Stimmung: entspannter';
+  } else if(l1==='B' && l2==='A' && diff===1){
+    label='Diagonaler Mix (nB → n+1A)'; color='var(--pu)'; icon='🟢';
+    desc='Major → nächste Minor. Überraschend smooth – Noten harmonisch verwandt. Dramatischer Charakter-Wechsel ohne Clash.';
+    energy='Energie: neutral bis steigend'; mood='Stimmung: von hell zu dunkel, dramatisch';
+  } else if(l1==='A' && l2==='B' && diff===11){
+    label='Diagonaler Mix (nA → n−1B)'; color='var(--pu)'; icon='🟢';
+    desc='Minor → vorherige Major. Smooth diagonal move.';
+    energy='Energie: neutral'; mood='Stimmung: von dunkel zu hell';
+  } else if(sameL && diff===2){
+    label='Energy Boost (+2)'; color='var(--am)'; icon='🟡';
+    desc='Zwei Schritte hoch – gleicher Modus. Spürbare Energie-Steigerung. Kurzen Übergang wählen!';
+    energy='Energie: deutlich steigend ↑↑'; mood='Stimmung: aufgeweckt, Peak-Vorbereitung';
+  } else if(sameL && diff===10){
+    label='Energy Drop (−2)'; color='var(--cy)'; icon='🟡';
+    desc='Zwei Schritte runter – gleicher Modus. Set abrunden oder Ruhephase einleiten.';
+    energy='Energie: deutlich fallend ↓↓'; mood='Stimmung: entspannend, Abrundung';
+  } else if(diff===4){
+    label='Guetta-Boost (+4)'; color='var(--or)'; icon='🟡';
+    desc='Dissonant aber manchmal spektakulär. Nur für Tracks mit einfachen Melodien. Kurzer Übergang!';
+    energy='Energie: stark steigend (mit Risiko)'; mood='Stimmung: Aufmerksamkeits-Grabber';
+  } else if(diff===6){
+    label='Maximale Dissonanz (±6)'; color='var(--rd)'; icon='🔴';
+    desc='Gegenüberliegende Seite des Wheels. Klingt dissonant. Nur als bewusster Schock-Moment – einmal pro Set, kurz.';
+    energy='Energie: unberechenbar'; mood='Stimmung: harter Bruch';
+  } else {
+    label='Nicht kompatibel – mit Vorsicht'; color='var(--am)'; icon='⚠️';
+    desc='Diese Kombination liegt ausserhalb der Camelot-Regeln. Mischung auf Drum-Break reduzieren oder Bass ausblenden. Im Proberaum testen.';
+    energy='Energie: unvorhersehbar'; mood='Stimmung: experimentell – Risiko';
+  }
+  res.innerHTML='<div style="background:'+color+'18;border:1px solid '+color+'44;border-radius:8px;padding:12px 16px">'
+    +'<div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:8px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:8px">'
+    +'<span style="font-size:18px">'+icon+'</span>'
+    +'<span style="font-family:Rajdhani,sans-serif;font-size:calc(16px * var(--fs));font-weight:700;color:'+color+'">'+label+'</span>'
+    +'</div>'
+    +'<div style="font-size:calc(13px * var(--fs));color:var(--tx);margin-bottom:8px">'+desc+'</div>'
+    +'<div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:8px;-ms-flex-wrap:wrap;flex-wrap:wrap">'
+    +'<span style="background:var(--bg3);border-radius:4px;padding:3px 10px;font-size:calc(11px * var(--fs));color:var(--mu)">'+energy+'</span>'
+    +'<span style="background:var(--bg3);border-radius:4px;padding:3px 10px;font-size:calc(11px * var(--fs));color:var(--mu)">'+mood+'</span>'
+    +'</div>'
+    +'</div>';
+}
 
 /* ── CHECKLISTS ──────────────────────────────────── */
 var PG_ITEMS=[
