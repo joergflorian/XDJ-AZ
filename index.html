@@ -1989,7 +1989,7 @@ html.fs-big .ng-icon{font-size:16px}
     <div class="sec-ico">⚡</div>
     <div><div class="sec-num">50 / </div><div class="sec-ttl">Energie-Builder <em>interaktiv</em></div></div>
   </div>
-  <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Plane deinen Set-Arc interaktiv. Gib Dauer und Peak-Moment ein — das Tool errechnet Energiekurve und BPM-Bereiche für jede Phase.</p>
+  <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Plane deinen Set-Arc interaktiv. Die Kurve zeigt einen <strong>realistischen Bogen mit Dip</strong> — Warm-up, Energie-Dip, Build, Peak, Wind-down. Gib Dauer, Peak-Position und Start-BPM ein.</p>
 
   <div style="background:var(--bg2);border:1px solid var(--bd);border-radius:10px;padding:16px 18px;margin:14px 0;display:grid;gap:14px">
     <div>
@@ -2008,11 +2008,11 @@ html.fs-big .ng-icon{font-size:16px}
       <div style="display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--mu);margin-top:2px"><span>110</span><span id="eb-bpm-val" style="color:var(--or);font-weight:700">120 BPM</span><span>140</span></div>
     </div>
     <div style="height:160px;position:relative;background:var(--bg3);border-radius:8px;padding:12px;margin-top:6px">
-      <svg id="eb-svg" viewBox="0 0 500 140" width="100%" height="100%" preserveAspectRatio="none"></svg>
+      <svg id="eb-svg" viewBox="0 0 500 130" width="100%" height="100%" preserveAspectRatio="none"></svg>
     </div>
     <div id="eb-phases" style="display:grid;gap:8px"></div>
   </div>
-  <div class="tip"><span class="ti">💡</span><div><strong>Wie dieses Tool dir hilft:</strong> Die meisten DJs starten zu früh mit voller Energie und verlieren die Crowd nach 45 Minuten. Ein geplanter Arc mit bewussten Dips und gesteuerter BPM-Progression hält die Crowd über Stunden. Nutze die Kurve als Gedächtnisstütze — nicht als starren Fahrplan.</div></div>
+  <div class="tip"><span class="ti">💡</span><div><strong>Warum der Dip?</strong> Energie nie linear aufbauen. Der bewusste Energie-Dip nach dem Warm-up lässt die Crowd kurz atmen — danach wirkt jede neue Welle stärker. Ohne Tal kein Berg. Die Kurve ist eine Gedächtnisstütze, kein starrer Fahrplan.</div></div>
 </section>
 
 <section class="sec" id="practice">
@@ -3525,78 +3525,106 @@ function updateEnergyBuilder(){
   document.getElementById('eb-peak-val').textContent=peakPct+'%';
   document.getElementById('eb-bpm-val').textContent=bpmStart+' BPM';
 
-  var peakMin=Math.round(dur*peakPct/100);
-  var bpmPeak=bpmStart+Math.round((bpmStart*0.07));
+  var pk=peakPct/100;   // peak position as fraction
+  var bpmPeak=bpmStart+Math.round(bpmStart*0.07);
   var bpmClose=bpmStart+2;
 
-  // Build SVG curve
+  // Key points: realistic arc WITH dip after first mini-peak, second peak, wind-down
+  // Each point: [t (0-1), energy (0-1)]
+  var pts=[
+    [0,      0.07],           // start low
+    [0.10,   0.28],           // early rise
+    [0.22,   0.52],           // first mini-peak (before dip)
+    [0.30,   0.38],           // ← DIP: deliberate energy drop
+    [0.38,   0.48],           // recovery
+    [pk*0.75, 0.68],          // build accelerating
+    [pk,      1.00],          // PEAK
+    [pk+0.07, 0.92],          // post-peak sustain
+    [pk+0.15, 0.78],          // second sustained peak area
+    [pk+0.25, 0.62],          // beginning wind-down
+    [0.88,    0.42],          // late wind-down
+    [1.00,    0.22]           // outro
+  ];
+
   var svg=document.getElementById('eb-svg');
   if(!svg)return;
-  var W=500,H=140;
-  // Key time points as fractions of total duration
-  var pts=[
-    [0,    0.08],          // start low
-    [0.12, 0.30],          // early rise
-    [0.28, 0.55],          // pre-peak build
-    [0.42, 0.72],          // build accelerating
-    [peakPct/100, 1.0],    // peak
-    [peakPct/100+0.12, 0.88], // post-peak sustain
-    [0.85, 0.65],          // wind-down
-    [1.0,  0.30]           // outro
-  ];
-  // Smooth bezier path
-  function px(t){return Math.round(t*W);}
-  function py(e){return Math.round(H-(e*(H-8)));}
-  var d='M'+px(pts[0][0])+','+py(pts[0][1]);
+  var W=500,H=130,padL=4,padR=4,padT=18,padB=14;
+  var iW=W-padL-padR, iH=H-padT-padB;
+
+  function px(t){return padL+t*iW;}
+  function py(e){return padT+iH*(1-e);}
+
+  // Build smooth bezier path
+  var d='M'+px(pts[0][0]).toFixed(1)+','+py(pts[0][1]).toFixed(1);
   for(var i=1;i<pts.length;i++){
     var p0=pts[i-1],p1=pts[i];
-    var cpx1=px(p0[0]+(p1[0]-p0[0])*0.45);
-    var cpy1=py(p0[1]);
-    var cpx2=px(p0[0]+(p1[0]-p0[0])*0.55);
-    var cpy2=py(p1[1]);
-    d+=' C'+cpx1+','+cpy1+' '+cpx2+','+cpy2+' '+px(p1[0])+','+py(p1[1]);
+    var tension=0.4;
+    var cpx1=(px(p0[0])+(px(p1[0])-px(p0[0]))*tension).toFixed(1);
+    var cpy1=py(p0[1]).toFixed(1);
+    var cpx2=(px(p1[0])-(px(p1[0])-px(p0[0]))*tension).toFixed(1);
+    var cpy2=py(p1[1]).toFixed(1);
+    d+=' C'+cpx1+','+cpy1+' '+cpx2+','+cpy2+' '+px(p1[0]).toFixed(1)+','+py(p1[1]).toFixed(1);
   }
-  // Gradient fill path
-  var fillD=d+' L'+W+','+H+' L0,'+H+' Z';
-  svg.innerHTML=
-    '<defs><linearGradient id="ebg" x1="0" y1="0" x2="0" y2="1">'
-    +'<stop offset="0%" stop-color="var(--or)" stop-opacity="0.35"/>'
-    +'<stop offset="100%" stop-color="var(--or)" stop-opacity="0.04"/>'
+
+  var fillD=d+' L'+px(1).toFixed(1)+','+(padT+iH)+' L'+padL+','+(padT+iH)+' Z';
+
+  // Phase label markers
+  var markers=[
+    {lbl:'WARM-UP', t:0.06,  col:'#1a7a8a'},
+    {lbl:'DIP',     t:0.30,  col:'var(--cy)'},
+    {lbl:'BUILD',   t:pk*0.6,col:'var(--am)'},
+    {lbl:'PEAK',    t:pk,    col:'var(--or)'},
+    {lbl:'OUTRO',   t:0.93,  col:'var(--gr)'}
+  ];
+
+  var svgHtml='<defs>'
+    +'<linearGradient id="ebg2" x1="0" y1="0" x2="0" y2="1">'
+    +'<stop offset="0%" stop-color="var(--or)" stop-opacity="0.38"/>'
+    +'<stop offset="100%" stop-color="var(--or)" stop-opacity="0.03"/>'
     +'</linearGradient></defs>'
-    +'<path d="'+fillD+'" fill="url(#ebg)"/>'
-    +'<path d="'+d+'" fill="none" stroke="var(--or)" stroke-width="2.5" stroke-linecap="round"/>'
-    // Peak marker
-    +'<circle cx="'+px(peakPct/100)+'" cy="'+py(1.0)+'" r="5" fill="var(--or)"/>'
-    +'<text x="'+px(peakPct/100)+'" y="'+(py(1.0)-10)+'" text-anchor="middle" font-family="Share Tech Mono,monospace" font-size="10" fill="var(--or)">PEAK '+peakMin+'m</text>'
-    // Start marker
-    +'<circle cx="'+px(0)+'" cy="'+py(0.08)+'" r="3" fill="var(--cy)"/>'
-    // Outro marker
-    +'<circle cx="'+W+'" cy="'+py(0.30)+'" r="3" fill="var(--gr)"/>'
-    // Time axis labels
-    +'<text x="0" y="'+(H+12)+'" font-family="Share Tech Mono,monospace" font-size="9" fill="var(--mu)">0</text>'
-    +'<text x="'+(W/2-8)+'" y="'+(H+12)+'" font-family="Share Tech Mono,monospace" font-size="9" fill="var(--mu)">'+Math.round(dur/2)+'m</text>'
-    +'<text x="'+(W-20)+'" y="'+(H+12)+'" font-family="Share Tech Mono,monospace" font-size="9" fill="var(--mu)">'+dur+'m</text>';
+    +'<path d="'+fillD+'" fill="url(#ebg2)"/>'
+    +'<path d="'+d+'" fill="none" stroke="var(--or)" stroke-width="2.5" stroke-linecap="round"/>';
+
+  // Dip annotation
+  var dipX=px(0.30).toFixed(1), dipY=py(0.38).toFixed(1);
+  svgHtml+='<circle cx="'+dipX+'" cy="'+dipY+'" r="4" fill="var(--cy)" opacity="0.9"/>'
+    +'<text x="'+dipX+'" y="'+(parseFloat(dipY)+14)+'" text-anchor="middle" font-family="Share Tech Mono,monospace" font-size="8" fill="var(--cy)" opacity="0.85">↓ DIP</text>';
+
+  // Peak annotation
+  var pkX=px(pk).toFixed(1), pkY=py(1.0).toFixed(1);
+  svgHtml+='<circle cx="'+pkX+'" cy="'+pkY+'" r="5" fill="var(--or)"/>'
+    +'<text x="'+pkX+'" y="'+(parseFloat(pkY)-8)+'" text-anchor="middle" font-family="Share Tech Mono,monospace" font-size="9" fill="var(--or)" font-weight="700">PEAK '+Math.round(dur*pk)+'m</text>';
+
+  // Time axis
+  svgHtml+='<text x="'+padL+'" y="'+(H-1)+'" font-family="Share Tech Mono,monospace" font-size="8" fill="var(--mu)">0</text>'
+    +'<text x="'+(W/2-8)+'" y="'+(H-1)+'" font-family="Share Tech Mono,monospace" font-size="8" fill="var(--mu)">'+Math.round(dur/2)+'m</text>'
+    +'<text x="'+(W-20)+'" y="'+(H-1)+'" font-family="Share Tech Mono,monospace" font-size="8" fill="var(--mu)">'+dur+'m</text>';
+
+  svg.innerHTML=svgHtml;
 
   // Phase cards
-  var warmEnd=Math.round(dur*0.20);
-  var buildEnd=Math.round(dur*0.42);
-  var peakEnd=Math.round(peakMin+dur*0.12);
-  var windEnd=Math.round(dur*0.88);
-  var bpmBuild=bpmStart+Math.round((bpmPeak-bpmStart)*0.5);
+  var dipMin=Math.round(dur*0.22);
+  var dipEnd=Math.round(dur*0.38);
+  var buildEnd=Math.round(dur*pk*0.75);
+  var peakMin=Math.round(dur*pk);
+  var peakEnd=Math.round(dur*(pk+0.25));
+  var bpmDip=bpmStart+2;
+  var bpmBuild=bpmStart+Math.round((bpmPeak-bpmStart)*0.6);
+
   var phases=[
-    {lbl:'WARM-UP',col:'var(--cy)',time:'0 – '+warmEnd+'m',bpm:bpmStart+' – '+(bpmStart+3)+' BPM',tip:'Soft, melodisch. Crowd kommt erst an. Energie zurückhalten.'},
-    {lbl:'BUILD',col:'var(--am)',time:warmEnd+' – '+buildEnd+'m',bpm:(bpmStart+3)+' – '+bpmBuild+' BPM',tip:'Energie stetig aufbauen. Keine Peaks, keine Drops verpulvern.'},
-    {lbl:'PRE-PEAK',col:'var(--or)',time:buildEnd+' – '+peakMin+'m',bpm:bpmBuild+' – '+bpmPeak+' BPM',tip:'Härteste Tracks kurz vor dem Peak. Crowd in Erwartungshaltung halten.'},
-    {lbl:'PEAK',col:'#ff2244',time:peakMin+' – '+peakEnd+'m',bpm:bpmPeak+' BPM',tip:'Vollgas. Beste Tracks. Maximale Energie. Crowd komplett in Trance.'},
-    {lbl:'WIND-DOWN',col:'var(--gr)',time:peakEnd+' – '+windEnd+'m',bpm:(bpmPeak-4)+' – '+(bpmClose+2)+' BPM',tip:'Energie reduzieren. Loyale Crowd bleibt. Experimenteller werden.'},
-    {lbl:'OUTRO',col:'var(--mu)',time:windEnd+' – '+dur+'m',bpm:bpmClose+' – '+bpmStart+' BPM',tip:'Weich und melodisch. Crowd geht mit einem guten Gefühl nach Hause.'}
+    {lbl:'WARM-UP',   col:'#1a7a8a', time:'0 – '+dipMin+'m',      bpm:bpmStart+' – '+(bpmStart+3)+' BPM',  tip:'Soft, melodisch. Crowd kommt erst an. Energie zurückhalten.'},
+    {lbl:'DIP ↓',     col:'var(--cy)',time:dipMin+' – '+dipEnd+'m',bpm:bpmDip+' – '+bpmStart+' BPM',        tip:'Bewusster Energie-Dip. Crowd atmet durch. Macht den zweiten Aufbau stärker.'},
+    {lbl:'BUILD',     col:'var(--am)',time:dipEnd+' – '+buildEnd+'m',bpm:bpmStart+' – '+bpmBuild+' BPM',    tip:'Energie stetig aufbauen. Crowd zieht mit. Keine Peaks verpulvern.'},
+    {lbl:'PRE-PEAK',  col:'var(--or)',time:buildEnd+' – '+peakMin+'m',bpm:bpmBuild+' – '+bpmPeak+' BPM',   tip:'Härteste Tracks kurz vor dem Peak. Crowd in Erwartungshaltung.'},
+    {lbl:'PEAK',      col:'#ff3355', time:peakMin+' – '+peakEnd+'m',  bpm:bpmPeak+' BPM',                  tip:'Vollgas. Beste Tracks. Crowd im Trance. Hier nichts zurückhalten.'},
+    {lbl:'WIND-DOWN', col:'var(--gr)',time:peakEnd+' – '+dur+'m',      bpm:(bpmPeak-4)+' → '+bpmClose+' BPM',tip:'Energie lösen. Loyale Crowd. Experimenteller werden. Schöner Abschluss.'}
   ];
   var html='';
   phases.forEach(function(p){
-    html+='<div style="background:var(--bg3);border-left:3px solid '+p.col+';border-radius:5px;padding:8px 12px;display:grid;grid-template-columns:80px 110px 1fr;gap:6px;align-items:center">'
+    html+='<div style="background:var(--bg3);border-left:3px solid '+p.col+';border-radius:5px;padding:7px 12px;display:grid;grid-template-columns:82px 120px 1fr;gap:6px;align-items:center">'
       +'<span style="font-family:\'Share Tech Mono\',monospace;font-size:10px;font-weight:700;color:'+p.col+'">'+p.lbl+'</span>'
       +'<span style="font-family:\'Share Tech Mono\',monospace;font-size:10px;color:var(--mu)">'+p.time+'<br>'+p.bpm+'</span>'
-      +'<span style="font-size:12px;color:var(--tx);font-family:\'Barlow\',sans-serif">'+p.tip+'</span>'
+      +'<span style="font-size:12px;color:var(--tx);font-family:\'Barlow\',sans-serif;line-height:1.4">'+p.tip+'</span>'
       +'</div>';
   });
   var ph=document.getElementById('eb-phases');
@@ -3604,79 +3632,6 @@ function updateEnergyBuilder(){
 }
 (function(){if(document.getElementById('eb-svg'))updateEnergyBuilder();})();
 
-/* ── ENERGIE-BUILDER ─────────────────────────────── */
-function updateEnergyBuilder(){
-  var dur=parseInt(document.getElementById('eb-dur').value)||120;
-  var peakPct=parseInt(document.getElementById('eb-peak').value)||65;
-  var startBpm=parseInt(document.getElementById('eb-bpm').value)||120;
-  document.getElementById('eb-dur-val').textContent=dur+'m';
-  document.getElementById('eb-peak-val').textContent=peakPct+'%';
-  document.getElementById('eb-bpm-val').textContent=startBpm+' BPM';
-  var peakMin=Math.round(dur*peakPct/100);
-  var warmup=Math.round(peakMin*0.25);
-  var build=Math.round(peakMin*0.55);
-  var peak=Math.round(peakMin);
-  var outro=dur;
-  var phases=[
-    {name:'Warm-up',start:0,end:warmup,energy:0.25,bpmDelta:0,col:'#1a7a8a'},
-    {name:'Build',start:warmup,end:build,energy:0.55,bpmDelta:Math.round((startBpm+4-startBpm)*((build-warmup)/(peak-warmup))),col:'#8e44ad'},
-    {name:'Peak',start:peak-Math.round((outro-peak)*0.15),end:peak+Math.round((outro-peak)*0.3),energy:1,bpmDelta:8,col:'var(--or)'},
-    {name:'Cooldown',start:peak,end:outro,energy:0.4,bpmDelta:0,col:'#27ae60'}
-  ];
-  var svg=document.getElementById('eb-svg');
-  if(!svg)return;
-  var W=500,H=140,pad=20;
-  var pts=[];
-  for(var i=0;i<=100;i++){
-    var t=i/100;
-    var tMin=t*dur;
-    var e;
-    var pkT=peakMin/dur;
-    if(t<pkT*0.25){e=0.15+t/(pkT*0.25)*0.2;}
-    else if(t<pkT*0.7){e=0.35+(t-pkT*0.25)/(pkT*0.45)*0.35;}
-    else if(t<pkT){e=0.7+(t-pkT*0.7)/(pkT*0.3)*0.35;}
-    else if(t<pkT*1.1){e=1-(t-pkT)/(pkT*0.1)*0.15;}
-    else{e=0.85-(t-pkT*1.1)/((1-pkT*1.1)||0.001)*0.55;}
-    e=Math.max(0.05,Math.min(1,e));
-    pts.push([(pad+(W-2*pad)*t),(H-pad-(H-2*pad)*e)]);
-  }
-  var d='M'+pts[0][0]+','+pts[0][1];
-  for(var j=1;j<pts.length;j++){d+=' L'+pts[j][0]+','+pts[j][1];}
-  var fill=d+' L'+(W-pad)+','+(H-pad)+' L'+pad+','+(H-pad)+' Z';
-  svg.innerHTML='<defs><linearGradient id="ebg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--or)" stop-opacity="0.4"/><stop offset="100%" stop-color="var(--or)" stop-opacity="0.05"/></linearGradient></defs>'
-    +'<path d="'+fill+'" fill="url(#ebg)"/>'
-    +'<path d="'+d+'" fill="none" stroke="var(--or)" stroke-width="2.5" stroke-linejoin="round"/>';
-  var phases2=[
-    {lbl:'Warm-up',t:0.12,col:'#1a7a8a'},
-    {lbl:'Build',t:peakPct/100*0.55,col:'#8e44ad'},
-    {lbl:'PEAK',t:peakPct/100,col:'var(--or)'},
-    {lbl:'Outro',t:(peakPct/100+1)/2,col:'#27ae60'}
-  ];
-  phases2.forEach(function(p){
-    var x=pad+(W-2*pad)*p.t;
-    svg.innerHTML+='<line x1="'+x+'" y1="'+pad+'" x2="'+x+'" y2="'+(H-pad)+'" stroke="'+p.col+'" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>'
-      +'<text x="'+x+'" y="'+(pad-4)+'" text-anchor="middle" font-family="Share Tech Mono,monospace" font-size="8" fill="'+p.col+'" opacity="0.9">'+p.lbl+'</text>';
-  });
-  var bpmPeak=startBpm+8;
-  var bpmOutro=startBpm+2;
-  var phasesInfo=[
-    {lbl:'Warm-up',min:0,max:warmup,bpm:startBpm+'-'+(startBpm+2),energy:'25–40%',col:'#1a7a8a'},
-    {lbl:'Build',min:warmup,max:build,bpm:(startBpm+2)+'-'+(startBpm+5),energy:'40–70%',col:'#8e44ad'},
-    {lbl:'Peak',min:build,max:peak,bpm:(startBpm+5)+'-'+bpmPeak,energy:'85–100%',col:'var(--or)'},
-    {lbl:'Cooldown / Outro',min:peak,max:outro,bpm:bpmPeak+' → '+bpmOutro,energy:'40–60%',col:'#27ae60'}
-  ];
-  var html='';
-  phasesInfo.forEach(function(p){
-    html+='<div style="background:var(--bg3);border-left:3px solid '+p.col+';border-radius:0 6px 6px 0;padding:8px 12px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;align-items:center">'
-      +'<div style="font-family:\'Rajdhani\',sans-serif;font-weight:700;font-size:13px;color:'+p.col+'">'+p.lbl+'</div>'
-      +'<div style="font-family:\'Share Tech Mono\',monospace;font-size:10px;color:var(--mu)">'+p.min+'m – '+p.max+'m</div>'
-      +'<div style="font-family:\'Share Tech Mono\',monospace;font-size:10px;color:var(--tx)">'+p.bpm+' BPM · '+p.energy+'</div>'
-      +'</div>';
-  });
-  var phasesEl=document.getElementById('eb-phases');
-  if(phasesEl)phasesEl.innerHTML=html;
-}
-(function(){if(document.getElementById('eb-svg'))updateEnergyBuilder();})();
 
 /* ── ACTIVE GROUP HIGHLIGHT ──────────────────────── */
 var SEC_TO_GROUP = {
