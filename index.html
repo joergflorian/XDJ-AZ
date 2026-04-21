@@ -449,7 +449,9 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 
 /* ── HEADER ACTION-BUTTONS ───────────────────────────── */
 .hdr-actions{display:flex;align-items:center;gap:6px;margin-left:auto}
-@media(max-width:500px){.srch-btn span,.favs-btn span,.gig-btn span{display:none}}
+@media(max-width:500px){}
+
+@media(max-width:420px){.btn-lbl{display:none}}
 </style>
 </head>
 <body>
@@ -460,16 +462,9 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
     <div class="logo">XDJ<span>-AZ</span> GUIDE</div>
     <div class="fs-wrap"><button class="fs-btn" id="fs-s" onclick="setFS(0)" title="Kleine Schrift">A</button><button class="fs-btn" id="fs-m" onclick="setFS(1)" title="Mittlere Schrift">A+</button><button class="fs-btn" id="fs-l" onclick="setFS(2)" title="Grosse Schrift">A++</button></div><button class="theme-btn" onclick="toggleTheme()" title="Hell/Dunkel wechseln" aria-label="Farbschema wechseln"><span class="tb-icon tb-dark">☀️</span><span class="tb-icon tb-light">🌙</span></button>
     <div class="hdr-actions">
-      <button class="srch-btn" onclick="openSearch()" title="Suche (Ctrl+K)" aria-label="Suche öffnen">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <span>Suche</span>
-      </button>
-      <button class="favs-btn" id="favs-btn" onclick="toggleFavs()" title="Favoriten" aria-label="Favoriten">
-        <span>★</span><span>Favs</span>
-      </button>
-      <button class="gig-btn" id="gig-btn" onclick="toggleGigMode()" title="Gig Mode: nur Essentials" aria-label="Gig Mode">
-        <span>🎛️</span><span>GIG</span>
-      </button>
+      <button class="srch-btn" onclick="openSearch()" title="Suche (Ctrl+K)" aria-label="Suche öffnen"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="btn-lbl">Suche</span></button>
+      <button class="favs-btn" id="favs-btn" onclick="toggleFavs()" title="Favoriten" aria-label="Favoriten">★<span class="btn-lbl"> Favs</span></button>
+      <button class="gig-btn" id="gig-btn" onclick="toggleGigMode()" title="Gig Mode: nur Essentials" aria-label="Gig Mode">🎛️<span class="btn-lbl"> GIG</span></button>
     </div>
     <!-- Mobile: Hamburger -->
     <button class="hmb" id="hmb" onclick="toggleMobMenu()" aria-label="Menü">
