@@ -372,86 +372,6 @@ html.fs-big .ng-icon{font-size:16px}
   .theme-btn{padding:4px 8px}
 
 }
-
-/* ── FEATURE: GLOBALE SUCHE ─────────────────────────── */
-.srch-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:9000;display:none;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:20px 16px}
-.srch-overlay.open{display:flex;flex-direction:column;align-items:center}
-.srch-box{background:var(--bg2);border:1px solid var(--or);border-radius:12px;width:100%;max-width:680px;overflow:hidden;margin-top:60px;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
-.srch-input-wrap{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--bd)}
-.srch-input-wrap svg{color:var(--or);flex-shrink:0}
-#srch-input{background:none;border:none;outline:none;color:var(--tx);font-family:'Barlow',sans-serif;font-size:16px;width:100%}
-#srch-input::placeholder{color:var(--mu)}
-.srch-close-btn{background:none;border:1px solid var(--bd);border-radius:6px;color:var(--mu);padding:2px 8px;font-family:'Share Tech Mono',monospace;font-size:10px;cursor:pointer;flex-shrink:0}
-.srch-results{max-height:60vh;overflow-y:auto;padding:8px 0}
-.srch-hit{display:block;padding:12px 18px;cursor:pointer;border-bottom:1px solid var(--bd);text-decoration:none;transition:background .15s}
-.srch-hit:hover,.srch-hit:focus{background:var(--bg3)}
-.srch-hit-sec{font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--or);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
-.srch-hit-title{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;color:var(--tx);margin-bottom:3px}
-.srch-hit-snippet{font-family:'Barlow',sans-serif;font-size:12px;color:var(--mu);line-height:1.4}
-.srch-hit-snippet em{color:var(--or);font-style:normal;font-weight:700}
-.srch-empty{padding:32px 18px;text-align:center;color:var(--mu);font-family:'Barlow',sans-serif;font-size:14px}
-.srch-hint{padding:8px 18px;font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--mu2);letter-spacing:1px;border-top:1px solid var(--bd)}
-.srch-btn{background:none;border:1px solid var(--bd);border-radius:8px;color:var(--mu);padding:5px 10px;font-family:'Share Tech Mono',monospace;font-size:10px;cursor:pointer;display:flex;align-items:center;gap:5px;transition:border-color .2s,color .2s;white-space:nowrap;flex-shrink:0}
-.srch-btn:hover{border-color:var(--or);color:var(--or)}
-.srch-btn svg{width:14px;height:14px}
-
-/* ── FEATURE: FAVORITEN ──────────────────────────────── */
-.fav-btn{background:none;border:none;cursor:pointer;color:var(--mu2);font-size:16px;padding:4px;border-radius:4px;transition:color .2s,transform .15s;line-height:1;flex-shrink:0}
-.fav-btn:hover{color:var(--am);transform:scale(1.2)}
-.fav-btn.active{color:var(--am)}
-.favs-panel{position:fixed;top:0;right:0;bottom:0;width:320px;background:var(--bg2);border-left:1px solid var(--bd);z-index:8000;transform:translateX(100%);transition:transform .25s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:0}
-.favs-panel.open{transform:translateX(0)}
-.favs-header{padding:16px 18px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--bg2);z-index:1}
-.favs-title{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:var(--am);letter-spacing:1px}
-.favs-close{background:none;border:none;color:var(--mu);cursor:pointer;font-size:20px;padding:4px;line-height:1}
-.favs-item{display:block;padding:12px 18px;border-bottom:1px solid var(--bd);cursor:pointer;text-decoration:none;transition:background .15s}
-.favs-item:hover{background:var(--bg3)}
-.favs-item-num{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--mu2);margin-bottom:3px}
-.favs-item-title{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--tx)}
-.favs-empty{padding:32px 18px;text-align:center;color:var(--mu);font-family:'Barlow',sans-serif;font-size:13px}
-.favs-btn{background:none;border:1px solid var(--bd);border-radius:8px;color:var(--mu);padding:5px 10px;font-family:'Share Tech Mono',monospace;font-size:10px;cursor:pointer;display:flex;align-items:center;gap:5px;transition:border-color .2s,color .2s;white-space:nowrap;flex-shrink:0}
-.favs-btn:hover,.favs-btn.has-favs{border-color:var(--am);color:var(--am)}
-.favs-overlay{position:fixed;top:0;left:0;right:0;bottom:0;z-index:7999;display:none}
-.favs-overlay.open{display:block}
-
-/* ── FEATURE: NOTIZEN ────────────────────────────────── */
-.note-btn{background:none;border:none;cursor:pointer;color:var(--mu2);font-size:14px;padding:4px;border-radius:4px;transition:color .2s;line-height:1;flex-shrink:0}
-.note-btn:hover{color:var(--cy)}
-.note-btn.has-note{color:var(--cy)}
-.note-modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:9500;display:none;align-items:center;justify-content:center;padding:20px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
-.note-modal.open{display:flex}
-.note-box{background:var(--bg2);border:1px solid var(--cy);border-radius:12px;width:100%;max-width:560px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
-.note-box-hdr{padding:14px 18px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between}
-.note-box-title{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--cy)}
-.note-close{background:none;border:none;color:var(--mu);cursor:pointer;font-size:20px;padding:4px;line-height:1}
-#note-textarea{width:100%;min-height:140px;background:var(--bg3);border:none;outline:none;padding:14px 18px;color:var(--tx);font-family:'Barlow',sans-serif;font-size:14px;line-height:1.6;resize:vertical;box-sizing:border-box}
-#note-textarea::placeholder{color:var(--mu2)}
-.note-footer{padding:10px 18px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;gap:10px}
-.note-save-btn{background:var(--cy);border:none;border-radius:6px;color:#000;font-family:'Share Tech Mono',monospace;font-size:10px;font-weight:700;padding:6px 16px;cursor:pointer;letter-spacing:1px}
-.note-del-btn{background:none;border:1px solid var(--bd);border-radius:6px;color:var(--mu);font-family:'Share Tech Mono',monospace;font-size:10px;padding:6px 12px;cursor:pointer}
-.note-del-btn:hover{border-color:var(--rd);color:var(--rd)}
-.note-char{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--mu2)}
-
-/* ── FEATURE: GIG MODE ───────────────────────────────── */
-.gig-btn{background:none;border:1px solid var(--bd);border-radius:8px;color:var(--mu);padding:5px 10px;font-family:'Share Tech Mono',monospace;font-size:10px;cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;white-space:nowrap;flex-shrink:0;letter-spacing:.5px}
-.gig-btn:hover{border-color:var(--or);color:var(--or)}
-.gig-btn.active{background:var(--or);border-color:var(--or);color:#000;font-weight:700}
-.gig-banner{display:none;position:sticky;top:56px;z-index:899;background:var(--or);padding:6px 16px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:10px;font-weight:700;color:#000;letter-spacing:2px}
-html.gig-mode .gig-banner{display:block}
-html.gig-mode .sec{display:none}
-html.gig-mode .sec.gig-visible{display:block}
-html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
-
-/* ── SEC-HDR ACTIONS (Fav + Notiz) ──────────────────── */
-.sec-hdr{position:relative}
-.sec-actions{display:flex;align-items:center;gap:4px;margin-left:auto;flex-shrink:0}
-.sec-hdr>*:last-child:not(.sec-actions){margin-right:0}
-
-/* ── HEADER ACTION-BUTTONS ───────────────────────────── */
-.hdr-actions{display:flex;align-items:center;gap:6px;margin-left:auto}
-@media(max-width:500px){}
-
-@media(max-width:420px){.btn-lbl{display:none}}
 </style>
 </head>
 <body>
@@ -461,11 +381,6 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   <div class="hdr">
     <div class="logo">XDJ<span>-AZ</span> GUIDE</div>
     <div class="fs-wrap"><button class="fs-btn" id="fs-s" onclick="setFS(0)" title="Kleine Schrift">A</button><button class="fs-btn" id="fs-m" onclick="setFS(1)" title="Mittlere Schrift">A+</button><button class="fs-btn" id="fs-l" onclick="setFS(2)" title="Grosse Schrift">A++</button></div><button class="theme-btn" onclick="toggleTheme()" title="Hell/Dunkel wechseln" aria-label="Farbschema wechseln"><span class="tb-icon tb-dark">☀️</span><span class="tb-icon tb-light">🌙</span></button>
-    <div class="hdr-actions">
-      <button class="srch-btn" onclick="openSearch()" title="Suche (Ctrl+K)" aria-label="Suche öffnen"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="btn-lbl">Suche</span></button>
-      <button class="favs-btn" id="favs-btn" onclick="toggleFavs()" title="Favoriten" aria-label="Favoriten">★<span class="btn-lbl"> Favs</span></button>
-      <button class="gig-btn" id="gig-btn" onclick="toggleGigMode()" title="Gig Mode: nur Essentials" aria-label="Gig Mode">🎛️<span class="btn-lbl"> GIG</span></button>
-    </div>
     <!-- Mobile: Hamburger -->
     <button class="hmb" id="hmb" onclick="toggleMobMenu()" aria-label="Menü">
       <span></span><span></span><span></span>
@@ -489,7 +404,6 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
     <div class="subnav-inner" id="subnav-inner"></div>
   </div>
 </header>
-<div class="gig-banner" id="gig-banner">🎛️ GIG MODE — NUR ESSENTIALS · KLICK AUF GIG UM ZU BEENDEN</div>
 
 <!-- Mobile full menu overlay -->
   <div class="mob-menu" id="mob-menu">
@@ -519,10 +433,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 
 
 <!-- ═══ GRUPPE 1: EINSTIEG ══════════════════════════════ -->
-<section class="sec gig-visible" id="quickstart">
+<section class="sec" id="quickstart">
   <div class="sec-hdr">
     <div class="sec-ico">🚀</div>
-    <div><div class="sec-num">01 / </div><div class="sec-ttl">Vom <em>Auspacken zum ersten Mix</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-quickstart" onclick="toggleFav('quickstart')" title="Favorit">☆</button><button class="note-btn" id="note-btn-quickstart" onclick="openNote('quickstart')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">01 / </div><div class="sec-ttl">Vom <em>Auspacken zum ersten Mix</em></div></div>
   </div>
   <div class="steps">
     <div class="step"><div class="step-n">1</div><div><div class="step-t">rekordbox installieren &amp; Account erstellen</div><div class="step-d">rekordbox.com → kostenlos herunterladen. Account anlegen (für Cloud-Sync und MySettings nötig). Pioneer DJ-Account funktioniert auch.</div></div></div>
@@ -549,10 +463,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   </div>
 </section>
 
-<section class="sec gig-visible" id="setup">
+<section class="sec" id="setup">
   <div class="sec-hdr">
     <div class="sec-ico">⚙️</div>
-    <div><div class="sec-num">02 / </div><div class="sec-ttl">Setup &amp; <em>Systemkonfiguration</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-setup" onclick="toggleFav('setup')" title="Favorit">☆</button><button class="note-btn" id="note-btn-setup" onclick="openNote('setup')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">02 / </div><div class="sec-ttl">Setup &amp; <em>Systemkonfiguration</em></div></div>
   </div>
   <div class="sub">MySettings – Dein persönliches Profil</div>
   <div class="cards">
@@ -588,10 +502,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   <div class="tip"><span class="ti">💡</span><div><strong>Profi-Workflow:</strong> MySettings mit Tempo ±10%, Quantize 1 Beat, CDJ Mode, Key Display Camelot, Master Tempo AN, Auto-Standby OFF, Smart Cue ON exportieren. Auf jedem CDJ/XDJ weltweit in 10 Sekunden ready.</div></div>
 </section>
 
-<section class="sec gig-visible" id="firmware">
+<section class="sec" id="firmware">
   <div class="sec-hdr">
     <div class="sec-ico">⬆️</div>
-    <div><div class="sec-num">03 / </div><div class="sec-ttl">Updates &amp; <em>neue Features</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-firmware" onclick="toggleFav('firmware')" title="Favorit">☆</button><button class="note-btn" id="note-btn-firmware" onclick="openNote('firmware')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">03 / </div><div class="sec-ttl">Updates &amp; <em>neue Features</em></div></div>
   </div>
   <div class="tip"><span class="ti">💡</span><div><strong>Immer aktuell halten:</strong> Firmware-Updates bringen neue Features, Bugfixes und Performance-Verbesserungen. Ohne aktuelle Firmware kein TIDAL, kein 4-Deck-Waveform, keine Apple Music.</div></div>
   <div class="sub">Aktueller Stand</div>
@@ -618,7 +532,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="glossar">
   <div class="sec-hdr">
     <div class="sec-ico">📖</div>
-    <div><div class="sec-num">04 / </div><div class="sec-ttl">DJ <em>Glossar</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-glossar" onclick="toggleFav('glossar')" title="Favorit">☆</button><button class="note-btn" id="note-btn-glossar" onclick="openNote('glossar')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">04 / </div><div class="sec-ttl">DJ <em>Glossar</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:4px;">Die wichtigsten Begriffe aus der DJ-Welt – kompakt erklärt.</p>
   <div style="margin-bottom:16px">
@@ -631,10 +545,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 
 
 <!-- ═══ GRUPPE 2: GERÄT & HARDWARE ══════════════════════ -->
-<section class="sec gig-visible" id="soniclink">
+<section class="sec" id="soniclink">
   <div class="sec-hdr">
     <div class="sec-ico">🎧</div>
-    <div><div class="sec-num">05 / </div><div class="sec-ttl">Kabellose <em>Kopfhörer-Verbindung</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-soniclink" onclick="toggleFav('soniclink')" title="Favorit">☆</button><button class="note-btn" id="note-btn-soniclink" onclick="openNote('soniclink')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">05 / </div><div class="sec-ttl">Kabellose <em>Kopfhörer-Verbindung</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Was ist SonicLink?</div><span class="badge b-cy">TECHNOLOGIE</span></div><div class="c-desc">AlphaThetas proprietäre Ultra-Low-Latency Wireless-Technologie. <strong>20× schneller als Bluetooth SBC-Codec</strong> – Latenz laut HDJ-F10-Produktseite 9ms, laut AlphaTheta Help Center 15ms (beide offiziellen Quellen weichen ab). In jedem Fall kein wahrnehmbarer Delay. Für DJs der einzige akzeptable kabellose Standard.</div></div>
@@ -645,10 +559,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   <div class="tip"><span class="ti">💡</span><div><strong>Workaround ohne HDJ-F10:</strong> Normalen 3.5mm oder 6.3mm Kopfhörer per Kabel anschließen funktioniert selbstverständlich weiterhin. SonicLink ist ein optionales Premium-Feature, kein Muss.</div></div>
 </section>
 
-<section class="sec gig-visible" id="masterout">
+<section class="sec" id="masterout">
   <div class="sec-hdr">
     <div class="sec-ico">🎚️</div>
-    <div><div class="sec-num">06 / </div><div class="sec-ttl">Master-Ausgang <em>EQ &amp; Isolator</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-masterout" onclick="toggleFav('masterout')" title="Favorit">☆</button><button class="note-btn" id="note-btn-masterout" onclick="openNote('masterout')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">06 / </div><div class="sec-ttl">Master-Ausgang <em>EQ &amp; Isolator</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Eine der unterschätztesten Funktionen des XDJ-AZ – direkt aus dem DJ TechTools Forum als "nicest feature" bezeichnet.</p>
   <div class="cards">
@@ -660,10 +574,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   <div class="pro"><span class="ti">🔥</span><div><strong>Insider-Tipp:</strong> Master Out EQ neutral lassen (12 Uhr) und nur für gezielte Eingriffe nutzen. Wer ihn permanent verbogen hat, verliert den Überblick über den wahren Klang seines Mixes.</div></div>
 </section>
 
-<section class="sec gig-visible" id="prodjlink">
+<section class="sec" id="prodjlink">
   <div class="sec-hdr">
     <div class="sec-ico">🔗</div>
-    <div><div class="sec-num">07 / </div><div class="sec-ttl">CDJ-Integration &amp; <em>4-Deck Club-Setup</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-prodjlink" onclick="toggleFav('prodjlink')" title="Favorit">☆</button><button class="note-btn" id="note-btn-prodjlink" onclick="openNote('prodjlink')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">07 / </div><div class="sec-ttl">CDJ-Integration &amp; <em>4-Deck Club-Setup</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">CDJs per Pro DJ Link einbinden</div><span class="badge b-rd">SETUP</span></div><div class="c-desc">Bis zu <strong>2 CDJ-3000 per Ethernet</strong> an den XDJ-AZ anschließen → vollständiges 4-Deck Club-Setup. Beat- und On-Air-Informationen synchronisieren sich automatisch über alle Player. Braucht externen Ethernet-Hub (ca. 20 CHF).</div></div>
@@ -679,7 +593,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="specs">
   <div class="sec-hdr">
     <div class="sec-ico">📐</div>
-    <div><div class="sec-num">08 / </div><div class="sec-ttl">Hardware-Spezifikationen <em>Referenz</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-specs" onclick="toggleFav('specs')" title="Favorit">☆</button><button class="note-btn" id="note-btn-specs" onclick="openNote('specs')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">08 / </div><div class="sec-ttl">Hardware-Spezifikationen <em>Referenz</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Alle technischen Daten auf einen Blick — für Kaufentscheidung, Case-Planung und Live-Setup.</p>
 
@@ -735,7 +649,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="jogwheel">
   <div class="sec-hdr">
     <div class="sec-ico">🎡</div>
-    <div><div class="sec-num">09 / </div><div class="sec-ttl">Jog Wheel <em>einstellen &amp; verstehen</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-jogwheel" onclick="toggleFav('jogwheel')" title="Favorit">☆</button><button class="note-btn" id="note-btn-jogwheel" onclick="openNote('jogwheel')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">09 / </div><div class="sec-ttl">Jog Wheel <em>einstellen &amp; verstehen</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Das Jog Wheel ist das Herzstück des XDJ-AZ. Richtig eingestellt macht es den Unterschied zwischen frustrierend und natürlich.</p>
   <div class="sub">Vinyl Mode vs. CDJ Mode</div>
@@ -766,10 +680,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   </div>
 </section>
 
-<section class="sec gig-visible" id="booth">
+<section class="sec" id="booth">
   <div class="sec-hdr">
     <div class="sec-ico">🔊</div>
-    <div><div class="sec-num">10 / </div><div class="sec-ttl">Booth Output <em>&amp; Kopfhörer-Monitoring</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-booth" onclick="toggleFav('booth')" title="Favorit">☆</button><button class="note-btn" id="note-btn-booth" onclick="openNote('booth')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">10 / </div><div class="sec-ttl">Booth Output <em>&amp; Kopfhörer-Monitoring</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Was du im Ohr hast bestimmt wie gut du mixst. Die Monitoring-Optionen richtig einstellen ist entscheidend.</p>
   <div class="sub">Booth Output</div>
@@ -791,7 +705,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="inputs">
   <div class="sec-hdr">
     <div class="sec-ico">🎙️</div>
-    <div><div class="sec-num">11 / </div><div class="sec-ttl">Eingänge <em>Mic, Phono &amp; Line</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-inputs" onclick="toggleFav('inputs')" title="Favorit">☆</button><button class="note-btn" id="note-btn-inputs" onclick="openNote('inputs')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">11 / </div><div class="sec-ttl">Eingänge <em>Mic, Phono &amp; Line</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Der XDJ-AZ hat mehr Eingänge als die meisten ahnen – Mikrofon, Turntables und externe Geräte lassen sich direkt anschliessen.</p>
   <div class="sub">Mikrofon-Eingang</div>
@@ -820,7 +734,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="crossfader">
   <div class="sec-hdr">
     <div class="sec-ico">↔️</div>
-    <div><div class="sec-num">12 / </div><div class="sec-ttl">Crossfader <em>Kurve &amp; Assign</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-crossfader" onclick="toggleFav('crossfader')" title="Favorit">☆</button><button class="note-btn" id="note-btn-crossfader" onclick="openNote('crossfader')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">12 / </div><div class="sec-ttl">Crossfader <em>Kurve &amp; Assign</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Der Crossfader ist für Mix-DJs oft irrelevant – für Scratch-DJs und bestimmte Techniken aber unverzichtbar. Richtig eingestellt macht er den Unterschied.</p>
   <div class="sub">Crossfader-Kurve</div>
@@ -841,7 +755,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="customlogo">
   <div class="sec-hdr">
     <div class="sec-ico">🖼️</div>
-    <div><div class="sec-num">13 / </div><div class="sec-ttl">Custom Logo <em>auf dem Deck-Display</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-customlogo" onclick="toggleFav('customlogo')" title="Favorit">☆</button><button class="note-btn" id="note-btn-customlogo" onclick="openNote('customlogo')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">13 / </div><div class="sec-ttl">Custom Logo <em>auf dem Deck-Display</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Eigenes Logo oder Bild auf dem Jog-Display anzeigen – persönliche Note für Fotos und Videos im Gig.</p>
   <div class="cards">
@@ -856,7 +770,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="virtualdj">
   <div class="sec-hdr">
     <div class="sec-ico">🎮</div>
-    <div><div class="sec-num">14 / </div><div class="sec-ttl">VirtualDJ <em>am XDJ-AZ</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-virtualdj" onclick="toggleFav('virtualdj')" title="Favorit">☆</button><button class="note-btn" id="note-btn-virtualdj" onclick="openNote('virtualdj')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">14 / </div><div class="sec-ttl">VirtualDJ <em>am XDJ-AZ</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Die dritte Software-Option – oft übersehen, aber mit einzigartigen Features die Serato und rekordbox nicht bieten.</p>
   <div class="cards">
@@ -873,7 +787,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="cdj3000">
   <div class="sec-hdr">
     <div class="sec-ico">⚖️</div>
-    <div><div class="sec-num">15 / </div><div class="sec-ttl">XDJ-AZ <em>vs CDJ-3000</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-cdj3000" onclick="toggleFav('cdj3000')" title="Favorit">☆</button><button class="note-btn" id="note-btn-cdj3000" onclick="openNote('cdj3000')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">15 / </div><div class="sec-ttl">XDJ-AZ <em>vs CDJ-3000</em></div></div>
   </div>
   <div class="sub">Was dir am XDJ-AZ begegnet — und nirgendwo sonst</div>
   <div class="cards">
@@ -904,7 +818,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="formats">
   <div class="sec-hdr">
     <div class="sec-ico">📁</div>
-    <div><div class="sec-num">16 / </div><div class="sec-ttl">Kompatible Formate <em>&amp; Qualitätstipps</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-formats" onclick="toggleFav('formats')" title="Favorit">☆</button><button class="note-btn" id="note-btn-formats" onclick="openNote('formats')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">16 / </div><div class="sec-ttl">Kompatible Formate <em>&amp; Qualitätstipps</em></div></div>
   </div>
   <div class="sub">Unterstützte Audio-Formate</div>
   <div class="sc-wrap">
@@ -935,7 +849,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="connect">
   <div class="sec-hdr">
     <div class="sec-ico">📡</div>
-    <div><div class="sec-num">17 / </div><div class="sec-ttl">WLAN, Streaming <em>&amp; externe Geräte</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-connect" onclick="toggleFav('connect')" title="Favorit">☆</button><button class="note-btn" id="note-btn-connect" onclick="openNote('connect')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">17 / </div><div class="sec-ttl">WLAN, Streaming <em>&amp; externe Geräte</em></div></div>
   </div>
   <div class="sub">Wi-Fi &amp; Streaming</div>
   <div class="cards">
@@ -956,7 +870,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="musikquellen">
   <div class="sec-hdr">
     <div class="sec-ico">🛒</div>
-    <div><div class="sec-num">18 / </div><div class="sec-ttl">Musik kaufen <em>2025 – Quellen &amp; Workflow</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-musikquellen" onclick="toggleFav('musikquellen')" title="Favorit">☆</button><button class="note-btn" id="note-btn-musikquellen" onclick="openNote('musikquellen')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">18 / </div><div class="sec-ttl">Musik kaufen <em>2025 – Quellen &amp; Workflow</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Wo kaufst du deine Tracks? Nicht alle Quellen sind gleich gut für den DJ-Workflow. Hier der ehrliche Vergleich.</p>
   <div class="sub">Die wichtigsten DJ-Musikquellen</div>
@@ -980,7 +894,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="promopools">
   <div class="sec-hdr">
     <div class="sec-ico">🎁</div>
-    <div><div class="sec-num">19 / </div><div class="sec-ttl">Promo-Pools <em>&amp; Musik-Abos für DJs</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-promopools" onclick="toggleFav('promopools')" title="Favorit">☆</button><button class="note-btn" id="note-btn-promopools" onclick="openNote('promopools')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">19 / </div><div class="sec-ttl">Promo-Pools <em>&amp; Musik-Abos für DJs</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Promo-Pools liefern monatlich neue Tracks direkt von Labels – für aktive DJs oft günstiger als Einzelkauf.</p>
   <div class="cards">
@@ -997,7 +911,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="streaming">
   <div class="sec-hdr">
     <div class="sec-ico">💰</div>
-    <div><div class="sec-num">20 / </div><div class="sec-ttl">Streaming <em>Preisvergleich 2026</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-streaming" onclick="toggleFav('streaming')" title="Favorit">☆</button><button class="note-btn" id="note-btn-streaming" onclick="openNote('streaming')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">20 / </div><div class="sec-ttl">Streaming <em>Preisvergleich 2026</em></div></div>
   </div>
   <div class="sub">Was kostet was – und was läuft standalone am XDJ-AZ?</div>
   <div class="cards">
@@ -1017,7 +931,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="linkexport">
   <div class="sec-hdr">
     <div class="sec-ico">📶</div>
-    <div><div class="sec-num">21 / </div><div class="sec-ttl">Link Export Mode <em>WLAN ohne USB</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-linkexport" onclick="toggleFav('linkexport')" title="Favorit">☆</button><button class="note-btn" id="note-btn-linkexport" onclick="openNote('linkexport')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">21 / </div><div class="sec-ttl">Link Export Mode <em>WLAN ohne USB</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Library direkt vom Laptop per WLAN auf den XDJ-AZ streamen – kein USB-Export nötig. Perfekt für schnelle Sessions und letzte-Minute-Ergänzungen.</p>
   <div class="cards">
@@ -1041,7 +955,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="iosworkflow">
   <div class="sec-hdr">
     <div class="sec-ico">📱</div>
-    <div><div class="sec-num">22 / </div><div class="sec-ttl">rekordbox iOS <em>Unterwegs vorbereiten</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-iosworkflow" onclick="toggleFav('iosworkflow')" title="Favorit">☆</button><button class="note-btn" id="note-btn-iosworkflow" onclick="openNote('iosworkflow')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">22 / </div><div class="sec-ttl">rekordbox iOS <em>Unterwegs vorbereiten</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Hot Cues im Zug setzen, Playlist im Bett aufbauen – am XDJ-AZ sofort synchronisiert.</p>
   <div class="steps">
@@ -1058,7 +972,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="clouddirect">
   <div class="sec-hdr">
     <div class="sec-ico">☁️</div>
-    <div><div class="sec-num">23 / </div><div class="sec-ttl">CloudDirectPlay <em>Setup &amp; Workflow</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-clouddirect" onclick="toggleFav('clouddirect')" title="Favorit">☆</button><button class="note-btn" id="note-btn-clouddirect" onclick="openNote('clouddirect')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">23 / </div><div class="sec-ttl">CloudDirectPlay <em>Setup &amp; Workflow</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Deine komplette rekordbox-Library direkt am XDJ-AZ – ohne USB-Stick.</p>
   <div class="cards">
@@ -1082,7 +996,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="library">
   <div class="sec-hdr">
     <div class="sec-ico">📚</div>
-    <div><div class="sec-num">24 / </div><div class="sec-ttl">Track-Verwaltung <em>&amp; Browser-Workflow</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-library" onclick="toggleFav('library')" title="Favorit">☆</button><button class="note-btn" id="note-btn-library" onclick="openNote('library')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">24 / </div><div class="sec-ttl">Track-Verwaltung <em>&amp; Browser-Workflow</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Playlist-Struktur für den Gig</div><span class="badge b-or">WORKFLOW</span></div><div class="c-desc">Playlists nach <strong>Energy-Level (1–10)</strong>, BPM-Range (120–124, 124–128) und Key anlegen. Keine alphabetischen Listen – die bringen im Dunkeln nichts. Eine "Preparation"-Playlist für jeden Gig.</div></div>
@@ -1108,7 +1022,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 </section>
 
 <section class="sec" id="rbpro">
-  <div class="sec-hdr"><div class="sec-ico">🗄️</div><div><div class="sec-num">25 / </div><div class="sec-ttl">Library <em>wie ein Profi verwalten</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-rbpro" onclick="toggleFav('rbpro')" title="Favorit">☆</button><button class="note-btn" id="note-btn-rbpro" onclick="openNote('rbpro')" title="Notiz">📝</button></div></div>
+  <div class="sec-hdr"><div class="sec-ico">🗄️</div><div><div class="sec-num">25 / </div><div class="sec-ttl">Library <em>wie ein Profi verwalten</em></div></div></div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Smart Playlists</div><span class="badge b-pu">PROFI</span></div><div class="c-desc">rekordbox → Smart Playlist → Regeln: BPM 126–130, Key 8A/8B, MyTag "Peak", Rating ≥ 4. <strong>Aktualisiert sich automatisch</strong> bei neuen Tracks. Kein manuelles Sortieren mehr.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">My Tag System</div><span class="badge b-pu">INSIDER</span></div><div class="c-desc">Eigene Tags erstellen: <strong>"Opener", "Peak", "Closing", "Vocal Tool", "Instrumental", "Festival only", "Request ok"</strong>. Im Browser als Filter nutzbar – am XDJ-AZ direkt abrufbar.</div></div>
@@ -1125,7 +1039,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="rbworkflow">
   <div class="sec-hdr">
     <div class="sec-ico">⌨️</div>
-    <div><div class="sec-num">26 / </div><div class="sec-ttl">rekordbox <em>Workflow-Tricks</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-rbworkflow" onclick="toggleFav('rbworkflow')" title="Favorit">☆</button><button class="note-btn" id="note-btn-rbworkflow" onclick="openNote('rbworkflow')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">26 / </div><div class="sec-ttl">rekordbox <em>Workflow-Tricks</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Shortcuts, Pad-Remapping und Pro-Tricks die stundenlange Vorbereitung auf Minuten reduzieren.</p>
 
@@ -1183,7 +1097,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="rb7">
   <div class="sec-hdr">
     <div class="sec-ico">✨</div>
-    <div><div class="sec-num">27 / </div><div class="sec-ttl">rekordbox 7 <em>Neuheiten</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-rb7" onclick="toggleFav('rb7')" title="Favorit">☆</button><button class="note-btn" id="note-btn-rb7" onclick="openNote('rb7')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">27 / </div><div class="sec-ttl">rekordbox 7 <em>Neuheiten</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">rekordbox 7 brachte echte Gamechanger für die Library-Vorbereitung. Diese Features kennen die wenigsten.</p>
 
@@ -1217,10 +1131,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 
 
 <!-- ═══ GRUPPE 5: SPIELEN & TECHNIKEN ═══════════════════ -->
-<section class="sec gig-visible" id="hotcues">
+<section class="sec" id="hotcues">
   <div class="sec-hdr">
     <div class="sec-ico">🔴</div>
-    <div><div class="sec-num">28 / </div><div class="sec-ttl">Hot Cues <em>meistern</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-hotcues" onclick="toggleFav('hotcues')" title="Favorit">☆</button><button class="note-btn" id="note-btn-hotcues" onclick="openNote('hotcues')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">28 / </div><div class="sec-ttl">Hot Cues <em>meistern</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Hot Cue setzen</div><span class="badge b-rd">BASICS</span></div><div class="c-desc"><strong>HOT CUE-Mode</strong> aktivieren → Pad drücken. Cue wird sofort gesetzt. Mit Quantize rastet er auf die nächste Zählzeit. In rekordbox vorbereitete Cues erscheinen farbig auf den Pads.</div></div>
@@ -1250,10 +1164,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <!-- ██ 04 LOOPING ███████████████████████████ -->
 </section>
 
-<section class="sec gig-visible" id="looping">
+<section class="sec" id="looping">
   <div class="sec-hdr">
     <div class="sec-ico">🔁</div>
-    <div><div class="sec-num">29 / </div><div class="sec-ttl">Loops &amp; <em>Beat Jumps</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-looping" onclick="toggleFav('looping')" title="Favorit">☆</button><button class="note-btn" id="note-btn-looping" onclick="openNote('looping')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">29 / </div><div class="sec-ttl">Loops &amp; <em>Beat Jumps</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Auto Loop</div><span class="badge b-rd">BASICS</span></div><div class="c-desc">LOOP-Button → Loop der definierten Länge startet sofort. <strong>½ / ×2</strong> zum Halbieren/Verdoppeln. Mit Quantize exakt auf nächsten Beat.</div></div>
@@ -1293,10 +1207,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 
 </section>
 
-<section class="sec gig-visible" id="fx">
+<section class="sec" id="fx">
   <div class="sec-hdr">
     <div class="sec-ico">🎚️</div>
-    <div><div class="sec-num">30 / </div><div class="sec-ttl">Sound FX <em>professionell einsetzen</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-fx" onclick="toggleFav('fx')" title="Favorit">☆</button><button class="note-btn" id="note-btn-fx" onclick="openNote('fx')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">30 / </div><div class="sec-ttl">Sound FX <em>professionell einsetzen</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Beat FX vs. Sound Color FX</div><span class="badge b-rd">BASICS</span></div><div class="c-desc"><strong>Beat FX</strong> (am Mixer oben rechts): BPM-synchronisiert – 14 Effekte, einer gleichzeitig aktiv. <strong>Sound Color FX</strong> (kleiner Kanalknopf): analoge Klangformung – 6 Effekte, pro Kanal zuweisbar. Beide gleichzeitig nutzbar. Die FX-Engine kommt direkt vom DJM-A9 Club-Mixer.</div></div>
@@ -1357,10 +1271,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   </div>
 </section>
 
-<section class="sec gig-visible" id="mixing">
+<section class="sec" id="mixing">
   <div class="sec-hdr">
     <div class="sec-ico">🎛️</div>
-    <div><div class="sec-num">31 / </div><div class="sec-ttl">Professionelle <em>Mix-Methoden</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-mixing" onclick="toggleFav('mixing')" title="Favorit">☆</button><button class="note-btn" id="note-btn-mixing" onclick="openNote('mixing')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">31 / </div><div class="sec-ttl">Professionelle <em>Mix-Methoden</em></div></div>
   </div>
 
   <!-- ── WAVEFORM LESEN ───────────────────────────── -->
@@ -1475,10 +1389,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   </div>
 </section>
 
-<section class="sec gig-visible" id="hiddentips">
+<section class="sec" id="hiddentips">
   <div class="sec-hdr">
     <div class="sec-ico">🔮</div>
-    <div><div class="sec-num">32 / </div><div class="sec-ttl">Versteckte Funktionen <em>&amp; Profi-Tricks</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-hiddentips" onclick="toggleFav('hiddentips')" title="Favorit">☆</button><button class="note-btn" id="note-btn-hiddentips" onclick="openNote('hiddentips')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">32 / </div><div class="sec-ttl">Versteckte Funktionen <em>&amp; Profi-Tricks</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Alles was im Handbuch steht aber niemand liest – und was Profi-DJs täglich nutzen.</p>
 
@@ -1548,10 +1462,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   </div>
 </section>
 
-<section class="sec gig-visible" id="shortcuts">
+<section class="sec" id="shortcuts">
   <div class="sec-hdr">
     <div class="sec-ico">⌨️</div>
-    <div><div class="sec-num">33 / </div><div class="sec-ttl">SHIFT-Shortcuts <em>Gerät-Referenz</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-shortcuts" onclick="toggleFav('shortcuts')" title="Favorit">☆</button><button class="note-btn" id="note-btn-shortcuts" onclick="openNote('shortcuts')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">33 / </div><div class="sec-ttl">SHIFT-Shortcuts <em>Gerät-Referenz</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px">SHIFT-Kombinationen am XDJ-AZ. <strong>Verifiziert aus dem Manual:</strong> Instant Doubles (SHIFT+BEAT SYNC) und Retrigger (SHIFT+IN/CUE im Loop). Die übrigen Kombinationen basieren auf CDJ-3000-Verhalten und Community-Berichten — im XDJ-AZ Manual nicht einzeln aufgeführt. Im Betrieb getestet, aber ohne offizielle Quellenangabe.</p>
 
@@ -1590,7 +1504,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="stems">
   <div class="sec-hdr">
     <div class="sec-ico">🎚️</div>
-    <div><div class="sec-num">34 / </div><div class="sec-ttl">Stems <em>Vocal, Bass, Drums, Melodie</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-stems" onclick="toggleFav('stems')" title="Favorit">☆</button><button class="note-btn" id="note-btn-stems" onclick="openNote('stems')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">34 / </div><div class="sec-ttl">Stems <em>Vocal, Bass, Drums, Melodie</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Tracks in Echtzeit aufteilen und einzelne Elemente steuern – zwei Wege am XDJ-AZ.</p>
 
@@ -1621,7 +1535,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="scratching">
   <div class="sec-hdr">
     <div class="sec-ico">🎧</div>
-    <div><div class="sec-num">35 / </div><div class="sec-ttl">Scratching <em>Grundlagen</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-scratching" onclick="toggleFav('scratching')" title="Favorit">☆</button><button class="note-btn" id="note-btn-scratching" onclick="openNote('scratching')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">35 / </div><div class="sec-ttl">Scratching <em>Grundlagen</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Scratching ist seine eigene Disziplin — aber die Basics geben auch Mix-DJs kreative Werkzeuge. Am XDJ-AZ gut umsetzbar durch Vinyl-Mode und Crossfader-Cut-Kurve.</p>
 
@@ -1656,7 +1570,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="recording">
   <div class="sec-hdr">
     <div class="sec-ico">💾</div>
-    <div><div class="sec-num">36 / </div><div class="sec-ttl">Recording <em>&amp; Post-Production</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-recording" onclick="toggleFav('recording')" title="Favorit">☆</button><button class="note-btn" id="note-btn-recording" onclick="openNote('recording')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">36 / </div><div class="sec-ttl">Recording <em>&amp; Post-Production</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Dein Set aufnehmen ohne Laptop, ohne Interface. Der XDJ-AZ hat alles an Bord. Aufnahme → Mastering → Veröffentlichung.</p>
 
@@ -1688,7 +1602,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="bpm">
   <div class="sec-hdr">
     <div class="sec-ico">📊</div>
-    <div><div class="sec-num">37 / </div><div class="sec-ttl">Genre-Tempos <em>&amp; Übergangstipps</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-bpm" onclick="toggleFav('bpm')" title="Favorit">☆</button><button class="note-btn" id="note-btn-bpm" onclick="openNote('bpm')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">37 / </div><div class="sec-ttl">Genre-Tempos <em>&amp; Übergangstipps</em></div></div>
   </div>
   <div class="bpm-chart">
     <div id="bpm-rows"></div>
@@ -1718,7 +1632,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="bpmcalc">
   <div class="sec-hdr">
     <div class="sec-ico">🔢</div>
-    <div><div class="sec-num">38 / </div><div class="sec-ttl">BPM-Rechner <em>&amp; Kompatibilitäts-Tool</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-bpmcalc" onclick="toggleFav('bpmcalc')" title="Favorit">☆</button><button class="note-btn" id="note-btn-bpmcalc" onclick="openNote('bpmcalc')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">38 / </div><div class="sec-ttl">BPM-Rechner <em>&amp; Kompatibilitäts-Tool</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">BPM eingeben → kompatible Ranges, Half-Time, Double-Time und passende Genres sofort berechnet.</p>
   <div class="bpm-chart" style="max-width:640px">
@@ -1742,7 +1656,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="genrematrix">
   <div class="sec-hdr">
     <div class="sec-ico">🎨</div>
-    <div><div class="sec-num">39 / </div><div class="sec-ttl">Genre-Mixing <em>Matrix</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-genrematrix" onclick="toggleFav('genrematrix')" title="Favorit">☆</button><button class="note-btn" id="note-btn-genrematrix" onclick="openNote('genrematrix')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">39 / </div><div class="sec-ttl">Genre-Mixing <em>Matrix</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Welche Genres passen gut zusammen? BPM-Überlappung, Energie und Crowd-Feeling als Entscheidungshilfe.</p>
   <div style="overflow-x:auto">
@@ -1768,7 +1682,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="key">
   <div class="sec-hdr">
     <div class="sec-ico">🎵</div>
-    <div><div class="sec-num">40 / </div><div class="sec-ttl">Key-Analyse <em>&amp; Key Sync</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-key" onclick="toggleFav('key')" title="Favorit">☆</button><button class="note-btn" id="note-btn-key" onclick="openNote('key')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">40 / </div><div class="sec-ttl">Key-Analyse <em>&amp; Key Sync</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Key-Analyse in rekordbox</div><span class="badge b-rd">VORBEREITUNG</span></div><div class="c-desc">Tracks automatisch analysieren. <strong>Preferences → View → Key display format → Alphanumeric</strong> umstellen. Statt "Am" siehst du direkt "8A" – der weltweite DJ-Standard.</div></div>
@@ -1805,7 +1719,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="camelot">
   <div class="sec-hdr">
     <div class="sec-ico">🎡</div>
-    <div><div class="sec-num">41 / </div><div class="sec-ttl">Interaktives <em>Harmonic Wheel</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-camelot" onclick="toggleFav('camelot')" title="Favorit">☆</button><button class="note-btn" id="note-btn-camelot" onclick="openNote('camelot')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">41 / </div><div class="sec-ttl">Interaktives <em>Harmonic Wheel</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Klicke auf ein Segment – innen = Moll (A), außen = Dur (B). Kompatible Keys leuchten auf.</p>
   <div class="cam-wrap">
@@ -1874,7 +1788,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="sound">
   <div class="sec-hdr">
     <div class="sec-ico">🔉</div>
-    <div><div class="sec-num">42 / </div><div class="sec-ttl">Klang &amp; Pegel <em>professionell steuern</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-sound" onclick="toggleFav('sound')" title="Favorit">☆</button><button class="note-btn" id="note-btn-sound" onclick="openNote('sound')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">42 / </div><div class="sec-ttl">Klang &amp; Pegel <em>professionell steuern</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Gain Staging</div><span class="badge b-or">GRUNDLAGE</span></div><div class="c-desc"><strong>Jeder Kanal beginnt bei 0 dB Gain</strong>. Trim-Knopf so einstellen, dass der Peak-Meter im gelben Bereich ist (−6 bis −3 dBFS). Nie in den roten Bereich. Konsistente Pegel zwischen Tracks sind wichtiger als laut.</div></div>
@@ -1900,7 +1814,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="setarc">
   <div class="sec-hdr">
     <div class="sec-ico">📈</div>
-    <div><div class="sec-num">43 / </div><div class="sec-ttl">2h-Set Arc <em>Planung</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-setarc" onclick="toggleFav('setarc')" title="Favorit">☆</button><button class="note-btn" id="note-btn-setarc" onclick="openNote('setarc')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">43 / </div><div class="sec-ttl">2h-Set Arc <em>Planung</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Wie baut man ein 2-Stunden-Set dramaturgisch auf? Die Energie-Kurve professioneller DJs.</p>
   <div id="arc-chart" style="background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:20px;margin-bottom:20px"></div>
@@ -1916,7 +1830,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 </section>
 
 <section class="sec" id="performance">
-  <div class="sec-hdr"><div class="sec-ico">🎭</div><div><div class="sec-num">44 / </div><div class="sec-ttl">Set-Dramaturgie <em>&amp; Mentale Stärke</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-performance" onclick="toggleFav('performance')" title="Favorit">☆</button><button class="note-btn" id="note-btn-performance" onclick="openNote('performance')" title="Notiz">📝</button></div></div>
+  <div class="sec-hdr"><div class="sec-ico">🎭</div><div><div class="sec-num">44 / </div><div class="sec-ttl">Set-Dramaturgie <em>&amp; Mentale Stärke</em></div></div></div>
   <div class="sub">Energie-Kurve eines professionellen Sets</div>
   <div class="ec-wrap" id="ec-wrap"></div>
   <div class="sub">Professionelle Set-Planung</div>
@@ -1933,7 +1847,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="crowdreading">
   <div class="sec-hdr">
     <div class="sec-ico">👁️</div>
-    <div><div class="sec-num">45 / </div><div class="sec-ttl">Crowd Reading <em>&amp; Tension/Release</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-crowdreading" onclick="toggleFav('crowdreading')" title="Favorit">☆</button><button class="note-btn" id="note-btn-crowdreading" onclick="openNote('crowdreading')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">45 / </div><div class="sec-ttl">Crowd Reading <em>&amp; Tension/Release</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Technik kannst du üben. Crowd Reading ist das, was dich von einem guten DJ zu einem unvergesslichen macht.</p>
 
@@ -1971,7 +1885,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="settimer">
   <div class="sec-hdr">
     <div class="sec-ico">⏱️</div>
-    <div><div class="sec-num">46 / </div><div class="sec-ttl">Set-Timer <em>Countdown für deinen Slot</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-settimer" onclick="toggleFav('settimer')" title="Favorit">☆</button><button class="note-btn" id="note-btn-settimer" onclick="openNote('settimer')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">46 / </div><div class="sec-ttl">Set-Timer <em>Countdown für deinen Slot</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Wie viel Zeit ist noch im Set? Nie wieder den Veranstalter wütend machen weil du 10 Minuten zu lang spielst.</p>
   <div style="background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:24px;max-width:480px">
@@ -1999,7 +1913,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="protips">
   <div class="sec-hdr">
     <div class="sec-ico">💎</div>
-    <div><div class="sec-num">47 / </div><div class="sec-ttl">Workflow-Hacks <em>der Profis</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-protips" onclick="toggleFav('protips')" title="Favorit">☆</button><button class="note-btn" id="note-btn-protips" onclick="openNote('protips')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">47 / </div><div class="sec-ttl">Workflow-Hacks <em>der Profis</em></div></div>
   </div>
   <div class="cards">
     <div class="card"><div class="c-hdr"><div class="c-ttl">Deck-Duplizierung via Load</div><span class="badge b-rd">INSIDER</span></div><div class="c-desc"><strong>Long-Press auf Load-Button</strong> lädt denselben Track auf das andere Deck exakt an derselben Position. Für Flanger-Effekte: beide Decks synchron, einen minimal in Phase verschieben.</div></div>
@@ -2024,7 +1938,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="hearing">
   <div class="sec-hdr">
     <div class="sec-ico">🛡️</div>
-    <div><div class="sec-num">48 / </div><div class="sec-ttl">Gehörschutz <em>&amp; Ohren-Gesundheit</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-hearing" onclick="toggleFav('hearing')" title="Favorit">☆</button><button class="note-btn" id="note-btn-hearing" onclick="openNote('hearing')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">48 / </div><div class="sec-ttl">Gehörschutz <em>&amp; Ohren-Gesundheit</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Deine Ohren sind dein Werkzeug. Ohne sie kein Set, keine Karriere, keine Freude an Musik. Die unsichtbarste und wichtigste DJ-Investition.</p>
 
@@ -2059,7 +1973,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="energybuilder">
   <div class="sec-hdr">
     <div class="sec-ico">⚡</div>
-    <div><div class="sec-num">49 / </div><div class="sec-ttl">Energie-Builder <em>interaktiv</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-energybuilder" onclick="toggleFav('energybuilder')" title="Favorit">☆</button><button class="note-btn" id="note-btn-energybuilder" onclick="openNote('energybuilder')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">49 / </div><div class="sec-ttl">Energie-Builder <em>interaktiv</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Plane deinen Set-Arc interaktiv. Die Kurve zeigt einen <strong>realistischen Bogen mit Dip</strong> — Warm-up, Energie-Dip, Build, Peak, Wind-down. Gib Dauer, Peak-Position und Start-BPM ein.</p>
 
@@ -2090,7 +2004,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="practice">
   <div class="sec-hdr">
     <div class="sec-ico">🏋️</div>
-    <div><div class="sec-num">50 / </div><div class="sec-ttl">Übungsroutinen <em>&amp; Lernprogression</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-practice" onclick="toggleFav('practice')" title="Favorit">☆</button><button class="note-btn" id="note-btn-practice" onclick="openNote('practice')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">50 / </div><div class="sec-ttl">Übungsroutinen <em>&amp; Lernprogression</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px">DJing ist ein Handwerk — kein Talent, das man entweder hat oder nicht. Strukturiertes Üben beschleunigt die Entwicklung um ein Vielfaches.</p>
 
@@ -2128,7 +2042,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="b2b">
   <div class="sec-hdr">
     <div class="sec-ico">🤝</div>
-    <div><div class="sec-num">51 / </div><div class="sec-ttl">B2B <em>Back-to-Back Workflow</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-b2b" onclick="toggleFav('b2b')" title="Favorit">☆</button><button class="note-btn" id="note-btn-b2b" onclick="openNote('b2b')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">51 / </div><div class="sec-ttl">B2B <em>Back-to-Back Workflow</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px">B2B ist eine eigene Kunstform — nicht nur zwei DJs die abwechselnd spielen. Am XDJ-AZ gibt es konkrete Vorteile und Eigenheiten die du kennen musst.</p>
 
@@ -2162,10 +2076,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 
 
 <!-- ═══ GRUPPE 8: GIG ════════════════════════════════════ -->
-<section class="sec gig-visible" id="pregig">
+<section class="sec" id="pregig">
   <div class="sec-hdr">
     <div class="sec-ico">✅</div>
-    <div><div class="sec-num">52 / </div><div class="sec-ttl">Vorbereitung <em>vor dem Gig</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-pregig" onclick="toggleFav('pregig')" title="Favorit">☆</button><button class="note-btn" id="note-btn-pregig" onclick="openNote('pregig')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">52 / </div><div class="sec-ttl">Vorbereitung <em>vor dem Gig</em></div></div>
   </div>
   <div class="cl-wrap">
     <div class="cl-top">
@@ -2183,10 +2097,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   </div>
 </section>
 
-<section class="sec gig-visible" id="soundcheck">
+<section class="sec" id="soundcheck">
   <div class="sec-hdr">
     <div class="sec-ico">🔊</div>
-    <div><div class="sec-num">53 / </div><div class="sec-ttl">Checkliste <em>am Gerät vor dem Set</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-soundcheck" onclick="toggleFav('soundcheck')" title="Favorit">☆</button><button class="note-btn" id="note-btn-soundcheck" onclick="openNote('soundcheck')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">53 / </div><div class="sec-ttl">Checkliste <em>am Gerät vor dem Set</em></div></div>
   </div>
   <div class="cl-wrap">
     <div class="cl-top">
@@ -2204,10 +2118,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   </div>
 </section>
 
-<section class="sec gig-visible" id="gigbag">
+<section class="sec" id="gigbag">
   <div class="sec-hdr">
     <div class="sec-ico">🎒</div>
-    <div><div class="sec-num">54 / </div><div class="sec-ttl">Gig-Bag <em>Packliste</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-gigbag" onclick="toggleFav('gigbag')" title="Favorit">☆</button><button class="note-btn" id="note-btn-gigbag" onclick="openNote('gigbag')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">54 / </div><div class="sec-ttl">Gig-Bag <em>Packliste</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:13px;margin-bottom:16px;">Alles was du zum Gig brauchst – abhaken vor dem Losfahren.</p>
   <div class="cl-wrap">
@@ -2227,10 +2141,10 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   <div class="tip"><span class="ti">💡</span><div><strong>Goldene Regel:</strong> USB-Hauptstick und USB-Backup immer in <strong>verschiedenen Taschen/Behältern</strong> transportieren. Wenn eine Tasche verloren geht, bleibt die andere.</div></div>
 </section>
 
-<section class="sec gig-visible" id="trouble">
+<section class="sec" id="trouble">
   <div class="sec-hdr">
     <div class="sec-ico">🔧</div>
-    <div><div class="sec-num">55 / </div><div class="sec-ttl">Probleme <em>lösen &amp; vermeiden</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-trouble" onclick="toggleFav('trouble')" title="Favorit">☆</button><button class="note-btn" id="note-btn-trouble" onclick="openNote('trouble')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">55 / </div><div class="sec-ttl">Probleme <em>lösen &amp; vermeiden</em></div></div>
   </div>
   <div class="cards">
     <div class="card" style="border-color:var(--rd)"><div class="c-hdr"><div class="c-ttl">⚠️ Windows 11: MIDI-Services-Bug (seit Jan 2026)</div><span class="badge b-rd">AKTUELL</span></div><div class="c-desc">Ein automatisches Windows-11-Update seit Ende Januar 2026 bricht viele DJ-Controller und MIDI-Geräte — sie erscheinen komplett tot (kein Audio, keine LED, keine Software-Verbindung). Ursache: <strong>Microsoft "Windows Midi Services"</strong> (MIDI 2.0-Überschreibung) rollt sich still via Windows Update aus. <strong>Lösung:</strong> Geräteverwaltung → "Windows MIDI Services" deaktivieren oder deinstallieren. Alternativ: Windows Update → Update-Historie → das betreffende KB-Update rückgängig machen. Betrifft Serato, rekordbox, Traktor, VirtualDJ gleichermassen.</div></div>
@@ -2290,7 +2204,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="socialmedia">
   <div class="sec-hdr">
     <div class="sec-ico">📱</div>
-    <div><div class="sec-num">56 / </div><div class="sec-ttl">Social Media <em>als DJ 2025</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-socialmedia" onclick="toggleFav('socialmedia')" title="Favorit">☆</button><button class="note-btn" id="note-btn-socialmedia" onclick="openNote('socialmedia')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">56 / </div><div class="sec-ttl">Social Media <em>als DJ 2025</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Promoter buchen heute DJs mit Followern – nicht nur mit Talent. Social Media ist kein optionales Extra mehr.</p>
   <div class="sub">Plattformen & Strategie</div>
@@ -2308,7 +2222,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="mixcloud">
   <div class="sec-hdr">
     <div class="sec-ico">🎵</div>
-    <div><div class="sec-num">57 / </div><div class="sec-ttl">Mixcloud <em>Mixes legal hosten</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-mixcloud" onclick="toggleFav('mixcloud')" title="Favorit">☆</button><button class="note-btn" id="note-btn-mixcloud" onclick="openNote('mixcloud')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">57 / </div><div class="sec-ttl">Mixcloud <em>Mixes legal hosten</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Die einzige Plattform wo DJ-Mixes legal und ohne Copyright-Strikes gehostet werden können.</p>
   <div class="cards">
@@ -2323,7 +2237,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="erstegigs">
   <div class="sec-hdr">
     <div class="sec-ico">🚪</div>
-    <div><div class="sec-num">58 / </div><div class="sec-ttl">Erste Gigs <em>bekommen</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-erstegigs" onclick="toggleFav('erstegigs')" title="Favorit">☆</button><button class="note-btn" id="note-btn-erstegigs" onclick="openNote('erstegigs')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">58 / </div><div class="sec-ttl">Erste Gigs <em>bekommen</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Der schwierigste Schritt: vom Üben im Zimmer zum ersten Auftritt. Ein konkreter Plan.</p>
   <div class="sub">Strategie für den Einstieg</div>
@@ -2378,7 +2292,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="epk">
   <div class="sec-hdr">
     <div class="sec-ico">📋</div>
-    <div><div class="sec-num">59 / </div><div class="sec-ttl">EPK <em>Electronic Press Kit</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-epk" onclick="toggleFav('epk')" title="Favorit">☆</button><button class="note-btn" id="note-btn-epk" onclick="openNote('epk')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">59 / </div><div class="sec-ttl">EPK <em>Electronic Press Kit</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Deine digitale Visitenkarte für Promoter und Booking-Agenturen – alles an einem Ort.</p>
   <div class="sub">Was muss rein?</div>
@@ -2396,7 +2310,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="livestream">
   <div class="sec-hdr">
     <div class="sec-ico">🎥</div>
-    <div><div class="sec-num">60 / </div><div class="sec-ttl">Livestreaming <em>Setup &amp; Copyright</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-livestream" onclick="toggleFav('livestream')" title="Favorit">☆</button><button class="note-btn" id="note-btn-livestream" onclick="openNote('livestream')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">60 / </div><div class="sec-ttl">Livestreaming <em>Setup &amp; Copyright</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Sets streamen und aufnehmen — technisch und rechtlich korrekt.</p>
   <div class="sub">XDJ-AZ → Stream Setup</div>
@@ -2420,7 +2334,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="djrecht">
   <div class="sec-hdr">
     <div class="sec-ico">⚖️</div>
-    <div><div class="sec-num">61 / </div><div class="sec-ttl">DJ-Recht <em>SUISA, GEMA &amp; Lizenzrecht</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-djrecht" onclick="toggleFav('djrecht')" title="Favorit">☆</button><button class="note-btn" id="note-btn-djrecht" onclick="openNote('djrecht')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">61 / </div><div class="sec-ttl">DJ-Recht <em>SUISA, GEMA &amp; Lizenzrecht</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Wer zahlt was, wer haftet wofür — für DJs in der Schweiz, Deutschland und Österreich.</p>
   <div class="cards">
@@ -2441,7 +2355,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="djethik">
   <div class="sec-hdr">
     <div class="sec-ico">🤝</div>
-    <div><div class="sec-num">62 / </div><div class="sec-ttl">Club-Etikette <em>&amp; Profi-Verhalten</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-djethik" onclick="toggleFav('djethik')" title="Favorit">☆</button><button class="note-btn" id="note-btn-djethik" onclick="openNote('djethik')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">62 / </div><div class="sec-ttl">Club-Etikette <em>&amp; Profi-Verhalten</em></div></div>
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px">Was niemand explizit sagt — aber alle Profis wissen. Der Unterschied zwischen einmal gebucht und langfristig gebucht.</p>
   <div class="sub">Im Booth</div>
@@ -2466,7 +2380,7 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
 <section class="sec" id="links">
   <div class="sec-hdr">
     <div class="sec-ico">🔗</div>
-    <div><div class="sec-num">63 / </div><div class="sec-ttl">Nützliche <em>Links &amp; Tools</em></div></div><div class="sec-actions"><button class="fav-btn" id="fav-links" onclick="toggleFav('links')" title="Favorit">☆</button><button class="note-btn" id="note-btn-links" onclick="openNote('links')" title="Notiz">📝</button></div>
+    <div><div class="sec-num">63 / </div><div class="sec-ttl">Nützliche <em>Links &amp; Tools</em></div></div>
   </div>
 
   <div class="sub">Offiziell – AlphaTheta / Pioneer DJ</div>
@@ -2668,17 +2582,11 @@ html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
   <div style="display:grid;gap:8px;max-width:800px">
     <div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:8px;padding:12px 16px">
       <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-bottom:6px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:700;color:var(--or)">v1.11 · April 2026</span>
+        <span style="font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:700;color:var(--or)">v2.0 · April 2026</span>
         <span style="background:var(--or);color:#000;font-family:'Share Tech Mono',monospace;font-size:8px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:1px">AKTUELL</span>
       </div>
       <div style="font-family:'Barlow',sans-serif;font-size:12px;color:var(--tx);line-height:1.6">
-        <strong>4 neue Features:</strong> 🔍 Globale Suche (Ctrl+K) · ★ Favoriten · 📝 Notizen pro Sektion · 🎛️ Gig Mode (17 Essentials). Navigation wiederhergestellt: GROUPS, SEC_TO_GROUP, IntersectionObserver, toggleGroup. Light-Mode Fix: Camelot SVG-Text. Glossar: 95 Einträge, keine Duplikate.
-      </div>
-    </div>
-    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:8px;padding:10px 16px">
-      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-bottom:4px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;color:var(--cy)">v1.10</span>
-        <span style="font-family:'Barlow',sans-serif;font-size:11px;color:var(--mu)">Vollständiger Inhalt + Fakten-Audit abgeschlossen. DVS-Setup, Ableton Link, Key Shift Belegung, Troubleshooting erweitert, Light-Mode Fixes.</span>
+        <strong>Vollständiger Inhalt + technische Prüfung.</strong> Alle 63 Sektionen gegen Primärquellen geprüft. Neu: DVS-Setup (Serato, ABS/REL/INT-Modi), Ableton Link, Vinyl Mode Details, Key Shift Pad-Belegung (−4 bis +4), Analyse-Qualität (High Precision / Phrase Analysis Strategie). Troubleshooting erweitert: macOS Dropout-Fix, Grid live korrigieren, Pro DJ Link Switch, Backup-Workflow. Erste Gigs: Demo-Mix-Workflow, Booking-Plattformen (Gigmit), Anfrage-Template. Recording: iZotope RX/Ozone, Adobe Audition. Livestream: GEMA-freie Dienste. Light-Mode Fix: Camelot-Wheel Text + SVG-Override. Alle Glossar-Duplikate bereinigt (95 Einträge, keine Duplikate).
       </div>
     </div>
     <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:8px;padding:10px 16px">
@@ -2791,171 +2699,6 @@ function mobNavTo(id){
   if(hmb)hmb.classList.remove('open');
   navTo(id);
 }
-
-/* ── DESKTOP SUB-NAV ─────────────────────────────────── */
-var activeGroup=null;
-var GROUPS = {
-  einstieg: [
-    {id:'quickstart', lbl:'🚀 Quickstart'},
-    {id:'setup', lbl:'⚙️ Setup'},
-    {id:'firmware', lbl:'⬆️ Firmware'},
-    {id:'glossar', lbl:'📖 Glossar'}
-  ],
-  geraet: [
-    {id:'soniclink', lbl:'🎧 SonicLink'},
-    {id:'masterout', lbl:'🎚️ Master Out'},
-    {id:'prodjlink', lbl:'🔗 Pro DJ Link'},
-    {id:'specs', lbl:'📐 Spezifikationen'},
-    {id:'jogwheel', lbl:'🎡 Jog Wheel'},
-    {id:'booth', lbl:'🔊 Booth'},
-    {id:'inputs', lbl:'🎙️ Mic & Eingänge'},
-    {id:'crossfader', lbl:'↔️ Crossfader'},
-    {id:'customlogo', lbl:'🖼️ Custom Logo'},
-    {id:'virtualdj', lbl:'🎮 VirtualDJ'},
-    {id:'cdj3000', lbl:'⚖️ vs CDJ-3000'}
-  ],
-  quellen: [
-    {id:'formats', lbl:'📁 Dateiformate'},
-    {id:'connect', lbl:'📡 Konnektivität'},
-    {id:'musikquellen', lbl:'🛒 Musik kaufen'},
-    {id:'promopools', lbl:'🎁 Promo-Pools'},
-    {id:'streaming', lbl:'💰 Streaming'},
-    {id:'linkexport', lbl:'📶 Link Export'},
-    {id:'iosworkflow', lbl:'📱 iOS Workflow'},
-    {id:'clouddirect', lbl:'☁️ CloudDirectPlay'}
-  ],
-  library: [
-    {id:'library', lbl:'📚 Library'},
-    {id:'rbpro', lbl:'🗄️ rekordbox Pro'},
-    {id:'rbworkflow', lbl:'⌨️ RB Workflow'},
-    {id:'rb7', lbl:'✨ rekordbox 7'}
-  ],
-  spielen: [
-    {id:'hotcues', lbl:'🔴 Hot Cues'},
-    {id:'looping', lbl:'🔁 Looping'},
-    {id:'fx', lbl:'🎚️ FX'},
-    {id:'mixing', lbl:'🎛️ Mixing'},
-    {id:'hiddentips', lbl:'🔮 Versteckte Funktionen'},
-    {id:'shortcuts', lbl:'⌨️ SHIFT-Shortcuts'},
-    {id:'stems', lbl:'🎼 Stems'},
-    {id:'scratching', lbl:'🎧 Scratching'},
-    {id:'recording', lbl:'💾 Recording'}
-  ],
-  theorie: [
-    {id:'bpm', lbl:'📊 BPM Guide'},
-    {id:'bpmcalc', lbl:'🔢 BPM-Rechner'},
-    {id:'genrematrix', lbl:'🎨 Genre-Matrix'},
-    {id:'key', lbl:'🎵 Key & Harmonics'},
-    {id:'camelot', lbl:'🎡 Camelot Wheel'}
-  ],
-  perform: [
-    {id:'sound', lbl:'🔉 Sound & Gain'},
-    {id:'setarc', lbl:'📈 2h-Set Arc'},
-    {id:'performance', lbl:'🎭 Performance'},
-    {id:'crowdreading', lbl:'👁️ Crowd Reading'},
-    {id:'settimer', lbl:'⏱️ Set-Timer'},
-    {id:'protips', lbl:'💎 Pro-Tipps'},
-    {id:'hearing', lbl:'🛡️ Gehörschutz'},
-    {id:'energybuilder', lbl:'⚡ Energie-Builder'},
-    {id:'practice', lbl:'🏋️ Übungsroutinen'},
-    {id:'b2b', lbl:'🤝 B2B'}
-  ],
-  gig: [
-    {id:'pregig', lbl:'✅ Pre-Gig'},
-    {id:'soundcheck', lbl:'🔊 Soundcheck'},
-    {id:'gigbag', lbl:'🎒 Gig-Bag'},
-    {id:'trouble', lbl:'🔧 Troubleshooting'}
-  ],
-  karriere: [
-    {id:'socialmedia', lbl:'📱 Social Media'},
-    {id:'mixcloud', lbl:'🎵 Mixcloud'},
-    {id:'erstegigs', lbl:'🚪 Erste Gigs'},
-    {id:'epk', lbl:'📋 Press Kit'},
-    {id:'livestream', lbl:'🎥 Livestreaming'},
-    {id:'djrecht', lbl:'⚖️ DJ-Recht'},
-    {id:'djethik', lbl:'🤝 Club-Etikette'}
-  ],
-  links: [{id:'links', lbl:'🔗 Nützliche Links'}]
-};
-
-function toggleGroup(grp){
-  var sn=document.getElementById('subnav');
-  var si=document.getElementById('subnav-inner');
-  if(!sn||!si)return;
-  if(activeGroup===grp){
-    sn.classList.remove('open');
-    si.innerHTML='';
-    activeGroup=null;
-    var allBtns=document.querySelectorAll('.ng');
-    for(var i=0;i<allBtns.length;i++){allBtns[i].classList.remove('active');}
-    return;
-  }
-  activeGroup=grp;
-  var items=GROUPS[grp]||[];
-  var html='';
-  for(var j=0;j<items.length;j++){
-    html+='<button class="sn-item" onclick="navTo(''+items[j].id+'');closeSubNav()">'+items[j].lbl+'</button>';
-  }
-  si.innerHTML=html;
-  sn.classList.add('open');
-  var allBtns=document.querySelectorAll('.ng');
-  for(var k=0;k<allBtns.length;k++){allBtns[k].classList.remove('active');}
-  var activeBtn=document.getElementById('ng-'+grp);
-  if(activeBtn)activeBtn.classList.add('active');
-}
-
-function closeSubNav(){
-  var sn=document.getElementById('subnav');
-  if(sn)sn.classList.remove('open');
-  var allBtns=document.querySelectorAll('.ng');
-  for(var i=0;i<allBtns.length;i++){allBtns[i].classList.remove('active');}
-  activeGroup=null;
-}
-
-/* ── ACTIVE GROUP HIGHLIGHT (IntersectionObserver) ─── */
-var SEC_TO_GROUP = {
-  quickstart:'einstieg', setup:'einstieg', firmware:'einstieg', glossar:'einstieg',
-  soniclink:'geraet', masterout:'geraet', prodjlink:'geraet', specs:'geraet',
-  jogwheel:'geraet', booth:'geraet', inputs:'geraet', crossfader:'geraet',
-  customlogo:'geraet', virtualdj:'geraet', cdj3000:'geraet',
-  formats:'quellen', connect:'quellen', musikquellen:'quellen', promopools:'quellen',
-  streaming:'quellen', linkexport:'quellen', iosworkflow:'quellen', clouddirect:'quellen',
-  library:'library', rbpro:'library', rbworkflow:'library', rb7:'library',
-  hotcues:'spielen', looping:'spielen', fx:'spielen', mixing:'spielen',
-  hiddentips:'spielen', shortcuts:'spielen', stems:'spielen', scratching:'spielen', recording:'spielen',
-  bpm:'theorie', bpmcalc:'theorie', genrematrix:'theorie', key:'theorie', camelot:'theorie',
-  sound:'perform', setarc:'perform', performance:'perform', crowdreading:'perform',
-  settimer:'perform', protips:'perform', hearing:'perform', energybuilder:'perform',
-  practice:'perform', b2b:'perform',
-  pregig:'gig', soundcheck:'gig', gigbag:'gig', trouble:'gig',
-  socialmedia:'karriere', mixcloud:'karriere', erstegigs:'karriere', epk:'karriere',
-  livestream:'karriere', djrecht:'karriere', djethik:'karriere',
-  links:'links'
-};
-
-var currentGroup=null;
-if('IntersectionObserver' in window){
-  var allSecs=document.querySelectorAll('.sec');
-  var obs=new IntersectionObserver(function(entries){
-    for(var i=0;i<entries.length;i++){
-      if(entries[i].isIntersecting){
-        var grp=SEC_TO_GROUP[entries[i].target.id];
-        if(grp&&grp!==currentGroup){
-          if(!activeGroup){
-            var allBtns=document.querySelectorAll('.ng');
-            for(var j=0;j<allBtns.length;j++){allBtns[j].classList.remove('active');}
-            var btn=document.getElementById('ng-'+grp);
-            if(btn)btn.classList.add('active');
-          }
-          currentGroup=grp;
-        }
-        break;
-      }
-    }
-  },{rootMargin:'-10% 0px -80% 0px'});
-  for(var k=0;k<allSecs.length;k++){obs.observe(allSecs[k]);}
-}
-
 
 /* ── DESKTOP SUB-NAV ─────────────────────────────── */
 var activeGroup=null;
@@ -3958,411 +3701,6 @@ if('IntersectionObserver' in window){
   },{rootMargin:'-10% 0px -80% 0px'});
   for(var k=0;k<allSecs.length;k++){obs.observe(allSecs[k]);}
 }
-
-/* ════════════════════════════════════════════════════
-   FEATURE: SEARCH — globale Volltextsuche
-   ════════════════════════════════════════════════════ */
-var SRCH_INDEX = null;
-
-function buildSearchIndex() {
-  if (SRCH_INDEX) return;
-  SRCH_INDEX = [];
-  document.querySelectorAll('.sec').forEach(function(sec) {
-    var sid = sec.id;
-    if (sid === 'changelog') return;
-    var secNum = sec.querySelector('.sec-num') ? sec.querySelector('.sec-num').textContent.trim() : '';
-    var secTitle = sec.querySelector('.sec-ttl') ? sec.querySelector('.sec-ttl').textContent.trim() : '';
-
-    // Karten
-    sec.querySelectorAll('.card').forEach(function(card) {
-      var title = card.querySelector('.c-ttl') ? card.querySelector('.c-ttl').textContent.trim() : '';
-      var desc = card.querySelector('.c-desc') ? card.querySelector('.c-desc').textContent.trim() : '';
-      if (!title && !desc) return;
-      SRCH_INDEX.push({sid:sid, secNum:secNum, secTitle:secTitle, title:title, text:(title+' '+desc).toLowerCase(), rawDesc:desc});
-    });
-
-    // Steps
-    sec.querySelectorAll('.step').forEach(function(step) {
-      var title = step.querySelector('.step-t') ? step.querySelector('.step-t').textContent.trim() : '';
-      var desc = step.querySelector('.step-d') ? step.querySelector('.step-d').textContent.trim() : '';
-      if (!title) return;
-      SRCH_INDEX.push({sid:sid, secNum:secNum, secTitle:secTitle, title:title, text:(title+' '+desc).toLowerCase(), rawDesc:desc});
-    });
-
-    // Glossar-Items
-    sec.querySelectorAll('.gl-item').forEach(function(item) {
-      var term = item.getAttribute('data-term') || '';
-      var def = item.querySelector('.gl-def') ? item.querySelector('.gl-def').textContent.trim() : '';
-      if (!term) return;
-      SRCH_INDEX.push({sid:sid, secNum:'04', secTitle:'DJ Glossar', title:term, text:(term+' '+def).toLowerCase(), rawDesc:def});
-    });
-  });
-}
-
-function highlight(text, q) {
-  if (!q) return text;
-  var words = q.trim().split(/\s+/).filter(Boolean);
-  var result = text;
-  words.forEach(function(w) {
-    var re = new RegExp('(' + w.replace(/[.*+?^${}()|[\]\]/g,'\$&') + ')', 'gi');
-    result = result.replace(re, '<em>$1</em>');
-  });
-  return result;
-}
-
-function getSnippet(text, q, maxLen) {
-  maxLen = maxLen || 120;
-  var words = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
-  if (!words.length) return text.slice(0, maxLen) + (text.length > maxLen ? '…' : '');
-  var idx = -1;
-  for (var i = 0; i < words.length; i++) {
-    var p = text.toLowerCase().indexOf(words[i]);
-    if (p !== -1 && (idx === -1 || p < idx)) idx = p;
-  }
-  if (idx === -1) return text.slice(0, maxLen) + (text.length > maxLen ? '…' : '');
-  var start = Math.max(0, idx - 40);
-  var end = Math.min(text.length, start + maxLen);
-  return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
-}
-
-var SRCH_RESULTS_DATA = [];
-var SRCH_CURSOR = -1;
-
-function runSearch(q) {
-  buildSearchIndex();
-  var res = document.getElementById('srch-results');
-  q = q.trim();
-  SRCH_CURSOR = -1;
-  if (!q || q.length < 2) {
-    res.innerHTML = '<div class="srch-empty">Tipp etwas um zu suchen…</div>';
-    SRCH_RESULTS_DATA = [];
-    return;
-  }
-  var words = q.toLowerCase().split(/\s+/).filter(Boolean);
-  var hits = [];
-  SRCH_INDEX.forEach(function(item) {
-    var score = 0;
-    words.forEach(function(w) {
-      if (item.title.toLowerCase().indexOf(w) !== -1) score += 3;
-      if (item.text.indexOf(w) !== -1) score += 1;
-    });
-    if (score > 0) hits.push({item:item, score:score});
-  });
-  hits.sort(function(a,b){return b.score-a.score;});
-  hits = hits.slice(0, 20);
-  SRCH_RESULTS_DATA = hits;
-  if (!hits.length) {
-    res.innerHTML = '<div class="srch-empty">Keine Ergebnisse für „' + q + '"</div>';
-    return;
-  }
-  var html = '';
-  hits.forEach(function(h, i) {
-    var snippet = getSnippet(h.item.rawDesc, q, 110);
-    html += '<a class="srch-hit" data-idx="' + i + '" onclick="srchGo(' + i + ')">'
-      + '<div class="srch-hit-sec">' + h.item.secNum.replace(' / ','') + ' — ' + h.item.secTitle + '</div>'
-      + '<div class="srch-hit-title">' + highlight(h.item.title, q) + '</div>'
-      + (snippet ? '<div class="srch-hit-snippet">' + highlight(snippet, q) + '</div>' : '')
-      + '</a>';
-  });
-  res.innerHTML = html;
-}
-
-function srchGo(idx) {
-  if (!SRCH_RESULTS_DATA[idx]) return;
-  var sid = SRCH_RESULTS_DATA[idx].item.sid;
-  closeSearch();
-  // Gig-Mode: wenn Sektion ausgeblendet, kurz zeigen
-  if (document.documentElement.classList.contains('gig-mode')) {
-    var el = document.getElementById(sid);
-    if (el && !el.classList.contains('gig-visible')) {
-      el.style.display = 'block';
-      setTimeout(function(){el.style.display='';},5000);
-    }
-  }
-  navTo(sid);
-}
-
-function srchKeyNav(e) {
-  var hits = document.querySelectorAll('.srch-hit');
-  if (e.key === 'ArrowDown') {
-    e.preventDefault();
-    SRCH_CURSOR = Math.min(SRCH_CURSOR + 1, hits.length - 1);
-    hits.forEach(function(h,i){h.style.background=i===SRCH_CURSOR?'var(--bg3)':'';});
-    if(hits[SRCH_CURSOR]) hits[SRCH_CURSOR].scrollIntoView({block:'nearest'});
-  } else if (e.key === 'ArrowUp') {
-    e.preventDefault();
-    SRCH_CURSOR = Math.max(SRCH_CURSOR - 1, 0);
-    hits.forEach(function(h,i){h.style.background=i===SRCH_CURSOR?'var(--bg3)':'';});
-    if(hits[SRCH_CURSOR]) hits[SRCH_CURSOR].scrollIntoView({block:'nearest'});
-  } else if (e.key === 'Enter') {
-    e.preventDefault();
-    if (SRCH_CURSOR >= 0) srchGo(SRCH_CURSOR);
-    else if (SRCH_RESULTS_DATA.length > 0) srchGo(0);
-  } else if (e.key === 'Escape') {
-    closeSearch();
-  }
-}
-
-function openSearch() {
-  buildSearchIndex();
-  document.getElementById('srch-overlay').classList.add('open');
-  document.getElementById('srch-input').value = '';
-  document.getElementById('srch-results').innerHTML = '<div class="srch-empty">Tipp etwas um zu suchen…</div>';
-  SRCH_CURSOR = -1;
-  setTimeout(function(){document.getElementById('srch-input').focus();}, 60);
-  document.body.style.overflow = 'hidden';
-}
-
-function closeSearch() {
-  document.getElementById('srch-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function closeSrchOverlay(e) {
-  if (e.target === document.getElementById('srch-overlay')) closeSearch();
-}
-
-// Keyboard shortcut Ctrl+K
-document.addEventListener('keydown', function(e) {
-  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-    e.preventDefault();
-    openSearch();
-  }
-  if (e.key === 'Escape') {
-    closeSearch();
-    closeNoteModal();
-  }
-});
-
-
-/* ════════════════════════════════════════════════════
-   FEATURE: FAVORITEN
-   ════════════════════════════════════════════════════ */
-function getFavs() {
-  try { return JSON.parse(localStorage.getItem('favs') || '[]'); } catch(e){ return []; }
-}
-
-function saveFavs(arr) {
-  try { localStorage.setItem('favs', JSON.stringify(arr)); } catch(e){}
-}
-
-function toggleFav(sid) {
-  var favs = getFavs();
-  var idx = favs.indexOf(sid);
-  if (idx === -1) favs.push(sid);
-  else favs.splice(idx, 1);
-  saveFavs(favs);
-  updateFavButtons();
-  updateFavsList();
-}
-
-function updateFavButtons() {
-  var favs = getFavs();
-  document.querySelectorAll('.fav-btn').forEach(function(btn) {
-    var sid = btn.id.replace('fav-', '');
-    var active = favs.indexOf(sid) !== -1;
-    btn.classList.toggle('active', active);
-    btn.textContent = active ? '★' : '☆';
-    btn.title = active ? 'Aus Favoriten entfernen' : 'Zu Favoriten hinzufügen';
-  });
-  var favBtn = document.getElementById('favs-btn');
-  if (favBtn) favBtn.classList.toggle('has-favs', favs.length > 0);
-}
-
-function updateFavsList() {
-  var favs = getFavs();
-  var list = document.getElementById('favs-list');
-  if (!list) return;
-  if (!favs.length) {
-    list.innerHTML = '<div class="favs-empty">Noch keine Favoriten.<br>Klicke ☆ neben einem Abschnitt.</div>';
-    return;
-  }
-  var html = '';
-  favs.forEach(function(sid) {
-    var sec = document.getElementById(sid);
-    if (!sec) return;
-    var num = sec.querySelector('.sec-num') ? sec.querySelector('.sec-num').textContent.trim() : '';
-    var title = sec.querySelector('.sec-ttl') ? sec.querySelector('.sec-ttl').textContent.trim() : sid;
-    var ico = sec.querySelector('.sec-ico') ? sec.querySelector('.sec-ico').textContent : '';
-    html += '<a class="favs-item" onclick="favGo('' + sid + '')">'
-      + '<div class="favs-item-num">' + num + '</div>'
-      + '<div class="favs-item-title">' + ico + ' ' + title + '</div>'
-      + '</a>';
-  });
-  list.innerHTML = html;
-}
-
-function favGo(sid) {
-  toggleFavs();
-  navTo(sid);
-}
-
-function toggleFavs() {
-  var panel = document.getElementById('favs-panel');
-  var overlay = document.getElementById('favs-overlay');
-  var open = panel.classList.toggle('open');
-  overlay.classList.toggle('open', open);
-  if (open) {
-    updateFavsList();
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
-  }
-}
-
-// Favoriten beim Start laden
-(function(){
-  try {
-    updateFavButtons();
-  } catch(e){}
-})();
-
-
-/* ════════════════════════════════════════════════════
-   FEATURE: NOTIZEN
-   ════════════════════════════════════════════════════ */
-var NOTE_CURRENT_SID = null;
-
-function getNotes() {
-  try { return JSON.parse(localStorage.getItem('notes') || '{}'); } catch(e){ return {}; }
-}
-
-function saveNotes(obj) {
-  try { localStorage.setItem('notes', JSON.stringify(obj)); } catch(e){}
-}
-
-function openNote(sid) {
-  NOTE_CURRENT_SID = sid;
-  var notes = getNotes();
-  var sec = document.getElementById(sid);
-  var title = sec ? (sec.querySelector('.sec-ttl') ? sec.querySelector('.sec-ttl').textContent.trim() : sid) : sid;
-  document.getElementById('note-modal-title').textContent = '📝 ' + title;
-  var ta = document.getElementById('note-textarea');
-  ta.value = notes[sid] || '';
-  updateNoteChar();
-  document.getElementById('note-modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  setTimeout(function(){ta.focus();ta.selectionStart=ta.selectionEnd=ta.value.length;}, 60);
-}
-
-function closeNoteModal(e) {
-  if (e && e.target !== document.getElementById('note-modal')) return;
-  document.getElementById('note-modal').classList.remove('open');
-  NOTE_CURRENT_SID = null;
-  document.body.style.overflow = '';
-}
-
-function saveNote() {
-  if (!NOTE_CURRENT_SID) return;
-  var notes = getNotes();
-  var val = document.getElementById('note-textarea').value.trim();
-  if (val) notes[NOTE_CURRENT_SID] = val;
-  else delete notes[NOTE_CURRENT_SID];
-  saveNotes(notes);
-  updateNoteButtons();
-  document.getElementById('note-modal').classList.remove('open');
-  NOTE_CURRENT_SID = null;
-  document.body.style.overflow = '';
-}
-
-function deleteNote() {
-  if (!NOTE_CURRENT_SID) return;
-  var notes = getNotes();
-  delete notes[NOTE_CURRENT_SID];
-  saveNotes(notes);
-  updateNoteButtons();
-  document.getElementById('note-modal').classList.remove('open');
-  NOTE_CURRENT_SID = null;
-  document.body.style.overflow = '';
-}
-
-function updateNoteChar() {
-  var val = document.getElementById('note-textarea').value;
-  document.getElementById('note-char').textContent = val.length + ' Zeichen';
-}
-
-function updateNoteButtons() {
-  var notes = getNotes();
-  document.querySelectorAll('.note-btn').forEach(function(btn) {
-    var sid = btn.id.replace('note-btn-', '');
-    btn.classList.toggle('has-note', !!(notes[sid] && notes[sid].trim()));
-    btn.title = notes[sid] ? 'Notiz bearbeiten' : 'Notiz hinzufügen';
-  });
-}
-
-// Notizen beim Start laden
-(function(){
-  try { updateNoteButtons(); } catch(e){}
-})();
-
-
-/* ════════════════════════════════════════════════════
-   FEATURE: GIG MODE
-   ════════════════════════════════════════════════════ */
-function toggleGigMode() {
-  var html = document.documentElement;
-  var active = html.classList.toggle('gig-mode');
-  var btn = document.getElementById('gig-btn');
-  if (btn) btn.classList.toggle('active', active);
-  try { localStorage.setItem('gigMode', active ? '1' : '0'); } catch(e){}
-  if (active) {
-    // Scrolle zum Anfang
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  }
-}
-
-// Gig-Mode beim Start wiederherstellen
-(function(){
-  try {
-    if (localStorage.getItem('gigMode') === '1') {
-      document.documentElement.classList.add('gig-mode');
-      var btn = document.getElementById('gig-btn');
-      if (btn) btn.classList.add('active');
-    }
-  } catch(e){}
-})();
-
 </script>
-
-<!-- ═══ SEARCH MODAL ═══════════════════════════════════ -->
-<div class="srch-overlay" id="srch-overlay" onclick="closeSrchOverlay(event)">
-  <div class="srch-box" onclick="event.stopPropagation()">
-    <div class="srch-input-wrap">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input id="srch-input" type="text" placeholder="Suche über alle Sektionen..." autocomplete="off" oninput="runSearch(this.value)" onkeydown="srchKeyNav(event)">
-      <button class="srch-close-btn" onclick="closeSearch()">ESC</button>
-    </div>
-    <div class="srch-results" id="srch-results">
-      <div class="srch-empty">Tipp etwas um zu suchen…</div>
-    </div>
-    <div class="srch-hint">↑↓ NAVIGIEREN · ENTER SPRINGEN · ESC SCHLIESSEN · CTRL+K ÖFFNEN</div>
-  </div>
-</div>
-
-<!-- ═══ FAVORITEN PANEL ═══════════════════════════════ -->
-<div class="favs-overlay" id="favs-overlay" onclick="toggleFavs()"></div>
-<div class="favs-panel" id="favs-panel">
-  <div class="favs-header">
-    <div class="favs-title">★ FAVORITEN</div>
-    <button class="favs-close" onclick="toggleFavs()">×</button>
-  </div>
-  <div id="favs-list"></div>
-</div>
-
-<!-- ═══ NOTIZEN MODAL ════════════════════════════════= -->
-<div class="note-modal" id="note-modal" onclick="closeNoteModal(event)">
-  <div class="note-box" onclick="event.stopPropagation()">
-    <div class="note-box-hdr">
-      <div class="note-box-title" id="note-modal-title">📝 NOTIZ</div>
-      <button class="note-close" onclick="closeNoteModal()">×</button>
-    </div>
-    <textarea id="note-textarea" placeholder="Eigene Notizen zu dieser Sektion…" oninput="updateNoteChar()"></textarea>
-    <div class="note-footer">
-      <button class="note-del-btn" onclick="deleteNote()">Löschen</button>
-      <span class="note-char" id="note-char">0 Zeichen</span>
-      <button class="note-save-btn" onclick="saveNote()">SPEICHERN</button>
-    </div>
-  </div>
-</div>
-
 </body>
+</html>
