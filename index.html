@@ -2705,66 +2705,52 @@ html.gig-mode .mob-menu{top:80px}
 <!-- ── VERSIONSHISTORIE ───────── -->
 <section class="sec" id="changelog" style="margin-top:40px;border-top:1px solid var(--bd);padding-top:32px">
   <div class="sec-hdr" style="margin-bottom:20px">
-    <div class="sec-ico">📋</div>
     <div><div class="sec-num" style="font-size:10px;letter-spacing:2px;color:var(--mu)">VERSIONSHISTORIE</div><div class="sec-ttl" style="font-size:22px">Changelog</div></div>
   </div>
-  <div style="display:grid;gap:8px;max-width:800px">
-    <div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:8px;padding:12px 16px">
-      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-bottom:6px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:700;color:var(--or)">v1.15 · April 2026</span>
-        <span style="background:var(--or);color:#000;font-family:'Share Tech Mono',monospace;font-size:8px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:1px">AKTUELL</span>
-      </div>
-      <div style="font-family:'Barlow',sans-serif;font-size:12px;color:var(--tx);line-height:1.6">
-        <strong>DSGVO + Offline:</strong> 🔒 Google Fonts self-hosted (WOFF2 inline, keine externen Anfragen) · 📵 Service Worker: App funktioniert offline · 🔄 Automatisches Cache-Busting via APP_VERSION · Offline-Banner.
-      </div>
+  <div style="display:grid;gap:6px;max-width:800px;font-family:'Barlow',sans-serif;font-size:12px">
+    <div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.16 <span style="background:var(--or);color:#000;font-size:8px;font-weight:700;padding:1px 5px;border-radius:2px;letter-spacing:1px;vertical-align:middle">AKTUELL</span></span>
+      <span style="color:var(--tx)">Link-Audit: alle 50 externen Links geprüft. Psyshop.com (geschlossen 2021) ersetzt durch Beatport, Bandcamp, Ektoplazm.</span>
     </div>
-    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:8px;padding:10px 16px">
-      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-bottom:4px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;color:var(--cy)">v1.11</span>
-        <span style="font-family:'Barlow',sans-serif;font-size:11px;color:var(--mu)">4 neue Features: Globale Suche (Ctrl+K) · Favoriten · Notizen pro Sektion · Gig Mode (17 Essentials). Navigation Fix, Light-Mode Camelot, Glossar 95 Einträge.</span>
-      </div>
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--cy);white-space:nowrap">v1.15</span>
+      <span style="color:var(--mu)">DSGVO: Google Fonts self-hosted (WOFF2 inline). Service Worker: Offline-Betrieb, automatisches Cache-Busting via APP_VERSION.</span>
     </div>
-    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:8px;padding:10px 16px">
-      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-bottom:4px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;color:var(--cy)">v1.10</span>
-        <span style="font-family:'Barlow',sans-serif;font-size:11px;color:var(--mu)">Vollständiger Inhalt + Fakten-Audit abgeschlossen. DVS-Setup, Ableton Link, Key Shift Belegung, Troubleshooting erweitert, Light-Mode Fixes.</span>
-      </div>
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--cy);white-space:nowrap">v1.14</span>
+      <span style="color:var(--mu)">Quality-Audit: XSS-Fix Suche, scroll passive:true, focus-visible, Skip-Link, Scrollbar-Styling, Kontrast WCAG AA, Suche +FX/Tips/Techniques, Meta/Favicon, type=button, aria-expanded, SubNav active-State.</span>
     </div>
-    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:8px;padding:10px 16px">
-      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-bottom:4px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;color:var(--cy)">v1.9</span>
-        <span style="font-family:'Barlow',sans-serif;font-size:11px;color:var(--mu)">Fakten-Audit: 500+ Claims geprüft. Alle BPM-Ranges, Firmware, Specs, Scratching-Techniken, Chirp-Beschreibung, Crossfader/Key-Display-Pfade korrigiert.</span>
-      </div>
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--cy);white-space:nowrap">v1.11</span>
+      <span style="color:var(--mu)">Globale Suche (Ctrl+K), Favoriten, Notizen pro Sektion, Gig Mode (17 Essentials). Navigation Fix, Light-Mode Camelot, Glossar 95 Einträge.</span>
     </div>
-    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:8px;padding:10px 16px">
-      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-bottom:4px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;color:var(--cy)">v1.8</span>
-        <span style="font-family:'Barlow',sans-serif;font-size:11px;color:var(--mu)">4 neue Sektionen: Hardware-Specs, SHIFT-Shortcuts, Phrase Analysis. Troubleshooting: 6 rekordbox-Bug-Karten.</span>
-      </div>
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--cy);white-space:nowrap">v1.10</span>
+      <span style="color:var(--mu)">Vollständiger Inhalt + Fakten-Audit. DVS-Setup, Ableton Link, Key Shift Belegung, Troubleshooting erweitert.</span>
     </div>
-    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:8px;padding:10px 16px">
-      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-bottom:4px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;color:var(--cy)">v1.7</span>
-        <span style="font-family:'Barlow',sans-serif;font-size:11px;color:var(--mu)">3 neue Sektionen: Übungsroutinen, B2B Workflow. Windows 11 MIDI-Services-Bug in Troubleshooting.</span>
-      </div>
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--cy);white-space:nowrap">v1.9</span>
+      <span style="color:var(--mu)">Fakten-Audit: 500+ Claims geprüft. BPM-Ranges, Firmware, Specs, Scratching-Techniken, Crossfader-Pfade korrigiert.</span>
     </div>
-    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:8px;padding:10px 16px">
-      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-bottom:4px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;color:var(--cy)">v1.6</span>
-        <span style="font-family:'Barlow',sans-serif;font-size:11px;color:var(--mu)">Fakten-Audit: Firmware 1.30, 14 Beat FX, 6 Sound Color FX, Streaming 2026. 4 neue Sektionen: Gehörschutz, Energie-Builder, Scratching, Recording.</span>
-      </div>
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--cy);white-space:nowrap">v1.8</span>
+      <span style="color:var(--mu)">Hardware-Specs, SHIFT-Shortcuts, Phrase Analysis. Troubleshooting: 6 rekordbox-Bug-Karten.</span>
     </div>
-    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:8px;padding:10px 16px">
-      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-bottom:4px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;color:var(--cy)">v1.5</span>
-        <span style="font-family:'Barlow',sans-serif;font-size:11px;color:var(--mu)">Camelot Wheel neu: A/B-Ringe, Key-Checker, 10-Fälle-Logik. BPM-Chart: 30 Genres. Mobile Nav-Bug behoben.</span>
-      </div>
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--cy);white-space:nowrap">v1.7</span>
+      <span style="color:var(--mu)">Übungsroutinen, B2B Workflow. Windows 11 MIDI-Services-Bug in Troubleshooting.</span>
     </div>
-    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--mu);border-radius:8px;padding:10px 16px">
-      <div style="display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;margin-bottom:4px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;color:var(--mu)">v1.0–v1.4</span>
-        <span style="font-family:'Barlow',sans-serif;font-size:11px;color:var(--mu)">Grundaufbau aller 64 Sektionen. Light/Dark Mode, Mobile Nav, BPM-Rechner, Genre-Matrix, Set-Timer, Karriere-Gruppe, Livestreaming, DJ-Recht, Weiterbildungs-Boxen, 3 Checklisten.</span>
-      </div>
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--cy);white-space:nowrap">v1.6</span>
+      <span style="color:var(--mu)">Firmware 1.30, 14 Beat FX, 6 Sound Color FX. Gehörschutz, Energie-Builder, Scratching, Recording.</span>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--cy);white-space:nowrap">v1.5</span>
+      <span style="color:var(--mu)">Camelot Wheel: A/B-Ringe, Key-Checker. BPM-Chart: 30 Genres. Mobile Nav-Bug behoben.</span>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--mu);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--mu);white-space:nowrap">v1.0–v1.4</span>
+      <span style="color:var(--mu)">Grundaufbau: 64 Sektionen, Light/Dark Mode, Mobile Nav, BPM-Rechner, Genre-Matrix, Set-Timer, Karriere-Gruppe, DJ-Recht, 3 Checklisten.</span>
     </div>
   </div>
   <div style="margin-top:20px;font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--mu2);letter-spacing:2px;text-align:center">
