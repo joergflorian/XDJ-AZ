@@ -1,11 +1,16 @@
-/* XDJ-AZ Masterguide — Service Worker v1.0
-   Strategie: Cache-First für die App, Network-First für externe Ressourcen
-   Offline-fähig nach erstem Laden */
+/* XDJ-AZ Masterguide — Service Worker
+   Cache-Name automatisch via APP_VERSION aus index.html (postMessage).
+   Fallback: 'xdj-az-v1' */
 
 var CACHE = 'xdj-az-v1';
 var OFFLINE_URL = './index.html';
 
-/* Beim Installieren: index.html sofort cachen */
+self.addEventListener('message', function(e) {
+  if (e.data && e.data.type === 'SET_VERSION') {
+    CACHE = 'xdj-az-' + e.data.version;
+  }
+});
+
 self.addEventListener('install', function(e) {
   e.waitUntil(
     caches.open(CACHE).then(function(cache) {
@@ -16,7 +21,6 @@ self.addEventListener('install', function(e) {
   );
 });
 
-/* Beim Aktivieren: alte Caches löschen */
 self.addEventListener('activate', function(e) {
   e.waitUntil(
     caches.keys().then(function(keys) {
@@ -30,25 +34,9 @@ self.addEventListener('activate', function(e) {
   );
 });
 
-/* Fetch: Cache-First für eigene Ressourcen, Network-First für externe */
 self.addEventListener('fetch', function(e) {
-  var url = e.request.url;
-
-  /* Externe Ressourcen (Google Fonts, etc.) — Netzwerk zuerst, Fallback Cache */
-  if (url.indexOf('googleapis.com') !== -1 || url.indexOf('gstatic.com') !== -1) {
-    e.respondWith(
-      fetch(e.request).then(function(res) {
-        var clone = res.clone();
-        caches.open(CACHE).then(function(c) { c.put(e.request, clone); });
-        return res;
-      }).catch(function() {
-        return caches.match(e.request);
-      })
-    );
-    return;
-  }
-
-  /* Eigene Ressourcen — Cache-First */
+  if (e.request.method !== 'GET') return;
+  if (e.request.url.startsWith('chrome-extension://')) return;
   e.respondWith(
     caches.match(e.request).then(function(cached) {
       if (cached) return cached;
@@ -58,7 +46,6 @@ self.addEventListener('fetch', function(e) {
         caches.open(CACHE).then(function(c) { c.put(e.request, clone); });
         return res;
       }).catch(function() {
-        /* Offline-Fallback: immer index.html zurückgeben */
         return caches.match(OFFLINE_URL);
       });
     })
