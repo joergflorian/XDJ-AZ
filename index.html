@@ -470,7 +470,7 @@ button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 html.gig-mode .gig-banner{display:block}
 html.gig-mode .sec{display:none}
 html.gig-mode .sec.gig-visible{display:block}
-html.gig-mode .nav-group,.html.gig-mode .ng-btn{opacity:.5}
+html.gig-mode .nav-group,html.gig-mode .ng-btn{opacity:.5}
 
 /* ── SEC-HDR ACTIONS (Fav + Notiz) ──────────────────── */
 .sec-hdr{position:relative}
@@ -2709,8 +2709,15 @@ html.gig-mode .mob-menu{top:80px}
   </div>
   <div style="display:grid;gap:6px;max-width:800px;font-family:'Barlow',sans-serif;font-size:12px">
     <div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
-      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.16 <span style="background:var(--or);color:#000;font-size:8px;font-weight:700;padding:1px 5px;border-radius:2px;letter-spacing:1px;vertical-align:middle">AKTUELL</span></span>
-      <span style="color:var(--tx)">Link-Audit: alle 50 externen Links geprüft. Psyshop.com (geschlossen 2021) ersetzt durch Beatport, Bandcamp, Ektoplazm.</span>
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.19 <span style="background:var(--or);color:#000;font-size:8px;font-weight:700;padding:1px 5px;border-radius:2px;letter-spacing:1px;vertical-align:middle">AKTUELL</span></span>
+      <span style="color:var(--tx)">Content-Update: Pre-Gig-Checklist 12 Items, Soundcheck 12 Items, Gig-Bag 18 Items vollständig. GigMode Mob-Menu-Bugfix. CSS .ng-btn-Typo behoben. Security: highlight() XSS-Fix.</span>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--cy);white-space:nowrap">v1.17</span>
+      <span style="color:var(--mu)">Security-Audit: highlight() XSS-Fix (escapeHtml vor Regex-Ersetzung). SW APP_VERSION-Sync korrigiert (1.16). Vollständiges Review aller Audit-Punkte abgeschlossen.</span>
+    <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
+      <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--cy);white-space:nowrap">v1.16</span>
+      <span style="color:var(--mu)">Link-Audit: alle 50 externen Links geprüft. Psyshop.com (geschlossen 2021) ersetzt durch Beatport, Bandcamp, Ektoplazm.</span>
     </div>
     <div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--cy);border-radius:6px;padding:8px 14px;display:-webkit-box;display:-ms-flexbox;display:flex;gap:12px;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline">
       <span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--cy);white-space:nowrap">v1.15</span>
@@ -2762,7 +2769,7 @@ html.gig-mode .mob-menu{top:80px}
 <footer>XDJ-AZ MASTERGUIDE · <span>ALPHA THETA × PIONEER DJ</span> · PRO REFERENCE · DJ SCHOOL INSIDER · ALLE INHALTE OHNE GARANTIE</footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var APP_VERSION = '1.15';
+var APP_VERSION = '1.19';
 /* ── THEME TOGGLE ─────────────────────────────────── */
 (function(){
   try { if(localStorage.getItem('theme')==='light') document.documentElement.classList.add('light'); } catch(e){}
@@ -3362,6 +3369,10 @@ var PG_ITEMS=[
   {t:'Venue-Kontakt gespeichert',s:'Veranstalter + Techniker Telefonnummer'},
   {t:'Setliste grob vorbereitet',s:'Erste 3-5 Tracks festgelegt'},
   {t:'Firmware aktuell geprüft',s:'AlphaTheta Support → Firmware'},
+  {t:'Set-Dauer & Slot-Zeit bestätigt',s:'Wann genau anfangen, wann aufhören'},
+  {t:'Energie & Schlaf',s:'Mindestens 6h Schlaf vor dem Gig'},
+  {t:'Kleidung & Ausstattung',s:'Bequem, kein flatternder Ärmel über Jogwheels'},
+  {t:'Notfall-Tracks bereit',s:'3-5 Crowd-Pleaser die immer funktionieren'},
 ];
 var SC_ITEMS=[
   {t:'USB-Sticks eingesteckt & erkannt',s:'SOURCE-Menü prüfen'},
@@ -3370,6 +3381,12 @@ var SC_ITEMS=[
   {t:'Booth-Monitor funktioniert',s:'BOOTH-Regler auf angenehme Lautstärke'},
   {t:'Erster Track geladen & bereit',s:'Hot Cue A auf Beat 1'},
   {t:'BPM/Grid geprüft',s:'Stichprobe: 2-3 Tracks'},
+  {t:'EQs auf Neutral (12 Uhr)',s:'Alle Kanal-EQs zurücksetzen'},
+  {t:'Master-EQ auf Neutral',s:'Master Out EQ: alle auf Mitte'},
+  {t:'Gain-Staging geprüft',s:'Kanal-Gain: orange LEDs, kein Rot'},
+  {t:'Crossfader-Position prüfen',s:'Mitte oder ganz links/rechts je nach Stil'},
+  {t:'Loop & Cue-Buttons testen',s:'Performance-Pads schnell durchklicken'},
+  {t:'Recording gestartet (optional)',s:'Master Rec → USB oder SD'},
 ];
 var GB_ITEMS=[
   {t:'XDJ-AZ (wenn mobil)',s:'Schutzhülle / Flightcase'},
@@ -3382,6 +3399,14 @@ var GB_ITEMS=[
   {t:'Laptop (optional)',s:'Für Serato/rekordbox Controller-Modus'},
   {t:'Powerbank',s:'Für Handy im Notfall'},
   {t:'Visitenkarten / EPK-Link',s:'Für Networking nach dem Gig'},
+  {t:'RCA-Kabel (Cinch)',s:'Backup für Booth/Line-Anschlüsse'},
+  {t:'Gehörschutz',s:'Pflicht nach dem Gig, beim Monitoring'},
+  {t:'Gaffer-Tape',s:'Kabel fixieren, rutschende Geräte sichern'},
+  {t:'Taschenlampe / Stirnlampe',s:'Für dunkle Bühnen und Kabelsuche'},
+  {t:'Wasser & Snack',s:'Lange Sets: Hydration nicht vergessen'},
+  {t:'Backup-Tracks auf Handy',s:'Notfall-Playlist in offline App'},
+  {t:'Ladekabel Handy',s:'Handy als Notfall-Backup'},
+  {t:'Kassenbon / Vertrag',s:'Gage-Bestätigung, Kontakte'},
 ];
 function buildList(items,col){
   var el=document.getElementById(col+'-col1');
@@ -4071,11 +4096,12 @@ function buildSearchIndex() {
 }
 
 function highlight(text, q) {
-  if (!q) return text;
+  if (!q) return escapeHtml(text);
+  var escaped = escapeHtml(text);
   var words = q.trim().split(/\s+/).filter(Boolean);
-  var result = text;
+  var result = escaped;
   words.forEach(function(w) {
-    var re = new RegExp('(' + w.replace(/[-\/\\^$*+?.()|[\]{}]/g,'\\$&') + ')', 'gi');
+    var re = new RegExp('(' + escapeHtml(w).replace(/[-\/\\^$*+?.()|[\]{}]/g,'\\$&') + ')', 'gi');
     result = result.replace(re, '<em>$1</em>');
   });
   return result;
@@ -4396,6 +4422,8 @@ function updateMobMenuGig(active) {
     items.forEach(function(item) {
       if (item.style.display !== 'none') anyVisible = true;
     });
+    var grpBtn = grp.querySelector('.mob-grp-btn');
+    if (grpBtn) grpBtn.style.display = (active && !anyVisible) ? 'none' : '';
     grp.style.display = (active && !anyVisible) ? 'none' : '';
   });
 }
