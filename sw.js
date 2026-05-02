@@ -1,8 +1,9 @@
-/* XDJ-AZ Masterguide — Service Worker v1.24
-   Cache-Name ist hardcodiert — kein postMessage-Race-Condition.
-   Bei neuem Release: CACHE_NAME anpassen. */
+/* XDJ-AZ Masterguide — Service Worker (auto-versioned)
+   CACHE_NAME wird aus URL-Parameter ?v= gelesen.
+   index.html registriert: sw.js?v=APP_VERSION
+   → Kein manuelles Anpassen mehr nötig. */
 
-var CACHE_NAME = 'xdj-az-1.24';
+var CACHE_NAME = 'xdj-az-' + (self.location.search.replace('?v=','') || 'latest');
 var OFFLINE_URL = './index.html';
 
 self.addEventListener('install', function(e) {

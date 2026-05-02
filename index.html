@@ -132,7 +132,7 @@ header{position:sticky;top:0;z-index:200;background:var(--hdr-bg);-webkit-backdr
 
 
 /* ── THEME TOGGLE ── */
-.theme-btn{background:none;border:1px solid var(--bd);border-radius:20px;padding:4px 10px;cursor:pointer;color:var(--mu);font-size:14px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:5px;-webkit-transition:border-color .2s,color .2s;transition:border-color .2s,color .2s;-ms-flex-negative:0;flex-shrink:0;white-space:nowrap}
+.theme-btn{background:none;border:1px solid var(--bd);border-radius:8px;padding:5px 10px;cursor:pointer;color:var(--mu);font-size:14px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;justify-content:center;gap:5px;-webkit-transition:border-color .2s,color .2s;transition:border-color .2s,color .2s;-ms-flex-negative:0;flex-shrink:0;white-space:nowrap}
 .theme-btn:hover{border-color:var(--or);color:var(--or)}
 .theme-btn .tb-icon{font-size:16px}
 html.light .theme-btn .tb-dark{display:none}
@@ -296,7 +296,7 @@ footer a{color:var(--cy);text-decoration:none}
 .learn-box{border:1px solid var(--bd);border-radius:8px;overflow:hidden;margin:8px 0}
 .learn-hdr{width:100%;background:var(--bg2);border:none;color:var(--tx);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:calc(15px * var(--fs));font-weight:600;text-align:left;-webkit-transition:background .15s;transition:background .15s}
 .learn-hdr:hover{background:var(--bg3)}
-.learn-icon{font-size:16px;-ms-flex-negative:0;flex-shrink:0}
+.learn-icon{display:flex;align-items:center;justify-content:center;width:32px;height:32px;background:var(--bg3);border-radius:6px;flex-shrink:0;color:var(--cy)}
 .learn-title{-webkit-box-flex:1;-ms-flex:1;flex:1;line-height:1.3}
 .learn-sub{font-size:11px;font-weight:400;color:var(--mu);display:block;margin-top:2px;font-family:'Barlow',sans-serif}
 .learn-arr{margin-left:auto;font-size:9px;color:var(--mu);letter-spacing:1px;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:-webkit-transform .2s;transition:transform .2s;font-family:'Share Tech Mono',monospace}
@@ -505,6 +505,7 @@ html.gig-mode .mob-menu{top:80px}
 .read-btn:hover{opacity:1;background:var(--bg3)}
 .read-btn.rdone{color:var(--gr);opacity:1}
 .prog-btn{background:none;border:1px solid var(--bd);border-radius:12px;cursor:pointer;font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--mu);padding:3px 9px;letter-spacing:.5px;transition:border-color .15s,color .15s;white-space:nowrap}
+@media(max-width:780px){.prog-btn{display:none}}
 .prog-btn:hover{border-color:var(--gr);color:var(--gr)}
 
 .fth-ico{display:inline-block;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
@@ -521,6 +522,8 @@ html.gig-mode .mob-menu{top:80px}
 .sec-ico .fth-ico{stroke:var(--or)}
 .note-btn .fth-ico,.share-btn .fth-ico,.fav-btn .fth-ico{opacity:.7;transition:opacity .15s}
 .note-btn:hover .fth-ico,.share-btn:hover .fth-ico,.fav-btn:hover .fth-ico{opacity:1}
+.dot-gr{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--gr);margin-right:4px;vertical-align:middle}.dot-am{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--am);margin-right:4px;vertical-align:middle}.dot-rd{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--rd);margin-right:4px;vertical-align:middle}
+.ico-ok,.ico-err,.ico-warn{display:inline-flex;align-items:center;vertical-align:middle;margin-right:3px}
 </style>
 </head>
 <body>
@@ -559,7 +562,7 @@ html.gig-mode .mob-menu{top:80px}
     <div class="subnav-inner" id="subnav-inner"></div>
   </div>
 </header>
-<div class="gig-banner" id="gig-banner">🎛️ GIG MODE — NOCHMAL KLICKEN UM ZU BEENDEN</div>
+<div class="gig-banner" id="gig-banner"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> GIG MODE — NOCHMAL KLICKEN UM ZU BEENDEN</div>
 
 <!-- Mobile full menu overlay -->
   <div class="mob-menu" id="mob-menu">
@@ -608,7 +611,7 @@ html.gig-mode .mob-menu{top:80px}
   <div class="pro"><span class="ti"><svg class="fth-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><div><strong>Erstes Mal am Gerät?</strong> SYNC und Quantize anfangs ruhig nutzen – das ist kein Schummeln, sondern effizientes Lernen. Manuelles Beatmatching kommt mit der Zeit von selbst.</div></div>
   <div class="learn-box" style="margin-top:16px">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">📺</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg></span>
       <span class="learn-title">Komplettes XDJ-AZ Video-Manual (2h, kostenlos)<span class="learn-sub">Digital DJ Tips · Phil Morse erklärt jeden Knopf und jede Funktion</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -988,17 +991,17 @@ html.gig-mode .mob-menu{top:80px}
   </div>
   <div class="sub">USB-Dateisysteme</div>
   <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">FAT32 ✅</div><span class="badge b-gr">EMPFOHLEN</span></div><div class="c-desc">Universell kompatibel mit allen Geräten. Limit: max. 4 GB pro Datei (für DJs irrelevant). Gut für USB-Sticks bis 32 GB.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">exFAT ✅</div><span class="badge b-gr">EMPFOHLEN</span></div><div class="c-desc">Kein Dateigrößen-Limit. Ideal für SSDs und große USB-Sticks über 32 GB. Genauso kompatibel wie FAT32 am XDJ-AZ.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">NTFS ❌</div><span class="badge b-rd">NICHT UNTERSTÜTZT</span></div><div class="c-desc">Windows-Standard-Dateisystem wird vom XDJ-AZ <strong>nicht erkannt</strong>. Häufigste Fehlerquelle bei Windows-Nutzern. USB neu formatieren (exFAT) löst das Problem sofort.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">FAT32 <span class="ico-ok"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--gr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div><span class="badge b-gr">EMPFOHLEN</span></div><div class="c-desc">Universell kompatibel mit allen Geräten. Limit: max. 4 GB pro Datei (für DJs irrelevant). Gut für USB-Sticks bis 32 GB.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">exFAT <span class="ico-ok"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--gr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div><span class="badge b-gr">EMPFOHLEN</span></div><div class="c-desc">Kein Dateigrößen-Limit. Ideal für SSDs und große USB-Sticks über 32 GB. Genauso kompatibel wie FAT32 am XDJ-AZ.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">NTFS <span class="ico-err"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--rd)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div><span class="badge b-rd">NICHT UNTERSTÜTZT</span></div><div class="c-desc">Windows-Standard-Dateisystem wird vom XDJ-AZ <strong>nicht erkannt</strong>. Häufigste Fehlerquelle bei Windows-Nutzern. USB neu formatieren (exFAT) löst das Problem sofort.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Qualitäts-Empfehlung</div><span class="badge b-pu">SOUND</span></div><div class="c-desc">Für Club-Gigs: <strong>WAV oder FLAC bevorzugen</strong>. MP3 min. 320 kbps – nie darunter, auf guten Anlagen hört man 128 kbps deutlich. Streaming-Tracks: Qualität abhängig vom Dienst (Beatport meist 320 kbps).</div></div>
   </div>
   <div class="sub">Streaming-Realität 2025</div>
   <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Apple Music ✅ (ab Firmware 1.21)</div><span class="badge b-gr">STANDALONE</span></div><div class="c-desc">Direkt am Gerät ohne rekordbox-Abo. Zugriff auf über 100 Millionen Tracks mit BPM/Grid-Analyse. Kein Offline-Caching – stabile Internetverbindung nötig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Apple Music <span class="ico-ok"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--gr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> (ab Firmware 1.21)</div><span class="badge b-gr">STANDALONE</span></div><div class="c-desc">Direkt am Gerät ohne rekordbox-Abo. Zugriff auf über 100 Millionen Tracks mit BPM/Grid-Analyse. Kein Offline-Caching – stabile Internetverbindung nötig.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">CloudDirectPlay (rekordbox)</div><span class="badge b-cy">CLOUD</span></div><div class="c-desc">Cloud-basierte rekordbox-Library direkt am XDJ-AZ abrufen. Hot Cues auf dem iPhone setzen → sofort am Gerät verfügbar. Braucht <strong>rekordbox Creative oder Professional Plan</strong>. Kein USB-Export mehr nötig.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport ✅ (Abo nötig)</div><span class="badge b-gr">STANDALONE</span></div><div class="c-desc">StreamingDirectPlay direkt am Gerät. Braucht Beatport Streaming Professional/Advanced Abo. Beatsource-Content wird zunehmend in Beatport integriert.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">SoundCloud / TIDAL ⚠️</div><span class="badge b-am">NUR SERATO</span></div><div class="c-desc">SoundCloud Go+ und TIDAL nur über <strong>Serato DJ Pro</strong> am XDJ-AZ nutzbar – nicht standalone. Laptop nötig. Denon Prime 4+ bietet diese Dienste standalone – klarer Nachteil des XDJ-AZ.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport <span class="ico-ok"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--gr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> (Abo nötig)</div><span class="badge b-gr">STANDALONE</span></div><div class="c-desc">StreamingDirectPlay direkt am Gerät. Braucht Beatport Streaming Professional/Advanced Abo. Beatsource-Content wird zunehmend in Beatport integriert.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">SoundCloud / TIDAL <span class="ico-warn"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--am)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2"/></svg></span></div><span class="badge b-am">NUR SERATO</span></div><div class="c-desc">SoundCloud Go+ und TIDAL nur über <strong>Serato DJ Pro</strong> am XDJ-AZ nutzbar – nicht standalone. Laptop nötig. Denon Prime 4+ bietet diese Dienste standalone – klarer Nachteil des XDJ-AZ.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Keine Stems, kein Sampler</div><span class="badge b-rd">LIMITATION</span></div><div class="c-desc">Der XDJ-AZ wird <strong>keine Stems und keinen Pad-Sampler</strong> per Firmware-Update erhalten. Diese Features kommen erst im nächsten Modell. Wer das braucht: Denon Prime 4+ ist die Alternative.</div></div>
   </div>
 </section>
@@ -1072,12 +1075,12 @@ html.gig-mode .mob-menu{top:80px}
   </div>
   <div class="sub">Was kostet was – und was läuft standalone am XDJ-AZ?</div>
   <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Apple Music</div><span class="badge b-gr">STANDALONE ✅</span></div><div class="c-desc"><strong>~12 CHF/Monat</strong> (Individual) · ~18 CHF (Family). Direkt am XDJ-AZ via Firmware 1.21+. 100 Mio. Tracks. BPM/Grid-Analyse am Gerät. Kein rekordbox-Abo nötig. <strong>Bestes Preis-Leistungs-Verhältnis für Standalone.</strong></div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport Streaming</div><span class="badge b-gr">STANDALONE ✅</span></div><div class="c-desc"><strong>Essential ~11$/Monat</strong> · Advanced ~30$ · Professional ~60$. Direkt am XDJ-AZ via StreamingDirectPlay. DJ-fokussierter Katalog, hohe Audioqualität. Beatsource-Content wird integriert. Für Club-DJs der Platzhirsch.</div></div>
-    <div class="card" style="border-color:var(--gr)"><div class="c-hdr"><div class="c-ttl">TIDAL</div><span class="badge b-gr">STANDALONE ✅ (seit 1.30)</span></div><div class="c-desc"><strong>Neu seit Firmware 1.30 (April 2026):</strong> TIDAL läuft jetzt direkt standalone am XDJ-AZ via StreamingDirectPlay. Braucht <strong>TIDAL Individual oder Student Abo mit DJ-Extension</strong> (Add-On). HiFi-Qualität (FLAC), riesiger Katalog inkl. Indie und Underground. Damit hat der AZ jetzt <strong>3 Standalone-Streaming-Quellen</strong> (Apple Music, Beatport, TIDAL).</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Spotify</div><span class="badge b-am">NUR CONTROLLER-MODUS ⚠️</span></div><div class="c-desc"><strong>~11 CHF/Monat (Premium).</strong> Seit September 2025 in rekordbox, Serato DJ Pro und djay Pro integriert — aber <strong>nicht standalone am XDJ-AZ</strong>. Nur im Controller-Modus (Laptop angeschlossen). Für Standalone-Sets: bisher keine Unterstützung, auf Firmware-Updates achten. Aktuell nur in 51 Ländern verfügbar.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">SoundCloud Go+</div><span class="badge b-am">NUR SERATO ⚠️</span></div><div class="c-desc"><strong>~10$/Monat.</strong> Nur via Serato DJ Pro nutzbar, nicht standalone. Riesiger Indie/Underground-Katalog, viele DJ-Edits und Remixes die nirgends sonst zu finden sind. Für Nischen-DJs wichtig.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatsource</div><span class="badge b-am">NUR LAPTOP ⚠️</span></div><div class="c-desc"><strong>~20$/Monat.</strong> Open-Format-Streaming (Hip Hop, R&amp;B, Pop, Latin + Dance). Nur über rekordbox oder Serato im Laptop-Modus. Standalone-Integration bisher nicht verfügbar.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Apple Music</div><span class="badge b-gr">STANDALONE <span class="ico-ok"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--gr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></div><div class="c-desc"><strong>~12 CHF/Monat</strong> (Individual) · ~18 CHF (Family). Direkt am XDJ-AZ via Firmware 1.21+. 100 Mio. Tracks. BPM/Grid-Analyse am Gerät. Kein rekordbox-Abo nötig. <strong>Bestes Preis-Leistungs-Verhältnis für Standalone.</strong></div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport Streaming</div><span class="badge b-gr">STANDALONE <span class="ico-ok"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--gr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></div><div class="c-desc"><strong>Essential ~11$/Monat</strong> · Advanced ~30$ · Professional ~60$. Direkt am XDJ-AZ via StreamingDirectPlay. DJ-fokussierter Katalog, hohe Audioqualität. Beatsource-Content wird integriert. Für Club-DJs der Platzhirsch.</div></div>
+    <div class="card" style="border-color:var(--gr)"><div class="c-hdr"><div class="c-ttl">TIDAL</div><span class="badge b-gr">STANDALONE <span class="ico-ok"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--gr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> (seit 1.30)</span></div><div class="c-desc"><strong>Neu seit Firmware 1.30 (April 2026):</strong> TIDAL läuft jetzt direkt standalone am XDJ-AZ via StreamingDirectPlay. Braucht <strong>TIDAL Individual oder Student Abo mit DJ-Extension</strong> (Add-On). HiFi-Qualität (FLAC), riesiger Katalog inkl. Indie und Underground. Damit hat der AZ jetzt <strong>3 Standalone-Streaming-Quellen</strong> (Apple Music, Beatport, TIDAL).</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Spotify</div><span class="badge b-am">NUR CONTROLLER-MODUS <span class="ico-warn"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--am)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2"/></svg></span></span></div><div class="c-desc"><strong>~11 CHF/Monat (Premium).</strong> Seit September 2025 in rekordbox, Serato DJ Pro und djay Pro integriert — aber <strong>nicht standalone am XDJ-AZ</strong>. Nur im Controller-Modus (Laptop angeschlossen). Für Standalone-Sets: bisher keine Unterstützung, auf Firmware-Updates achten. Aktuell nur in 51 Ländern verfügbar.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">SoundCloud Go+</div><span class="badge b-am">NUR SERATO <span class="ico-warn"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--am)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2"/></svg></span></span></div><div class="c-desc"><strong>~10$/Monat.</strong> Nur via Serato DJ Pro nutzbar, nicht standalone. Riesiger Indie/Underground-Katalog, viele DJ-Edits und Remixes die nirgends sonst zu finden sind. Für Nischen-DJs wichtig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatsource</div><span class="badge b-am">NUR LAPTOP <span class="ico-warn"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--am)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2"/></svg></span></span></div><div class="c-desc"><strong>~20$/Monat.</strong> Open-Format-Streaming (Hip Hop, R&amp;B, Pop, Latin + Dance). Nur über rekordbox oder Serato im Laptop-Modus. Standalone-Integration bisher nicht verfügbar.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">rekordbox Cloud Option</div><span class="badge b-cy">ZUSATZ</span></div><div class="c-desc"><strong>~5$/Monat.</strong> Ermöglicht CloudDirectPlay – deine rekordbox-Library mit Hot Cues direkt am Gerät ohne USB. Kein separater Streaming-Dienst, sondern Cloud-Sync deiner eigenen Tracks.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">rekordbox Creative/Pro Plan</div><span class="badge b-cy">OPTIONAL</span></div><div class="c-desc"><strong>~15–30$/Monat</strong> (je nach Plan). Enthält CloudDirectPlay + erweiterte rekordbox-Features. Für die meisten DJs ist der günstige Cloud Option (~5$) + Apple Music die bessere Kombination.</div></div>
   </div>
@@ -1165,7 +1168,7 @@ html.gig-mode .mob-menu{top:80px}
   </div>
   <div class="learn-box" style="margin-top:14px">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">📚</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
       <span class="learn-title">Weiterlernen: DJ Library organisieren<span class="learn-sub">Digital DJ Tips · Playlist Pyramid Framework + Miniset-Methode</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -1228,13 +1231,13 @@ html.gig-mode .mob-menu{top:80px}
     <div class="card"><div class="c-hdr"><div class="c-ttl">Mp3Tag (kostenlos)</div><span class="badge b-gr">TOOL</span></div><div class="c-desc"><a href="https://www.mp3tag.de" target="_blank" style="color:var(--gr)">mp3tag.de</a> – Kostenloses Tool für <strong>Massen-Tagging</strong>: Genre, Label, Jahr, Album Art in Hunderten Tracks gleichzeitig editieren. Schneller als in rekordbox einzeln. Dann rekordbox neu analysieren lassen.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">DJ.Studio rekordbox-Integration</div><span class="badge b-cy">TOOL</span></div><div class="c-desc"><a href="https://dj.studio" target="_blank" style="color:var(--cy)">dj.studio</a> – <strong>Set mit harmonischer Reihenfolge planen</strong> → als rekordbox-Playlist mit Hot Cues zurückexportieren. Non-lineares Set-Prep ohne Decks aufzubauen. Automatische Key/BPM-Reihenfolge-Vorschläge.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">rekordbox nie sofort updaten</div><span class="badge b-rd">WARNUNG</span></div><div class="c-desc">Community-Konsens: <strong>2–4 Wochen nach Release warten</strong> bevor du updatest. rekordbox-Updates bringen oft mehr Bugs als Fixes. Patch-Notes lesen, Community-Feedback abwarten. Backup der alten Version behalten. Nie direkt vor einem wichtigen Gig.</div></div>
-    <div class="card" style="border-color:var(--rd)"><div class="c-hdr"><div class="c-ttl">⚠️ rekordbox 6 → 7 Upgrade-Pflicht</div><span class="badge b-rd">STOLPERFALLE</span></div><div class="c-desc">Der XDJ-AZ ist <strong>Hardware Unlock nur in rekordbox 7</strong> — in rekordbox 6 funktioniert das Gerät nur im Free Plan ohne Hardware Unlock. Häufiges Problem: Update Manager bleibt bei Version 6 stehen, Gerät wird nicht als Controller erkannt. <strong>Lösung:</strong> Direkt auf rekordbox.com gehen → RB7 manuell herunterladen und installieren. Deine Library und Playlists werden automatisch migriert. 1–2 Wochen vor einem wichtigen Gig updaten und testen.</div></div>
+    <div class="card" style="border-color:var(--rd)"><div class="c-hdr"><div class="c-ttl"><span class="ico-warn"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--am)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2"/></svg></span> rekordbox 6 → 7 Upgrade-Pflicht</div><span class="badge b-rd">STOLPERFALLE</span></div><div class="c-desc">Der XDJ-AZ ist <strong>Hardware Unlock nur in rekordbox 7</strong> — in rekordbox 6 funktioniert das Gerät nur im Free Plan ohne Hardware Unlock. Häufiges Problem: Update Manager bleibt bei Version 6 stehen, Gerät wird nicht als Controller erkannt. <strong>Lösung:</strong> Direkt auf rekordbox.com gehen → RB7 manuell herunterladen und installieren. Deine Library und Playlists werden automatisch migriert. 1–2 Wochen vor einem wichtigen Gig updaten und testen.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Export-Zeit einplanen</div><span class="badge b-rd">WARNUNG</span></div><div class="c-desc"><strong>Immer 1 Stunde für USB-Export einplanen</strong> – Haupt-Stick und Backup. Dauert immer länger als erwartet, besonders nach vielen neuen Tracks. Export NIE als letzten Schritt 5 Minuten vor Abfahrt. Puffer einbauen.</div></div>
   </div>
   <div class="tip"><span class="ti"><svg class="fth-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16" stroke-width="2"/></svg></span><div><strong>Library-Schichten-System:</strong> Metadaten in Layern denken. Layer 1: Genre/BPM/Key (automatisch). Layer 2: Energy/Mood (manuell). Layer 3: My Tags ("Peak", "Opener", "Vocal Tool"). Layer 4: Farb-Codierung. Wer alle 4 Layer pflegt, braucht im Gig nie nachzudenken.</div></div>
   <div class="learn-box" style="margin-top:14px">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">📖</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
       <span class="learn-title">Weiterlernen: rekordbox Guides<span class="learn-sub">2 kostenlose Ressourcen · RB7 Ultimate Guide + Library Mess-Artikel</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -1454,7 +1457,7 @@ html.gig-mode .mob-menu{top:80px}
   <div class="tc">
     <div class="tc-hdr"><span class="tc-num">02</span><div class="tc-ttl">Hard Cut / Power Cut</div><span class="tc-lv lv-b">BEGINNER</span></div>
     <div class="tc-body">Abrupter Schnitt – kein Blenden, kein Overap. Standard in Techno, DnB, Hard Techno. Wirkt aggressiv und direkt – bei richtiger Phrase sehr kraftvoll.<div class="ts"><div class="tr"><span class="tn">01</span>Neuen Track auf Cue-Punkt bereit stellen (Hot Cue A am ersten Beat)</div><div class="tr"><span class="tn">02</span>Auf Beat 64 (Phrasen-Ende) des alten Tracks warten</div><div class="tr"><span class="tn">03</span>Kanalfader des alten: runter. Kanalfader des neuen: rauf – in einer Bewegung</div><div class="tr"><span class="tn">04</span>Neuer Track startet auf Beat 1. Fertig.</div></div>
-    <div style="margin-top:8px;color:var(--mu);font-size:12px">⚠️ Funktioniert nur wenn Phrasen-Grenze exakt getroffen und BPM identisch. Kleinster Timing-Fehler = hörbar holprig.</div></div>
+    <div style="margin-top:8px;color:var(--mu);font-size:12px"><span class="ico-warn"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--am)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2"/></svg></span> Funktioniert nur wenn Phrasen-Grenze exakt getroffen und BPM identisch. Kleinster Timing-Fehler = hörbar holprig.</div></div>
   </div>
 
   <div class="tc">
@@ -1488,7 +1491,7 @@ html.gig-mode .mob-menu{top:80px}
   <div class="tc">
     <div class="tc-hdr"><span class="tc-num">08</span><div class="tc-ttl">Double Drop</div><span class="tc-lv lv-a">ADVANCED</span></div>
     <div class="tc-body">Beide Tracks treffen <strong>gleichzeitig den Drop</strong> – massiver Crowd-Moment. Einer der wirkungsvollsten Tricks am XDJ-AZ mit 4 Decks.<div class="ts"><div class="tr"><span class="tn">01</span>Track A auf Drop positioniert, Track B auf Beginn seines Buildups</div><div class="tr"><span class="tn">02</span>Beat Sync: beide Tracks synchronisiert, BPM exakt gleich</div><div class="tr"><span class="tn">03</span>Track B: Bass raus, als "atmosphärische Schicht" zumischen</div><div class="tr"><span class="tn">04</span>Beide Drops landen auf Beat 1 – Kanalfader B hochreissen</div><div class="tr"><span class="tn">05</span>Beide Bässe voll gleichzeitig → kurzer Peak, dann schnell einen ausfaden</div></div>
-    <div style="margin-top:8px;color:var(--mu);font-size:12px">⚠️ Max. 4–8 Beats mit beiden Bässen voll – danach Frequenz-Trennung oder einen ausfaden. Klingt sonst matschig.</div></div>
+    <div style="margin-top:8px;color:var(--mu);font-size:12px"><span class="ico-warn"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--am)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2"/></svg></span> Max. 4–8 Beats mit beiden Bässen voll – danach Frequenz-Trennung oder einen ausfaden. Klingt sonst matschig.</div></div>
   </div>
 
   <div class="tc">
@@ -1525,7 +1528,7 @@ html.gig-mode .mob-menu{top:80px}
   <div class="insider"><span class="ti"><svg class="fth-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span><div><strong>Point Blank Music School:</strong> "Die technisch besten DJs sind nicht die erfolgreichsten. Die erfolgreichsten DJs sind jene die die Crowd lesen können – und dann die Technik einsetzen um das auszudrücken was die Crowd gerade braucht."</div></div>
   <div class="learn-box" style="margin-top:14px">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">🎚️</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></span>
       <span class="learn-title">Weiterlernen: Mixing-Techniken vertiefen<span class="learn-sub">3 Ressourcen · inkl. kostenlose Checklisten-PDFs von Club Ready DJ School</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -1606,7 +1609,7 @@ html.gig-mode .mob-menu{top:80px}
   <div class="insider"><span class="ti"><svg class="fth-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span><div><strong>Digital DJ Tips (Phil Morse):</strong> "Die meisten DJs nutzen vielleicht 20% der Features ihres Geräts. Nicht weil sie faul sind – sondern weil niemand ihnen je erklärt hat was der Rest tut. Touch Preview allein spart pro Set mehrere Minuten hektisches Suchen."</div></div>
   <div class="learn-box" style="margin-top:14px">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">🔮</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>
       <span class="learn-title">Weiterlernen: Versteckte CDJ/XDJ-Funktionen<span class="learn-sub">Digital DJ Tips · 10 Dinge die du über den CDJ-3000 nicht weisst</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -1823,9 +1826,9 @@ html.gig-mode .mob-menu{top:80px}
     </table>
   </div>
   <div style="display:-webkit-box;display:-ms-flexbox;display:flex;gap:16px;margin-top:14px;-ms-flex-wrap:wrap;flex-wrap:wrap;font-size:12px;color:var(--mu)">
-    <span>🟢 Passt sehr gut</span>
-    <span>🟡 Mit Vorsicht / BPM anpassen</span>
-    <span>🔴 Schwierig / Stilbruch</span>
+    <span><span class="dot-gr"></span> Passt sehr gut</span>
+    <span><span class="dot-am"></span> Mit Vorsicht / BPM anpassen</span>
+    <span><span class="dot-rd"></span> Schwierig / Stilbruch</span>
     <span>⬛ Gleicher Bereich</span>
   </div>
   <div class="cards" style="margin-top:20px">
@@ -1856,7 +1859,7 @@ html.gig-mode .mob-menu{top:80px}
   </div>
   <div class="learn-box" style="margin-top:14px">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">🎵</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
       <span class="learn-title">Weiterlernen: Key &amp; Harmonisches Mixen<span class="learn-sub">Digital DJ Tips · Fuzzy Keymixing + Key-Filter in rekordbox</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -2352,7 +2355,7 @@ html.gig-mode .mob-menu{top:80px}
     <div><div class="sec-num">55 / </div><div class="sec-ttl">Probleme <em>lösen &amp; vermeiden</em></div></div><div class="sec-actions"><button type="button" class="read-btn" id="read-btn-trouble" onclick="toggleRead('trouble')" title="Als gelesen markieren"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></button><button type="button" class="fav-btn" id="fav-trouble" onclick="toggleFav('trouble')" title="Favorit"><svg class="fth-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></button><button type="button" class="note-btn" id="note-btn-trouble" onclick="openNote('trouble')" title="Notiz"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></button><button type="button" class="share-btn" id="share-btn-trouble" onclick="shareSection('trouble')" title="Link kopieren"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 015 5 5 5 0 01-5 5h-3m-6 0H6a5 5 0 01-5-5 5 5 0 015-5h3"/><line x1="8" y1="12" x2="16" y2="12"/></svg></button></div>
   </div>
   <div class="cards">
-    <div class="card" style="border-color:var(--rd)"><div class="c-hdr"><div class="c-ttl">⚠️ Windows 11: MIDI-Services-Bug (seit Jan 2026)</div><span class="badge b-rd">AKTUELL</span></div><div class="c-desc">Ein automatisches Windows-11-Update seit Ende Januar 2026 bricht viele DJ-Controller und MIDI-Geräte — sie erscheinen komplett tot (kein Audio, keine LED, keine Software-Verbindung). Ursache: <strong>Microsoft "Windows Midi Services"</strong> (MIDI 2.0-Überschreibung) rollt sich still via Windows Update aus. <strong>Lösung:</strong> Geräteverwaltung → "Windows MIDI Services" deaktivieren oder deinstallieren. Alternativ: Windows Update → Update-Historie → das betreffende KB-Update rückgängig machen. Betrifft Serato, rekordbox, Traktor, VirtualDJ gleichermassen.</div></div>
+    <div class="card" style="border-color:var(--rd)"><div class="c-hdr"><div class="c-ttl"><span class="ico-warn"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--am)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2"/></svg></span> Windows 11: MIDI-Services-Bug (seit Jan 2026)</div><span class="badge b-rd">AKTUELL</span></div><div class="c-desc">Ein automatisches Windows-11-Update seit Ende Januar 2026 bricht viele DJ-Controller und MIDI-Geräte — sie erscheinen komplett tot (kein Audio, keine LED, keine Software-Verbindung). Ursache: <strong>Microsoft "Windows Midi Services"</strong> (MIDI 2.0-Überschreibung) rollt sich still via Windows Update aus. <strong>Lösung:</strong> Geräteverwaltung → "Windows MIDI Services" deaktivieren oder deinstallieren. Alternativ: Windows Update → Update-Historie → das betreffende KB-Update rückgängig machen. Betrifft Serato, rekordbox, Traktor, VirtualDJ gleichermassen.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">"Library is not responding"</div><span class="badge b-rd">HÄUFIG</span></div><div class="c-desc"><strong>Lösung:</strong> Firmware auf 1.24 oder neuer updaten. Dieser Bug betraf viele frühe Produktionschargen und wurde per Update behoben. Danach nie wieder aufgetreten laut Community-Reports.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">USB wird nicht erkannt</div><span class="badge b-or">HÄUFIG</span></div><div class="c-desc">1. Dateisystem prüfen – muss <strong>FAT32 oder exFAT</strong> sein (nicht NTFS). 2. USB neu in rekordbox exportieren. 3. Anderen USB-Slot versuchen. 4. Qualitativ besseren Stick verwenden.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Audio-Dropouts / Knistern</div><span class="badge b-or">HARDWARE</span></div><div class="c-desc">Bei frühen Produktionseinheiten aufgetreten. Firmware-Update und evtl. Garantiereparatur. Aktuell produzierte Geräte sind laut AlphaTheta fehlerfrei. Bei Neukauf: Gerät sofort testen.</div></div>
@@ -2387,7 +2390,7 @@ html.gig-mode .mob-menu{top:80px}
   </div>
   <div class="learn-box" style="margin-top:14px">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">🔧</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></span>
       <span class="learn-title">Weiterlernen: Gig-Ausfälle verhindern<span class="learn-sub">Club Ready DJ School · kostenloses PDF: 5 Ways to Fail-Proof Your Shows</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -2469,7 +2472,7 @@ html.gig-mode .mob-menu{top:80px}
   <div class="insider"><span class="ti"><svg class="fth-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span><div><strong>Crossfader / wearecrossfader.co.uk:</strong> "Networking ist keine Strategie – es ist eine Lebenseinstellung. Die DJs die am schnellsten aufsteigen sind nicht unbedingt die technisch besten. Sie sind die aktivsten, freundlichsten und verlässlichsten in ihrer Szene."</div></div>
   <div class="learn-box" style="margin-top:14px">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">🚪</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></span>
       <span class="learn-title">Weiterlernen: Gigs bekommen &amp; Karriere aufbauen<span class="learn-sub">Digital DJ Tips · 50 Wege zu Gigs (PDF) + Where To Get Gigs + Local to Global</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -2622,7 +2625,7 @@ html.gig-mode .mob-menu{top:80px}
   <!-- 1. XDJ-AZ spezifisch -->
   <div class="learn-box">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">🎛️</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></span>
       <span class="learn-title">XDJ-AZ Video-Manuals &amp; Guides<span class="learn-sub">Digital DJ Tips · 3 Ressourcen · alle kostenlos</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -2645,7 +2648,7 @@ html.gig-mode .mob-menu{top:80px}
   <!-- 2. rekordbox -->
   <div class="learn-box">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">🗄️</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6" stroke-width="2"/><line x1="6" y1="18" x2="6.01" y2="18" stroke-width="2"/></svg></span>
       <span class="learn-title">rekordbox – Deep Dives &amp; Workflow<span class="learn-sub">DDTJ + Club Ready DJ School · 5 Ressourcen · mix kostenlos/kostenpflichtig</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -2676,7 +2679,7 @@ html.gig-mode .mob-menu{top:80px}
   <!-- 3. Mixing & Übergänge -->
   <div class="learn-box">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">🎚️</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></span>
       <span class="learn-title">Mixing, Übergänge &amp; Techniken<span class="learn-sub">DDTJ + Club Ready · 5 Ressourcen · inkl. kostenlose PDFs</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -2707,7 +2710,7 @@ html.gig-mode .mob-menu{top:80px}
   <!-- 4. Key & Harmonic Mixing -->
   <div class="learn-box">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">🎵</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
       <span class="learn-title">Key &amp; Harmonisches Mixen<span class="learn-sub">Digital DJ Tips · 2 Ressourcen · kostenlos</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -2726,7 +2729,7 @@ html.gig-mode .mob-menu{top:80px}
   <!-- 5. Karriere & Gigs -->
   <div class="learn-box">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">🚪</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></span>
       <span class="learn-title">Karriere, Gigs &amp; Selbstvermarktung<span class="learn-sub">Digital DJ Tips · 4 Ressourcen · inkl. gratis PDF mit 50 Ideen</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -2753,7 +2756,7 @@ html.gig-mode .mob-menu{top:80px}
   <!-- 6. YouTube Channels -->
   <div class="learn-box">
     <button type="button" class="learn-hdr" onclick="toggleLearn(this)">
-      <span class="learn-icon">📺</span>
+      <span class="learn-icon"><svg class="fth-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg></span>
       <span class="learn-title">YouTube-Kanäle – kuratiert<span class="learn-sub">Für regelmässiges Weiterlernen · alle kostenlos</span></span>
       <span class="learn-arr">▶</span>
     </button>
@@ -2849,7 +2852,7 @@ html.gig-mode .mob-menu{top:80px}
 <footer>XDJ-AZ MASTERGUIDE · <span>ALPHA THETA × PIONEER DJ</span> · PRO REFERENCE · DJ SCHOOL INSIDER · ALLE INHALTE OHNE GARANTIE</footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var APP_VERSION = '1.24';
+var APP_VERSION = '1.27';
 /* ── THEME TOGGLE ─────────────────────────────────── */
 (function(){
   try { if(localStorage.getItem('theme')==='light') document.documentElement.classList.add('light'); } catch(e){}
@@ -2954,7 +2957,7 @@ var GROUPS = {
     {id:'rb7', lbl:'✨ rekordbox 7'}
   ],
   spielen: [
-    {id:'hotcues', lbl:'🔴 Hot Cues'},
+    {id:'hotcues', lbl:'<span class="dot-rd"></span> Hot Cues'},
     {id:'looping', lbl:'🔁 Looping'},
     {id:'fx', lbl:'🎚️ FX'},
     {id:'mixing', lbl:'🎛️ Mixing'},
@@ -2984,7 +2987,7 @@ var GROUPS = {
     {id:'b2b', lbl:'🤝 B2B'}
   ],
   gig: [
-    {id:'pregig', lbl:'✅ Pre-Gig'},
+    {id:'pregig', lbl:'<span class="ico-ok"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--gr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Pre-Gig'},
     {id:'soundcheck', lbl:'🔊 Soundcheck'},
     {id:'gigbag', lbl:'🎒 Gig-Bag'},
     {id:'trouble', lbl:'🔧 Troubleshooting'}
@@ -3127,7 +3130,7 @@ var GROUPS = {
     {id:'rb7', lbl:'✨ rekordbox 7'}
   ],
   spielen: [
-    {id:'hotcues', lbl:'🔴 Hot Cues'},
+    {id:'hotcues', lbl:'<span class="dot-rd"></span> Hot Cues'},
     {id:'looping', lbl:'🔁 Looping'},
     {id:'fx', lbl:'🎚️ FX'},
     {id:'mixing', lbl:'🎛️ Mixing'},
@@ -3157,7 +3160,7 @@ var GROUPS = {
     {id:'b2b', lbl:'🤝 B2B Workflow'}
   ],
   gig: [
-    {id:'pregig', lbl:'✅ Pre-Gig'},
+    {id:'pregig', lbl:'<span class="ico-ok"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--gr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Pre-Gig'},
     {id:'soundcheck', lbl:'🔊 Soundcheck'},
     {id:'gigbag', lbl:'🎒 Gig-Bag'},
     {id:'trouble', lbl:'🔧 Troubleshooting'}
@@ -3291,7 +3294,7 @@ function showCamDetails(key){
     +'<div style="font-size:calc(12px * var(--fs));color:var(--mu);margin-bottom:12px">'+durLabel+'</div>'
     +'<div style="display:grid;gap:5px">'
     +'<div style="background:var(--bg3);border-radius:5px;padding:6px 10px;font-size:calc(11px * var(--fs));">'
-    +'<span style="color:var(--gr);font-weight:700">✅ Sicher (±1, A↔B, Diagonal)</span><br>'
+    +'<span style="color:var(--gr);font-weight:700"><span class="ico-ok"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--gr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Sicher (±1, A↔B, Diagonal)</span><br>'
     +'<span style="color:var(--tx)">'+safeKeys+'</span></div>'
     +'<div style="background:var(--bg3);border-radius:5px;padding:6px 10px;font-size:calc(11px * var(--fs));">'
     +'<span style="color:var(--am);font-weight:700">⬆️ Energie Boost (+2)</span><br>'
@@ -3382,47 +3385,47 @@ function checkKeys(){
   var sameN=n1===n2, sameL=l1===l2, sameKey=v1===v2;
   var label='', color='', icon='', desc='', energy='', mood='';
   if(sameKey){
-    label='Identischer Key'; color='var(--gr)'; icon='🟢';
+    label='Identischer Key'; color='var(--gr)'; icon='<span class="dot-gr"></span>';
     desc='Perfekte Harmonie. Kein Clash möglich. Ideal für lange Blends.';
     energy='Energie: Neutral'; mood='Stimmung: Unverändert';
   } else if(sameN && !sameL){
-    label='Paralleltonart (A↔B)'; color='var(--gr)'; icon='🟢';
+    label='Paralleltonart (A↔B)'; color='var(--gr)'; icon='<span class="dot-gr"></span>';
     if(l1==='A'&&l2==='B'){desc='Moll → Dur. Gleiche Noten, heller Modus.'; energy='Energie: leicht steigend'; mood='Stimmung: hellt auf → Euphorie';}
     else{desc='Dur → Moll. Gleiche Noten, dunkler Modus.'; energy='Energie: leicht fallend'; mood='Stimmung: dunkler, emotionaler';}
   } else if(sameL && diff===1){
-    label='Perfekte Quinte (+1)'; color='var(--gr)'; icon='🟢';
+    label='Perfekte Quinte (+1)'; color='var(--gr)'; icon='<span class="dot-gr"></span>';
     desc='Einen Schritt im Uhrzeigersinn. Glattester Übergang überhaupt.';
     energy='Energie: sanft steigend'; mood='Stimmung: leicht positiver';
   } else if(sameL && diff===11){
-    label='Perfekte Quinte (−1)'; color='var(--gr)'; icon='🟢';
+    label='Perfekte Quinte (−1)'; color='var(--gr)'; icon='<span class="dot-gr"></span>';
     desc='Einen Schritt gegen den Uhrzeigersinn. Sehr smooth.';
     energy='Energie: sanft fallend'; mood='Stimmung: entspannter';
   } else if(l1==='B' && l2==='A' && diff===1){
-    label='Diagonaler Mix (nB → n+1A)'; color='var(--pu)'; icon='🟢';
+    label='Diagonaler Mix (nB → n+1A)'; color='var(--pu)'; icon='<span class="dot-gr"></span>';
     desc='Major → nächste Minor. Überraschend smooth – Noten harmonisch verwandt. Dramatischer Charakter-Wechsel ohne Clash.';
     energy='Energie: neutral bis steigend'; mood='Stimmung: von hell zu dunkel, dramatisch';
   } else if(l1==='A' && l2==='B' && diff===11){
-    label='Diagonaler Mix (nA → n−1B)'; color='var(--pu)'; icon='🟢';
+    label='Diagonaler Mix (nA → n−1B)'; color='var(--pu)'; icon='<span class="dot-gr"></span>';
     desc='Minor → vorherige Major. Smooth diagonal move.';
     energy='Energie: neutral'; mood='Stimmung: von dunkel zu hell';
   } else if(sameL && diff===2){
-    label='Energy Boost (+2)'; color='var(--am)'; icon='🟡';
+    label='Energy Boost (+2)'; color='var(--am)'; icon='<span class="dot-am"></span>';
     desc='Zwei Schritte hoch – gleicher Modus. Spürbare Energie-Steigerung. Kurzen Übergang wählen!';
     energy='Energie: deutlich steigend ↑↑'; mood='Stimmung: aufgeweckt, Peak-Vorbereitung';
   } else if(sameL && diff===10){
-    label='Energy Drop (−2)'; color='var(--cy)'; icon='🟡';
+    label='Energy Drop (−2)'; color='var(--cy)'; icon='<span class="dot-am"></span>';
     desc='Zwei Schritte runter – gleicher Modus. Set abrunden oder Ruhephase einleiten.';
     energy='Energie: deutlich fallend ↓↓'; mood='Stimmung: entspannend, Abrundung';
   } else if(diff===4){
-    label='Guetta-Boost (+4)'; color='var(--or)'; icon='🟡';
+    label='Guetta-Boost (+4)'; color='var(--or)'; icon='<span class="dot-am"></span>';
     desc='Dissonant aber manchmal spektakulär. Nur für Tracks mit einfachen Melodien. Kurzer Übergang!';
     energy='Energie: stark steigend (mit Risiko)'; mood='Stimmung: Aufmerksamkeits-Grabber';
   } else if(diff===6){
-    label='Maximale Dissonanz (±6)'; color='var(--rd)'; icon='🔴';
+    label='Maximale Dissonanz (±6)'; color='var(--rd)'; icon='<span class="dot-rd"></span>';
     desc='Gegenüberliegende Seite des Wheels. Klingt dissonant. Nur als bewusster Schock-Moment – einmal pro Set, kurz.';
     energy='Energie: unberechenbar'; mood='Stimmung: harter Bruch';
   } else {
-    label='Nicht kompatibel – mit Vorsicht'; color='var(--am)'; icon='⚠️';
+    label='Nicht kompatibel – mit Vorsicht'; color='var(--am)'; icon='<span class="ico-warn"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--am)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2"/></svg></span>';
     desc='Diese Kombination liegt ausserhalb der Camelot-Regeln. Mischung auf Drum-Break reduzieren oder Bass ausblenden. Im Proberaum testen.';
     energy='Energie: unvorhersehbar'; mood='Stimmung: experimentell – Risiko';
   }
@@ -3788,7 +3791,7 @@ calcBPM();
     [1,2,1,0,1,0,1,2,0,4,1],
     [3,4,2,1,2,0,1,0,0,1,4],
   ];
-  var emoji=['⬛','🔴','🟡','🟡','🟢'];
+  var emoji=['⬛','<span class="dot-rd"></span>','<span class="dot-am"></span>','<span class="dot-am"></span>','<span class="dot-gr"></span>'];
   var html='<table style="border-collapse:collapse;font-size:10px"><tr><td style="width:80px"></td>';
   genres.forEach(function(g){
     html+='<th style="padding:4px 2px;writing-mode:vertical-lr;transform:rotate(180deg);font-family:\'Barlow\',sans-serif;color:var(--mu);font-weight:600;font-size:10px">'+g+'</th>';
@@ -3799,7 +3802,7 @@ calcBPM();
     row.forEach(function(v){html+='<td style="text-align:center;font-size:14px;padding:2px">'+emoji[v]+'</td>';});
     html+='</tr>';
   });
-  html+='</table><div style="margin-top:8px;font-size:10px;color:var(--mu)">🟢 Perfekt · 🟡 Möglich · 🔴 Schwierig · ⬛ Stilbruch</div>';
+  html+='</table><div style="margin-top:8px;font-size:10px;color:var(--mu)"><span class="dot-gr"></span> Perfekt · <span class="dot-am"></span> Möglich · <span class="dot-rd"></span> Schwierig · ⬛ Stilbruch</div>';
   tbl.innerHTML=html;
 })();
 
@@ -4539,7 +4542,7 @@ function toggleGigMode() {
 /* ── SERVICE WORKER ──────────────────────────────── */
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('./sw.js').catch(function(e) {
+    navigator.serviceWorker.register('./sw.js?v='+APP_VERSION).catch(function(e) {
       console.warn('SW registration failed:', e);
     });
   });
@@ -4697,7 +4700,7 @@ document.addEventListener('DOMContentLoaded',function(){initReadState();});
 <div class="note-modal" id="note-modal" onclick="closeNoteModal(event)">
   <div class="note-box" onclick="event.stopPropagation()">
     <div class="note-box-hdr">
-      <div class="note-box-title" id="note-modal-title">📝 NOTIZ</div>
+      <div class="note-box-title" id="note-modal-title"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg> NOTIZ</div>
       <button type="button" class="note-close" onclick="closeNoteModal()">×</button>
     </div>
     <textarea id="note-textarea" placeholder="Eigene Notizen zu dieser Sektion…" oninput="updateNoteChar()"></textarea>
