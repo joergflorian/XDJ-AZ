@@ -524,6 +524,21 @@ html.gig-mode .mob-menu{top:80px}
 .note-btn:hover .fth-ico,.share-btn:hover .fth-ico,.fav-btn:hover .fth-ico{opacity:1}
 .dot-gr{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--gr);margin-right:4px;vertical-align:middle}.dot-am{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--am);margin-right:4px;vertical-align:middle}.dot-rd{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--rd);margin-right:4px;vertical-align:middle}
 .ico-ok,.ico-err,.ico-warn{display:inline-flex;align-items:center;vertical-align:middle;margin-right:3px}
+
+.favs-footer{border-top:1px solid var(--bd);padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.data-row{display:flex;gap:6px}
+.data-lbl{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--mu);margin-bottom:2px}
+.data-btn{flex:1;background:none;border:1px solid var(--bd);border-radius:6px;padding:6px 4px;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;color:var(--mu);cursor:pointer;transition:border-color .15s,color .15s;display:flex;align-items:center;justify-content:center;gap:5px}
+.data-btn:hover{border-color:var(--cy);color:var(--cy)}
+.data-btn.danger:hover{border-color:var(--rd);color:var(--rd)}
+.data-btn svg{flex-shrink:0}
+.data-confirm{display:none;background:var(--bg4);border:1px solid var(--rd);border-radius:6px;padding:8px 10px;font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--tx);text-align:center}
+.data-confirm.show{display:block}
+.data-confirm-btns{display:flex;gap:6px;margin-top:6px}
+.dcb{flex:1;border:1px solid var(--bd);background:none;border-radius:5px;padding:4px;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;cursor:pointer;color:var(--mu)}
+.dcb.yes{border-color:var(--rd);color:var(--rd)}
+.dcb.yes:hover{background:var(--rd);color:#fff}
+.dcb.no:hover{border-color:var(--cy);color:var(--cy)}
 </style>
 </head>
 <body>
@@ -2852,7 +2867,7 @@ html.gig-mode .mob-menu{top:80px}
 <footer>XDJ-AZ MASTERGUIDE · <span>ALPHA THETA × PIONEER DJ</span> · PRO REFERENCE · DJ SCHOOL INSIDER · ALLE INHALTE OHNE GARANTIE</footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var APP_VERSION = '1.27';
+var APP_VERSION = '1.28';
 /* ── THEME TOGGLE ─────────────────────────────────── */
 (function(){
   try { if(localStorage.getItem('theme')==='light') document.documentElement.classList.add('light'); } catch(e){}
@@ -4669,6 +4684,71 @@ function initReadState(){
   updateProgPill();
 }
 document.addEventListener('DOMContentLoaded',function(){initReadState();});
+
+/* ── DATA MANAGEMENT ──────────────────────────────── */
+function exportData(){
+  var data={
+    version: APP_VERSION,
+    exported: new Date().toISOString().slice(0,10),
+    favs: getFavs(),
+    notes: (function(){try{return JSON.parse(localStorage.getItem('notes')||'{}');}catch(e){return {};}}()),
+    read: getRd()
+  };
+  var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');
+  a.href=url;
+  a.download='xdj-az-backup-'+data.exported+'.json';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},1000);
+}
+function importData(e){
+  var file=e.target.files[0];
+  if(!file) return;
+  var reader=new FileReader();
+  reader.onload=function(ev){
+    try{
+      var data=JSON.parse(ev.target.result);
+      if(data.favs&&Array.isArray(data.favs)) saveFavs(data.favs);
+      if(data.notes&&typeof data.notes==='object') localStorage.setItem('notes',JSON.stringify(data.notes));
+      if(data.read&&typeof data.read==='object') saveRd(data.read);
+      updateFavButtons();
+      updateFavsList();
+      initReadState();
+      var t=document.createElement('div');
+      t.className='share-toast';
+      t.textContent='✓ Daten importiert';
+      document.body.appendChild(t);
+      setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},2000);
+    }catch(err){alert('Fehler beim Import: Datei prüfen.');}
+  };
+  reader.readAsText(file);
+  e.target.value='';
+}
+function showDeleteConfirm(){
+  var el=document.getElementById('data-confirm');
+  if(el) el.classList.add('show');
+}
+function hideDeleteConfirm(){
+  var el=document.getElementById('data-confirm');
+  if(el) el.classList.remove('show');
+}
+function deleteAllData(){
+  saveFavs([]);
+  localStorage.removeItem('notes');
+  saveRd({});
+  updateFavButtons();
+  updateFavsList();
+  initReadState();
+  hideDeleteConfirm();
+  var t=document.createElement('div');
+  t.className='share-toast';
+  t.textContent='✗ Alle Daten gelöscht';
+  t.style.borderColor='var(--rd)';
+  document.body.appendChild(t);
+  setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},2000);
+}
 </script>
 
 <!-- ═══ SEARCH MODAL ═══════════════════════════════════ -->
