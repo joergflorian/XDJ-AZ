@@ -137,11 +137,10 @@ header{position:sticky;top:0;z-index:200;background:var(--hdr-bg);-webkit-backdr
 /* ── THEME TOGGLE ── */
 .theme-btn{background:none;border:1px solid var(--bd);border-radius:8px;padding:5px 10px;cursor:pointer;color:var(--mu);font-size:14px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;justify-content:center;gap:5px;-webkit-transition:border-color .2s,color .2s;transition:border-color .2s,color .2s;-ms-flex-negative:0;flex-shrink:0;white-space:nowrap}
 .theme-btn:hover{border-color:var(--or);color:var(--or)}
-.theme-btn .tb-icon{display:flex;align-items:center}
+.theme-btn .tb-icon{display:none;align-items:center;justify-content:center;line-height:0}
 html.light .theme-btn .tb-dark{display:none}
-html.light .theme-btn .tb-light{display:inline}
-.theme-btn .tb-light{display:none}
-html:not(.light) .theme-btn .tb-dark{display:inline}
+html.light .theme-btn .tb-light{display:flex;align-items:center;justify-content:center;line-height:0}
+html:not(.light) .theme-btn .tb-dark{display:flex;align-items:center;justify-content:center;line-height:0}
 html:not(.light) .theme-btn .tb-light{display:none}
 /* Light mode specific overrides */
 html.light .cg-a{background:rgba(0,0,0,0.07)}
@@ -555,11 +554,11 @@ html.gig-mode .mob-menu{top:80px}
   <div class="hdr">
     <div class="logo">XDJ<span>-AZ</span> GUIDE</div>
     <div class="fs-wrap"><button type="button" class="fs-btn" id="fs-s" onclick="setFS(0)" title="Kleine Schrift">A</button><button type="button" class="fs-btn" id="fs-m" onclick="setFS(1)" title="Mittlere Schrift">A+</button><button type="button" class="fs-btn" id="fs-l" onclick="setFS(2)" title="Grosse Schrift">A++</button></div><div class="hdr-actions">
-      <button type="button" class="theme-btn" onclick="toggleTheme()" title="Hell/Dunkel wechseln" aria-label="Farbschema wechseln"><span class="tb-icon tb-dark"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span><span class="tb-icon tb-light"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span></button>
-      <button type="button" class="srch-btn" onclick="openSearch()" title="Suche (Ctrl+K)" aria-label="Suche öffnen"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="btn-lbl">Suche</span></button>
-      <button type="button" class="favs-btn" id="favs-btn" onclick="toggleFavs()" title="Favoriten" aria-label="Favoriten"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><span class="btn-lbl"> Favs</span></button>
+      <button type="button" class="theme-btn" onclick="toggleTheme()" title="Hell/Dunkel wechseln" aria-label="Farbschema wechseln"><span class="tb-icon tb-dark"><svg class="fth-ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span><span class="tb-icon tb-light"><svg class="fth-ico" viewBox="2 2 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span></button>
+      <button type="button" class="srch-btn" id="srch-btn" onclick="openSearch()" title="Suche (Ctrl+K)" aria-label="Suche öffnen" aria-expanded="false" aria-controls="srch-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="btn-lbl">Suche</span></button>
+      <button type="button" class="favs-btn" id="favs-btn" onclick="toggleFavs()" title="Favoriten" aria-label="Favoriten" aria-expanded="false" aria-controls="favs-panel"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><span class="btn-lbl"> Favs</span></button>
       <button type="button" class="prog-btn" id="prog-btn" onclick="navTo('quickstart')" title="Fortschritt">0 / 63</button>
-      <button type="button" class="gig-btn" id="gig-btn" onclick="toggleGigMode()" title="Gig Mode: nur Essentials anzeigen" aria-label="Gig Mode"><svg class="fth-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span class="btn-lbl"> GIG</span></button>
+      <button type="button" class="gig-btn" id="gig-btn" onclick="toggleGigMode()" title="Gig Mode: nur Essentials anzeigen" aria-label="Gig Mode" aria-expanded="false"><svg class="fth-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span class="btn-lbl"> GIG</span></button>
     </div>
     <!-- Mobile: Hamburger -->
     <button type="button" class="hmb" id="hmb" onclick="toggleMobMenu()" aria-label="Menü">
@@ -639,8 +638,8 @@ html.gig-mode .mob-menu{top:80px}
     </button>
     <div class="learn-body">
       Digital DJ Tips hat ein <strong>zweistündiges Gratis-Tutorial</strong> das jede Funktion des XDJ-AZ durchgeht – Knopf für Knopf, Screen für Screen. Werbefrei, direkt auf YouTube. Ideal als Einstieg oder zum Überprüfen ob du wirklich alles weisst.<br><br>
-      <a href="https://www.digitaldjtips.com/xdj-az-training-tutorial/" target="_blank">→ digitaldjtips.com/xdj-az-training-tutorial/</a><br><br>
-      Ergänzend: <a href="https://www.digitaldjtips.com/xdj-az-your-questions-answered/" target="_blank">XDJ-AZ: Your Questions Answered</a> – häufigste Community-Fragen beantwortet (Serato, Cloud, DVS, Vergleich Opus Quad).
+      <a href="https://www.digitaldjtips.com/xdj-az-training-tutorial/" target="_blank" rel="noopener noreferrer">→ digitaldjtips.com/xdj-az-training-tutorial/</a><br><br>
+      Ergänzend: <a href="https://www.digitaldjtips.com/xdj-az-your-questions-answered/" target="_blank" rel="noopener noreferrer">XDJ-AZ: Your Questions Answered</a> – häufigste Community-Fragen beantwortet (Serato, Cloud, DVS, Vergleich Opus Quad).
     </div>
   </div>
 </section>
@@ -1057,11 +1056,11 @@ html.gig-mode .mob-menu{top:80px}
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Wo kaufst du deine Tracks? Nicht alle Quellen sind gleich gut für den DJ-Workflow. Hier der ehrliche Vergleich.</p>
   <div class="sub">Die wichtigsten DJ-Musikquellen</div>
   <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport</div><span class="badge b-or">DJ-STANDARD</span></div><div class="c-desc"><a href="https://www.beatport.com" target="_blank" style="color:var(--or)">beatport.com</a> — Der DJ-Platzhirsch für elektronische Musik. <strong>WAV und AIFF verfügbar, sofort rekordbox-kompatibel.</strong> Teuer (~2–3 CHF/Track) aber beste Qualität und Genre-Tiefe. Top 100-Charts als Discovery-Tool nutzen. Auch Beatsource (mehr Mainstream-Content) integriert.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Traxsource</div><span class="badge b-cy">HOUSE &amp; SOUL</span></div><div class="c-desc"><a href="https://www.traxsource.com" target="_blank" style="color:var(--cy)">traxsource.com</a> — Spezialist für House, Deep House, Afro, Funk und Soul. <strong>Oft bessere Auswahl als Beatport für diese Genres.</strong> WAV verfügbar. Guter "What's Hot" Bereich. Günstigere Pakete bei Bundles.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Bandcamp</div><span class="badge b-gr">UNDERGROUND</span></div><div class="c-desc"><a href="https://www.bandcamp.com" target="_blank" style="color:var(--gr)">bandcamp.com</a> — Direkt von Labels und Künstlern. <strong>Bestes für Underground, Nischen, Psy, experimentelle Elektronik.</strong> WAV/FLAC downloadbar. Geld geht direkt an Künstler (wichtig!). Kein Chartdruck → ehrlichere Musik.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Juno Download</div><span class="badge b-am">UK-TECHNO</span></div><div class="c-desc"><a href="https://www.junodownload.com" target="_blank" style="color:var(--am)">junodownload.com</a> — Stark für Techno, Drum &amp; Bass, Breakbeat, UK-Sounds. <strong>Oft früher als Beatport.</strong> Guter Preis (~1.50–2 CHF/Track). WAV verfügbar. Weniger bekannt, aber DJ-Geheimtipp.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Psyshop / Direct Labels</div><span class="badge b-pu">PSY-SPEZIAL</span></div><div class="c-desc"><a href="https://www.psyshop.com" target="_blank" style="color:var(--pu)">psyshop.com</a> — Spezialshop für Goa, Psytrance, Psychill. <strong>Beste Auswahl im Psy-Bereich</strong>, viele Releases nur hier verfügbar. Labels direkt: Suntrip, TesseracTstudio, Nano Records haben oft eigene Shops.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport</div><span class="badge b-or">DJ-STANDARD</span></div><div class="c-desc"><a href="https://www.beatport.com" target="_blank" rel="noopener noreferrer" style="color:var(--or)">beatport.com</a> — Der DJ-Platzhirsch für elektronische Musik. <strong>WAV und AIFF verfügbar, sofort rekordbox-kompatibel.</strong> Teuer (~2–3 CHF/Track) aber beste Qualität und Genre-Tiefe. Top 100-Charts als Discovery-Tool nutzen. Auch Beatsource (mehr Mainstream-Content) integriert.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Traxsource</div><span class="badge b-cy">HOUSE &amp; SOUL</span></div><div class="c-desc"><a href="https://www.traxsource.com" target="_blank" rel="noopener noreferrer" style="color:var(--cy)">traxsource.com</a> — Spezialist für House, Deep House, Afro, Funk und Soul. <strong>Oft bessere Auswahl als Beatport für diese Genres.</strong> WAV verfügbar. Guter "What's Hot" Bereich. Günstigere Pakete bei Bundles.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Bandcamp</div><span class="badge b-gr">UNDERGROUND</span></div><div class="c-desc"><a href="https://www.bandcamp.com" target="_blank" rel="noopener noreferrer" style="color:var(--gr)">bandcamp.com</a> — Direkt von Labels und Künstlern. <strong>Bestes für Underground, Nischen, Psy, experimentelle Elektronik.</strong> WAV/FLAC downloadbar. Geld geht direkt an Künstler (wichtig!). Kein Chartdruck → ehrlichere Musik.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Juno Download</div><span class="badge b-am">UK-TECHNO</span></div><div class="c-desc"><a href="https://www.junodownload.com" target="_blank" rel="noopener noreferrer" style="color:var(--am)">junodownload.com</a> — Stark für Techno, Drum &amp; Bass, Breakbeat, UK-Sounds. <strong>Oft früher als Beatport.</strong> Guter Preis (~1.50–2 CHF/Track). WAV verfügbar. Weniger bekannt, aber DJ-Geheimtipp.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Psyshop / Direct Labels</div><span class="badge b-pu">PSY-SPEZIAL</span></div><div class="c-desc"><a href="https://www.psyshop.com" target="_blank" rel="noopener noreferrer" style="color:var(--pu)">psyshop.com</a> — Spezialshop für Goa, Psytrance, Psychill. <strong>Beste Auswahl im Psy-Bereich</strong>, viele Releases nur hier verfügbar. Labels direkt: Suntrip, TesseracTstudio, Nano Records haben oft eigene Shops.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">SoundCloud (Free)</div><span class="badge b-cy">DISCOVERY</span></div><div class="c-desc">Nicht zum Kaufen, aber zum Entdecken. <strong>Reposts von DJs denen du folgst</strong> = kuratierter Discovery-Feed. Viele Demos, Promos und Unreleased-Tracks nur auf SoundCloud. Dann auf Beatport/Bandcamp kaufen.</div></div>
   </div>
   <div class="sub">Qualitäts-Check vor dem Gig</div>
@@ -1080,10 +1079,10 @@ html.gig-mode .mob-menu{top:80px}
   </div>
   <p style="color:var(--mu);font-size:14px;margin-bottom:16px;">Promo-Pools liefern monatlich neue Tracks direkt von Labels – für aktive DJs oft günstiger als Einzelkauf.</p>
   <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">DJcity</div><span class="badge b-or">TOP-WAHL</span></div><div class="c-desc"><a href="https://www.djcity.com" target="_blank" style="color:var(--or)">djcity.com</a> — <strong>~35 USD/Monat</strong> (6-Monats-Abo: ~29 USD/Monat, Stand 2025). Grösster DJ-Promo-Pool weltweit. Top 40, Hip Hop, House, Latin, R&B – sehr commercial. Täglich neue Edits, Clean/Dirty-Versionen, Intros/Outros speziell für DJs. Gut für Open-Format und Club-DJs.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport Advanced / Professional</div><span class="badge b-cy">DJ-FOKUS</span></div><div class="c-desc"><a href="https://www.beatport.com" target="_blank" style="color:var(--cy)">beatport.com</a> — <strong>~30–60 USD/Monat</strong> (Advanced/Professional). Streaming + Downloads inklusive. Beste Auswahl für elektronische Club-Musik. Als Standalone am XDJ-AZ nutzbar. Für Techno/House/Psy DJs oft sinnvoller als DJcity.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Club Killers</div><span class="badge b-pu">SPEZIALIST</span></div><div class="c-desc"><a href="https://www.clubkillers.com" target="_blank" style="color:var(--pu)">clubkillers.com</a> — <strong>~35 USD/Monat</strong> (Stand 2025). Fokus auf Club, EDM, House Remixes. Viele exklusive DJ-Edits die nirgends sonst verfügbar sind. Für Club-DJs die aktuelle EDM-Remixes brauchen.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatsource (Beatport für Open-Format)</div><span class="badge b-gr">OPEN FORMAT</span></div><div class="c-desc"><a href="https://www.beatsource.com" target="_blank" style="color:var(--gr)">beatsource.com</a> — In Beatport-Abo integriert. <strong>Mainstream + Dance + Hip Hop + Latin</strong> – für Open-Format-DJs die mehr Vielfalt brauchen als nur elektronisch. Direkt am XDJ-AZ via StreamingDirectPlay nutzbar.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">DJcity</div><span class="badge b-or">TOP-WAHL</span></div><div class="c-desc"><a href="https://www.djcity.com" target="_blank" rel="noopener noreferrer" style="color:var(--or)">djcity.com</a> — <strong>~35 USD/Monat</strong> (6-Monats-Abo: ~29 USD/Monat, Stand 2025). Grösster DJ-Promo-Pool weltweit. Top 40, Hip Hop, House, Latin, R&B – sehr commercial. Täglich neue Edits, Clean/Dirty-Versionen, Intros/Outros speziell für DJs. Gut für Open-Format und Club-DJs.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport Advanced / Professional</div><span class="badge b-cy">DJ-FOKUS</span></div><div class="c-desc"><a href="https://www.beatport.com" target="_blank" rel="noopener noreferrer" style="color:var(--cy)">beatport.com</a> — <strong>~30–60 USD/Monat</strong> (Advanced/Professional). Streaming + Downloads inklusive. Beste Auswahl für elektronische Club-Musik. Als Standalone am XDJ-AZ nutzbar. Für Techno/House/Psy DJs oft sinnvoller als DJcity.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Club Killers</div><span class="badge b-pu">SPEZIALIST</span></div><div class="c-desc"><a href="https://www.clubkillers.com" target="_blank" rel="noopener noreferrer" style="color:var(--pu)">clubkillers.com</a> — <strong>~35 USD/Monat</strong> (Stand 2025). Fokus auf Club, EDM, House Remixes. Viele exklusive DJ-Edits die nirgends sonst verfügbar sind. Für Club-DJs die aktuelle EDM-Remixes brauchen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatsource (Beatport für Open-Format)</div><span class="badge b-gr">OPEN FORMAT</span></div><div class="c-desc"><a href="https://www.beatsource.com" target="_blank" rel="noopener noreferrer" style="color:var(--gr)">beatsource.com</a> — In Beatport-Abo integriert. <strong>Mainstream + Dance + Hip Hop + Latin</strong> – für Open-Format-DJs die mehr Vielfalt brauchen als nur elektronisch. Direkt am XDJ-AZ via StreamingDirectPlay nutzbar.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Promo-Mails von Labels</div><span class="badge b-am">GRATIS</span></div><div class="c-desc"><strong>Kostenlos:</strong> Direkt bei Labels auf der Promo-Liste anmelden. Viele Indie-Labels (Bandcamp, SoundCloud-Labels) schicken Promos gratis an aktive DJs. Voraussetzung: Nachweisbare Gigs, Mixcloud-Präsenz oder Social Media. Einfach anfragen – die meisten sagen ja.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Promo-Pool lohnt sich ab wann?</div><span class="badge b-am">ENTSCHEIDUNG</span></div><div class="c-desc">Rechnung: <strong>DJcity ~35 USD/Monat = ~420 USD/Jahr</strong> (6-Monats-Abo ~350 USD/Jahr, Stand 2025). Wenn du monatlich mehr als 8–10 Tracks einzeln kaufst → Pool günstiger. Wenn du spezialisiert (Techno, Psy) spielst → Einzelkauf auf Beatport/Bandcamp oft besser als breiter Pool.</div></div>
   </div>
@@ -1197,7 +1196,7 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/dj-library-is-a-mess/" target="_blank">Help! My DJ Library Is A Mess</a></strong> – Digital DJ Tips<br>Das <strong>Playlist Pyramid</strong>-Konzept: Von allen Tracks der Welt zu dem was du heute Nacht spielst. Framework für Crate-Struktur, Tagging und Set-Vorbereitung. Löst das Chaos in den meisten DJ-Libraries.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/dj-library-is-a-mess/" target="_blank" rel="noopener noreferrer">Help! My DJ Library Is A Mess</a></strong> – Digital DJ Tips<br>Das <strong>Playlist Pyramid</strong>-Konzept: Von allen Tracks der Welt zu dem was du heute Nacht spielst. Framework für Crate-Struktur, Tagging und Set-Vorbereitung. Löst das Chaos in den meisten DJ-Libraries.</div>
       </div>
     </div>
   </div>
@@ -1250,8 +1249,8 @@ html.gig-mode .mob-menu{top:80px}
 
   <div class="sub">Tools die Zeit sparen</div>
   <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Mp3Tag (kostenlos)</div><span class="badge b-gr">TOOL</span></div><div class="c-desc"><a href="https://www.mp3tag.de" target="_blank" style="color:var(--gr)">mp3tag.de</a> – Kostenloses Tool für <strong>Massen-Tagging</strong>: Genre, Label, Jahr, Album Art in Hunderten Tracks gleichzeitig editieren. Schneller als in rekordbox einzeln. Dann rekordbox neu analysieren lassen.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">DJ.Studio rekordbox-Integration</div><span class="badge b-cy">TOOL</span></div><div class="c-desc"><a href="https://dj.studio" target="_blank" style="color:var(--cy)">dj.studio</a> – <strong>Set mit harmonischer Reihenfolge planen</strong> → als rekordbox-Playlist mit Hot Cues zurückexportieren. Non-lineares Set-Prep ohne Decks aufzubauen. Automatische Key/BPM-Reihenfolge-Vorschläge.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Mp3Tag (kostenlos)</div><span class="badge b-gr">TOOL</span></div><div class="c-desc"><a href="https://www.mp3tag.de" target="_blank" rel="noopener noreferrer" style="color:var(--gr)">mp3tag.de</a> – Kostenloses Tool für <strong>Massen-Tagging</strong>: Genre, Label, Jahr, Album Art in Hunderten Tracks gleichzeitig editieren. Schneller als in rekordbox einzeln. Dann rekordbox neu analysieren lassen.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">DJ.Studio rekordbox-Integration</div><span class="badge b-cy">TOOL</span></div><div class="c-desc"><a href="https://dj.studio" target="_blank" rel="noopener noreferrer" style="color:var(--cy)">dj.studio</a> – <strong>Set mit harmonischer Reihenfolge planen</strong> → als rekordbox-Playlist mit Hot Cues zurückexportieren. Non-lineares Set-Prep ohne Decks aufzubauen. Automatische Key/BPM-Reihenfolge-Vorschläge.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">rekordbox nie sofort updaten</div><span class="badge b-rd">WARNUNG</span></div><div class="c-desc">Community-Konsens: <strong>2–4 Wochen nach Release warten</strong> bevor du updatest. rekordbox-Updates bringen oft mehr Bugs als Fixes. Patch-Notes lesen, Community-Feedback abwarten. Backup der alten Version behalten. Nie direkt vor einem wichtigen Gig.</div></div>
     <div class="card" style="border-color:var(--rd)"><div class="c-hdr"><div class="c-ttl"><span class="ico-warn"><svg class="fth-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--am)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2"/></svg></span> rekordbox 6 → 7 Upgrade-Pflicht</div><span class="badge b-rd">STOLPERFALLE</span></div><div class="c-desc">Der XDJ-AZ ist <strong>Hardware Unlock nur in rekordbox 7</strong> — in rekordbox 6 funktioniert das Gerät nur im Free Plan ohne Hardware Unlock. Häufiges Problem: Update Manager bleibt bei Version 6 stehen, Gerät wird nicht als Controller erkannt. <strong>Lösung:</strong> Direkt auf rekordbox.com gehen → RB7 manuell herunterladen und installieren. Deine Library und Playlists werden automatisch migriert. 1–2 Wochen vor einem wichtigen Gig updaten und testen.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Export-Zeit einplanen</div><span class="badge b-rd">WARNUNG</span></div><div class="c-desc"><strong>Immer 1 Stunde für USB-Export einplanen</strong> – Haupt-Stick und Backup. Dauert immer länger als erwartet, besonders nach vielen neuen Tracks. Export NIE als letzten Schritt 5 Minuten vor Abfahrt. Puffer einbauen.</div></div>
@@ -1266,11 +1265,11 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.clubreadydjschool.com/tribe-talk/dj-gear-and-software/rekordbox-7-the-ultimate-guide-for-djs-in-2025/" target="_blank">rekordbox 7: The Ultimate Guide 2025</a></strong> – Club Ready DJ School<br>Export Mode, Dual Players, Intelligent Cues, Collection Radar, Beatgrid-Typen, USB-Best-Practices. Bester kostenloser RB7-Artikel.</div>
+        <div><strong><a href="https://www.clubreadydjschool.com/tribe-talk/dj-gear-and-software/rekordbox-7-the-ultimate-guide-for-djs-in-2025/" target="_blank" rel="noopener noreferrer">rekordbox 7: The Ultimate Guide 2025</a></strong> – Club Ready DJ School<br>Export Mode, Dual Players, Intelligent Cues, Collection Radar, Beatgrid-Typen, USB-Best-Practices. Bester kostenloser RB7-Artikel.</div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/dj-library-is-a-mess/" target="_blank">Help! My DJ Music Library Is A Mess</a></strong> – Digital DJ Tips<br>Das "Playlist Pyramid"-Framework: Von der gesamten Weltmusik zu dem was du heute Nacht spielst. Struktur die die meisten DJs nie gelernt haben.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/dj-library-is-a-mess/" target="_blank" rel="noopener noreferrer">Help! My DJ Music Library Is A Mess</a></strong> – Digital DJ Tips<br>Das "Playlist Pyramid"-Framework: Von der gesamten Weltmusik zu dem was du heute Nacht spielst. Struktur die die meisten DJs nie gelernt haben.</div>
       </div>
     </div>
   </div>
@@ -1557,15 +1556,15 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.clubreadydjschool.com/free-videos/" target="_blank">Club Ready Free Mini Course</a></strong> – 16 Videos + PDFs<br>Mixing ohne Cues (House + Vocal), Looping In/Out, Filter &amp; Subtle FX. Bonus-PDFs: "Mixing Process Checklist", "5 Ways to Fail-Proof Your Shows", "3 Things Every DJ Must Know". <em>Email-Adresse nötig.</em></div>
+        <div><strong><a href="https://www.clubreadydjschool.com/free-videos/" target="_blank" rel="noopener noreferrer">Club Ready Free Mini Course</a></strong> – 16 Videos + PDFs<br>Mixing ohne Cues (House + Vocal), Looping In/Out, Filter &amp; Subtle FX. Bonus-PDFs: "Mixing Process Checklist", "5 Ways to Fail-Proof Your Shows", "3 Things Every DJ Must Know". <em>Email-Adresse nötig.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://wearecrossfader.co.uk/blog/3-mistakes-to-avoid-on-cdjs-and-club-setups/" target="_blank">3 Mistakes To Avoid On CDJs</a></strong> – We Are Crossfader<br>Quantize-Falle, Beat FX BPM manuell setzen, Phase vs. Sync richtig verstehen. Sehr praxisrelevant beim Wechsel vom Controller auf Club-Gear.</div>
+        <div><strong><a href="https://wearecrossfader.co.uk/blog/3-mistakes-to-avoid-on-cdjs-and-club-setups/" target="_blank" rel="noopener noreferrer">3 Mistakes To Avoid On CDJs</a></strong> – We Are Crossfader<br>Quantize-Falle, Beat FX BPM manuell setzen, Phase vs. Sync richtig verstehen. Sehr praxisrelevant beim Wechsel vom Controller auf Club-Gear.</div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-paid">KURS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/courses/transitions-toolbox/" target="_blank">Transitions Toolbox</a></strong> – Digital DJ Tips (neu 2025)<br>50+ fertige Übergangs-Rezepte als "Kochbuch": Double Drops, Wordplays, Live Mashups, Stille als Effekt, Toneplays. Direkt einsetzbar.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/courses/transitions-toolbox/" target="_blank" rel="noopener noreferrer">Transitions Toolbox</a></strong> – Digital DJ Tips (neu 2025)<br>50+ fertige Übergangs-Rezepte als "Kochbuch": Double Drops, Wordplays, Live Mashups, Stille als Effekt, Toneplays. Direkt einsetzbar.</div>
       </div>
     </div>
   </div>
@@ -1638,7 +1637,7 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/10-things-you-didnt-know-about-pioneer-djs-cdj-3000-media-players/" target="_blank">10 Things You Didn't Know About the CDJ-3000</a></strong> – Digital DJ Tips<br>~80% davon gilt direkt auch am XDJ-AZ: USB-Hintergrundfarben, MySettings Auto-Load, Beat Jump in Loop = Loop Move, Key Sync Details, Touch Preview, Track Filter. Kurz und sehr lesbar.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/10-things-you-didnt-know-about-pioneer-djs-cdj-3000-media-players/" target="_blank" rel="noopener noreferrer">10 Things You Didn't Know About the CDJ-3000</a></strong> – Digital DJ Tips<br>~80% davon gilt direkt auch am XDJ-AZ: USB-Hintergrundfarben, MySettings Auto-Load, Beat Jump in Loop = Loop Move, Key Sync Details, Touch Preview, Track Filter. Kurz und sehr lesbar.</div>
       </div>
     </div>
   </div>
@@ -1766,8 +1765,8 @@ html.gig-mode .mob-menu{top:80px}
 
   <div class="sub">Post-Production – Tracklist &amp; Mastering</div>
   <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Audacity (gratis)</div><span class="badge b-gr">BASIC</span></div><div class="c-desc"><a href="https://www.audacityteam.org/" target="_blank" style="color:var(--gr)">audacityteam.org</a> — gratis, für Mac/Win/Linux. Aufnahme öffnen, <strong>Normalize auf −1 dB</strong> (Effect → Normalize), Stille am Anfang/Ende wegschneiden, als MP3 320 kbps oder FLAC exportieren. Minimal-Workflow für 90% der Fälle ausreichend.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Reaper (günstig, profi)</div><span class="badge b-cy">PROFI</span></div><div class="c-desc"><a href="https://www.reaper.fm/" target="_blank" style="color:var(--cy)">reaper.fm</a> — $60 Lifetime-Lizenz, kostenlos evaluierbar. Volle DAW mit Effekten, Automation, Multi-Track. Für Mix-Mastering: ReaEQ + ReaComp + ReaLimit.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Audacity (gratis)</div><span class="badge b-gr">BASIC</span></div><div class="c-desc"><a href="https://www.audacityteam.org/" target="_blank" rel="noopener noreferrer" style="color:var(--gr)">audacityteam.org</a> — gratis, für Mac/Win/Linux. Aufnahme öffnen, <strong>Normalize auf −1 dB</strong> (Effect → Normalize), Stille am Anfang/Ende wegschneiden, als MP3 320 kbps oder FLAC exportieren. Minimal-Workflow für 90% der Fälle ausreichend.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Reaper (günstig, profi)</div><span class="badge b-cy">PROFI</span></div><div class="c-desc"><a href="https://www.reaper.fm/" target="_blank" rel="noopener noreferrer" style="color:var(--cy)">reaper.fm</a> — $60 Lifetime-Lizenz, kostenlos evaluierbar. Volle DAW mit Effekten, Automation, Multi-Track. Für Mix-Mastering: ReaEQ + ReaComp + ReaLimit.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">iZotope RX / Ozone Elements</div><span class="badge b-pu">MASTERING</span></div><div class="c-desc"><strong>iZotope RX Elements</strong> (~$99) — Audio-Reparatur: Rauschen entfernen, Knacken eliminieren, Mikrofon-Feedback herausschneiden. <strong>Ozone Elements</strong> — One-Click-Mastering mit KI: analysiert den Mix und schlägt Lautstärke, EQ und Limiter vor. Für DJs ohne tiefes Audio-Engineering-Wissen der schnellste Weg zu professionell klingendem Ergebnis.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Adobe Audition</div><span class="badge b-or">CC</span></div><div class="c-desc">Teil der Adobe Creative Cloud (~25 CHF/Monat). Vorteil: Spektrum-Editor zum visuellen Entfernen von einzelnen Geräuschen (Glas-Klirren, Husten, Feedback). <strong>Essential Sound Panel</strong> für schnelles Loudness-Matching. Ideal wenn du bereits CC-Abonnent bist.</div></div>
     <div class="card"><div class="c-hdr"><div class="c-ttl">Loudness: −14 LUFS</div><span class="badge b-or">STANDARD</span></div><div class="c-desc">Streaming-Standard für DJ-Mixes: <strong>−14 LUFS integrated</strong>. SoundCloud, Mixcloud, YouTube normalisieren eh. Lauter macht es auf deren Plattformen nicht besser — nur verzerrter. Tools: LUFS Meter VST (gratis), Youlean Loudness Meter.</div></div>
@@ -1888,11 +1887,11 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/dj-software-tips-tricks-how-to-see-key-compatible-tracks-in-rekordbox-5-4/" target="_blank">Key-kompatible Tracks in rekordbox anzeigen</a></strong> – Digital DJ Tips<br>Filter-Button im Browser aktivieren → kompatible Tracks leuchten grün auf. Spart das manuelle Camelot-Abgleichen im Gig. Erklärt in 2 Minuten.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/dj-software-tips-tricks-how-to-see-key-compatible-tracks-in-rekordbox-5-4/" target="_blank" rel="noopener noreferrer">Key-kompatible Tracks in rekordbox anzeigen</a></strong> – Digital DJ Tips<br>Filter-Button im Browser aktivieren → kompatible Tracks leuchten grün auf. Spart das manuelle Camelot-Abgleichen im Gig. Erklärt in 2 Minuten.</div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/rekordbox-dj-tips-tricks-hot-cue-tips-for-beginners/" target="_blank">Hot Cues: Farben &amp; Namen richtig nutzen</a></strong> – Digital DJ Tips<br>Konsistentes Farb-Schema für Cues, Namen direkt in rekordbox vergeben (erscheinen am XDJ-AZ Screen), Gate Playback vs. normales Verhalten. Video-Tutorial inklusive.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/rekordbox-dj-tips-tricks-hot-cue-tips-for-beginners/" target="_blank" rel="noopener noreferrer">Hot Cues: Farben &amp; Namen richtig nutzen</a></strong> – Digital DJ Tips<br>Konsistentes Farb-Schema für Cues, Namen direkt in rekordbox vergeben (erscheinen am XDJ-AZ Screen), Gate Playback vs. normales Verhalten. Video-Tutorial inklusive.</div>
       </div>
     </div>
   </div>
@@ -2419,11 +2418,11 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-pdf">PDF</span>
-        <div><strong><a href="https://www.clubreadydjschool.com/free-videos/" target="_blank">"5 Ways to Fail-Proof Your Shows" (PDF)</a></strong> – Club Ready DJ School<br>Kostenloses PDF aus dem Mini-Kurs: Konkrete Checkliste was du VOR jedem Gig prüfen musst um technische und logistische Ausfälle zu verhindern. Ergänzt unsere Pre-Gig-Checkliste ideal. <em>Email-Adresse nötig.</em></div>
+        <div><strong><a href="https://www.clubreadydjschool.com/free-videos/" target="_blank" rel="noopener noreferrer">"5 Ways to Fail-Proof Your Shows" (PDF)</a></strong> – Club Ready DJ School<br>Kostenloses PDF aus dem Mini-Kurs: Konkrete Checkliste was du VOR jedem Gig prüfen musst um technische und logistische Ausfälle zu verhindern. Ergänzt unsere Pre-Gig-Checkliste ideal. <em>Email-Adresse nötig.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://wearecrossfader.co.uk/blog/3-mistakes-to-avoid-on-cdjs-and-club-setups/" target="_blank">3 Mistakes To Avoid On CDJs &amp; Club Setups</a></strong> – We Are Crossfader<br>Quantize-Falle (Sync ohne Grid), Beat FX BPM falsch, Phase vs. Sync Missverständnis. Mit Video. Besonders relevant beim ersten Gig auf Club-Equipment.</div>
+        <div><strong><a href="https://wearecrossfader.co.uk/blog/3-mistakes-to-avoid-on-cdjs-and-club-setups/" target="_blank" rel="noopener noreferrer">3 Mistakes To Avoid On CDJs &amp; Club Setups</a></strong> – We Are Crossfader<br>Quantize-Falle (Sync ohne Grid), Beat FX BPM falsch, Phase vs. Sync Missverständnis. Mit Video. Besonders relevant beim ersten Gig auf Club-Equipment.</div>
       </div>
     </div>
   </div>
@@ -2501,19 +2500,19 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-pdf">PDF</span>
-        <div><strong><a href="https://www.digitaldjtips.com/grab-your-free-50-ways-to-get-gigs-guide/" target="_blank">"50 Ways To Get Gigs" – Gratis PDF</a></strong> – Digital DJ Tips<br>6000+ Downloads in der ersten Woche. 50 sehr konkrete Methoden: von lokalen Bars bis Twitch, Tribute Nights, Brautmessen, Community Events, Sportveranstaltungen. <em>Das vollständigste kostenlose Gig-Resource für DJs.</em></div>
+        <div><strong><a href="https://www.digitaldjtips.com/grab-your-free-50-ways-to-get-gigs-guide/" target="_blank" rel="noopener noreferrer">"50 Ways To Get Gigs" – Gratis PDF</a></strong> – Digital DJ Tips<br>6000+ Downloads in der ersten Woche. 50 sehr konkrete Methoden: von lokalen Bars bis Twitch, Tribute Nights, Brautmessen, Community Events, Sportveranstaltungen. <em>Das vollständigste kostenlose Gig-Resource für DJs.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/where-to-get-dj-gigs/" target="_blank">Where To Get DJ Gigs Beyond Clubs</a></strong> – Digital DJ Tips (2025)<br>7 ungewöhnliche Gig-Quellen die die meisten DJs ignorieren: Twitch, Weinproben, Corporate, Pop-Up Events, mobile Gigs. Besonders gut wenn der lokale Club-Markt gesättigt ist.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/where-to-get-dj-gigs/" target="_blank" rel="noopener noreferrer">Where To Get DJ Gigs Beyond Clubs</a></strong> – Digital DJ Tips (2025)<br>7 ungewöhnliche Gig-Quellen die die meisten DJs ignorieren: Twitch, Weinproben, Corporate, Pop-Up Events, mobile Gigs. Besonders gut wenn der lokale Club-Markt gesättigt ist.</div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/why-play-tune-up-gigs/" target="_blank">Why DJs Need Tune-Up Gigs</a></strong> – Digital DJ Tips<br>Kleine, ruhige Gigs vor wichtigen Shows absichtlich einplanen. Muscle Memory auffrischen, neue Tracks testen, Fehler in sicherem Umfeld machen. Profi-Strategie die die meisten Anfänger überspringen.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/why-play-tune-up-gigs/" target="_blank" rel="noopener noreferrer">Why DJs Need Tune-Up Gigs</a></strong> – Digital DJ Tips<br>Kleine, ruhige Gigs vor wichtigen Shows absichtlich einplanen. Muscle Memory auffrischen, neue Tracks testen, Fehler in sicherem Umfeld machen. Profi-Strategie die die meisten Anfänger überspringen.</div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/3-steps-to-take-your-djing-from-local-to-global/" target="_blank">3 Steps: From Local to Global</a></strong> – Digital DJ Tips<br>Gigs ausserhalb deiner Stadt annehmen, Beziehungen in anderen Szenen, die ehrliche Touring-Realität (billige Hotels, eigenes Geld investieren). Für DJs mit grösseren Ambitionen.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/3-steps-to-take-your-djing-from-local-to-global/" target="_blank" rel="noopener noreferrer">3 Steps: From Local to Global</a></strong> – Digital DJ Tips<br>Gigs ausserhalb deiner Stadt annehmen, Beziehungen in anderen Szenen, die ehrliche Touring-Realität (billige Hotels, eigenes Geld investieren). Für DJs mit grösseren Ambitionen.</div>
       </div>
     </div>
   </div>
@@ -2618,26 +2617,26 @@ html.gig-mode .mob-menu{top:80px}
 
   <div class="sub">Offiziell – AlphaTheta / Pioneer DJ</div>
   <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">XDJ-AZ Produktseite</div><span class="badge b-or">OFFICIAL</span></div><div class="c-desc"><a href="https://alphatheta.com/en/product/all-in-one-dj-system/xdj-az/" target="_blank" style="color:var(--or)">alphatheta.com/xdj-az</a> — Offizielle Produktseite mit Specs, Features und News.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Firmware Downloads</div><span class="badge b-or">OFFICIAL</span></div><div class="c-desc"><a href="https://support.pioneerdj.com/hc/en-us/articles/37072403941145" target="_blank" style="color:var(--or)">AlphaTheta Help Center → Firmware</a> — Immer auf aktuellem Stand bleiben. Aktuelle Version: prüfen vor jedem Gig.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">rekordbox Download</div><span class="badge b-or">OFFICIAL</span></div><div class="c-desc"><a href="https://rekordbox.com" target="_blank" style="color:var(--or)">rekordbox.com</a> — Kostenlos herunterladen. Für Library-Verwaltung, Track-Analyse, Hot Cues und USB-Export unverzichtbar.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Handbuch (englisch)</div><span class="badge b-or">OFFICIAL</span></div><div class="c-desc"><a href="https://support.pioneerdj.com/hc/en-us/articles/37072366390681" target="_blank" style="color:var(--or)">XDJ-AZ Instruction Manual</a> — Das offizielle Handbuch als PDF. Gut für technische Details zu Anschlüssen und UTILITY-Menü.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">XDJ-AZ Produktseite</div><span class="badge b-or">OFFICIAL</span></div><div class="c-desc"><a href="https://alphatheta.com/en/product/all-in-one-dj-system/xdj-az/" target="_blank" rel="noopener noreferrer" style="color:var(--or)">alphatheta.com/xdj-az</a> — Offizielle Produktseite mit Specs, Features und News.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Firmware Downloads</div><span class="badge b-or">OFFICIAL</span></div><div class="c-desc"><a href="https://support.pioneerdj.com/hc/en-us/articles/37072403941145" target="_blank" rel="noopener noreferrer" style="color:var(--or)">AlphaTheta Help Center → Firmware</a> — Immer auf aktuellem Stand bleiben. Aktuelle Version: prüfen vor jedem Gig.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">rekordbox Download</div><span class="badge b-or">OFFICIAL</span></div><div class="c-desc"><a href="https://rekordbox.com" target="_blank" rel="noopener noreferrer" style="color:var(--or)">rekordbox.com</a> — Kostenlos herunterladen. Für Library-Verwaltung, Track-Analyse, Hot Cues und USB-Export unverzichtbar.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Handbuch (englisch)</div><span class="badge b-or">OFFICIAL</span></div><div class="c-desc"><a href="https://support.pioneerdj.com/hc/en-us/articles/37072366390681" target="_blank" rel="noopener noreferrer" style="color:var(--or)">XDJ-AZ Instruction Manual</a> — Das offizielle Handbuch als PDF. Gut für technische Details zu Anschlüssen und UTILITY-Menü.</div></div>
   </div>
 
   <div class="sub">Community &amp; Lernen</div>
   <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Digital DJ Tips</div><span class="badge b-cy">TUTORIAL</span></div><div class="c-desc"><a href="https://www.digitaldjtips.com/xdj-az-training-tutorial/" target="_blank" style="color:var(--cy)">XDJ-AZ Training Tutorial (2h Video)</a> — Kostenlos. Erklärt jede Funktion des Geräts in einem einzigen langen Video. Perfekt für Einsteiger.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">DJ TechTools</div><span class="badge b-cy">COMMUNITY</span></div><div class="c-desc"><a href="https://djtechtools.com" target="_blank" style="color:var(--cy)">djtechtools.com</a> — Tiefgehende Reviews, Workflows und DJ-Tech-Artikel. Sehr kritisch und ehrlich – besser als Hersteller-Marketing.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Pioneer DJ Community Forum</div><span class="badge b-cy">SUPPORT</span></div><div class="c-desc"><a href="https://community.pioneerdj.com" target="_blank" style="color:var(--cy)">community.pioneerdj.com</a> — Offizielle Community. Häufig gestellte Fragen, Bugs melden, Feature-Requests.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Serato XDJ-AZ Quick Start</div><span class="badge b-cy">TUTORIAL</span></div><div class="c-desc"><a href="https://support.serato.com/hc/en-us/articles/11432163206415" target="_blank" style="color:var(--cy)">Serato Support → XDJ-AZ</a> — Offizieller Serato Quick-Start-Guide für den XDJ-AZ. Firmware-Requirements und Setup-Anleitung.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Digital DJ Tips</div><span class="badge b-cy">TUTORIAL</span></div><div class="c-desc"><a href="https://www.digitaldjtips.com/xdj-az-training-tutorial/" target="_blank" rel="noopener noreferrer" style="color:var(--cy)">XDJ-AZ Training Tutorial (2h Video)</a> — Kostenlos. Erklärt jede Funktion des Geräts in einem einzigen langen Video. Perfekt für Einsteiger.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">DJ TechTools</div><span class="badge b-cy">COMMUNITY</span></div><div class="c-desc"><a href="https://djtechtools.com" target="_blank" rel="noopener noreferrer" style="color:var(--cy)">djtechtools.com</a> — Tiefgehende Reviews, Workflows und DJ-Tech-Artikel. Sehr kritisch und ehrlich – besser als Hersteller-Marketing.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Pioneer DJ Community Forum</div><span class="badge b-cy">SUPPORT</span></div><div class="c-desc"><a href="https://community.pioneerdj.com" target="_blank" rel="noopener noreferrer" style="color:var(--cy)">community.pioneerdj.com</a> — Offizielle Community. Häufig gestellte Fragen, Bugs melden, Feature-Requests.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Serato XDJ-AZ Quick Start</div><span class="badge b-cy">TUTORIAL</span></div><div class="c-desc"><a href="https://support.serato.com/hc/en-us/articles/11432163206415" target="_blank" rel="noopener noreferrer" style="color:var(--cy)">Serato Support → XDJ-AZ</a> — Offizieller Serato Quick-Start-Guide für den XDJ-AZ. Firmware-Requirements und Setup-Anleitung.</div></div>
   </div>
 
   <div class="sub">Musik &amp; Tools</div>
   <div class="cards">
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Psytrance Guide</div><span class="badge b-pu">REFERENZ</span></div><div class="c-desc"><a href="https://psytranceguide.com" target="_blank" style="color:var(--pu)">psytranceguide.com</a> — Komplette Übersicht aller Psytrance-Subgenres mit BPM-Ranges, Labels und Künstlern. Unverzichtbar für Psy-DJs.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Lexicon DJ</div><span class="badge b-gr">TOOL</span></div><div class="c-desc"><a href="https://lexicondj.com" target="_blank" style="color:var(--gr)">lexicondj.com</a> — Bestes Tool zum Konvertieren von Serato-Libraries zu rekordbox und umgekehrt. Auch Duplikaten-Finder und Library-Analyse.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Mixed In Key</div><span class="badge b-gr">TOOL</span></div><div class="c-desc"><a href="https://mixedinkey.com" target="_blank" style="color:var(--gr)">mixedinkey.com</a> — Präziseste Key-Analyse-Software am Markt. Exportiert Camelot-Tags direkt in rekordbox. Pflicht für Harmonic Mixing.</div></div>
-    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport Streaming Abo</div><span class="badge b-or">STREAMING</span></div><div class="c-desc"><a href="https://www.beatport.com/streaming" target="_blank" style="color:var(--or)">beatport.com/streaming</a> — Der DJ-Streaming-Dienst mit höchster Klangqualität. Direkt am XDJ-AZ nutzbar via StreamingDirectPlay (Abo nötig).</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Psytrance Guide</div><span class="badge b-pu">REFERENZ</span></div><div class="c-desc"><a href="https://psytranceguide.com" target="_blank" rel="noopener noreferrer" style="color:var(--pu)">psytranceguide.com</a> — Komplette Übersicht aller Psytrance-Subgenres mit BPM-Ranges, Labels und Künstlern. Unverzichtbar für Psy-DJs.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Lexicon DJ</div><span class="badge b-gr">TOOL</span></div><div class="c-desc"><a href="https://lexicondj.com" target="_blank" rel="noopener noreferrer" style="color:var(--gr)">lexicondj.com</a> — Bestes Tool zum Konvertieren von Serato-Libraries zu rekordbox und umgekehrt. Auch Duplikaten-Finder und Library-Analyse.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Mixed In Key</div><span class="badge b-gr">TOOL</span></div><div class="c-desc"><a href="https://mixedinkey.com" target="_blank" rel="noopener noreferrer" style="color:var(--gr)">mixedinkey.com</a> — Präziseste Key-Analyse-Software am Markt. Exportiert Camelot-Tags direkt in rekordbox. Pflicht für Harmonic Mixing.</div></div>
+    <div class="card"><div class="c-hdr"><div class="c-ttl">Beatport Streaming Abo</div><span class="badge b-or">STREAMING</span></div><div class="c-desc"><a href="https://www.beatport.com/streaming" target="_blank" rel="noopener noreferrer" style="color:var(--or)">beatport.com/streaming</a> — Der DJ-Streaming-Dienst mit höchster Klangqualität. Direkt am XDJ-AZ nutzbar via StreamingDirectPlay (Abo nötig).</div></div>
   </div>
 
   <!-- ── BILDUNGSRESSOURCEN ───────────────────────── -->
@@ -2654,15 +2653,15 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/xdj-az-training-tutorial/" target="_blank">XDJ-AZ Training Tutorial (2h Video)</a></strong><br>Phil Morse geht jeden einzelnen Knopf, jede Funktion und jeden Workflow am XDJ-AZ durch. Werbefrei, direkt auf YouTube verfügbar. <em>Unverzichtbar wenn du neu mit dem Gerät bist oder sicherstellen willst, dass du nichts übersiehst.</em></div>
+        <div><strong><a href="https://www.digitaldjtips.com/xdj-az-training-tutorial/" target="_blank" rel="noopener noreferrer">XDJ-AZ Training Tutorial (2h Video)</a></strong><br>Phil Morse geht jeden einzelnen Knopf, jede Funktion und jeden Workflow am XDJ-AZ durch. Werbefrei, direkt auf YouTube verfügbar. <em>Unverzichtbar wenn du neu mit dem Gerät bist oder sicherstellen willst, dass du nichts übersiehst.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/xdj-az-your-questions-answered/" target="_blank">XDJ-AZ: Your Questions Answered</a></strong><br>Live-Q&amp;A-Aufzeichnung: Serato-Support, DVS-Setup, Cloud, Preis-Fragen, Vergleich mit Opus Quad. Ehrlichere Antworten als Marketing-Material.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/xdj-az-your-questions-answered/" target="_blank" rel="noopener noreferrer">XDJ-AZ: Your Questions Answered</a></strong><br>Live-Q&amp;A-Aufzeichnung: Serato-Support, DVS-Setup, Cloud, Preis-Fragen, Vergleich mit Opus Quad. Ehrlichere Antworten als Marketing-Material.</div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/10-things-you-didnt-know-about-pioneer-djs-cdj-3000-media-players/" target="_blank">10 Things You Didn't Know About the CDJ-3000</a></strong><br>80% davon gilt direkt am XDJ-AZ: MySettings Auto-Load, USB-Farben, Beat Jump in Loop = Loop Move, Key Sync, Touch Preview. Schnell zu lesen.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/10-things-you-didnt-know-about-pioneer-djs-cdj-3000-media-players/" target="_blank" rel="noopener noreferrer">10 Things You Didn't Know About the CDJ-3000</a></strong><br>80% davon gilt direkt am XDJ-AZ: MySettings Auto-Load, USB-Farben, Beat Jump in Loop = Loop Move, Key Sync, Touch Preview. Schnell zu lesen.</div>
       </div>
     </div>
   </div>
@@ -2677,23 +2676,23 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.clubreadydjschool.com/tribe-talk/dj-gear-and-software/rekordbox-7-the-ultimate-guide-for-djs-in-2025/" target="_blank">rekordbox 7: The Ultimate Guide for DJs 2025</a></strong> – Club Ready DJ School<br>Sehr ausführlicher Blog-Artikel: Export Mode vs Performance Mode, Dual Players, Intelligent Cues, Collection Radar, Streaming Radar, Beatgrids, USB-Workflow. <em>Bester kostenloser RB7-Guide im Netz.</em></div>
+        <div><strong><a href="https://www.clubreadydjschool.com/tribe-talk/dj-gear-and-software/rekordbox-7-the-ultimate-guide-for-djs-in-2025/" target="_blank" rel="noopener noreferrer">rekordbox 7: The Ultimate Guide for DJs 2025</a></strong> – Club Ready DJ School<br>Sehr ausführlicher Blog-Artikel: Export Mode vs Performance Mode, Dual Players, Intelligent Cues, Collection Radar, Streaming Radar, Beatgrids, USB-Workflow. <em>Bester kostenloser RB7-Guide im Netz.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/rekordbox-tips-tricks-how-to-use-preview-waveforms-like-a-pro/" target="_blank">Preview Waveforms wie ein Profi nutzen</a></strong> – Digital DJ Tips<br>Touch Preview im Browser, Wellenform-Sektion manuell vergrössern, ab welcher Stelle ein Track hören ohne zu laden. <em>Einer der nützlichsten kleinen RB-Tricks.</em></div>
+        <div><strong><a href="https://www.digitaldjtips.com/rekordbox-tips-tricks-how-to-use-preview-waveforms-like-a-pro/" target="_blank" rel="noopener noreferrer">Preview Waveforms wie ein Profi nutzen</a></strong> – Digital DJ Tips<br>Touch Preview im Browser, Wellenform-Sektion manuell vergrössern, ab welcher Stelle ein Track hören ohne zu laden. <em>Einer der nützlichsten kleinen RB-Tricks.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/flexible-elastic-variable-beatgridding/" target="_blank">Elastic Beatgridding: Funk, Disco, Rock, Soul</a></strong> – Digital DJ Tips<br>Wie man Tracks mit schwankendem BPM (Funk, Jazz, alte Vinyl-Rips) korrekt griddet – erklärt für rekordbox, Serato, VDJ und Engine. Schritt-für-Schritt Anleitung.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/flexible-elastic-variable-beatgridding/" target="_blank" rel="noopener noreferrer">Elastic Beatgridding: Funk, Disco, Rock, Soul</a></strong> – Digital DJ Tips<br>Wie man Tracks mit schwankendem BPM (Funk, Jazz, alte Vinyl-Rips) korrekt griddet – erklärt für rekordbox, Serato, VDJ und Engine. Schritt-für-Schritt Anleitung.</div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/dj-library-is-a-mess/" target="_blank">Help! My DJ Music Library Is A Mess</a></strong> – Digital DJ Tips<br>Das "Playlist Pyramid"-Konzept: Von allen Tracks der Welt zu dem was du beim Gig spielst. Struktur-Framework das die meisten DJs nie gelernt haben.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/dj-library-is-a-mess/" target="_blank" rel="noopener noreferrer">Help! My DJ Music Library Is A Mess</a></strong> – Digital DJ Tips<br>Das "Playlist Pyramid"-Konzept: Von allen Tracks der Welt zu dem was du beim Gig spielst. Struktur-Framework das die meisten DJs nie gelernt haben.</div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-paid">KURS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/courses/rekordbox-made-easy/" target="_blank">Rekordbox Made Easy</a></strong> – Digital DJ Tips (kostenpflichtig)<br>~60 Video-Lektionen zu rekordbox: Library, Export, Performance Mode, Cloud, Stems, MIDI-Mapping. Tiefster verfügbarer rekordbox-Kurs. <em>Empfohlen wenn du täglich mit RB arbeitest.</em></div>
+        <div><strong><a href="https://www.digitaldjtips.com/courses/rekordbox-made-easy/" target="_blank" rel="noopener noreferrer">Rekordbox Made Easy</a></strong> – Digital DJ Tips (kostenpflichtig)<br>~60 Video-Lektionen zu rekordbox: Library, Export, Performance Mode, Cloud, Stems, MIDI-Mapping. Tiefster verfügbarer rekordbox-Kurs. <em>Empfohlen wenn du täglich mit RB arbeitest.</em></div>
       </div>
     </div>
   </div>
@@ -2708,23 +2707,23 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.clubreadydjschool.com/free-videos/" target="_blank">Club Ready Free Mini Course (16 Videos + PDFs)</a></strong><br>Kostenlos: Videos zu Mixing ohne Cues, Filter &amp; Subtle FX, Looping In/Out, Harmonisches Mixen, Rekordbox/Serato erklärt. Plus PDFs: "Mixing Process Checklist", "3 Things Every DJ Must Know", "5 Ways to Fail-Proof Your Shows". <em>Email-Adresse nötig für Zugang.</em></div>
+        <div><strong><a href="https://www.clubreadydjschool.com/free-videos/" target="_blank" rel="noopener noreferrer">Club Ready Free Mini Course (16 Videos + PDFs)</a></strong><br>Kostenlos: Videos zu Mixing ohne Cues, Filter &amp; Subtle FX, Looping In/Out, Harmonisches Mixen, Rekordbox/Serato erklärt. Plus PDFs: "Mixing Process Checklist", "3 Things Every DJ Must Know", "5 Ways to Fail-Proof Your Shows". <em>Email-Adresse nötig für Zugang.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/how-to-move-past-select-sync-djing/" target="_blank">Move Past "Select-Sync" DJing</a></strong> – Digital DJ Tips<br>Warum reines Sync-DJing langfristig limitiert: emotionale Distanz zur Crowd, fehlende Flexibilität bei Genrewechseln, schlechte Tracks-Auswahl. Konkrete Übungen um manuelles Beatmatching einzubauen.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/how-to-move-past-select-sync-djing/" target="_blank" rel="noopener noreferrer">Move Past "Select-Sync" DJing</a></strong> – Digital DJ Tips<br>Warum reines Sync-DJing langfristig limitiert: emotionale Distanz zur Crowd, fehlende Flexibilität bei Genrewechseln, schlechte Tracks-Auswahl. Konkrete Übungen um manuelles Beatmatching einzubauen.</div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/questions-return-pitch-fader-zero-every-mix/" target="_blank">Pitch Fader nach jedem Mix auf 0 zurück?</a></strong> – Digital DJ Tips<br>Ausführliche Antwort: Wann ja (Open Format, Multi-Genre), wann nein (Techno-Set, BPM-Reise). BPM als Energie-Werkzeug verstehen. <em>Kleine Frage, grosses Konzept dahinter.</em></div>
+        <div><strong><a href="https://www.digitaldjtips.com/questions-return-pitch-fader-zero-every-mix/" target="_blank" rel="noopener noreferrer">Pitch Fader nach jedem Mix auf 0 zurück?</a></strong> – Digital DJ Tips<br>Ausführliche Antwort: Wann ja (Open Format, Multi-Genre), wann nein (Techno-Set, BPM-Reise). BPM als Energie-Werkzeug verstehen. <em>Kleine Frage, grosses Konzept dahinter.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://wearecrossfader.co.uk/blog/3-mistakes-to-avoid-on-cdjs-and-club-setups/" target="_blank">3 Mistakes To Avoid On CDJs &amp; Club Setups</a></strong> – We Are Crossfader<br>Quantize-Falle, Beat FX BPM manuell tippen (nicht nur TAP), Phase vs Sync Unterschied. Mit Video. <em>Sehr praxisrelevant wenn du vom Controller auf Club-Gear wechselst.</em></div>
+        <div><strong><a href="https://wearecrossfader.co.uk/blog/3-mistakes-to-avoid-on-cdjs-and-club-setups/" target="_blank" rel="noopener noreferrer">3 Mistakes To Avoid On CDJs &amp; Club Setups</a></strong> – We Are Crossfader<br>Quantize-Falle, Beat FX BPM manuell tippen (nicht nur TAP), Phase vs Sync Unterschied. Mit Video. <em>Sehr praxisrelevant wenn du vom Controller auf Club-Gear wechselst.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-paid">KURS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/courses/transitions-toolbox/" target="_blank">Transitions Toolbox</a></strong> – Digital DJ Tips (kostenpflichtig, neu 2025)<br>50+ fertige Übergangs-Rezepte: Wordplays, Toneplays, Live Mashups, Stille als Effekt, Double Drops. "Kochbuch" für Übergänge das du direkt einsetzen kannst. <em>Ideal wenn du technisch gut bist aber kreativer werden willst.</em></div>
+        <div><strong><a href="https://www.digitaldjtips.com/courses/transitions-toolbox/" target="_blank" rel="noopener noreferrer">Transitions Toolbox</a></strong> – Digital DJ Tips (kostenpflichtig, neu 2025)<br>50+ fertige Übergangs-Rezepte: Wordplays, Toneplays, Live Mashups, Stille als Effekt, Double Drops. "Kochbuch" für Übergänge das du direkt einsetzen kannst. <em>Ideal wenn du technisch gut bist aber kreativer werden willst.</em></div>
       </div>
     </div>
   </div>
@@ -2739,11 +2738,11 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/dj-software-tips-tricks-how-to-see-key-compatible-tracks-in-rekordbox-5-4/" target="_blank">Key-kompatible Tracks in rekordbox anzeigen</a></strong> – Digital DJ Tips<br>Filter-Button im Browser → grün markierte Tracks = harmonisch kompatibel. Camelot-Notation, Fuzzy Keymixing Grundlagen. <em>Einer der meist-übersehenen Browser-Features in rekordbox.</em></div>
+        <div><strong><a href="https://www.digitaldjtips.com/dj-software-tips-tricks-how-to-see-key-compatible-tracks-in-rekordbox-5-4/" target="_blank" rel="noopener noreferrer">Key-kompatible Tracks in rekordbox anzeigen</a></strong> – Digital DJ Tips<br>Filter-Button im Browser → grün markierte Tracks = harmonisch kompatibel. Camelot-Notation, Fuzzy Keymixing Grundlagen. <em>Einer der meist-übersehenen Browser-Features in rekordbox.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/rekordbox-dj-tips-tricks-hot-cue-tips-for-beginners/" target="_blank">Hot Cues: Farben &amp; Namen (rekordbox)</a></strong> – Digital DJ Tips<br>Farb-Schemas für konsistente Cue-Codierung, Namen direkt ins Display, Gate Playback vs. normales Verhalten. Video-Tutorial inkl. <em>10 Minuten die deinen Gig-Workflow dauerhaft verbessern.</em></div>
+        <div><strong><a href="https://www.digitaldjtips.com/rekordbox-dj-tips-tricks-hot-cue-tips-for-beginners/" target="_blank" rel="noopener noreferrer">Hot Cues: Farben &amp; Namen (rekordbox)</a></strong> – Digital DJ Tips<br>Farb-Schemas für konsistente Cue-Codierung, Namen direkt ins Display, Gate Playback vs. normales Verhalten. Video-Tutorial inkl. <em>10 Minuten die deinen Gig-Workflow dauerhaft verbessern.</em></div>
       </div>
     </div>
   </div>
@@ -2758,19 +2757,19 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-pdf">PDF</span>
-        <div><strong><a href="https://www.digitaldjtips.com/grab-your-free-50-ways-to-get-gigs-guide/" target="_blank">"50 Ways To Get Gigs" – Kostenloses PDF</a></strong> – Digital DJ Tips<br>6000+ Downloads in der ersten Woche. 50 konkrete Methoden für Bookings: von lokalen Bars bis Livestreaming, Tribute Nights, Brautmessen, Community Events. <em>Email nötig. Bestes Gratis-Ressource für DJs die Gigs suchen.</em></div>
+        <div><strong><a href="https://www.digitaldjtips.com/grab-your-free-50-ways-to-get-gigs-guide/" target="_blank" rel="noopener noreferrer">"50 Ways To Get Gigs" – Kostenloses PDF</a></strong> – Digital DJ Tips<br>6000+ Downloads in der ersten Woche. 50 konkrete Methoden für Bookings: von lokalen Bars bis Livestreaming, Tribute Nights, Brautmessen, Community Events. <em>Email nötig. Bestes Gratis-Ressource für DJs die Gigs suchen.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/where-to-get-dj-gigs/" target="_blank">Where To Get DJ Gigs (Beyond Clubs)</a></strong> – Digital DJ Tips (aktualisiert 2025)<br>7 ungewöhnliche Wege zu Gigs: Tribute Nights, Sportereignisse, Twitch Livestreaming, Corporate Events, Weinproben, Pop-Up Events, mobile DJing. <em>Für DJs die aus dem Club-Rahmen denken wollen.</em></div>
+        <div><strong><a href="https://www.digitaldjtips.com/where-to-get-dj-gigs/" target="_blank" rel="noopener noreferrer">Where To Get DJ Gigs (Beyond Clubs)</a></strong> – Digital DJ Tips (aktualisiert 2025)<br>7 ungewöhnliche Wege zu Gigs: Tribute Nights, Sportereignisse, Twitch Livestreaming, Corporate Events, Weinproben, Pop-Up Events, mobile DJing. <em>Für DJs die aus dem Club-Rahmen denken wollen.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/3-steps-to-take-your-djing-from-local-to-global/" target="_blank">3 Steps: From Local to Global</a></strong> – Digital DJ Tips<br>Gigs ausserhalb deiner Stadt, Connections in anderen Szenen, Touring-Realität (billige Hotels, eigenes Geld investieren). Ehrlicher Blick hinter die Kulissen erfolgreicher Touring-DJs.</div>
+        <div><strong><a href="https://www.digitaldjtips.com/3-steps-to-take-your-djing-from-local-to-global/" target="_blank" rel="noopener noreferrer">3 Steps: From Local to Global</a></strong> – Digital DJ Tips<br>Gigs ausserhalb deiner Stadt, Connections in anderen Szenen, Touring-Realität (billige Hotels, eigenes Geld investieren). Ehrlicher Blick hinter die Kulissen erfolgreicher Touring-DJs.</div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-free">GRATIS</span>
-        <div><strong><a href="https://www.digitaldjtips.com/why-play-tune-up-gigs/" target="_blank">Why DJs Need Tune-Up Gigs</a></strong> – Digital DJ Tips<br>Kleine, ruhige Gigs vor wichtigen Shows absichtlich einplanen. Muscle Memory trainieren, neue Tracks testen, Selbstvertrauen aufbauen. <em>Oft vergessene Profi-Strategie.</em></div>
+        <div><strong><a href="https://www.digitaldjtips.com/why-play-tune-up-gigs/" target="_blank" rel="noopener noreferrer">Why DJs Need Tune-Up Gigs</a></strong> – Digital DJ Tips<br>Kleine, ruhige Gigs vor wichtigen Shows absichtlich einplanen. Muscle Memory trainieren, neue Tracks testen, Selbstvertrauen aufbauen. <em>Oft vergessene Profi-Strategie.</em></div>
       </div>
     </div>
   </div>
@@ -2785,19 +2784,19 @@ html.gig-mode .mob-menu{top:80px}
     <div class="learn-body">
       <div class="lnk-row">
         <span class="lnk-badge lb-yt">YT</span>
-        <div><strong><a href="https://www.youtube.com/@DigitalDJTips" target="_blank">Digital DJ Tips</a></strong> – Phil Morse<br>Gear-Reviews, Technik-Tutorials, Live-Q&amp;As, Transitions-Guides. Grösste DJ-Schule weltweit. Wöchentlich neue Videos. <em>Ideal für technisches Lernen und Gear-Wissen.</em></div>
+        <div><strong><a href="https://www.youtube.com/@DigitalDJTips" target="_blank" rel="noopener noreferrer">Digital DJ Tips</a></strong> – Phil Morse<br>Gear-Reviews, Technik-Tutorials, Live-Q&amp;As, Transitions-Guides. Grösste DJ-Schule weltweit. Wöchentlich neue Videos. <em>Ideal für technisches Lernen und Gear-Wissen.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-yt">YT</span>
-        <div><strong><a href="https://www.youtube.com/@ClubReadyDJSchool" target="_blank">Club Ready DJ School</a></strong> – Andrew Duffield<br>Mixing-Tutorials (EQ-Mixing, Looping, FX, 3-Deck), wöchentliche Übungs-Challenges, Mix-Reviews. Sehr praxisnah und motivierend. <em>Ideal für Mixing-Technik und Gig-Readiness.</em></div>
+        <div><strong><a href="https://www.youtube.com/@ClubReadyDJSchool" target="_blank" rel="noopener noreferrer">Club Ready DJ School</a></strong> – Andrew Duffield<br>Mixing-Tutorials (EQ-Mixing, Looping, FX, 3-Deck), wöchentliche Übungs-Challenges, Mix-Reviews. Sehr praxisnah und motivierend. <em>Ideal für Mixing-Technik und Gig-Readiness.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-yt">YT</span>
-        <div><strong><a href="https://www.youtube.com/@DJTechTools" target="_blank">DJ TechTools</a></strong> – Dan White<br>Tech-fokussiert: Gear-Reviews, Controller-Vergleiche, Workflow-Hacks. Kritischer und technischer als DDTJ. <em>Für DJs die tiefer in die Technik wollen.</em></div>
+        <div><strong><a href="https://www.youtube.com/@DJTechTools" target="_blank" rel="noopener noreferrer">DJ TechTools</a></strong> – Dan White<br>Tech-fokussiert: Gear-Reviews, Controller-Vergleiche, Workflow-Hacks. Kritischer und technischer als DDTJ. <em>Für DJs die tiefer in die Technik wollen.</em></div>
       </div>
       <div class="lnk-row">
         <span class="lnk-badge lb-yt">YT</span>
-        <div><strong><a href="https://www.youtube.com/@WeAreCrossfader" target="_blank">We Are Crossfader</a></strong> – London<br>Mixing-Theorie, CDJ-Tipps, Karriere-Guides, Club-Etikette. Sehr UK/Europa-zentriert, sehr ehrlich. <em>Gut für Club-spezifisches Wissen und Karriere-Tipps.</em></div>
+        <div><strong><a href="https://www.youtube.com/@WeAreCrossfader" target="_blank" rel="noopener noreferrer">We Are Crossfader</a></strong> – London<br>Mixing-Theorie, CDJ-Tipps, Karriere-Guides, Club-Etikette. Sehr UK/Europa-zentriert, sehr ehrlich. <em>Gut für Club-spezifisches Wissen und Karriere-Tipps.</em></div>
       </div>
     </div>
   </div>
@@ -2807,7 +2806,7 @@ html.gig-mode .mob-menu{top:80px}
 
 
 <!-- ── VERSIONSHISTORIE ───────── -->
-<section class="sec" id="changelog" style="margin-top:40px;border-top:1px solid var(--bd);padding-top:32px"><div class="sec-hdr" style="margin-bottom:20px"><div><div class="sec-num" style="font-size:10px;letter-spacing:2px;color:var(--mu)">VERSIONSHISTORIE</div><div class="sec-ttl" style="font-size:22px">Changelog</div></div></div><div style="display:grid;gap:6px;max-width:800px;font-family:'Barlow',sans-serif;font-size:12px"><div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.21</span><span style="color:var(--mu);line-height:1.6">Major Update: Alle Icons auf Feather SVG (sec-ico 63×, ng-icon 10×, alle Buttons). Share/Deep-Link pro Sektion. Reading-Progress (0/63 Pill). Daten-Export/Import/Reset im Favoriten-Panel. GEMA ausgebaut (Tarife, GVL, Mythen). Pre-Gig &amp; Soundcheck mit Kontext-Karten. SW entfernt — kein Caching mehr. Learn-Icons nach Typ differenziert. Theme-Button visuell angeglichen. Header-Layout Mobile gefixt.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.20</span><span style="color:var(--mu);line-height:1.6">Content: Pre-Gig 12 Items, Soundcheck 12 Items, Gig-Bag 18 Items. GigMode Mob-Menu-Bugfix. CSS .ng-btn-Typo behoben. Security: highlight() XSS-Fix.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.17</span><span style="color:var(--mu);line-height:1.6">Security-Audit abgeschlossen. highlight() XSS-Fix. SW APP_VERSION-Sync.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.16</span><span style="color:var(--mu);line-height:1.6">Link-Audit 50 externe Links. Glossar 70+ Begriffe. Energie-Builder interaktiv. BPM-Rechner. Camelot Wheel.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.15</span><span style="color:var(--mu);line-height:1.6">DSGVO: Google Fonts self-hosted (WOFF2 inline). Service Worker: Offline-Betrieb.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.14</span><span style="color:var(--mu);line-height:1.6">Quality-Audit: XSS-Fix Suche, scroll passive:true, focus-visible, Skip-Link, Scrollbar-Styling, Meta/Favicon.</span></div></div></section>
+<section class="sec" id="changelog" style="margin-top:40px;border-top:1px solid var(--bd);padding-top:32px"><div class="sec-hdr" style="margin-bottom:20px"><div><div class="sec-num" style="font-size:10px;letter-spacing:2px;color:var(--mu)">VERSIONSHISTORIE</div><div class="sec-ttl" style="font-size:22px">Changelog</div></div></div><div style="display:grid;gap:6px;max-width:800px;font-family:'Barlow',sans-serif;font-size:12px"><div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.24</span><span style="color:var(--mu);line-height:1.6">Service Worker: Network-First-Strategie mit Cache-Fallback. Automatische Updates bei jedem Deploy, kein manuelles Version-Bumping. Offline-Fähigkeit wiederhergestellt.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.23</span><span style="color:var(--mu);line-height:1.6">Security+A11y: [H3] Camelot-Grid innerHTML+onclick → DOM-API (createDocumentFragment). [L7] 65× target=_blank → rel=noopener noreferrer. [M7] id+aria-expanded+aria-controls auf srch/favs/gig-btn.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.22</span><span style="color:var(--mu);line-height:1.6">Bugfix Theme-Button: line-height:1, tb-icon display:flex statt display:inline, Moon viewBox-Crop (2 2 20 20) + 16×16 für korrekte optische Größe.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.21</span><span style="color:var(--mu);line-height:1.6">Major Update: Alle Icons auf Feather SVG (sec-ico 63×, ng-icon 10×, alle Buttons). Share/Deep-Link pro Sektion. Reading-Progress (0/63 Pill). Daten-Export/Import/Reset im Favoriten-Panel. GEMA ausgebaut (Tarife, GVL, Mythen). Pre-Gig &amp; Soundcheck mit Kontext-Karten. SW entfernt — kein Caching mehr. Learn-Icons nach Typ differenziert. Theme-Button visuell angeglichen. Header-Layout Mobile gefixt.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.20</span><span style="color:var(--mu);line-height:1.6">Content: Pre-Gig 12 Items, Soundcheck 12 Items, Gig-Bag 18 Items. GigMode Mob-Menu-Bugfix. CSS .ng-btn-Typo behoben. Security: highlight() XSS-Fix.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.17</span><span style="color:var(--mu);line-height:1.6">Security-Audit abgeschlossen. highlight() XSS-Fix. SW APP_VERSION-Sync.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.16</span><span style="color:var(--mu);line-height:1.6">Link-Audit 50 externe Links. Glossar 70+ Begriffe. Energie-Builder interaktiv. BPM-Rechner. Camelot Wheel.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.15</span><span style="color:var(--mu);line-height:1.6">DSGVO: Google Fonts self-hosted (WOFF2 inline). Service Worker: Offline-Betrieb.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'Share Tech Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.14</span><span style="color:var(--mu);line-height:1.6">Quality-Audit: XSS-Fix Suche, scroll passive:true, focus-visible, Skip-Link, Scrollbar-Styling, Meta/Favicon.</span></div></div></section>
 
 </div><!-- /wrap -->
 <footer>XDJ-AZ MASTERGUIDE · <span>ALPHA THETA × PIONEER DJ</span> · PRO REFERENCE · DJ SCHOOL INSIDER · ALLE INHALTE OHNE GARANTIE</footer>
@@ -3434,19 +3433,26 @@ function showCamDetails(key){
   // Build all-24-keys grid
   var grid=document.getElementById('cam-grid-all');
   if(grid){
-    var gh='';
+    var frag=document.createDocumentFragment();
     CAM.forEach(function(item){
-      var ka=item.a, kb=item.b, kn=item.n;
-      gh+='<div class="cg-item" onclick="highlightWheel(this.getAttribute(\"data-a\"));showCamDetails('+kn+')" data-a="'+ka+'" data-b="'+kb+'">'
-        +'<div style="display:flex;gap:5px;margin-bottom:3px">'
-        +'<span class="cg-a" onclick="event.stopPropagation();highlightWheel(this.parentElement.parentElement.getAttribute(\"data-a\"));showCamDetails('+kn+')">'+ka+'</span>'
-        +'<span class="cg-b" style="background:'+item.c+'22;color:'+item.c+'" onclick="event.stopPropagation();highlightWheel(this.parentElement.parentElement.getAttribute(\"data-b\"));showCamDetails('+kn+')">'+kb+'</span>'
-        +'</div>'
-        +'<div style="font-size:10px;color:var(--mu)">'+item.ta+'</div>'
-        +'<div style="font-size:10px;color:var(--mu2)">'+item.tb+'</div>'
-        +'</div>';
+      var ka=item.a,kb=item.b,kn=item.n;
+      var d=document.createElement('div');
+      d.className='cg-item';d.setAttribute('data-a',ka);d.setAttribute('data-b',kb);
+      d.addEventListener('click',function(){highlightWheel(ka);showCamDetails(kn);});
+      var row=document.createElement('div');
+      row.style.cssText='display:flex;gap:5px;margin-bottom:3px';
+      var sA=document.createElement('span');sA.className='cg-a';sA.textContent=ka;
+      sA.addEventListener('click',function(e){e.stopPropagation();highlightWheel(ka);showCamDetails(kn);});
+      var sB=document.createElement('span');sB.className='cg-b';
+      sB.style.cssText='background:'+item.c+'22;color:'+item.c;sB.textContent=kb;
+      sB.addEventListener('click',function(e){e.stopPropagation();highlightWheel(kb);showCamDetails(kn);});
+      var dA=document.createElement('div');dA.style.cssText='font-size:10px;color:var(--mu)';dA.textContent=item.ta;
+      var dB=document.createElement('div');dB.style.cssText='font-size:10px;color:var(--mu2)';dB.textContent=item.tb;
+      row.appendChild(sA);row.appendChild(sB);
+      d.appendChild(row);d.appendChild(dA);d.appendChild(dB);
+      frag.appendChild(d);
     });
-    grid.innerHTML=gh;
+    grid.appendChild(frag);
   }
 })();
 
@@ -4635,12 +4641,7 @@ function toggleGigMode() {
 
 /* ── SERVICE WORKER ──────────────────────────────── */
 if('serviceWorker' in navigator){
-  navigator.serviceWorker.getRegistrations().then(function(regs){
-    regs.forEach(function(r){r.unregister();});
-  });
-  caches.keys().then(function(keys){
-    keys.forEach(function(k){caches.delete(k);});
-  });
+  navigator.serviceWorker.register('./sw.js').catch(function(){});
 }
 /* ── PITCH→KEY RECHNER ──────────────────────────── */
 var KC_SEMI_B=['5B','12B','7B','2B','9B','4B','11B','6B','1B','8B','3B','10B'];
