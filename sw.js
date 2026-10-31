@@ -1,19 +1,33 @@
 /* ── XDJ-AZ Service Worker ─────────────────────────────────────────────
-   Strategie: Network-First mit Cache-Fallback.
-   • Online  → immer frische Version vom Server, Cache wird aktualisiert
-   • Offline → letzter bekannter Stand aus Cache
-   • Kein manuelles Versions-Bumping nötig: Browser prüft SW-Datei bei
-     jeder Navigation automatisch auf Byte-Änderungen.
+   Strategie: Network-First mit Timeout und Cache-Fallback.
+   • Online        → immer frische Version, HTTP-Cache wird umgangen
+   • Schlechtes Netz → nach NET_TIMEOUT der letzte Stand aus dem Cache,
+                     der Abruf läuft im Hintergrund weiter
+   • Offline       → letzter bekannter Stand aus dem Cache
+   • Kein manuelles Versions-Bumping nötig: Es gibt nur eine Seite, und
+     sie wird bei jedem erfolgreichen Abruf im Cache ersetzt.
    ──────────────────────────────────────────────────────────────────── */
 
-var CACHE = 'xdj-az';
-var URLS  = ['./', './index.html'];
+var CACHE       = 'xdj-az';
+var PAGE        = './';
+var NET_TIMEOUT = 4000;
 
-/* Install: Grundressourcen vorhalten */
+/* Weitergeleitete Antworten darf der Browser nicht für Navigationen nutzen */
+function plainResponse(res) {
+  if (!res.redirected) return res;
+  return new Response(res.body, {
+    status: res.status, statusText: res.statusText, headers: res.headers
+  });
+}
+
+/* Install: Seite vorhalten, damit sie nach dem ersten Besuch offline läuft */
 self.addEventListener('install', function(e) {
   e.waitUntil(
-    caches.open(CACHE).then(function(c) {
-      return c.addAll(URLS);
+    fetch(PAGE, { cache: 'reload' }).then(function(res) {
+      if (!res.ok) throw new Error('Seite nicht geladen: ' + res.status);
+      return caches.open(CACHE).then(function(c) {
+        return c.put(PAGE, plainResponse(res));
+      });
     })
   );
   /* Sofort übernehmen – kein Warten auf Tab-Neustart */
@@ -34,24 +48,38 @@ self.addEventListener('activate', function(e) {
   );
 });
 
-/* Fetch: Network-First */
+/* Fetch: Die App besteht aus einer Datei, also zählen nur Navigationen auf sie.
+   Andere Dateien im Repo (Lizenzen, Docs) dürfen die Seite im Cache nie ersetzen. */
 self.addEventListener('fetch', function(e) {
-  /* Nur GET, keine Browser-Extensions o.ä. */
-  if (e.request.method !== 'GET') return;
-  if (!e.request.url.startsWith(self.location.origin)) return;
+  if (e.request.mode !== 'navigate') return;
+  var path = new URL(e.request.url).pathname;
+  var root = new URL(PAGE, self.location).pathname;
+  if (path !== root && path !== root + 'index.html') return;
+
+  var copy = null;
+  /* cache:'no-cache' – sonst liefert GitHub Pages bis zu 10 Minuten alte Stände */
+  var network = fetch(e.request.url, { cache: 'no-cache' }).then(function(res) {
+    if (res.status >= 500) throw new Error('Serverfehler: ' + res.status);
+    var page = plainResponse(res);
+    if (page.ok) copy = page.clone();
+    return page;
+  });
+
+  /* Eigener Lebensdauer-Promise, damit der Abruf auch nach dem Timeout fertig wird */
+  e.waitUntil(network.then(function() {
+    if (!copy) return;
+    return caches.open(CACHE).then(function(c) { return c.put(PAGE, copy); });
+  }).catch(function() {}));
+
+  var timeout = new Promise(function(resolve) {
+    setTimeout(resolve, NET_TIMEOUT);
+  });
 
   e.respondWith(
-    fetch(e.request).then(function(networkRes) {
-      /* Antwort in Cache schreiben (nur OK-Responses) */
-      if (networkRes && networkRes.status === 200 && networkRes.type === 'basic') {
-        var toCache = networkRes.clone();
-        caches.open(CACHE).then(function(c) { c.put(e.request, toCache); });
-      }
-      return networkRes;
-    }).catch(function() {
-      /* Offline: Cache-Fallback */
-      return caches.match(e.request).then(function(cached) {
-        return cached || caches.match('./index.html');
+    Promise.race([network, timeout]).catch(function() {}).then(function(res) {
+      if (res) return res;
+      return caches.match(PAGE).then(function(cached) {
+        return cached || network;
       });
     })
   );
