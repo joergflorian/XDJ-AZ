@@ -586,6 +586,13 @@ h1, h2, h3 {
 @media (max-width: 350px) {
   .fs-wrap { display: none; }
 }
+/* Grössere Touch-Ziele für dunkle Clubs; die Sektionsaktionen haben auf dem Handy eine eigene Zeile */
+@media (max-width: 560px) {
+  .sec-actions button { min-width: 40px; min-height: 40px; }
+  .favs-close, .note-close { min-width: 44px; min-height: 44px; }
+  .fs-btn { min-height: 30px; }
+  .cl-reset { min-height: 32px; padding: 6px 12px; }
+}
 </style>
 </head>
 <body>
@@ -2852,13 +2859,13 @@ h1, h2, h3 {
 
 
 <!-- ── VERSIONSHISTORIE ───────── -->
-<section class="sec" id="changelog" style="margin-top:40px;border-top:1px solid var(--bd);padding-top:32px"><div class="sec-hdr" style="margin-bottom:20px"><div><div class="sec-num" style="font-size:10px;letter-spacing:2px;color:var(--mu)">VERSIONSHISTORIE</div><div class="sec-ttl" style="font-size:22px">Changelog</div></div></div><div style="display:grid;gap:6px;max-width:800px;font-family:'Inter',sans-serif;font-size:12px"><div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.32</span><span style="color:var(--mu);line-height:1.6">Inhalte auf Stand Oktober 2026: Firmware 2.00 mit Spotify standalone und Apple-Music-Frist (1. April 2027), Sicherheitslücke PRO DJ LINK, rekordbox bis 7.2.19, neue Preise für Beatport, rekordbox-Pläne und Cloud Option, Beatsource-Umzug zu Beatport, Widersprüche zu TIDAL und SoundCloud bereinigt, XDJ-AZ-Preis aktualisiert, Status Windows-MIDI-Bug, „Hardware-Recall“ auf belegte Aussagen zurückgeführt.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.31</span><span style="color:var(--mu);line-height:1.6">Redesign „Signal“: warme Farbpalette für Hell und Dunkel, neue Schriften Inter, Source Serif 4 und DM Mono (eingebettet, offline-fähig), Badges und Hinweise an die Textfarbe gebunden, Lizenzhinweise der Schriften ergänzt.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.30</span><span style="color:var(--mu);line-height:1.6">Offline-Betrieb zurück: Service Worker wieder aktiv. Online immer frischer Stand am HTTP-Cache vorbei, bei schlechtem Netz nach 4 Sekunden der letzte Stand aus dem Cache. Cloudflare-Reste entfernt (blockierendes Skript, unlesbare Beispiel-Mailadresse im Social-Media-Abschnitt).</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.29</span><span style="color:var(--mu);line-height:1.6">Gig Mode komplett gefixt: [A] Duplikat-toggleGroup (alte Version mit innerHTML/ns-class) entfernt — das war die Ursache aller Subnav-Bugs. [B] toggleGroup filtert Subnav nach GIG_SECS (nur Gig-Sektionen sichtbar). [C] closeSubNav() vor navTo() damit Header-Höhe korrekt gemessen wird. [D] navTo() dynamischer Offset: header.offsetHeight+bannerH+8px. [E] CSS: Non-Gig-Gruppen per ID gedimmt (opacity:.2, pointer-events:none). [F] toggleGigMode() schliesst Subnav beim Toggle.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">>v1.23</span><span style="color:var(--mu);line-height:1.6">Security+A11y: [H3] Camelot-Grid innerHTML+onclick → DOM-API (createDocumentFragment). [L7] 65× target=_blank → rel=noopener noreferrer. [M7] id+aria-expanded+aria-controls auf srch/favs/gig-btn.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.22</span><span style="color:var(--mu);line-height:1.6">Bugfix Theme-Button: line-height:1, tb-icon display:flex statt display:inline, Moon viewBox-Crop (2 2 20 20) + 16×16 für korrekte optische Größe.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.21</span><span style="color:var(--mu);line-height:1.6">Major Update: Alle Icons auf Feather SVG (sec-ico 63×, ng-icon 10×, alle Buttons). Share/Deep-Link pro Sektion. Reading-Progress (0/63 Pill). Daten-Export/Import/Reset im Favoriten-Panel. GEMA ausgebaut (Tarife, GVL, Mythen). Pre-Gig &amp; Soundcheck mit Kontext-Karten. SW entfernt — kein Caching mehr. Learn-Icons nach Typ differenziert. Theme-Button visuell angeglichen. Header-Layout Mobile gefixt.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.20</span><span style="color:var(--mu);line-height:1.6">Content: Pre-Gig 12 Items, Soundcheck 12 Items, Gig-Bag 18 Items. GigMode Mob-Menu-Bugfix. CSS .ng-btn-Typo behoben. Security: highlight() XSS-Fix.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.17</span><span style="color:var(--mu);line-height:1.6">Security-Audit abgeschlossen. highlight() XSS-Fix. SW APP_VERSION-Sync.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.16</span><span style="color:var(--mu);line-height:1.6">Link-Audit 50 externe Links. Glossar 70+ Begriffe. Energie-Builder interaktiv. BPM-Rechner. Camelot Wheel.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.15</span><span style="color:var(--mu);line-height:1.6">DSGVO: Google Fonts self-hosted (WOFF2 inline). Service Worker: Offline-Betrieb.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.14</span><span style="color:var(--mu);line-height:1.6">Quality-Audit: XSS-Fix Suche, scroll passive:true, focus-visible, Skip-Link, Scrollbar-Styling, Meta/Favicon.</span></div></div></section>
+<section class="sec" id="changelog" style="margin-top:40px;border-top:1px solid var(--bd);padding-top:32px"><div class="sec-hdr" style="margin-bottom:20px"><div><div class="sec-num" style="font-size:10px;letter-spacing:2px;color:var(--mu)">VERSIONSHISTORIE</div><div class="sec-ttl" style="font-size:22px">Changelog</div></div></div><div style="display:grid;gap:6px;max-width:800px;font-family:'Inter',sans-serif;font-size:12px"><div style="background:var(--bg2);border:1px solid var(--or);border-left:3px solid var(--or);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.33</span><span style="color:var(--mu);line-height:1.6">Bugfixes nach komplettem Nutzer-Durchlauf: Pitch-Rechner zeigte alle Dur-Tonarten falsch an, Energie-Builder-Kurve und Phasen liefen bei frühem oder spätem Peak rückwärts, Reset und Import liessen Gelesen- und Notiz-Markierungen stehen, Import prüft Dateien jetzt richtig, Checklisten merken sich ihren Stand, Teilen mit Ausweichlösung, Grenzen für BPM-Rechner und Timer, grössere Touch-Ziele auf dem Handy, Hinweis bei leerer Glossar-Suche.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.32</span><span style="color:var(--mu);line-height:1.6">Inhalte auf Stand Oktober 2026: Firmware 2.00 mit Spotify standalone und Apple-Music-Frist (1. April 2027), Sicherheitslücke PRO DJ LINK, rekordbox bis 7.2.19, neue Preise für Beatport, rekordbox-Pläne und Cloud Option, Beatsource-Umzug zu Beatport, Widersprüche zu TIDAL und SoundCloud bereinigt, XDJ-AZ-Preis aktualisiert, Status Windows-MIDI-Bug, „Hardware-Recall“ auf belegte Aussagen zurückgeführt.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.31</span><span style="color:var(--mu);line-height:1.6">Redesign „Signal“: warme Farbpalette für Hell und Dunkel, neue Schriften Inter, Source Serif 4 und DM Mono (eingebettet, offline-fähig), Badges und Hinweise an die Textfarbe gebunden, Lizenzhinweise der Schriften ergänzt.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.30</span><span style="color:var(--mu);line-height:1.6">Offline-Betrieb zurück: Service Worker wieder aktiv. Online immer frischer Stand am HTTP-Cache vorbei, bei schlechtem Netz nach 4 Sekunden der letzte Stand aus dem Cache. Cloudflare-Reste entfernt (blockierendes Skript, unlesbare Beispiel-Mailadresse im Social-Media-Abschnitt).</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.29</span><span style="color:var(--mu);line-height:1.6">Gig Mode komplett gefixt: [A] Duplikat-toggleGroup (alte Version mit innerHTML/ns-class) entfernt — das war die Ursache aller Subnav-Bugs. [B] toggleGroup filtert Subnav nach GIG_SECS (nur Gig-Sektionen sichtbar). [C] closeSubNav() vor navTo() damit Header-Höhe korrekt gemessen wird. [D] navTo() dynamischer Offset: header.offsetHeight+bannerH+8px. [E] CSS: Non-Gig-Gruppen per ID gedimmt (opacity:.2, pointer-events:none). [F] toggleGigMode() schliesst Subnav beim Toggle.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">>v1.23</span><span style="color:var(--mu);line-height:1.6">Security+A11y: [H3] Camelot-Grid innerHTML+onclick → DOM-API (createDocumentFragment). [L7] 65× target=_blank → rel=noopener noreferrer. [M7] id+aria-expanded+aria-controls auf srch/favs/gig-btn.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.22</span><span style="color:var(--mu);line-height:1.6">Bugfix Theme-Button: line-height:1, tb-icon display:flex statt display:inline, Moon viewBox-Crop (2 2 20 20) + 16×16 für korrekte optische Größe.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.21</span><span style="color:var(--mu);line-height:1.6">Major Update: Alle Icons auf Feather SVG (sec-ico 63×, ng-icon 10×, alle Buttons). Share/Deep-Link pro Sektion. Reading-Progress (0/63 Pill). Daten-Export/Import/Reset im Favoriten-Panel. GEMA ausgebaut (Tarife, GVL, Mythen). Pre-Gig &amp; Soundcheck mit Kontext-Karten. SW entfernt — kein Caching mehr. Learn-Icons nach Typ differenziert. Theme-Button visuell angeglichen. Header-Layout Mobile gefixt.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.20</span><span style="color:var(--mu);line-height:1.6">Content: Pre-Gig 12 Items, Soundcheck 12 Items, Gig-Bag 18 Items. GigMode Mob-Menu-Bugfix. CSS .ng-btn-Typo behoben. Security: highlight() XSS-Fix.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.17</span><span style="color:var(--mu);line-height:1.6">Security-Audit abgeschlossen. highlight() XSS-Fix. SW APP_VERSION-Sync.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.16</span><span style="color:var(--mu);line-height:1.6">Link-Audit 50 externe Links. Glossar 70+ Begriffe. Energie-Builder interaktiv. BPM-Rechner. Camelot Wheel.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.15</span><span style="color:var(--mu);line-height:1.6">DSGVO: Google Fonts self-hosted (WOFF2 inline). Service Worker: Offline-Betrieb.</span></div><div style="background:var(--bg2);border:1px solid var(--bd);border-left:3px solid var(--bd);border-radius:6px;padding:8px 14px;display:flex;gap:12px;align-items:baseline"><span style="font-family:'DM Mono',monospace;font-weight:700;color:var(--or);white-space:nowrap">v1.14</span><span style="color:var(--mu);line-height:1.6">Quality-Audit: XSS-Fix Suche, scroll passive:true, focus-visible, Skip-Link, Scrollbar-Styling, Meta/Favicon.</span></div></div></section>
 
 </div><!-- /wrap -->
 <footer>XDJ-AZ MASTERGUIDE · <span>ALPHA THETA × PIONEER DJ</span> · PRO REFERENCE · DJ SCHOOL INSIDER · ALLE INHALTE OHNE GARANTIE · SCHRIFTEN UNTER SIL OFL 1.1: <a href="licenses/Inter-OFL-LICENSE.txt">INTER</a> · <a href="licenses/SourceSerif4-OFL-LICENSE.txt">SOURCE SERIF 4</a> · <a href="licenses/DMMono-OFL-LICENSE.txt">DM MONO</a></footer>
 
 <script>
-var APP_VERSION = '1.32';
+var APP_VERSION = '1.33';
 /* ── THEME TOGGLE ─────────────────────────────────── */
 (function(){
   try { if(localStorage.getItem('theme')==='light') document.documentElement.classList.add('light'); } catch(e){}
@@ -3629,6 +3636,13 @@ var GB_ITEMS=[
   {t:'Ladekabel Handy',s:'Handy als Notfall-Backup'},
   {t:'Kassenbon / Vertrag',s:'Gage-Bestätigung, Kontakte'},
 ];
+/* Abgehakte Punkte überleben Neuladen und Tab-Verwerfen (Handy im Club) */
+function getCl(){try{return JSON.parse(localStorage.getItem('xdj_checklists')||'{}');}catch(e){return {};}}
+function saveCl(col){
+  var o=getCl();
+  o[col]=Array.prototype.map.call(document.querySelectorAll('[id^="'+col+'-"].cl-item.done'),function(el){return el.id;});
+  try{localStorage.setItem('xdj_checklists',JSON.stringify(o));}catch(e){}
+}
 function buildList(items,col){
   var el=document.getElementById(col+'-col1');
   if(!el)return;
@@ -3640,9 +3654,14 @@ function buildList(items,col){
       +(item.s ? '<div class="cl-sub">'+item.s+'</div>' : '')+'</div></div>';
   });
   el.innerHTML=html;
+  var saved=getCl()[col];
+  (Array.isArray(saved)?saved:[]).forEach(function(id){
+    var it=document.getElementById(id);
+    if(it&&it.classList.contains('cl-item'))it.classList.add('done');
+  });
   updateProgress(col);
 }
-function tickItem(el,col){el.classList.toggle('done');updateProgress(col);}
+function tickItem(el,col){el.classList.toggle('done');saveCl(col);updateProgress(col);}
 function updateProgress(col){
   var items=document.querySelectorAll('[id^="'+col+'-"].cl-item');
   var done=document.querySelectorAll('[id^="'+col+'-"].cl-item.done');
@@ -3653,6 +3672,7 @@ function updateProgress(col){
 }
 function resetList(col){
   document.querySelectorAll('[id^="'+col+'-"]').forEach(function(el){el.classList.remove('done');});
+  saveCl(col);
   updateProgress(col);
 }
 buildList(PG_ITEMS,'pg');
@@ -3770,12 +3790,27 @@ function buildGlossar(){
 }
 function filterGlossar(q){
   var items=document.querySelectorAll('.gl-item');
+  var shown=0;
   q=q.toLowerCase();
   items.forEach(function(item){
     var term=item.getAttribute('data-term')||'';
     var def=item.querySelector('.gl-def')?item.querySelector('.gl-def').textContent.toLowerCase():'';
-    item.style.display=(!q||term.includes(q)||def.includes(q))?'':'none';
+    var hit=!q||term.includes(q)||def.includes(q);
+    item.style.display=hit?'':'none';
+    if(hit)shown++;
   });
+  var grid=document.getElementById('glossar-grid');
+  var empty=document.getElementById('gl-empty');
+  if(!empty&&grid){
+    empty=document.createElement('div');
+    empty.id='gl-empty';
+    empty.className='favs-empty';
+    grid.parentNode.insertBefore(empty,grid.nextSibling);
+  }
+  if(empty){
+    empty.textContent='Kein Begriff gefunden.';
+    empty.style.display=shown?'none':'';
+  }
 }
 buildGlossar();
 
@@ -3827,9 +3862,14 @@ function adjBPM(d){
 }
 function calcBPM(){
   var inp=document.getElementById('bpm-input');
-  var bpm=inp?parseFloat(inp.value)||128:currentBPM;
-  currentBPM=bpm;
+  var bpm=inp?parseFloat(inp.value):currentBPM;
   var out=document.getElementById('bpm-calc-out');
+  /* 30–300 deckt Half- und Double-Time der Varianten-Chips ab */
+  if(!isFinite(bpm)||bpm<30||bpm>300){
+    if(out)out.innerHTML='<div style="color:var(--mu);font-size:13px">Bitte ein Tempo zwischen 60 und 220 BPM eingeben.</div>';
+    return;
+  }
+  currentBPM=bpm;
   if(!out)return;
   var plus2=Math.round(bpm*1.02*10)/10;
   var minus2=Math.round(bpm*0.98*10)/10;
@@ -4008,7 +4048,9 @@ function setTimer(mins){
 }
 function setTimerCustom(){
   var v=parseInt(document.getElementById('timer-custom').value,10);
-  if(v&&v>0)setTimer(v);
+  if(v>=1&&v<=300){setTimer(v);return;}
+  var st=document.getElementById('timer-status');
+  if(st)st.textContent='BITTE 1–300 MINUTEN';
 }
 function stopTimer(){
   clearInterval(timerInterval);timerInterval=null;
@@ -4051,6 +4093,8 @@ function updateEnergyBuilder(){
   document.getElementById('eb-bpm-val').textContent=bpmStart+' BPM';
 
   var pk=peakPct/100;   // peak position as fraction
+  var sc=pk/0.65;       // pre-peak phases scale with the peak (0.65 = original layout)
+  var tail=1-pk;        // post-peak phases share the remaining time, so t never runs backwards
   var bpmPeak=bpmStart+Math.round(bpmStart*0.07);
   var bpmClose=bpmStart+2;
 
@@ -4058,16 +4102,16 @@ function updateEnergyBuilder(){
   // Each point: [t (0-1), energy (0-1)]
   var pts=[
     [0,      0.07],           // start low
-    [0.10,   0.28],           // early rise
-    [0.22,   0.52],           // first mini-peak (before dip)
-    [0.30,   0.38],           // ← DIP: deliberate energy drop
-    [0.38,   0.48],           // recovery
+    [0.10*sc, 0.28],          // early rise
+    [0.22*sc, 0.52],          // first mini-peak (before dip)
+    [0.30*sc, 0.38],          // ← DIP: deliberate energy drop
+    [0.38*sc, 0.48],          // recovery
     [pk*0.75, 0.68],          // build accelerating
     [pk,      1.00],          // PEAK
-    [pk+0.07, 0.92],          // post-peak sustain
-    [pk+0.15, 0.78],          // second sustained peak area
-    [pk+0.25, 0.62],          // beginning wind-down
-    [0.88,    0.42],          // late wind-down
+    [pk+tail*0.20, 0.92],     // post-peak sustain
+    [pk+tail*0.43, 0.78],     // second sustained peak area
+    [pk+tail*0.62, 0.62],     // beginning wind-down
+    [pk+tail*0.85, 0.42],     // late wind-down
     [1.00,    0.22]           // outro
   ];
 
@@ -4096,7 +4140,7 @@ function updateEnergyBuilder(){
   // Phase label markers
   var markers=[
     {lbl:'WARM-UP', t:0.06,  col:'#1a7a8a'},
-    {lbl:'DIP',     t:0.30,  col:'var(--cy)'},
+    {lbl:'DIP',     t:0.30*sc,col:'var(--cy)'},
     {lbl:'BUILD',   t:pk*0.6,col:'var(--am)'},
     {lbl:'PEAK',    t:pk,    col:'var(--or)'},
     {lbl:'OUTRO',   t:0.93,  col:'var(--gr)'}
@@ -4111,7 +4155,7 @@ function updateEnergyBuilder(){
     +'<path d="'+d+'" fill="none" stroke="var(--or)" stroke-width="2.5" stroke-linecap="round"/>';
 
   // Dip annotation
-  var dipX=px(0.30).toFixed(1), dipY=py(0.38).toFixed(1);
+  var dipX=px(0.30*sc).toFixed(1), dipY=py(0.38).toFixed(1);
   svgHtml+='<circle cx="'+dipX+'" cy="'+dipY+'" r="4" fill="var(--cy)" opacity="0.9"/>'
     +'<text x="'+dipX+'" y="'+(parseFloat(dipY)+14)+'" text-anchor="middle" font-family="DM Mono,monospace" font-size="8" fill="var(--cy)" opacity="0.85">↓ DIP</text>';
 
@@ -4128,11 +4172,11 @@ function updateEnergyBuilder(){
   svg.innerHTML=svgHtml;
 
   // Phase cards
-  var dipMin=Math.round(dur*0.22);
-  var dipEnd=Math.round(dur*0.38);
+  var dipMin=Math.round(dur*0.22*sc);
+  var dipEnd=Math.round(dur*0.38*sc);
   var buildEnd=Math.round(dur*pk*0.75);
   var peakMin=Math.round(dur*pk);
-  var peakEnd=Math.round(dur*(pk+0.25));
+  var peakEnd=Math.round(dur*(pk+tail*0.62));
   var bpmDip=bpmStart+2;
   var bpmBuild=bpmStart+Math.round((bpmPeak-bpmStart)*0.6);
 
@@ -4427,7 +4471,7 @@ function openSearch() {
   document.getElementById('srch-input').value = '';
   document.getElementById('srch-results').innerHTML = '<div class="srch-empty">Tipp etwas um zu suchen…</div>';
   SRCH_CURSOR = -1;
-  setTimeout(function(){document.getElementById('srch-input').focus();}, 60);
+  document.getElementById('srch-input').focus();
   document.body.style.overflow = 'hidden';
 }
 
@@ -4607,8 +4651,9 @@ function updateNoteButtons() {
   var notes = getNotes();
   document.querySelectorAll('.note-btn').forEach(function(btn) {
     var sid = btn.id.replace('note-btn-', '');
-    btn.classList.toggle('has-note', !!(notes[sid] && notes[sid].trim()));
-    btn.title = notes[sid] ? 'Notiz bearbeiten' : 'Notiz hinzufügen';
+    var has = typeof notes[sid] === 'string' && notes[sid].trim() !== '';
+    btn.classList.toggle('has-note', has);
+    btn.title = has ? 'Notiz bearbeiten' : 'Notiz hinzufügen';
   });
 }
 
@@ -4712,6 +4757,10 @@ var KC_NOTES=['C','C#/Db','D','D#/Eb','E','F','F#/Gb','G','G#/Ab','A','A#/Bb','B
 var KC_TO_SEMI={};
 KC_SEMI_B.forEach(function(k,i){KC_TO_SEMI[k]=i;});
 KC_SEMI_A.forEach(function(k,i){KC_TO_SEMI[k]=i;});
+/* Index i ist der Moll-Grundton; die B-Spalte enthält die Paralleltonart, deren Grundton 3 Halbtöne höher liegt */
+function kcNoteName(semi,mode){
+  return mode==='B'?KC_NOTES[(semi+3)%12]+' major':KC_NOTES[semi]+' minor';
+}
 function initKC(){
   var sel=document.getElementById('kc-key');
   if(!sel) return;
@@ -4722,7 +4771,7 @@ function initKC(){
       var key=n+pair[0];
       var opt=document.createElement('option');
       opt.value=key;
-      opt.textContent=key+' \u2014 '+KC_NOTES[KC_TO_SEMI[key]]+' '+(pair[0]==='A'?'minor':'major');
+      opt.textContent=key+' \u2014 '+kcNoteName(KC_TO_SEMI[key],pair[0]);
       if(key==='8A') opt.selected=true;
       grp.appendChild(opt);
     }
@@ -4751,7 +4800,7 @@ function updateKC(){
   var compatEl=document.getElementById('kc-compat');
   var warnEl=document.getElementById('kc-warn');
   if(resEl) resEl.textContent=resultKey;
-  if(noteEl) noteEl.textContent=KC_NOTES[newSemi]+' '+(mode==='A'?'minor':'major');
+  if(noteEl) noteEl.textContent=kcNoteName(newSemi,mode);
   if(semiEl) semiEl.textContent=(roundSemi>=0?'+':'')+roundSemi;
   var prev=((resultNum-2+12)%12)+1;
   var next=(resultNum%12)+1;
@@ -4778,13 +4827,20 @@ function shareSection(id){
   var btn=document.getElementById('share-btn-'+id);
   function flash(){if(btn){btn.classList.add('share-flash');setTimeout(function(){btn.classList.remove('share-flash');},1400);}}
   function toast(msg){var t=document.createElement('div');t.className='share-toast';t.textContent=msg;document.body.appendChild(t);setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},1800);}
-  if(navigator.clipboard&&navigator.clipboard.writeText){
-    navigator.clipboard.writeText(url).then(function(){flash();toast('🔗 Link kopiert');}).catch(function(){toast('Kopieren fehlgeschlagen');});
-  } else {
+  /* Fallback auch dann, wenn der Browser die Clipboard-API verweigert; zuletzt Link zum manuellen Kopieren zeigen */
+  function legacyCopy(){
     var ta=document.createElement('textarea');ta.value=url;ta.style.cssText='position:fixed;opacity:0;top:0;left:0';
     document.body.appendChild(ta);ta.focus();ta.select();
-    try{document.execCommand('copy');flash();toast('🔗 Link kopiert');}catch(e){toast('Kopieren fehlgeschlagen');}
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){}
     document.body.removeChild(ta);
+    if(ok){flash();toast('🔗 Link kopiert');}
+    else window.prompt('Link zum Kopieren:',url);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(function(){flash();toast('🔗 Link kopiert');}).catch(legacyCopy);
+  } else {
+    legacyCopy();
   }
 }
 (function(){
@@ -4818,11 +4874,9 @@ function toggleRead(id){
 }
 function initReadState(){
   var o=getRd();
-  Object.keys(o).forEach(function(id){
-    if(o[id]){
-      var btn=document.getElementById('read-btn-'+id);
-      if(btn) btn.classList.add('rdone');
-    }
+  /* Auch zurücksetzen, damit Reset und Import keine alten Häkchen stehen lassen */
+  document.querySelectorAll('.read-btn').forEach(function(btn){
+    btn.classList.toggle('rdone',!!o[btn.id.replace('read-btn-','')]);
   });
   updateProgPill();
 }
@@ -4835,7 +4889,8 @@ function exportData(){
     exported: new Date().toISOString().slice(0,10),
     favs: getFavs(),
     notes: (function(){try{return JSON.parse(localStorage.getItem('notes')||'{}');}catch(e){return {};}}()),
-    read: getRd()
+    read: getRd(),
+    checklists: getCl()
   };
   var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   var url=URL.createObjectURL(blob);
@@ -4851,20 +4906,44 @@ function importData(e){
   if(!file) return;
   var reader=new FileReader();
   reader.onload=function(ev){
-    try{
-      var data=JSON.parse(ev.target.result);
-      if(data.favs&&Array.isArray(data.favs)) saveFavs(data.favs.filter(function(f){return typeof f==='string'&&!!document.getElementById(f);}));
-      if(data.notes&&typeof data.notes==='object') localStorage.setItem('notes',JSON.stringify(data.notes));
-      if(data.read&&typeof data.read==='object') saveRd(data.read);
-      updateFavButtons();
-      updateFavsList();
-      initReadState();
-      var t=document.createElement('div');
-      t.className='share-toast';
-      t.textContent='✓ Daten importiert';
-      document.body.appendChild(t);
-      setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},2000);
-    }catch(err){alert('Fehler beim Import: Datei prüfen.');}
+    var data;
+    try{data=JSON.parse(ev.target.result);}catch(err){data=null;}
+    /* Nur Einträge zu existierenden Sektionen übernehmen; eine Datei ohne passende Daten ist ein Fehler */
+    var isObj=function(v){return !!v&&typeof v==='object'&&!Array.isArray(v);};
+    var isSec=function(id){return typeof id==='string'&&!!document.getElementById(id);};
+    if(!isObj(data)||!(Array.isArray(data.favs)||isObj(data.notes)||isObj(data.read)||isObj(data.checklists))){
+      dataToast('✗ Keine XDJ-AZ-Sicherung – Datei prüfen',true);
+      return;
+    }
+    if(Array.isArray(data.favs)) saveFavs(data.favs.filter(isSec));
+    if(isObj(data.notes)){
+      var notes={};
+      Object.keys(data.notes).forEach(function(id){if(isSec(id)&&typeof data.notes[id]==='string')notes[id]=data.notes[id];});
+      saveNotes(notes);
+    }
+    if(isObj(data.read)){
+      var read={};
+      Object.keys(data.read).forEach(function(id){if(isSec(id)&&data.read[id]===true)read[id]=true;});
+      saveRd(read);
+    }
+    if(isObj(data.checklists)){
+      var cl={};
+      ['pg','sc','gb'].forEach(function(col){
+        var v=data.checklists[col];
+        cl[col]=Array.isArray(v)?v.filter(function(id){return typeof id==='string'&&id.indexOf(col+'-')===0;}):[];
+      });
+      try{localStorage.setItem('xdj_checklists',JSON.stringify(cl));}catch(err){}
+      ['pg','sc','gb'].forEach(function(col){
+        var done=cl[col];
+        document.querySelectorAll('[id^="'+col+'-"].cl-item').forEach(function(el){el.classList.toggle('done',done.indexOf(el.id)!==-1);});
+        updateProgress(col);
+      });
+    }
+    updateFavButtons();
+    updateFavsList();
+    updateNoteButtons();
+    initReadState();
+    dataToast('✓ Daten importiert');
   };
   reader.readAsText(file);
   e.target.value='';
@@ -4877,20 +4956,25 @@ function hideDeleteConfirm(){
   var el=document.getElementById('data-confirm');
   if(el) el.classList.remove('show');
 }
+function dataToast(msg,isError){
+  var t=document.createElement('div');
+  t.className='share-toast';
+  t.textContent=msg;
+  if(isError)t.style.borderColor='var(--rd)';
+  document.body.appendChild(t);
+  setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},isError?3500:2000);
+}
 function deleteAllData(){
   saveFavs([]);
   localStorage.removeItem('notes');
   saveRd({});
+  ['pg','sc','gb'].forEach(resetList);
   updateFavButtons();
   updateFavsList();
+  updateNoteButtons();
   initReadState();
   hideDeleteConfirm();
-  var t=document.createElement('div');
-  t.className='share-toast';
-  t.textContent='✗ Alle Daten gelöscht';
-  t.style.borderColor='var(--rd)';
-  document.body.appendChild(t);
-  setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},2000);
+  dataToast('✗ Alle Daten gelöscht',true);
 }
 </script>
 
